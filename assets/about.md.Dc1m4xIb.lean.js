@@ -1,0 +1,1 @@
+import{_ as a,c as t,o as r,ag as o}from"./chunks/framework.DWdSXOaE.js";const u=JSON.parse('{"title":"关于我","description":"","frontmatter":{},"headers":[],"relativePath":"about.md","filePath":"about.md"}'),l={name:"about.md"};function i(n,e,s,m,c,h){return r(),t("div",null,[...e[0]||(e[0]=[o("",6)])])}const d=a(l,[["render",i]]);export{u as __pageData,d as default};
