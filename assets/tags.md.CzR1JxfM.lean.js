@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as t,ag as e}from"./chunks/framework.DWdSXOaE.js";const f=JSON.parse('{"title":"笔记标签","description":"","frontmatter":{},"headers":[],"relativePath":"tags.md","filePath":"tags.md"}'),c={name:"tags.md"};function r(l,a,o,p,g,d){return t(),n("div",null,[...a[0]||(a[0]=[e("",5)])])}const h=s(c,[["render",r]]);export{f as __pageData,h as default};
