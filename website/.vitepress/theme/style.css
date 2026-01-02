@@ -1,0 +1,433 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+/* 全局链接样式 - 取消下划线 */
+a {
+  text-decoration: none !important;
+}
+
+/* 动态样式变量 - 支持通过组件实时修改 */
+:root {
+  /* 字体大小：默认 16px，支持 12px/14px/16px/18px/20px */
+  --vp-custom-font-size: 16px;
+  /* 字体类型：默认无衬线 */
+  --vp-custom-font-family: var(--vp-font-family-base);
+  /* 主题颜色 */
+  --vp-custom-theme-color: var(--vp-c-brand-3);
+}
+
+/* 字体类型变体 */
+:root.font-sans {
+  --vp-custom-font-family: var(--vp-font-family-base);
+}
+
+:root.font-serif {
+  --vp-custom-font-family: Georgia, serif;
+}
+
+/* 主题变体 */
+:root.theme-white {
+  --vp-c-bg: #ffffff;
+  --vp-c-text-1: #3c3c43;
+}
+
+:root.theme-sepia {
+  --vp-c-bg: #f4ecd8;
+  --vp-c-text-1: #5b4636;
+}
+
+:root.theme-night {
+  --vp-c-bg: #1b1b1f;
+  --vp-c-text-1: #dfdfd6;
+}
+
+/**
+ * Colors
+ *
+ * Each colors have exact same color scale system with 3 levels of solid
+ * colors with different brightness, and 1 soft color.
+ *
+ * - `XXX-1`: The most solid color used mainly for colored text. It must
+ *   satisfy the contrast ratio against when used on top of `XXX-soft`.
+ *
+ * - `XXX-2`: The color used mainly for hover state of the button.
+ *
+ * - `XXX-3`: The color for solid background, such as bg color of the button.
+ *   It must satisfy the contrast ratio with pure white (#ffffff) text on
+ *   top of it.
+ *
+ * - `XXX-soft`: The color used for subtle background such as custom container
+ *   or badges. It must satisfy the contrast ratio when putting `XXX-1` colors
+ *   on top of it.
+ *
+ *   The soft color must be semi transparent alpha channel. This is crucial
+ *   because it allows adding multiple "soft" colors on top of each other
+ *   to create a accent, such as when having inline code block inside
+ *   custom containers.
+ *
+ * - `default`: The color used purely for subtle indication without any
+ *   special meanings attached to it such as bg color for menu hover state.
+ *
+ * - `brand`: Used for primary brand colors, such as link text, button with
+ *   brand theme, etc.
+ *
+ * - `tip`: Used to indicate useful information. The default theme uses the
+ *   brand color for this by default.
+ *
+ * - `warning`: Used to indicate warning to the users. Used in custom
+ *   container, badges, etc.
+ *
+ * - `danger`: Used to show error, or dangerous message to the users. Used
+ *   in custom container, badges, etc.
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* 默认颜色 - 主色 */
+  --vp-c-default-1: var(--vp-c-gray-1);
+  --vp-c-default-2: var(--vp-c-gray-2);
+  --vp-c-default-3: var(--vp-c-gray-3);
+  --vp-c-default-soft: var(--vp-c-gray-soft);
+
+  /* 品牌颜色 - 主色 */
+  --vp-c-brand-1: var(--vp-c-purple-1);
+  --vp-c-brand-2: var(--vp-c-purple-2);
+  --vp-c-brand-3: var(--vp-c-purple-3);
+  --vp-c-brand-soft: var(--vp-c-purple-soft);
+
+  /* 提示颜色 - 主色 */
+  --vp-c-tip-1: var(--vp-c-brand-1);
+  --vp-c-tip-2: var(--vp-c-brand-2);
+  --vp-c-tip-3: var(--vp-c-brand-3);
+  --vp-c-tip-soft: var(--vp-c-brand-soft);
+
+  /* 警告颜色 - 主色 */
+  --vp-c-warning-1: var(--vp-c-yellow-1);
+  --vp-c-warning-2: var(--vp-c-yellow-2);
+  --vp-c-warning-3: var(--vp-c-yellow-3);
+  --vp-c-warning-soft: var(--vp-c-yellow-soft);
+
+  /* 危险颜色 - 主色 */
+  --vp-c-danger-1: var(--vp-c-red-1);
+  --vp-c-danger-2: var(--vp-c-red-2);
+  --vp-c-danger-3: var(--vp-c-red-3);
+  --vp-c-danger-soft: var(--vp-c-red-soft);
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* 品牌按钮样式 */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+
+  /* 品牌按钮悬停样式 */
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+
+  /* 品牌按钮激活样式 */
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+}
+
+
+/* 仅在Night主题下重置按钮样式 */
+.theme-night {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: aqua;
+  --vp-button-brand-bg: transparent;
+
+  --vp-button-alt-border: transparent;
+  --vp-button-alt-text: #bd34fe;
+  --vp-button-alt-bg: transparent;
+}
+
+/* 应用brand主题按钮基础样式 - 仅在Night主题生效 */
+.theme-night .VPButton.brand {
+  /* 以下仅为特效必需属性，不影响按钮默认格式 */
+  position: relative; /* 为伪元素提供定位参考 */
+  text-decoration: none; /* 移除链接下划线 */
+  text-transform: uppercase; /* 文字大写 */
+  transition: 0.3s; /* 过渡效果,决定发光到极致的时间 */
+  overflow: hidden; /* 隐藏伪元素溢出 */
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #1113); /* 倒影特效 */
+  clip-path: none !important; /* 取消默认裁剪 */
+  border-radius: 8px !important; /* 匹配伪元素圆角 */
+  background-color: transparent !important; /* 透明背景 */
+  border: none !important; /* 隐藏默认边框 */
+}
+
+.theme-night .VPButton.brand::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 初始状态：仅左上+右下角落边框（3px粗，依赖background-size控制范围） */
+  background: 
+    /* 左上角上边框：左→右完整渐变，初始宽度20px */
+    linear-gradient(to right, aqua, aqua) top left / 20px 3px no-repeat,
+    /* 左上角左边框：上→下完整渐变，初始高度20px */
+    linear-gradient(to bottom, aqua, aqua) top left / 3px 20px no-repeat,
+    /* 右下角下边框：右→左完整渐变，初始宽度20px */
+    linear-gradient(to left, aqua, aqua) bottom right / 20px 3px no-repeat,
+    /* 右下角右边框：下→上完整渐变，初始高度20px */
+    linear-gradient(to top, aqua, aqua) bottom right / 3px 20px no-repeat;
+  transition: all 0.3s ease; /* 对background-size/position平滑过渡 */
+  transition-delay: 0.3s; /* 回到初始状态的时间 */
+  z-index: 10;
+  border-radius: 8px;
+}
+
+/* 悬停时：修改background-size为100%，实现平滑填充 - 仅在Night主题生效 */
+.theme-night .VPButton.brand:hover::before {
+  background: 
+    /* 左上角上边框：宽度铺满100% */
+    linear-gradient(to right, aqua, aqua) top left / 100% 3px no-repeat,
+    /* 左上角左边框：高度铺满100% */
+    linear-gradient(to bottom, aqua, aqua) top left / 3px 100% no-repeat,
+    /* 右下角下边框：宽度铺满100% */
+    linear-gradient(to left, aqua, aqua) bottom right / 100% 3px no-repeat,
+    /* 右下角右边框：高度铺满100% */
+    linear-gradient(to top, aqua, aqua) bottom right / 3px 100% no-repeat;
+    /* 悬停时：延迟触发边框扩展 */
+  transition-delay: 0.15s;
+}
+
+/* 按钮悬停样式 - 仅在Night主题生效 */
+.theme-night .VPButton.brand:hover {
+  background-color: aqua !important;
+  color: #000 !important;
+  box-shadow: 0 0 50px #21ebff;
+  /* 伪元素动画加载完后，再延迟（设置时间-边框延迟时间）触发文字颜色及周围发光特效 */
+  transition-delay: 0.45s;
+}
+
+/* 按钮点击样式 - 仅在Night主题生效，点击时立即触发特效(仅手机端有效) */
+.theme-night .VPButton.brand:active {
+  background-color: aqua !important;
+  color: #000 !important;
+  box-shadow: 0 0 50px #21ebff;
+  /* 点击时立即触发，无延迟 */
+  transition: 0s;
+  transition-delay: 0s;
+}
+
+
+
+/* 应用Alt按钮基础样式 - 仅在Night主题生效 */
+.theme-night .VPButton.alt {
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+  overflow: hidden;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #1113); /* 倒影特效 */
+  clip-path: none !important;
+  border-radius: 8px !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* 初始状态：仅左上+右下角落边框 - 仅在Night主题生效 */
+.theme-night .VPButton.alt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* 初始状态：仅左上+右下角落边框（3px粗，紫色） */
+  background: 
+    /* 左上角上边框：左→右完整渐变，初始宽度20px */
+    linear-gradient(to right, #bd34fe, #bd34fe) top left / 20px 3px no-repeat,
+    /* 左上角左边框：上→下完整渐变，初始高度20px */
+    linear-gradient(to bottom, #bd34fe, #bd34fe) top left / 3px 20px no-repeat,
+    /* 右下角下边框：右→左完整渐变，初始宽度20px */
+    linear-gradient(to left, #bd34fe, #bd34fe) bottom right / 20px 3px no-repeat,
+    /* 右下角右边框：下→上完整渐变，初始高度20px */
+    linear-gradient(to top, #bd34fe, #bd34fe) bottom right / 3px 20px no-repeat;
+  transition: all 0.3s ease; /* 对background-size/position平滑过渡 */
+  transition-delay: 0.3s;
+  z-index: 10;
+  border-radius: 8px;
+}
+
+/* 悬停时：边框扩展为完整边框 - 仅在Night主题生效 */
+.theme-night .VPButton.alt:hover::before {
+  background: 
+    /* 左上角上边框：宽度铺满100% */
+    linear-gradient(to right, #bd34fe, #bd34fe) top left / 100% 3px no-repeat,
+    /* 左上角左边框：高度铺满100% */
+    linear-gradient(to bottom, #bd34fe, #bd34fe) top left / 3px 100% no-repeat,
+    /* 右下角下边框：宽度铺满100% */
+    linear-gradient(to left, #bd34fe, #bd34fe) bottom right / 100% 3px no-repeat,
+    /* 右下角右边框：高度铺满100% */
+    linear-gradient(to top, #bd34fe, #bd34fe) bottom right / 3px 100% no-repeat;
+  transition-delay: 0.15s;
+}
+
+/* Alt按钮悬停样式 - 仅在Night主题生效 */
+.theme-night .VPButton.alt:hover {
+  background-color: #bd34fe !important;
+  color: #000 !important;
+  box-shadow: 0 0 50px #bd34fe;
+  transition-delay: 0.45s;
+}
+
+.theme-night .VPButton.alt:active {
+  background-color: #bd34fe !important;
+  color: #000 !important;
+  box-shadow: 0 0 50px #bd34fe;
+  /* 点击时立即触发，无延迟 */
+  transition: 0s;
+  transition-delay: 0s;
+}
+
+
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* 首页主标题颜色 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #bd34fe 30%,
+    #41d1ff
+  );
+
+  /* 首页主图像背景 */
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #8b00ff 50%,
+    #0080ff 50%
+  );
+  --vp-home-hero-image-filter: blur(60px) brightness(1.2) contrast(1.1);
+}
+
+/* 首页主图像背景响应式调整 - 小屏幕 */
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(80px) brightness(1.2) contrast(1.1);
+  }
+}
+/* 首页主图像背景响应式调整 - 中等屏幕 */
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(100px) brightness(1.5) contrast(1.1);
+  }
+}
+
+/* 图片保护样式 */
+/* 防止拖拽和选择 */
+:global(.VPHero .VPImage),
+:global(.VPHero img),
+.category-card img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  pointer-events: none;
+}
+
+/* 添加透明覆盖层，防止直接访问图片 */
+/* :global(.VPHero .VPImage) {
+  position: relative;
+}
+
+:global(.VPHero .VPImage)::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  pointer-events: auto;
+  z-index: 10;
+} */
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* 自定义块提示样式 */
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+:root {
+  /* 搜索框样式 */
+  --docsearch-primary-color: var(--vp-c-brand-1);
+}
+
+/* 阅读进度条样式 */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--vp-c-brand-3);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px var(--vp-c-brand-2);
+}
+
+/* 返回顶部按钮样式 */
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background: var(--vp-c-brand-3);
+  color: var(--vp-c-white);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 9998;
+  font-size: 20px;
+  box-shadow: var(--vp-shadow-2);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#back-to-top:hover {
+  background: var(--vp-c-brand-2);
+  transform: translateY(-5px);
+  box-shadow: var(--vp-shadow-3);
+}
+
+#back-to-top:active {
+  transform: translateY(-2px);
+  box-shadow: var(--vp-shadow-2);
+}

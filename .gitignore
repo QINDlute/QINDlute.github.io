@@ -1,0 +1,24 @@
+# 1. Node.js 依赖目录（必忽略）
+node_modules/
+# 2. VitePress 缓存目录（解决你之前的警告问题）
+website/.vitepress/cache/
+# 3. VitePress 构建产物（部署时再生成，无需提交）
+website/.vitepress/dist/
+# 4. 环境变量文件（包含敏感信息，按需忽略）
+.env
+.env.local
+.env.*.local
+# 5. 日志文件
+*.log
+# 6. 编辑器配置文件（如 VS Code，按需保留/忽略）
+.vscode/
+.idea/
+.trae/
+*.swp
+*.swo
+# 7. 操作系统隐藏文件
+.DS_Store
+Thumbs.db
+# 8. 其他构建产物
+dist/
+build/

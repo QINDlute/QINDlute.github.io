@@ -1,0 +1,25 @@
+{
+  "name": "faq_docs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev website --host 0.0.0.0",
+    "docs:build": "vitepress build website",
+    "docs:preview": "vitepress preview website --host 0.0.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "markdown-it-container": "^4.0.0",
+    "sass-embedded": "^1.97.1",
+    "vitepress": "^1.6.4"
+  },
+  "dependencies": {
+    "medium-zoom": "^1.1.0",
+    "vitepress-plugin-group-icons": "^1.6.5"
+  }
+}

@@ -1,0 +1,23 @@
+/* .vitepress/theme/style/medium-zoom.scss */
+
+// 本文件的作用是遮挡放大图片后的导航栏，使用详情如下：
+
+// 1、使用前需要安装 medium-zoom 插件
+// windows命令：npm install medium-zoom
+// 2、在 .vitepress/theme/index.ts 中引入插件，并setup注册mediumZoom
+// import mediumZoom from 'medium-zoom'、setup(){...}
+
+:root {
+  --medium-zoom-z-index: 100;
+  --medium-zoom-c-bg: var(--vp-c-bg);
+}
+
+.medium-zoom-overlay {
+  /* override element style set by medium-zoom script */
+  z-index: var(--medium-zoom-z-index);
+  background-color: var(--medium-zoom-c-bg) !important;
+}
+
+.medium-zoom-overlay ~ img {
+  z-index: calc(var(--medium-zoom-z-index) + 1);
+}

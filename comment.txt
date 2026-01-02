@@ -1,0 +1,11 @@
+# 1. 进入新文件夹（替换成你的实际路径）
+cd target_path
+
+# 2. 初始化package.json（生成项目配置文件）
+npm init -y
+
+# 3. 本地安装VitePress（每个网站独立安装，避免版本冲突）
+npm install -D vitepress@latest
+
+# 4. 初始化VitePress配置（和第一次一样，按提示选默认即可）
+npx vitepress init
