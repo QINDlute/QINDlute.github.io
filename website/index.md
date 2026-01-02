@@ -17,7 +17,7 @@ hero:
       link: /notes/
     - theme: alt
       text: 关于
-      link: /about/
+      link: /others/about/aboutme/
 
 ---
 
@@ -94,7 +94,7 @@ hero:
 
 热门标签云，点击查看相关笔记：
 
-<div class="tag-cloud">
+<div class="tag-cloud">  
   <a href="/notes/ver_ctrl/git/" class="tag">Git 托管</a>
   <a href="/notes/frontend/html-basics/" class="tag">HTML</a>
   <a href="/notes/frontend/css-layout/" class="tag">CSS</a>
@@ -108,19 +108,16 @@ hero:
   <a href="/notes/" class="tag">技术学习</a>
 </div>
 
+
 ## 笔记归档
 
 按时间浏览笔记内容：
 <div class="archive-nav">
-  <h3>2025年</h3>
-  <ul>
-  <!--     <li><a href="/archive/#_12月">12月 (8)</a></li> -->
-    <li><a href="/archive/#_12月">12月 <ArchiveCount month="12" /></a></li>
-  </ul>
-  <h3>2024年</h3>
-  <ul>
-    <li><a href="/archive/#_11月">11月 <ArchiveCount month="11" /></a></li>
-    <li><a href="/archive/#_10月">10月 <ArchiveCount month="10" /></a></li>
-    <li><a href="/archive/#_9月">9月 <ArchiveCount month="9" /></a></li>
-  </ul>
+
+### 2025年
+* [12月<ArchiveCount month="12" />](/others/archive/#_12月) 
+### 2024年
+* [11月<ArchiveCount month="11" />](/others/archive/#_11月) 
+* [10月<ArchiveCount month="10" />](/others/archive/#_10月) 
+* [9月<ArchiveCount month="9" />](/others/archive/#_9月) 
 </div>

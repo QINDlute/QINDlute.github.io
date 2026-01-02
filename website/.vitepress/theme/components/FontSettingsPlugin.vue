@@ -93,6 +93,9 @@ const toggleFontType = (type: 'sans' | 'serif') => {
   // 通过CSS类控制字体类型，CSS变量会自动响应
   document.documentElement.className = document.documentElement.className.replace(/font-\w+/g, '')
   document.documentElement.classList.add(`font-${type}`)
+  // 手动设置字体家族变量（补充：解决原代码中 --vp-custom-font-family 未定义问题）
+  const fontFamily = type === 'sans' ? 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif' : 'Georgia, "Times New Roman", Times, serif'
+  document.documentElement.style.setProperty('--vp-custom-font-family', fontFamily)
 }
 
 // 主题切换
@@ -144,6 +147,9 @@ const initSettings = () => {
   
   // 应用字体类型
   document.documentElement.classList.add(`font-${fontType.value}`)
+  // 初始化字体家族变量（补充：解决首次加载字体不生效问题）
+  const initFontFamily = fontType.value === 'sans' ? 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif' : 'Georgia, "Times New Roman", Times, serif'
+  document.documentElement.style.setProperty('--vp-custom-font-family', initFontFamily)
   
   // 应用主题
   document.documentElement.classList.add(`theme-${theme.value}`)
@@ -204,12 +210,10 @@ onUnmounted(() => {
       <i class="fa fa-font"></i>
     </button>
     
-    <!-- 字体设置下拉菜单 -->
     <div 
       v-if="isDropdownOpen" 
       ref="dropdownRef" 
       class="font-settings-dropdown"
-      @click.stop="closeDropdown"
     >
       <div class="dropdown-caret">
         <span class="caret-outer"></span>
@@ -218,7 +222,6 @@ onUnmounted(() => {
       
       <!-- 字体大小调整 -->
       <div class="dropdown-section">
-        <h4 class="dropdown-title">字体大小</h4>
         <div class="buttons">
           <button class="button" @click="decreaseFontSize">A-</button>
           <button class="button" @click="increaseFontSize">A+</button>
@@ -227,7 +230,6 @@ onUnmounted(() => {
       
       <!-- 字体类型切换 -->
       <div class="dropdown-section">
-        <h4 class="dropdown-title">字体类型</h4>
         <div class="buttons">
           <button 
             class="button" 
@@ -248,7 +250,6 @@ onUnmounted(() => {
       
       <!-- 主题切换 -->
       <div class="dropdown-section">
-        <h4 class="dropdown-title">主题</h4>
         <div class="buttons">
           <button 
             class="button" 
@@ -279,7 +280,7 @@ onUnmounted(() => {
 
 <style scoped>
 /* 使用默认的btn样式，不需要自定义样式 */
-.btn {
+.btn { /* 字体设置按钮 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -303,26 +304,24 @@ onUnmounted(() => {
   font-size: 14px;
 }
 
-.font-settings-dropdown {
+.font-settings-dropdown { /* 字体设置下拉菜单*/
   position: absolute;
-  z-index: 9999;
-  background: var(--vp-c-bg);
+  z-index: 9999 !important; /* 强制最高层级，避免被遮挡 */
+  /* 添加半透明背景*/
+  background-color: rgba(var(--vp-c-bg-rgb), 0.8);
   border: 1px solid var(--vp-c-border);
   border-radius: 8px;
   box-shadow: var(--vp-shadow-2);
-  min-width: 200px;
-  width: 220px;
-  padding: 12px;
+  min-width: 150px;
+  width: 160px;
+  padding: 4px;
   margin-top: 4px;
-  transform: none;
   display: block;
   opacity: 1;
   visibility: visible;
-  /* 确保下拉菜单显示在按钮正下方 */
   left: auto;
   right: 0;
-  top: 100%;
-  /* 防止超出视口 */
+  top: 120%; /* 下拉菜单与按钮底部的间距 */
   max-height: calc(100vh - 80px);
   overflow-y: auto;
 }
@@ -330,7 +329,7 @@ onUnmounted(() => {
 .dropdown-caret {
   position: absolute;
   top: -10px;
-  right: 20px; /* 将箭头从左侧移动到右侧 */
+  right: 20px;
   width: 0;
   height: 0;
 }
@@ -352,11 +351,10 @@ onUnmounted(() => {
   width: 0;
   height: 0;
   border: 5px solid transparent;
-  border-bottom-color: var(--vp-c-bg);
 }
 
-.dropdown-section {
-  padding: 16px;
+.dropdown-section { /* 字体设置下拉菜单中的每个部分 */
+  padding: 12px;
   border-bottom: 1px solid var(--vp-c-divider);
 }
 
@@ -364,22 +362,13 @@ onUnmounted(() => {
   border-bottom: none;
 }
 
-.dropdown-title {
-  margin: 0 0 12px 0;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--vp-c-text-2);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.buttons {
+.buttons { /* 字体设置下拉菜单中的按钮组 */
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.button {
+.button { /* 字体设置下拉菜单中的按钮 */
   padding: 6px 12px;
   font-size: 12px;
   font-weight: 500;
@@ -406,11 +395,12 @@ onUnmounted(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px;
-  margin: 0 4px;
+  padding: 2px 4px;
+  margin: 0;
   border-radius: 8px;
   transition: all 0.2s;
   position: relative;
+  z-index: 9999; /* 确保容器层级高于其他元素 */
 }
 
 .font-settings-container:hover {
@@ -434,7 +424,7 @@ onUnmounted(() => {
 :global(.vp-doc td) {
   font-size: var(--vp-custom-font-size);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.3s ease; /* 平滑过渡效果 */
+  transition: all 0.3s ease;
 }
 
 /* 标题字体大小 - 基于基础字体大小的相对比例 */
@@ -472,5 +462,18 @@ onUnmounted(() => {
   font-size: calc(var(--vp-custom-font-size) * 1.05);
   font-family: var(--vp-custom-font-family);
   transition: all 0.3s ease;
+}
+
+/* 自定义主题类基础样式 */
+:global(.theme-white) {
+  --vp-c-bg-rgb: 255, 255, 255;
+}
+
+:global(.theme-sepia) {
+  --vp-c-bg-rgb: 245, 240, 225;
+}
+
+:global(.theme-night.dark) {
+  --vp-c-bg-rgb: 30, 30, 30;
 }
 </style>

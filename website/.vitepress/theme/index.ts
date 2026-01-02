@@ -10,7 +10,7 @@ import './style.css'
 import './markdown_styles.css'
 import './style/index.scss'
 
-import FontSettingsPlugin from './FontSettingsPlugin.vue'
+import FontSettingsPlugin from './components/FontSettingsPlugin.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
 import ArchiveCount from './components/ArchiveCount.vue'
 import ArticleMetadata from './components/ArticleMetadata.vue'

@@ -16,6 +16,7 @@ export default defineConfig({
   lang: "zh-CN",
 
   appearance: false,
+
   // 启用更新时间功能
   lastUpdated: true,
 
@@ -32,6 +33,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/img/qind_ico.svg',
+    // 自定义最后更新时间文本
+    lastUpdatedText: '最后更新于',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/qindlute' },
       { icon: 'gmail', link: 'mailto:qindlute@gmail.com' }
@@ -39,8 +42,9 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '分类', link: '/notes/' },
-      { text: '标签', link: '/tags/' },
-      { text: '关于', link: '/about/' },
+      { text: '标签', link: '/others/tags/' },
+      { text: '归档', link: '/others/archive/' },
+      { text: '关于', link: '/others/about/aboutme/' },
     ],
 
     sidebar: {
@@ -93,22 +97,22 @@ export default defineConfig({
         }
       ],
       // 为其他路径配置默认侧边栏（可选）
-      '/': [
+      '/others/': [
         {
           text: '快速导航',
           items: [
             { text: '首页', link: '/' },
             { text: '笔记分类', link: '/notes/' },
+            { text: '标签', link: '/others/tags/' },
+            { text: '归档', link: '/others/archive/' },
             { text: '关于', 
               collapsed: false,
               items:[
-                { text: '关于我', link: '/about/' },
-                { text: '关于网站', link: '/vitepress-features/' },
-                { text: '关于样式', link: '/test/'}
+                { text: '关于我', link: '/others/about/aboutme/' },
+                { text: '关于网站', link: '/others/about/aboutvitepress/' },
+                { text: '关于样式', link: '/others/about/aboutstyle/' }
               ]
-            },
-            { text: '标签', link: '/tags/' },
-            { text: '归档', link: '/archive/' }
+            }
           ]
         }
       ]
@@ -155,9 +159,17 @@ export default defineConfig({
   },
 
   markdown: {
+    math: true,
     lineNumbers: true,
     config: (md) => {
       md.use(groupIconMdPlugin) // 代码组图标
+
+      // h1 标题自动添加 ArticleMetadata 组件
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+          let htmlResult = slf.renderToken(tokens, idx, options);
+          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
+          return htmlResult;
+      }
 
       // 注册自定义容器
       md.use(markdownItContainer, 'note', {
@@ -189,6 +201,7 @@ export default defineConfig({
             : '</div>'
         }
       })
+      // ::: whiteboard 自定义容器
       md.use(markdownItContainer, 'whiteboard', {
         render: (tokens, idx) => {
           const token = tokens[idx]
@@ -199,11 +212,12 @@ export default defineConfig({
             // 渲染 CSS 对应的 HTML 结构：whiteboard 容器 + whiteboard-content 内容容器
             return `<div class="whiteboard"><div class="whiteboard-content">${titleHtml}`
           }
-          // 闭合容器 public是静态资源文件夹，那为什么css文件不放进去仍能被index.ts引用呢？
+          // 闭合容器
           return '</div></div>'
         }
       })
 
     }
-  }
+  },
+  
 })
