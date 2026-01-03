@@ -14,6 +14,7 @@ import FontSettingsPlugin from './components/FontSettingsPlugin.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
 import ArchiveCount from './components/ArchiveCount.vue'
 import ArticleMetadata from './components/ArticleMetadata.vue'
+import CustomButton from './components/CustomButton.vue'
 
 import mediumZoom from 'medium-zoom'
 import 'virtual:group-icons.css'
@@ -24,6 +25,7 @@ export default {
   enhanceApp({ app }) {
     app.component('ArchiveCount', ArchiveCount)
     app.component('ArticleMetadata', ArticleMetadata)
+    app.component('CustomButton', CustomButton)
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {

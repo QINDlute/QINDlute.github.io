@@ -111,12 +111,15 @@ print(name)
   whiteboard 内的数学公式并不支持自动换行，如果需要换行，直接另起一行就可以。
 :::
 
-$\sqrt{3x-1}+(1+x)^2+\frac{1}{x^2}+\frac{1}{x^3}-\frac{1}{x^4}$
-$-\frac{1}{x^5}$
 
-<br>
-在使用html元素的时候，要注意<span class="marker">不能将带有html元素的代码与markdown语句混合、相邻使用，</span>否则markdown语句会失效。
-<br><br>
+  $\sqrt{3x-1}+(1+x)^2+\frac{1}{x^2}+\frac{1}{x^3}-\frac{1}{x^4}-\frac{1}{x^5}+\frac{1}{x^6}$
+
+<p>
+  在使用html元素的时候，<span class="marker">要注意不能将带有html元素的代码与自定义markdown语法零格使用，</span>否则该语法会失效从而显现原来的文本，同时也不能将html元素与markdown语句混合、相邻使用，否则markdown语句会失效。
+</p>
+
+~~注意在使用html元素的时候，要注意不能将带有html元素的代码与markdown语句混合、相邻使用，否则markdown语句会失效~~
+
 在自定义markdown容器的使用中，由于markdown语法是:
 
 ``` md
@@ -128,7 +131,11 @@ $-\frac{1}{x^5}$
 简单来说就是在自定义容器中不能嵌套自定义容器
 
 当然这是在常规情况下，我们可以使用HTML标签来实现自定义容器的嵌套，~~（前提是你很熟悉自定义容器的结构）~~，例如：
-``` md
+
+
+::: code-group
+
+```md [md]
 ::: whiteboard LaTeX Demo
   你好  
   早上好
@@ -138,9 +145,22 @@ $-\frac{1}{x^5}$
     <p>今天下雨</p>
   </div>
 
+  <a href="/pure.html" target="_self">Link to pure.html</a>
+
   晚上好
-:::
+
 ```
+
+``` ts [ts]
+export default {
+  rewrites: {
+    'packages/pkg-a/src/pkg-a-docs.md': 'pkg-a/index.md',
+    'packages/pkg-b/src/pkg-b-docs.md': 'pkg-b/index.md'
+  }
+}
+```
+:::
+
 <br>
 效果如下：
 
@@ -155,3 +175,58 @@ $-\frac{1}{x^5}$
 
   晚上好
 :::
+
+
+::: code-group
+
+```js [config.js]
+/**
+ * @type {import('vitepress').UserConfig}
+ */
+const config = {
+  // ...
+}
+
+export default config
+```
+
+```ts [config.ts]
+import type { UserConfig } from 'vitepress'
+
+const config: UserConfig = {
+  // ...
+}
+
+export default config
+```
+
+:::
+
+> 注意：在使用自定义容器时，容器类型和容器标题之间不能有空格，否则会导致容器解析失败。
+
+```md
+> 更新时间：2024 年
+~~更新时间：2024 年~~
+## 哈哈
+
+<!-- index.md -->
+<HomeUnderline />
+
+```
+
+## 自定义Vue组件使用示例
+
+<div style="display: flex; gap: 10px; margin-bottom: 20px;">
+<CustomButton type="brand" href="#" size="medium">品牌按钮</CustomButton>
+<CustomButton type="alt" href="#" size="medium">备用按钮</CustomButton>
+<CustomButton type="costum" href="#" size="medium">自定义按钮</CustomButton>
+</div>
+<!-- ### 不同大小示例
+<div style="display: flex; gap: 10px; margin: 10px 0;">
+  <CustomButton type="brand" href="#" size="small">小按钮</CustomButton>
+  <CustomButton type="brand" href="#" size="medium">中按钮</CustomButton>
+  <CustomButton type="brand" href="#" size="large">大按钮</CustomButton>
+</div> -->
+<!-- 
+### 禁用状态示例
+<CustomButton type="brand" href="#" disabled>禁用按钮</CustomButton> -->
