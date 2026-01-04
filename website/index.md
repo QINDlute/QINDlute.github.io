@@ -7,7 +7,7 @@ hero:
   text: "个人笔记网站"
   tagline: 记录知识，分享感悟
   image:
-    src: /img/index.jpeg
+    src: /img/index.png
     alt: index image
     width: 100%
     height: "auto"

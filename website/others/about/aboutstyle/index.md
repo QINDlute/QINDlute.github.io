@@ -216,17 +216,16 @@ export default config
 
 ## 自定义Vue组件使用示例
 
-<div style="display: flex; gap: 10px; margin-bottom: 20px;">
-<CustomButton type="brand" href="#" size="medium">品牌按钮</CustomButton>
-<CustomButton type="alt" href="#" size="medium">备用按钮</CustomButton>
-<CustomButton type="costum" href="#" size="medium">自定义按钮</CustomButton>
+<div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center;">
+<CustomButton type="brand" href="#">品牌按钮</CustomButton>
+<CustomButton type="alt" href="#">备用按钮</CustomButton>
+<CustomButton type="custom" href="#">自定义按钮</CustomButton>
 </div>
-<!-- ### 不同大小示例
-<div style="display: flex; gap: 10px; margin: 10px 0;">
-  <CustomButton type="brand" href="#" size="small">小按钮</CustomButton>
-  <CustomButton type="brand" href="#" size="medium">中按钮</CustomButton>
-  <CustomButton type="brand" href="#" size="large">大按钮</CustomButton>
-</div> -->
-<!-- 
-### 禁用状态示例
-<CustomButton type="brand" href="#" disabled>禁用按钮</CustomButton> -->
+<!-- <CustomButton type="类型" href="链接" size="尺寸">按钮文本</CustomButton> -->
+
+<div style="display: flex; gap: 10px; margin-bottom: 20px; align-items: center;">
+<CustomButton type="custom" href="#" size="small">自定义按钮</CustomButton>
+<CustomButton type="custom" href="#" size="small" :disabled=true>自定义按钮</CustomButton>
+<CustomButton type="custom" size="large" :disabled=false>自定义按钮</CustomButton>
+</div>
+
