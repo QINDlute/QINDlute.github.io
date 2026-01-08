@@ -178,7 +178,6 @@ a {
 :global(.VPHero .VPImage),
 :global(.VPHero img),
 .category-card img {
-  user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
   -moz-user-select: none;
@@ -223,68 +222,4 @@ a {
 :root {
   /* 搜索框样式 */
   --docsearch-primary-color: var(--vp-c-brand-1);
-}
-
-/* 阅读进度条样式 */
-#reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 3px;
-  background: var(--vp-c-brand-3);
-  z-index: 9999;
-  transition: width 0.1s ease-out;
-  box-shadow: 0 0 10px var(--vp-c-brand-2);
-}
-
-/* 返回顶部按钮样式 */
-#back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 48px;
-  height: 48px;
-  background: var(--vp-c-brand-3);
-  color: var(--vp-c-white);
-  border: none;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  /* 优化过渡效果：只过渡必要属性 */
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  /* 先过渡opacity，再过渡visibility */
-  transition-delay: 0s, 0.3s, 0s;
-  z-index: 9998;
-  font-size: 20px;
-  box-shadow: var(--vp-shadow-2);
-  /* 提示浏览器优化渲染 */
-  will-change: opacity, transform, box-shadow;
-}
-
-#back-to-top.visible {
-  opacity: 0.5;
-  visibility: visible;
-  pointer-events: auto;
-  /* 取消延迟，同时过渡所有属性 */
-  transition-delay: 0s;
-}
-
-#back-to-top:hover {
-  background: var(--vp-c-brand-2);
-  opacity: 1;
-  transform: translateY(-5px);
-  box-shadow: var(--vp-shadow-3);
-}
-
-#back-to-top:active {
-  background: var(--vp-c-brand-1);
-  opacity: 1;
-  transform: translateY(-2px);
-  box-shadow: var(--vp-shadow-2);
 }

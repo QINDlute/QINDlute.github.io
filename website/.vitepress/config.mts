@@ -5,130 +5,58 @@ import markdownItContainer from 'markdown-it-container'
 
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
 
-// 导入自定义图标配置
-import { customIcon } from './config/customIcons'
+import { nav, sidebar, head, customIcon } from './configs'
 
+// 导入自定义图标配置
+// import { customIcon } from './configs/customIcons'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "qindlute",
+  title: "琴殿",
   description: "个人笔记网站",
   lang: "zh-CN",
 
   appearance: false,
 
-  // 启用更新时间功能
-  lastUpdated: true,
-
   // 添加外部脚本，提前应用自定义样式配置，消除闪烁问题
-  head: [
-    // 配置网页图标
-    ['link', { rel: 'icon', type: 'image/x-icon', href: '/img/qind_ico.svg' }],
-    // 引入外部脚本文件
-    ['script', { src: '/js/early-init.js' }],
-    ['script', { src: '/js/image-protection.js' }]
-  ],
+  head,
 
-  // 使用VitePress内置的主题配置 使用VitePress内置的主题配置
+  // 使用VitePress内置的主题配置
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/img/qind_ico.svg',
-    // 自定义最后更新时间文本
-    lastUpdatedText: '最后更新于',
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/qindlute' },
-      { icon: 'gmail', link: 'mailto:qindlute@gmail.com' }
-    ],
-    nav: [
-      { text: '首页', link: '/' },
-      { text: '分类', link: '/notes/' },
-      { text: '标签', link: '/others/tags/' },
-      { text: '归档', link: '/others/archive/' },
-      { text: '关于', link: '/others/about/aboutme/' },
-    ],
 
-    sidebar: {
-      // 为 /notes/ 路径配置侧边栏
-      '/notes/': [
-        {
-          text: '学习笔记',
-          collapsed: false, // 初始状态展开
-          items: [
-            { text: '版本控制', 
-              collapsed: false,
-              items: [
-                { text: 'Git 托管', link: '/notes/ver_ctrl/git/' },
-                { text: 'SSH 传输', link: '/notes/ver_ctrl/SSH/' },
-              ]
-            },
-            {
-              text: '前端开发',
-              collapsed: false,
-              items: [
-                { text: 'HTML基础', link: '/notes/frontend/html-basics/' },
-                { text: 'CSS布局', link: '/notes/frontend/css-layout/' },
-                { text: 'JavaScript核心', link: '/notes/frontend/javascript-core/' },
-                { text: 'Vue.js框架', link: '/notes/frontend/vuejs/' },
-                { text: 'React框架', link: '/notes/frontend/react/' }
-              ]
-            },
-            {
-              text: '后端开发',
-              collapsed: false,
-              items: [
-                { text: 'Node.js基础', link: '/notes/backend/nodejs-basics/' }
-              ]
-            }
-          ]
-        },
-        {
-          text: '生活记录',
-          collapsed: false, // 初始状态展开
-          items: [
-            {
-              text: '日常感悟',
-              collapsed: false,
-              items: [
-                { text: '生活感悟', link: '/notes/life/reflection/' }
-              ]
-            },
-            { text: '旅行日记', link: '/notes/travel/' }
-          ]
-        }
-      ],
-      // 为其他路径配置默认侧边栏（可选）
-      '/others/': [
-        {
-          text: '快速导航',
-          items: [
-            { text: '首页', link: '/' },
-            { text: '笔记分类', link: '/notes/' },
-            { text: '标签', link: '/others/tags/' },
-            { text: '归档', link: '/others/archive/' },
-            { text: '关于', 
-              collapsed: false,
-              items:[
-                { text: '关于我', link: '/others/about/aboutme/' },
-                { text: '关于网站', link: '/others/about/aboutvitepress/' },
-                { text: '关于样式', link: '/others/about/aboutstyle/' }
-              ]
-            }
-          ]
-        }
-      ]
-    },
+    // 覆盖页面标题
+    siteTitle: '琴殿',
 
-    // 内置的大纲配置
+    nav,
+
+    sidebar,
+
+    // 大纲配置
     outline: {
       level: 'deep',
       label: '目录'
     },
     returnToTopLabel: '回到顶部',
+    
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/qindlute' },
+      { icon: 'gmail', link: 'mailto:qindlute@gmail.com' }
+    ],
 
-    // 内置的页脚配置
+    // 页脚配置
     footer: {
-      message: 'qindlute 制作',
-      copyright: 'Copyright © 2025 qindlute'
+      message: 'qindlute\'s notes',
+      copyright: 'Copyright © 2025-2026 qindlute'
+    },
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    
+    lastUpdated: {
+      text: '最后更新于'
     },
 
     // 启用本地搜索功能
@@ -136,25 +64,41 @@ export default defineConfig({
       provider: 'local',
       // 搜索选项配置
       options: {
-        // 搜索结果数量限制
-        limit: 10,
-        // 是否启用全文搜索
-        fullText: true,
-        // 是否忽略大小写
-        ignoreCase: true,
-        // 是否使用引号进行精确匹配
-        queryStrategy: 'prefix',
-        // 搜索延迟，避免频繁触发
-        debounceTime: 300
+        translations: {
+          button: {
+            buttonText: '搜索',
+            buttonAriaLabel: '搜索文档'
+          },
+          modal: {
+            noResultsText: '未找到匹配结果',
+            resetButtonTitle: '清空搜索',
+            displayDetails: '显示详细信息',
+            footer: {
+              navigateText: '导航',
+              selectText: '选择',
+              closeText: '退出'
+            }
+          }
+        },
+        miniSearch: {
+          searchOptions: {
+            boost: { // 标题权重为8，文本权重为4（优先匹配标题）
+              title: 8,
+              text: 4
+            }
+          }
+        }
+        
       }
     }
   },
 
+
   vite: {
     plugins: [
       groupIconVitePlugin({
-        customIcon,
-      }) // 代码组图标
+        customIcon
+      }) // 使用导入的图标配置
     ]
   },
 

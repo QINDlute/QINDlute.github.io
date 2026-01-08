@@ -1,0 +1,12 @@
+/* 阅读进度条样式 */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--vp-c-brand-3);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px var(--vp-c-brand-2);
+}

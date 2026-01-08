@@ -17,6 +17,7 @@ import ArticleMetadata from './components/ArticleMetadata.vue'
 import CustomButton from './components/CustomButton.vue'
 
 import mediumZoom from 'medium-zoom'
+
 import 'virtual:group-icons.css'
 
 export default {
@@ -36,6 +37,7 @@ export default {
     })
   },
   setup() {
+    // 监听路由变化
     const route = useRoute();
     
     // 初始化图片缩放
