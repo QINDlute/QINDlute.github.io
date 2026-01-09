@@ -1,10 +1,11 @@
 /* .vitepress/theme/style/whiteboard.css */
 /* 白板样式：代码块居中 + 其他文本左对齐 + 复刻 details 溢出逻辑 */
 
-:root {
-    --vp-c-whiteboard-1: var(--vp-c-black-1);
-    --vp-c-whiteboard-2: var(--vp-c-black-2);
-    --vp-c-whiteboard-3: var(--vp-c-black-3);
+.theme-sepia .whiteboard {
+  background-color: #ede0c8;
+}
+.theme-sepia {
+  --vp-c-divider: #d4c6a8;
 }
 
 /* 白板容器基础样式 */
@@ -27,7 +28,6 @@
 .whiteboard-title {
   margin-top: 0;
   margin-bottom: 16px;
-  color: var(--vp-c-whiteboard-1) !important;
   font-size: 1.25rem;
   font-weight: 600;
   z-index: 10;
@@ -97,7 +97,7 @@
 .whiteboard h6 {
   margin-top: 0;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--vp-c-whiteboard-3);
-  margin-bottom: 20px;
-  color: var(--vp-c-whiteboard-1);
+  /* 标题底部设置一条分割线 */
+  /* border-bottom: 2px solid var(--vp-c-whiteboard); */
+  margin-bottom: 10px;
 }
