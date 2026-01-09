@@ -8,29 +8,50 @@
   
   /* 使用完整的渐变背景 */
   background-image: linear-gradient(
-    rgba(79, 192, 141, 0.5), /* 完整的绿色背景 */
-    rgba(79, 192, 141, 0.5)
-  );
+    var(--marker-color, rgba(79, 192, 141, 0.5)), /* 使用CSS变量，默认绿色背景 */
+    var(--marker-color, rgba(79, 192, 141, 0.5)) /* 重复颜色属性，用于创建渐变效果 */
+    );
   
   /* 初始状态：只显示底部34% */
   background-size: 100% 34%;
   background-position: 0 100%; /* 背景从底部开始显示 */
-  background-repeat: no-repeat;
-
-  transition: background-size 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
+  background-repeat: no-repeat; /* 防止背景重复 */
+    /* 过渡效果 */
+  transition: background-size 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;  
 }
 
-/* 夜间模式：蓝色高亮 */
+/* 夜间模式 */
 .theme-night .marker {
-  background-image: linear-gradient(
-    rgba(100, 100, 255, 0.4), /* 完整的蓝色背景 */
-    rgba(100, 100, 255, 0.4)
-  );
+  --marker-color: var(--marker-color, rgba(80, 227, 194, 0.4)); /* 夜间模式默认 */
+  --marker-color: var(--marker-color, rgba(80, 227, 194, 0.4));
 }
 
 /* 鼠标悬停效果 */
-.marker:hover {
+.marker:not(.marker-full):hover {
   /* 悬停时：背景扩展为整行 */
   background-size: 100% 100%;
   transition-delay: 80ms !important;
 }
+
+/* 完整覆盖状态 */
+.marker-full {
+  background-size: 100% 100% !important;
+  background-position: 0 0 !important;
+  pointer-events: none; /* 禁用悬停效果 */
+}
+
+/* 颜色变体 */
+.marker-red { --marker-color: rgba(239, 68, 68, 0.5); }
+.marker-orange { --marker-color: rgba(251, 146, 60, 0.5); }
+.marker-blue { --marker-color: rgba(59, 130, 246, 0.5); }
+.marker-purple { --marker-color: rgba(168, 85, 247, 0.5); }
+.marker-green { --marker-color: rgba(79, 192, 141, 0.5); } /* 默认绿色 */
+.marker-magenta { --marker-color: rgba(255, 0, 255, 0.3); }
+
+/* 夜间模式下的颜色变体 */
+.theme-night .marker-red { --marker-color: rgba(248, 113, 113, 0.4); }
+.theme-night .marker-orange { --marker-color: rgba(251, 160, 40, 0.4); }
+.theme-night .marker-blue { --marker-color: rgba(100, 100, 255, 0.4); }
+.theme-night .marker-purple { --marker-color: rgba(186, 129, 255, 0.4); }
+.theme-night .marker-green { --marker-color: rgba(80, 227, 194, 0.4); }
+.theme-night .marker-magenta { --marker-color: rgba(255, 0, 255, 0.3); }
