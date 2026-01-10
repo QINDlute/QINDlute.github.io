@@ -18,14 +18,25 @@
   visibility: hidden;
   pointer-events: none;
   /* 优化过渡效果：只过渡必要属性 */
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, font-size 0.3s ease;
   /* 先过渡opacity，再过渡visibility */
-  transition-delay: 0s, 0.3s, 0s;
+  transition-delay: 0s, 0.3s, 0s, 0s, 0s, 0s;
   z-index: 9998;
   font-size: 20px;
   box-shadow: var(--vp-shadow-2);
   /* 提示浏览器优化渲染 */
-  will-change: opacity, transform, box-shadow;
+  will-change: opacity, transform, box-shadow, width, height, font-size;
+}
+
+/* 移动端适配：缩小按钮尺寸 */
+@media (max-width: 768px) {
+  #back-to-top {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    bottom: 35px;
+    right: 25px;
+  }
 }
 
 #back-to-top.visible {

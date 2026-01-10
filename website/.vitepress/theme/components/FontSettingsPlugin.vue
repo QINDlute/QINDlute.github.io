@@ -289,7 +289,7 @@ onUnmounted(() => {
   font-size: 12px;
   font-weight: 500;
   color: var(--vp-c-text-2);
-  transition: color 0.5s;
+  transition: color 0.5s; /* 字体设置按钮颜色变化过渡 */
   background: transparent;
   border: none;
   cursor: pointer;
@@ -395,7 +395,7 @@ onUnmounted(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 4px;
+  padding: 2px 0;
   margin: 0;
   border-radius: 8px;
   transition: all 0.2s;
@@ -424,45 +424,40 @@ onUnmounted(() => {
 :global(.vp-doc td) {
   font-size: var(--vp-custom-font-size);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.3s ease;
+  transition: all 0.1s ease; /* 针对.vp-doc中的元素全局设置过渡 */
 }
 
 /* 标题字体大小 - 基于基础字体大小的相对比例 */
 :global(.vp-doc h1) {
   font-size: calc(var(--vp-custom-font-size) * 2.0);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.3s ease;
 }
 
 :global(.vp-doc h2) {
   font-size: calc(var(--vp-custom-font-size) * 1.75);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.3s ease;
 }
 
 :global(.vp-doc h3) {
   font-size: calc(var(--vp-custom-font-size) * 1.5);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.3s ease;
 }
 
 :global(.vp-doc h4) {
   font-size: calc(var(--vp-custom-font-size) * 1.3);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.3s ease;
 }
 
 :global(.vp-doc h5) {
   font-size: calc(var(--vp-custom-font-size) * 1.15);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.3s ease;
 }
 
 :global(.vp-doc h6) {
   font-size: calc(var(--vp-custom-font-size) * 1.05);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.3s ease;
 }
+
 
 /* 自定义主题类基础样式 */
 :global(.theme-white) {

@@ -15,6 +15,12 @@ import ReadingProgress from './components/ReadingProgress.vue'
 import ArchiveCount from './components/ArchiveCount.vue'
 import ArticleMetadata from './components/ArticleMetadata.vue'
 import CustomButton from './components/CustomButton.vue'
+import MarkerText from './components/MarkerText.vue'
+import CarouselComponent from './components/CarouselComponent.vue'
+import YAMLCarousel from './components/YAMLCarousel.vue'
+import PrevNextNav from './components/PrevNextNav.vue'
+
+
 
 import mediumZoom from 'medium-zoom'
 
@@ -27,10 +33,14 @@ export default {
     app.component('ArchiveCount', ArchiveCount)
     app.component('ArticleMetadata', ArticleMetadata)
     app.component('CustomButton', CustomButton)
+    app.component('MarkerText', MarkerText)
+    app.component('CarouselComponent', CarouselComponent)
+    app.component('YAMLCarousel', YAMLCarousel)
+    app.component('PrevNextNav', PrevNextNav)
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
-      // 将字体设置插件挂载到导航栏内容之后
+      // 将字体设置插件挂载到导航栏内容之前
       'nav-bar-content-after': () => h(FontSettingsPlugin),
       // 阅读进度条继续挂载到页面底部
       'layout-bottom': () => h(ReadingProgress)

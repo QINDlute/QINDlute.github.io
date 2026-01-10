@@ -10,12 +10,12 @@ const count = ref(0)
 const fetchArchiveCount = async () => {
   let content: string    
   // md 请求逻辑
-  const mdResponse = await fetch('/others/archive/index.md');
+  const mdResponse = await fetch('/others/archive.md');
   if (mdResponse.ok) {
     content = await mdResponse.text();
   } else {
     console.log('archive.md not found, trying archive.html');
-    const htmlResponse = await fetch('/others/archive/index.html');
+    const htmlResponse = await fetch('/others/archive.html');
     if (!htmlResponse.ok) {
       throw new Error('archive.html not found');
     }
