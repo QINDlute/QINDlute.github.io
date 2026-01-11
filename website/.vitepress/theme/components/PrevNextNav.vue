@@ -1,28 +1,28 @@
 <template>
-  <div data-v-10119189 data-v-98ddab3d class="VPDoc has-sidebar has-aside">
-    <footer data-v-29ec59c0 data-v-10119189 class="VPDocFooter">
-      <nav data-v-29ec59c0 class="prev-next" aria-labelledby="doc-footer-aria-label">
-        <span data-v-29ec59c0 class="visually-hidden" id="doc-footer-aria-label">Pager</span>
+  <div class="VPDoc-prevnext has-sidebar has-aside">
+    <footer class="VPDocFooter">
+      <nav class="prev-next" aria-labelledby="doc-footer-aria-label">
+        <span class="visually-hidden" id="doc-footer-aria-label">Pager</span>
         <!-- 上一页 -->
-        <div data-v-29ec59c0 class="pager">
-          <a data-v-29ec59c0
+        <div class="pager">
+          <a 
             v-if="effectivePrev && effectivePrev.link" 
             class="VPLink link pager-link prev" 
             :href="effectivePrev.link"
           >
-            <span data-v-29ec59c0 class="desc">上一页</span>
-            <span data-v-29ec59c0 class="text">{{ effectivePrev.text || '上一页' }}</span>
+            <span class="desc">上一页</span>
+            <span class="title">{{ effectivePrev.title || '上一页' }}</span>
           </a>
         </div>
         <!-- 下一页 -->
-        <div data-v-29ec59c0 class="pager">
-          <a data-v-29ec59c0
+        <div class="pager">
+          <a 
             v-if="effectiveNext && effectiveNext.link" 
             class="VPLink link pager-link next" 
             :href="effectiveNext.link"
           >
-            <span data-v-29ec59c0 class="desc">下一页</span>
-            <span data-v-29ec59c0 class="text">{{ effectiveNext.text || '下一页' }}</span>
+            <span class="desc">下一页</span>
+            <span class="title">{{ effectiveNext.title || '下一页' }}</span>
           </a>
         </div>
       </nav>

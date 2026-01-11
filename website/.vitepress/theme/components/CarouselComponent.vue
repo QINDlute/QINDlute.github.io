@@ -1,5 +1,5 @@
 <template>
-  <div data-v-10119189 data-v-98ddab3d class="VPDoc has-sidebar has-aside">
+  <div class="VPDoc-carousel has-sidebar has-aside">
     <div class="carousel">
       <div 
       v-for="(item, index) in carouselItems" 
