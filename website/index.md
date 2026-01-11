@@ -35,7 +35,6 @@ features:
 热门标签云，点击查看相关笔记：
 
 <div class="tag-cloud">  
-  <!-- <a href="/notes/ver_ctrl/git/" class="tag">Git 托管</a> -->
   <a href="/notes/frontend/html-basics/" class="tag">HTML</a>
   <a href="/notes/frontend/css-layout/" class="tag">CSS</a>
   <a href="/notes/frontend/javascript-core/" class="tag">JavaScript</a>

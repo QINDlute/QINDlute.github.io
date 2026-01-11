@@ -7,13 +7,6 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
         text: '学习笔记',
         collapsed: false, // 初始状态展开
         items: [
-        { text: '版本控制', 
-            collapsed: false,
-            items: [
-            { text: 'Git 托管', link: '/notes/ver_ctrl/git/' },
-            { text: 'SSH 传输', link: '/notes/ver_ctrl/SSH/' },
-            ]
-        },
         {
             text: '前端开发',
             collapsed: false,

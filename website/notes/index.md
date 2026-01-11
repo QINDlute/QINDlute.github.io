@@ -6,7 +6,6 @@
 
 - [前端开发](/notes/frontend/) - 前端技术相关笔记
 - [后端开发](/notes/backend/) - 后端技术相关笔记
-- [版本控制](/notes/ver_ctrl/) - Git版本控制系统相关笔记
 
 ## 生活记录
 

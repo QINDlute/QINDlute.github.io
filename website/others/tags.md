@@ -3,10 +3,6 @@
 通过标签浏览相关笔记内容：
 
 <div class="tags-container">
-  <a href="/notes/ver_ctrl/git/" class="tag-card">
-    <span class="tag-name">Git 托管</span>
-    <span class="tag-count">1</span>
-  </a>
   <a href="/notes/frontend/html-basics/" class="tag-card">
     <span class="tag-name">HTML</span>
     <span class="tag-count">1</span>
