@@ -7,7 +7,6 @@ import type { Theme } from 'vitepress'
 
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
-import './markdown_styles.css'
 import './style/index.scss'
 
 import FontSettingsPlugin from './components/FontSettingsPlugin.vue'
@@ -20,6 +19,8 @@ import CarouselComponent from './components/CarouselComponent.vue'
 import YAMLCarousel from './components/YAMLCarousel.vue'
 import PrevNextNav from './components/PrevNextNav.vue'
 
+import TextSelectionMenu from './components/TextSelectionMenu.vue'
+import AnnotationRenderer from './components/AnnotationRenderer.vue'
 
 
 import mediumZoom from 'medium-zoom'
@@ -37,13 +38,30 @@ export default {
     app.component('CarouselComponent', CarouselComponent)
     app.component('YAMLCarousel', YAMLCarousel)
     app.component('PrevNextNav', PrevNextNav)
+
+    app.component('TextSelectionMenu', TextSelectionMenu)
+    app.component('AnnotationRenderer', AnnotationRenderer)
+    // 添加全局方法
+    app.config.globalProperties.$copyText = async (text: string) => {
+      try {
+        await navigator.clipboard.writeText(text)
+        return true
+      } catch (err) {
+        console.error('复制失败:', err)
+        return false
+      }
+    }
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // 将字体设置插件挂载到导航栏内容之前
       'nav-bar-content-after': () => h(FontSettingsPlugin),
-      // 阅读进度条继续挂载到页面底部
-      'layout-bottom': () => h(ReadingProgress)
+      // 挂载到页面底部
+      'layout-bottom': () => [
+        h(ReadingProgress),
+        h(TextSelectionMenu),
+        h(AnnotationRenderer)
+      ]
     })
   },
   setup() {
@@ -59,11 +77,52 @@ export default {
     // 滚动位置记忆功能
     const scrollPosKey = 'vitepress_page_scroll_pos';
     
+    // 配置：不使用滚动记忆功能的路径列表
+    // 支持精确匹配和前缀匹配（以/结尾）
+    const scrollMemoryExcludes: string[] = [
+      // '/exact-path',          // 精确匹配单个页面
+      // '/articles/category/',   // 匹配该目录下所有页面
+      '/essays/poetry/',
+      '/essays/ci/'
+    ];
+    
+    // 配置：允许使用文本标注功能的路径列表
+    const allowedAnnotationPaths: string[] = [
+      '/others/',
+      '/test'
+    ];
+    
+    // 暴露配置到全局，便于其他组件访问
+    if (typeof window !== 'undefined') {
+      (window as any).vitepressThemeConfig = {
+        scrollMemoryExcludes,
+        allowedAnnotationPaths
+      };
+    }
+    
+    // 检查当前路径是否需要排除滚动记忆
+    const shouldExcludeScrollMemory = (path: string) => {
+      return scrollMemoryExcludes.some(excludePath => {
+        if (excludePath.endsWith('/')) {
+          // 前缀匹配
+          return path.startsWith(excludePath);
+        }
+        // 精确匹配
+        return path === excludePath;
+      });
+    };
+    
     // 记录滚动位置
     const recordScrollPos = () => {
       if (typeof window === 'undefined') return;
       
       const currentPath = window.location.pathname;
+      
+      // 如果当前路径在排除列表中，不记录滚动位置
+      if (shouldExcludeScrollMemory(currentPath)) {
+        return;
+      }
+      
       const scrollTop = window.scrollY;
       const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
       scrollPosMap[currentPath] = scrollTop;
@@ -75,6 +134,12 @@ export default {
       if (typeof window === 'undefined') return;
       
       const currentPath = window.location.pathname;
+      
+      // 如果当前路径在排除列表中，不恢复滚动位置
+      if (shouldExcludeScrollMemory(currentPath)) {
+        return;
+      }
+      
       const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
       const targetScrollTop = scrollPosMap[currentPath] || 0;
       

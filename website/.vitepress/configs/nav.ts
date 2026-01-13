@@ -9,6 +9,7 @@ export const nav: DefaultTheme.Config["nav"] = [
                         items: [
                               { text: '无花', link: '/essays/poetry/无花' },
                               { text: '空响', link: '/essays/poetry/空响' },
+                              { text: '诉衷情', link: '/essays/ci/诉衷情·眼欲穿' },
                         ]
                    },
             ]

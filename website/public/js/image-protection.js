@@ -16,11 +16,11 @@
   });
   
   // 3. 禁止选择图片
-  // document.addEventListener('selectstart', function(e) {
-  //   if (e.target.tagName === 'IMG') {
-  //     e.preventDefault();
-  //   }
-  // });
+  document.addEventListener('selectstart', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
   
   // 4. 保护hero区域图片
   window.addEventListener('load', function() {

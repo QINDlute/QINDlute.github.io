@@ -25,9 +25,9 @@ features:
     link: /#
     linkText: 好好学习，天天向上！
   - icon: 📔
-    title: 随记
-    details: 记录生活中的点滴，分享知识和经验。
-    link: /#
+    title: 随笔
+    details: 曾参日久，难掩情深。
+    link: /essays/poetry/无花
     linkText: 看透繁尘
 
 ---
@@ -35,16 +35,7 @@ features:
 热门标签云，点击查看相关笔记：
 
 <div class="tag-cloud">  
-  <a href="/notes/frontend/html-basics/" class="tag">HTML</a>
-  <a href="/notes/frontend/css-layout/" class="tag">CSS</a>
-  <a href="/notes/frontend/javascript-core/" class="tag">JavaScript</a>
-  <a href="/notes/frontend/vuejs/" class="tag">Vue.js</a>
-  <a href="/notes/frontend/react/" class="tag">React</a>
-  <a href="/notes/backend/nodejs-basics/" class="tag">Node.js</a>
-  <a href="/notes/frontend/" class="tag">前端开发</a>
-  <a href="/notes/backend/" class="tag">后端开发</a>
-  <a href="/notes/life/" class="tag">生活感悟</a>
-  <a href="/notes/" class="tag">技术学习</a>
+  <a href="/others/about/SSH" class="tag">ssh</a>
 </div>
 
 
@@ -59,4 +50,5 @@ features:
 #### 2025年
 * [12月<ArchiveCount month="12" />](/others/archive#_12月) 
 * [11月<ArchiveCount month="11" />](/others/archive#_11月) 
+
 </div>

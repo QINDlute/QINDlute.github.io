@@ -26,10 +26,6 @@
 
 /* Whiteboard 标题样式 */
 .whiteboard-title {
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 1.25rem;
-  font-weight: 600;
   z-index: 10;
 }
 

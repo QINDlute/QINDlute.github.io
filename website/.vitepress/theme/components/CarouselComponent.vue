@@ -228,7 +228,12 @@ const prevSlide = () => {
   margin-bottom: 35px;
 }
 
-
+@media (max-width: 768px) {
+  .carousel-item_description {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+}
 
 .carousel_nav {
   position: absolute;
@@ -263,15 +268,22 @@ const prevSlide = () => {
   background-color: rgba(255, 255, 255, 1); /* 悬停时箭头背景变为不透明 */
 }
 
-.carousel_arrow:nth-child(1):after { /* 轮播导航箭头 - 前一个 */
+/* 轮播导航箭头 - 前一个 */
+.carousel_arrow:nth-child(1):after {
   content: '';
-  right: -3px;
+  right: -2.4px;
   position: absolute;
   width: 1px;
   background-color: #b0b0b0;
   height: 14px;
   top: 50%;
   margin-top: -7px;
+  transition: background-color 0.3s ease;
+}
+
+/* 当第一个箭头悬停时，隐藏中间竖线 */
+.carousel_arrow:nth-child(1):hover:after {
+  background-color: transparent;
 }
 
 .carousel-item.active {

@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /**
  * Customize default theme styling by overriding CSS variables:
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
@@ -187,7 +189,7 @@ a {
 }
 
 /* 添加透明覆盖层，防止直接访问图片 */
-/* :global(.VPHero .VPImage) {
+:global(.VPHero .VPImage) {
   position: relative;
 }
 
@@ -201,7 +203,7 @@ a {
   background: transparent;
   pointer-events: auto;
   z-index: 10;
-} */
+}
 
 /**
  * Component: Custom Block
