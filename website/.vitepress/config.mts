@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { resolve } from 'path'
 
 // 引用前先安装，windows代码：npm install -D markdown-it-container
 import markdownItContainer from 'markdown-it-container'
@@ -99,7 +100,14 @@ export default defineConfig({
       groupIconVitePlugin({
         customIcon
       }) // 使用导入的图标配置
-    ]
+    ],
+    resolve: {
+      alias: {
+        '@': resolve(__dirname, '..'), // 项目根目录
+        '@components': resolve(__dirname, 'components'),
+        '@composables': resolve(__dirname, 'composables')
+      }
+    }
   },
 
   markdown: {
