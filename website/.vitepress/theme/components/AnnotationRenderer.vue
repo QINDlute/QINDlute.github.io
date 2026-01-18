@@ -1,3 +1,4 @@
+<!-- .vitepress/theme/components/AnnotationRenderer.vue -->
 <template>
   <div class="annotation-renderer">
     <!-- 标注会在挂载时自动渲染到页面 -->
@@ -6,7 +7,7 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, watch } from 'vue'
-import { useAnnotations } from '../../composables/useAnnotations'
+import { useAnnotations } from '../composables/useAnnotations'
 
 const { getCurrentPageAnnotations, colorOptions } = useAnnotations()
 
@@ -15,89 +16,216 @@ const renderAnnotations = () => {
   // 1. 先获取所有高亮元素，检查是否需要更新，避免不必要的DOM操作
   const existingHighlights = new Map()
   document.querySelectorAll('.text-highlight').forEach(el => {
-    existingHighlights.set(el.textContent, el)
+    const annotationId = el.dataset.annotationId
+    if (annotationId) {
+      existingHighlights.set(annotationId, el)
+    }
+    // 不再兼容旧元素的textContent查找
   })
 
   // 2. 获取当前页面的标注
   const annotations = getCurrentPageAnnotations()
   
-  // 3. 只处理新的或需要更新的标注
+  // 如果没有标注，直接清理并返回
+  if (annotations.length === 0) {
+    existingHighlights.forEach((el) => {
+      const parent = el.parentNode
+      if (parent) {
+        parent.replaceChild(document.createTextNode(el.textContent || ''), el)
+        parent.normalize()
+      }
+    })
+    return
+  }
+  
+  // 3. 只处理可见的文本节点，避免重复渲染
+  const vpContent = document.querySelector('.VPContent')
+  if (!vpContent) return
+  
+  // 4. 一次性收集所有可用的文本节点（在处理任何标注之前）
+  const allTextNodes = []
+  const walker = document.createTreeWalker(
+    vpContent,
+    NodeFilter.SHOW_TEXT,
+    { 
+      acceptNode: node => {
+        if (!node.parentElement) return NodeFilter.FILTER_SKIP
+        
+        // 检查是否在标题内
+        let parent = node.parentElement
+        while (parent) {
+          if (/^h[1-6]$/i.test(parent.tagName)) {
+            return NodeFilter.FILTER_SKIP
+          }
+          parent = parent.parentElement
+        }
+        
+        return NodeFilter.FILTER_ACCEPT
+      }
+    }
+  )
+
+  let node
+  while ((node = walker.nextNode())) {
+    allTextNodes.push(node)
+  }
+  
+  // 5. 标记哪些文本节点已经被使用
+  const usedTextNodes = new Set()
+  
+  // 6. 处理每个标注
   annotations.forEach(annotation => {
     try {
       // 如果已经存在高亮且颜色正确，跳过
-      const existing = existingHighlights.get(annotation.text)
+      let existing = existingHighlights.get(annotation.id)
+      
       if (existing) {
         // 检查颜色是否需要更新
         const color = colorOptions.find(c => c.id === annotation.color)
         const currentColor = existing.style.backgroundColor
         if (currentColor === (color?.rgba || '#FFFF00')) {
-          existingHighlights.delete(annotation.text) // 标记为已处理
+          // 即使颜色正确，也更新title属性
+          const annotationNotes = annotation.notes || annotation.text
+          existing.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+          existingHighlights.delete(annotation.id) // 标记为已处理
           return
         }
+        // 更新颜色和title
+        existing.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
+        const annotationNotes = annotation.notes || annotation.text
+        existing.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+        existingHighlights.delete(annotation.id) // 标记为已处理
+        return
       }
       
-      // 4. 只处理可见的文本节点，避免重复渲染
-      const textNodes = []
-      const walker = document.createTreeWalker(
-        document.body,
-        NodeFilter.SHOW_TEXT,
-        { acceptNode: node => node.parentElement && !node.parentElement.closest('.text-highlight') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP }
-      )
+      // 检查是否已经有对应标注ID的高亮元素
+      const existingHighlight = document.querySelector(`[data-annotation-id="${annotation.id}"]`)
+      if (existingHighlight) {
+        // 高亮元素已存在，更新颜色和title
+        const color = colorOptions.find(c => c.id === annotation.color)
+        existingHighlight.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
+        const annotationNotes = annotation.notes || annotation.text
+        existingHighlight.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+        existingHighlights.delete(annotation.id) // 标记为已处理
+        return
+      }
       
-      let node
-      while ((node = walker.nextNode())) {
-        if (node.textContent?.includes(annotation.text)) {
-          textNodes.push(node)
+      // 寻找匹配的文本节点
+      let targetTextNode = null
+      let bestMatchScore = 0
+      
+      // 遍历所有文本节点，寻找最佳匹配
+      for (const textNode of allTextNodes) {
+        // 跳过已经被使用的节点
+        if (usedTextNodes.has(textNode)) {
+          continue
         }
-      }
-      
-      // 5. 为匹配的文本节点添加高亮
-      textNodes.forEach(textNode => {
+        
         const text = textNode.textContent || ''
-        const index = text.indexOf(annotation.text)
-        if (index !== -1) {
-          // 创建高亮元素
-          const span = document.createElement('span')
-          span.className = 'text-highlight'
-          const color = colorOptions.find(c => c.id === annotation.color)
-          span.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
-          span.style.borderRadius = '2px'
-          span.style.padding = '0 2px'
-          span.style.cursor = 'pointer'
-          span.title = annotation.notes || annotation.text
-          
-          // 分割文本节点
-          const beforeText = text.substring(0, index)
-          const highlightedText = text.substring(index, index + annotation.text.length)
-          const afterText = text.substring(index + annotation.text.length)
-          
-          // 创建新的文本节点和高亮节点
-          if (beforeText) {
-            textNode.parentNode?.insertBefore(document.createTextNode(beforeText), textNode)
-          }
-          
-          span.appendChild(document.createTextNode(highlightedText))
-          textNode.parentNode?.insertBefore(span, textNode)
-          
-          if (afterText) {
-            textNode.parentNode?.insertBefore(document.createTextNode(afterText), textNode)
-          }
-          
-          // 删除原有的文本节点
-          textNode.parentNode?.removeChild(textNode)
+        
+        // 检查文本是否包含标注文本
+        if (!text.includes(annotation.text)) {
+          continue
         }
-      })
+        
+        // 尝试解析位置信息
+        let matchScore = 0
+        try {
+          const startContainer = JSON.parse(annotation.position.startContainer)
+          const startInfo = startContainer.start
+          
+          // 检查文本节点是否与起始位置信息匹配
+          if (text.startsWith(startInfo.text)) {
+            // 起始文本精确匹配，加分
+            matchScore += 10
+            
+            // 检查起始偏移量是否匹配
+            const index = text.indexOf(annotation.text)
+            if (index === startInfo.offset) {
+              // 偏移量精确匹配，加分
+              matchScore += 20
+            } else if (Math.abs(index - startInfo.offset) < 10) {
+              // 偏移量接近匹配，少量加分
+              matchScore += 5
+            }
+          } else if (text.includes(startInfo.text)) {
+            // 起始文本部分匹配，少量加分
+            matchScore += 3
+          }
+        } catch (err) {
+          // 位置信息解析失败，使用基本匹配
+          matchScore = 1
+        }
+        
+        // 如果找到更好的匹配，更新目标节点
+        if (matchScore > bestMatchScore) {
+          bestMatchScore = matchScore
+          targetTextNode = textNode
+        }
+      }
+      
+      // 如果没有找到匹配的节点，跳过
+      if (!targetTextNode) {
+        return
+      }
+      
+      // 标记该文本节点为已使用
+      usedTextNodes.add(targetTextNode)
+      
+      const text = targetTextNode.textContent || ''
+      const index = text.indexOf(annotation.text)
+      if (index === -1) return
+      
+      // 创建高亮元素
+      const span = document.createElement('span')
+      span.className = 'text-highlight'
+      span.dataset.annotationId = annotation.id // 添加标注ID
+      const color = colorOptions.find(c => c.id === annotation.color)
+      span.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
+      span.style.borderRadius = '2px'
+      span.style.padding = '0 2px'
+      span.style.cursor = 'pointer'
+      // 设置title为标注内容的前20个字符，超出部分用……代替
+      const annotationNotes = annotation.notes || annotation.text
+      span.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+      
+      // 分割文本节点
+      const beforeText = text.substring(0, index)
+      const highlightedText = text.substring(index, index + annotation.text.length)
+      const afterText = text.substring(index + annotation.text.length)
+      
+      // 创建新的文本节点和高亮节点
+      if (beforeText) {
+        targetTextNode.parentNode?.insertBefore(document.createTextNode(beforeText), targetTextNode)
+      }
+      
+      span.appendChild(document.createTextNode(highlightedText))
+      targetTextNode.parentNode?.insertBefore(span, targetTextNode)
+      
+      if (afterText) {
+        targetTextNode.parentNode?.insertBefore(document.createTextNode(afterText), targetTextNode)
+      }
+      
+      // 删除原有的文本节点
+      targetTextNode.parentNode?.removeChild(targetTextNode)
+      
+      // 标记为已处理
+      existingHighlights.delete(annotation.id)
     } catch (error) {
       console.error('渲染标注失败:', error)
     }
   })
   
-  // 6. 只删除不再需要的高亮元素
-  existingHighlights.forEach((el) => {
-    const parent = el.parentNode
-    if (parent) {
-      parent.replaceChild(document.createTextNode(el.textContent || ''), el)
-      parent.normalize()
+  // 7. 只删除不再需要的高亮元素
+  existingHighlights.forEach((el, key) => {
+    // 只删除不再需要的元素，排除当前标注ID
+    const isStillNeeded = annotations.some(anno => anno.id === key)
+    if (!isStillNeeded) {
+      const parent = el.parentNode
+      if (parent) {
+        parent.replaceChild(document.createTextNode(el.textContent || ''), el)
+        parent.normalize()
+      }
     }
   })
 }
@@ -113,7 +241,8 @@ const addClickListeners = () => {
       const customEvent = new CustomEvent('highlight-click', {
         detail: {
           text: text,
-          element: element
+          element: element,
+          annotationId: element.dataset.annotationId
         },
         bubbles: true,
         composed: true
@@ -151,7 +280,9 @@ onMounted(() => {
   // 优化：减少MutationObserver的监听范围和频率
   const observer = new MutationObserver(() => {
     // 使用防抖，减少触发次数
-    clearTimeout((window as any).annotationRenderTimeout)
+    if ((window as any).annotationRenderTimeout) {
+      clearTimeout((window as any).annotationRenderTimeout)
+    }
     (window as any).annotationRenderTimeout = setTimeout(() => {
       renderAnnotations()
       addClickListeners()

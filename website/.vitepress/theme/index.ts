@@ -92,11 +92,21 @@ export default {
       '/test'
     ];
     
+    // 配置：允许跨标签选择文本的元素列表
+    const allowedCrossElements: string[] = [
+      'CODE',
+      'PRE',
+      'CODEBLOCK',
+      'LI',
+      'P'
+    ];
+    
     // 暴露配置到全局，便于其他组件访问
     if (typeof window !== 'undefined') {
       (window as any).vitepressThemeConfig = {
         scrollMemoryExcludes,
-        allowedAnnotationPaths
+        allowedAnnotationPaths,
+        allowedCrossElements
       };
     }
     
