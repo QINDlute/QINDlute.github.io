@@ -426,7 +426,8 @@ const allowedCrossElements: string[] = [
   'CODE',
   'PRE',
   'CODEBLOCK',
-  'LI'
+  'LI',
+  'P'
 ];
 ```
 

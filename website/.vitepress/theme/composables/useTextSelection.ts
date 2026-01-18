@@ -346,6 +346,12 @@ export function useTextSelection() {
     }
     
     if (isVisible.value && !(event.target as Element).closest('.text-selection-menu')) {
+      // 触发自定义事件，通知组件执行取消逻辑
+      const customEvent = new CustomEvent('annotation-cancel', {
+        bubbles: true,
+        composed: true
+      })
+      event.target?.dispatchEvent(customEvent)
       clearSelection()
     }
   }

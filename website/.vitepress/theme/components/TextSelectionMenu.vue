@@ -826,6 +826,9 @@ onMounted(() => {
   // 监听高亮文本点击事件
   document.addEventListener('highlight-click', handleHighlightClick as EventListener)
   
+  // 监听取消标注事件（点击屏幕外时触发）
+  document.addEventListener('annotation-cancel', cancelNote as EventListener)
+  
   // 监听窗口大小变化，当视口高度变化（如键盘弹出）时重新计算菜单位置
   window.addEventListener('resize', handleResize)
 })
@@ -835,6 +838,9 @@ onUnmounted(() => {
   
   // 移除高亮文本点击事件监听
   document.removeEventListener('highlight-click', handleHighlightClick as EventListener)
+  
+  // 移除取消标注事件监听
+  document.removeEventListener('annotation-cancel', cancelNote as EventListener)
   
   // 移除窗口大小变化监听
   window.removeEventListener('resize', handleResize)
