@@ -6,7 +6,6 @@ export const head: HeadConfig[] = [
     // 引入外部脚本文件
     ['script', { src: '/js/early-init.js' }],
     ['script', { src: '/js/image-protection.js' }],
-    ['script', { src: '/js/annotation-init.js' }],
 
     ['meta', { name: 'description', content: '这是琴殿的个人笔记网站' }],
     ['meta', { name: 'keywords', content: 'Vitepress, 笔记, 个人网站, 琴殿' }],

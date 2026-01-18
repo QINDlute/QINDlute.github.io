@@ -144,6 +144,17 @@
         font-style: italic;
         padding: 1rem 0;
     }
+
+    /* 图表标题样式（图片下标题） */
+    .figure-caption {
+        text-align: center;
+        font-weight: bold;
+        font-size: 0.95rem;
+        /* 图表标题与图片之间的间距 */
+        margin: 8px 0 32px 0;
+        /* 图表标题颜色 */
+        color: var(--vp-c-text-2);
+    }
     
     /* 媒体查询：移动端适配 */
     @media (max-width: 768px) {

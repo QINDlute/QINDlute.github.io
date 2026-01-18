@@ -201,12 +201,12 @@
 在 vitepress 中，图片默认是不支持全屏查看的，但可以导入插件实现。本站已实现该全屏查看功能该拓展功能源自[千浔物语](https://docs.fe-qianxun.com/efficiency/software/vitepress#图片缩放)的图片缩放。
 
 ```md [md]
-![测试：主页图片展示](/img/index_show.png)
-<div class="figure-caption">测试：主页图片展示(增加放大全屏功能)</div>
+![主页图片展示](/img/index_show.png)
+<div class="figure-caption">图一&emsp;主页图片展示(增加放大全屏功能)</div>
 ```
 
-![测试：主页图片展示](/img/index_show.png)
-<div class="figure-caption">测试：主页图片展示(增加放大全屏功能)</div>
+![主页图片展示](/img/index_show.png)
+<div class="figure-caption">图一&emsp;主页图片展示(增加放大全屏功能)</div>
 
 ## 关于代码块
 vitepress 中的 markdown 关于代码块有很多扩展用法，如行高亮、代码组、导入代码片段、聚焦等等，参考[viteprss 官方](https://vitepress.dev/zh/guide/markdown#syntax-highlighting-in-code-blocks)，可自行研读。
@@ -365,3 +365,70 @@ print(name)
 查看 [vitepress 官方主题配置](https://vitepress.dev/zh/reference/default-theme-config)即可掌握网站基础的主题配置。
 
 如设置导航栏、侧边栏、主页等。
+
+## 自定义页面记忆滚动位置
+默认情况下，vitepress 不会记忆每个页面的滚动位置，当用户在页面间导航（比如点击返回上一页、切换侧边栏链接）时，目标页面会默认滚动到顶部。
+本站自定义了插件，默认所有页面都记忆滑轮位置，但允许用户设置 `.vitepress/theme/index.ts` 中的 scrollMemoryExcludes 来使得某些路径不记忆滚动位置。
+
+```ts [index.ts]
+// 配置：不使用滚动记忆功能的路径列表
+// 支持精确匹配和前缀匹配（以/结尾）
+const scrollMemoryExcludes: string[] = [
+  // '/exact-path',          // 精确匹配单个页面
+  // '/articles/category/',   // 匹配该目录下所有页面
+  '/essays/poetry/',
+  '/essays/ci/'
+];
+```
+
+## 添加选择文本功能菜单
+本站自定义了一个菜单插件，当在文档内容（VPContent）区域选择文本后，会出现选择文本功能菜单，用户可以通过该菜单为选中的文本添加高亮、标注，或复制文本，搜索文本等操作。
+
+如下方所示：
+
+![菜单页面](/img/TextSelectionMenu.png)
+<div class="figure-caption">图二&emsp;选择文本功能菜单</div>
+
+第一排的按钮：
+* 📋：文本复制
+* 🔍：网页搜索（默认谷歌搜索）
+* 📝：标注信息（换行`shift+enter`，保存`enter`，）
+* 📚：词典查询（默认韦氏词典）
+* 🧼：清除标注（`ctrl+del`）
+
+第二排的按钮：为选择高亮颜色的选项，用户可以点击不同颜色按钮来为选中的文本添加不同颜色的高亮。
+
+若想清除整个页面或全局的标注，执行以下命令：
+
+<<< @/.vitepress/scripts/clear-annotations.js
+
+> [!danger] 警告
+> 由于该插件把标注等信息存放在了本地的 localStorage 中，虽然清空浏览器缓存不会影响数据，但如果清理了`[Cookie 和其他网站数据]`，就会彻底清除 localStorage。
+
+页面的标注数据可以在不同的设备中共享，只需将本地的 localStorage 数据导出并导入到其他设备即可。
+
+<<< @/.vitepress/scripts/export-localStorage.js
+
+
+该插件默认所有页面都添加了选择文本功能菜单，但允许用户设置 `.vitepress/theme/index.ts` 中的 allowedAnnotationPaths 列表，允许特定的路径列表使用文本标注功能。并且还支持用户设置允许跨标签选择文本的元素列表，在该列表中的元素中被选中后可触发菜单的显示。
+
+```ts [index.ts]
+// .vitepress/theme/index.ts
+// 配置：允许使用文本标注功能的路径列表
+// 支持精确匹配和前缀匹配（以/结尾）
+const allowedAnnotationPaths: string[] = [
+      '/others/',
+      '/test'
+];
+
+// 配置：允许跨标签选择文本的元素列表
+const allowedCrossElements: string[] = [
+  'CODE',
+  'PRE',
+  'CODEBLOCK',
+  'LI'
+];
+```
+
+> [!NOTE]
+> 关于该插件作者建议使用场景尽量在 PC 端，该功能菜单在移动端的表现不太稳定。
