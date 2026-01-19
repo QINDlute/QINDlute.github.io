@@ -51,9 +51,16 @@ const renderAnnotations = () => {
       acceptNode: node => {
         if (!node.parentElement) return NodeFilter.FILTER_SKIP
         
-        // 检查是否在标题内
+        // 检查是否在排除区域内: div.content > div.content-body
         let parent = node.parentElement
         while (parent) {
+          // 排除特定区域: div.content > div.content-body
+          if (parent.classList.contains('content-body') && 
+              parent.parentElement?.classList.contains('content')) {
+            return NodeFilter.FILTER_SKIP
+          }
+          
+          // 检查是否在标题内
           if (/^h[1-6]$/i.test(parent.tagName)) {
             return NodeFilter.FILTER_SKIP
           }
@@ -278,15 +285,31 @@ onMounted(() => {
   })
   
   // 优化：减少MutationObserver的监听范围和频率
-  const observer = new MutationObserver(() => {
-    // 使用防抖，减少触发次数
-    if ((window as any).annotationRenderTimeout) {
-      clearTimeout((window as any).annotationRenderTimeout)
+  const observer = new MutationObserver((mutations) => {
+    // 检查是否有任何突变发生在排除区域外
+    const hasValidMutation = mutations.some(mutation => {
+      // 检查突变目标是否在排除区域内
+      let target = mutation.target as Element
+      while (target) {
+        if (target.classList.contains('content-body') && 
+            target.parentElement?.classList.contains('content')) {
+          return false // 突变发生在排除区域内，跳过
+        }
+        target = target.parentElement as Element
+      }
+      return true // 突变发生在排除区域外，需要处理
+    })
+    
+    if (hasValidMutation) {
+      // 使用防抖，减少触发次数
+      if ((window as any).annotationRenderTimeout) {
+        clearTimeout((window as any).annotationRenderTimeout)
+      }
+      (window as any).annotationRenderTimeout = setTimeout(() => {
+        renderAnnotations()
+        addClickListeners()
+      }, 200)
     }
-    (window as any).annotationRenderTimeout = setTimeout(() => {
-      renderAnnotations()
-      addClickListeners()
-    }, 200)
   })
   
   // 优化：只监听内容区域，而不是整个body

@@ -1000,6 +1000,69 @@ onUnmounted(() => {
   opacity: 0.9;
 }
 
+/* Dark模式样式 */
+.dark .text-selection-menu {
+  background: rgba(31, 41, 55, 0.95);
+  border-color: #374151;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.dark .button-row {
+  border-bottom-color: #374151;
+}
+
+.dark .menu-button {
+  color: #e5e7eb;
+}
+
+.dark .menu-button:hover {
+  background: #374151;
+}
+
+.dark .color-label {
+  color: #e5e7eb;
+}
+
+.dark .note-input {
+  background: #1f2937;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+.dark .note-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.dark .primary-button {
+  background: #3b82f6;
+  color: white;
+}
+
+.dark .primary-button:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.dark .secondary-button {
+  background: #374151;
+  color: #e5e7eb;
+  border-color: #4b5563;
+}
+
+.dark .secondary-button:hover {
+  background: #4b5563;
+}
+
+/* Dark模式下的临时高亮样式 */
+.dark .text-highlight-temp {
+  background-color: rgba(234, 179, 8, 0.25) !important;
+  color: #f9fafb;
+}
+
+.dark .text-highlight-temp:hover {
+  opacity: 0.9;
+}
+
 /* 动画效果 */
 .fade-slide-enter-active,
 .fade-slide-leave-active {
