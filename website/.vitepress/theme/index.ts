@@ -21,6 +21,7 @@ import PrevNextNav from './components/PrevNextNav.vue'
 
 import TextSelectionMenu from './components/TextSelectionMenu.vue'
 import AnnotationRenderer from './components/AnnotationRenderer.vue'
+import TextReader from './components/TextReader.vue'
 
 
 import mediumZoom from 'medium-zoom'
@@ -41,6 +42,7 @@ export default {
 
     app.component('TextSelectionMenu', TextSelectionMenu)
     app.component('AnnotationRenderer', AnnotationRenderer)
+    app.component('TextReader', TextReader)
     // 添加全局方法
     app.config.globalProperties.$copyText = async (text: string) => {
       try {
@@ -89,14 +91,14 @@ export default {
     // 配置：允许使用文本标注功能的路径列表
     const allowedAnnotationPaths: string[] = [
       '/others/',
-      '/test'
+      '/test',
+      '/test/'
     ];
     
     // 配置：允许跨标签选择文本的元素列表
     const allowedCrossElements: string[] = [
       'CODE',
       'PRE',
-      'CODEBLOCK',
       'LI',
       'P'
     ];
@@ -163,9 +165,45 @@ export default {
       });
     };
     
+    // 初始化FAQ折叠面板
+    const initFaqToggle = () => {
+      if (typeof window === 'undefined') return;
+      
+      // 查找所有.faq-container元素，支持多个容器
+      const faqContainers = document.querySelectorAll(".faq-container");
+      faqContainers.forEach((faqContainer) => {
+        const toggles = faqContainer.querySelectorAll(".faq-toggle");
+        toggles.forEach((toggle) => {
+          // 移除可能存在的旧事件监听器，避免重复绑定
+          toggle.removeEventListener('click', toggleFaq);
+          toggle.addEventListener("click", toggleFaq);
+        });
+      });
+      
+      // 也支持没有.faq-container包裹的情况
+      const standaloneFaqs = document.querySelectorAll(".faq:not(.faq-container .faq)");
+      standaloneFaqs.forEach((faq) => {
+        const toggle = faq.querySelector(".faq-toggle");
+        if (toggle) {
+          toggle.removeEventListener('click', toggleFaq);
+          toggle.addEventListener("click", toggleFaq);
+        }
+      });
+    };
+    
+    // FAQ点击切换函数
+    const toggleFaq = function(this: HTMLElement) {
+      this.parentNode?.classList.toggle("active");
+    };
+    
     onMounted(() => {
       // 初始化图片缩放
       initZoom();
+      
+      // 初始化FAQ折叠面板
+      nextTick(() => {
+        initFaqToggle();
+      });
       
       // 滚动位置记忆 - 只在浏览器环境中执行
       if (typeof window !== 'undefined') {
@@ -194,6 +232,8 @@ export default {
         nextTick(() => {
           initZoom();
           restoreScrollPos();
+          // 路由变化时重新初始化FAQ折叠面板
+          initFaqToggle();
         });
       }
     );

@@ -14,13 +14,13 @@ const fetchArchiveCount = async () => {
   if (mdResponse.ok) {
     content = await mdResponse.text();
   } else {
-    console.log('archive.md not found, trying archive.html');
+    // console.log('archive.md not found, trying archive.html');
     const htmlResponse = await fetch('/others/archive.html');
-    if (!htmlResponse.ok) {
-      throw new Error('archive.html not found');
-    }
+    // if (!htmlResponse.ok) {
+    //   throw new Error('archive.html not found');
+    // }
     content = await htmlResponse.text();
-    console.log('Using archive.html file');
+    // console.log('Using archive.html file');
   }
     
   // ========== 月份匹配正则，添加 _? 兼容下划线 ==========

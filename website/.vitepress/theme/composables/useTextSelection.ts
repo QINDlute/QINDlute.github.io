@@ -266,7 +266,7 @@ export function useTextSelection() {
     // 区分移动端/桌面端处理
     if (isTouchDevice.value) {
       isProcessingSelection.value = true
-      // 移动端延迟200ms，确保选中文本稳定
+      // 移动端延迟250ms，确保选中文本稳定
       setTimeout(() => {
         const result = getSelectionResult()
         if (result) {
@@ -282,10 +282,10 @@ export function useTextSelection() {
           ignoreNextClick.value = true
           isVisible.value = true
           
-          // 重置忽略点击标记
+          // 重置忽略点击标记 - 延长300ms，适配移动端click延迟
           setTimeout(() => {
             ignoreNextClick.value = false
-          }, 300) // 延长至300ms，适配移动端click延迟
+          }, 300)
         } else {
           // 如果已经有选中文本，不关闭菜单（防止键盘弹出导致菜单关闭）
           if (selection.value.text) {
@@ -394,9 +394,13 @@ export function useTextSelection() {
     setTimeout(handleTextSelection, 100)
   }
   
-  // 简化的handleScroll函数，只要滚动就关闭窗口
+  // 优化的handleScroll函数，滚动时重置所有标注状态
   const handleScroll = () => {
     clearSelection()
+    // 重置处理状态，确保滚动后能正常进行新的文本选择
+    isProcessingSelection.value = false
+    // 重置忽略点击标记，确保滚动后点击按钮能正常响应
+    ignoreNextClick.value = false
   }
 
   onMounted(() => {

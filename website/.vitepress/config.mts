@@ -169,6 +169,38 @@ export default defineConfig({
         }
       })
 
+      // 注册 FAQ 自定义容器
+      md.use(markdownItContainer, 'faq', {
+        render: (tokens, idx) => {
+          const token = tokens[idx]
+          // 匹配容器开始标记（::: faq 标题）
+          if (token.nesting === 1) {
+            // 1. 提取自定义标题（支持 "::: faq 标题" 或 "::: faq active 标题" 语法，active表示初始展开）
+            const info = token.info.trim()
+            // 分离 "active" 标记和标题（可选：支持初始展开）
+            const isActive = info.includes('active')
+            const title = info.replace(/^faq\s*(active)?\s*/, '').trim() || '常见问题' // 无标题时默认显示"常见问题"
+            
+            // 2. 拼接 FAQ 面板的开始 HTML（和原有结构完全一致）
+            // 初始展开则添加 active 类，否则不添加
+            const activeClass = isActive ? 'active' : ''
+            return `
+              <div class="faq ${activeClass}">
+                <h3 class="faq-title">${title}</h3>
+                <div class="faq-text">` // 注意：faq-text 包裹容器内的内容
+          }
+          
+          // 3. 匹配容器结束标记（:::），闭合 HTML 结构
+          return `
+              </div>
+              <button class="faq-toggle">
+                <i class="fas fa-chevron-down"></i>
+                <i class="fas fa-times"></i>
+              </button>
+            </div>`
+        }
+      })
+
     }
   },
   
