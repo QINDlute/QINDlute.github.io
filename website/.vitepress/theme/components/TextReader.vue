@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue';
+import { ref, onMounted, nextTick, onBeforeUnmount } from 'vue';
 
 // 全局共享状态 - 用于跟踪当前正在朗读的组件
 let globalSpeechSynthesis: SpeechSynthesis | null = null;
@@ -48,6 +48,119 @@ let voiceLoadTimeout: number | null = null;
 let voicesLoadedAttempts = 0;
 const MAX_VOICE_LOAD_ATTEMPTS = 5;
 
+// 存储所有可用语音
+let allAvailableVoices: SpeechSynthesisVoice[] = [];
+
+// 获取语音列表 - 独立函数，可在用户交互时调用
+const getGlobalVoices = () => {
+  if (!globalSpeechSynthesis) return;
+  
+  voicesLoadedAttempts++;
+  const availableVoices = globalSpeechSynthesis!.getVoices();
+  
+  // 更新全局可用语音列表
+  allAvailableVoices = availableVoices;
+  
+  // console.log(`🔍 Voice check attempt ${voicesLoadedAttempts}: ${availableVoices.length} voices available`);
+  
+  // 即使没有找到语音，也要继续执行
+  if (availableVoices.length === 0) {
+    // console.log('ℹ️ No voices available yet, will use browser default');
+    // 允许继续执行，浏览器会使用默认语音
+    globalVoicesLoaded = true;
+    isGlobalInitializing = false;
+    return;
+  }
+  
+  // 增强的语音匹配逻辑 - 优化移动端匹配
+  let selectedVoice = null;
+  
+  // 1. 先按语言精确匹配（优先考虑语言，这对移动端更可靠）
+  selectedVoice = availableVoices.find(voice => 
+    voice.lang === TARGET_VOICE_LANG
+  );
+  if (selectedVoice) {
+    // console.log('✓ Exact lang match found:', selectedVoice.name);
+  }
+  
+  // 2. 精确匹配完整语音名称
+  if (!selectedVoice) {
+    selectedVoice = availableVoices.find(voice => voice.name === TARGET_VOICE);
+    if (selectedVoice) {
+      // console.log('✓ Exact name match found:', selectedVoice.name);
+    }
+  }
+  
+  // 3. 如果精确匹配失败，尝试更宽松的模糊匹配
+  if (!selectedVoice) {
+    selectedVoice = availableVoices.find(voice => {
+      const voiceLower = voice.name.toLowerCase();
+      return (
+        (voiceLower.includes('libby') || voiceLower.includes('online')) &&
+        voice.lang.startsWith('en-')
+      );
+    });
+    if (selectedVoice) {
+      // console.log('✓ Fuzzy match found:', selectedVoice.name);
+    }
+  }
+  
+  // 4. 如果模糊匹配失败，尝试匹配任何Microsoft语音
+  if (!selectedVoice) {
+    selectedVoice = availableVoices.find(voice => 
+      voice.name.toLowerCase().includes('microsoft') &&
+      voice.lang.startsWith('en-')
+    );
+    if (selectedVoice) {
+      // console.log('✓ Microsoft English voice found:', selectedVoice.name);
+    }
+  }
+  
+  // 5. 如果仍然失败，尝试选择任何英语语音
+  if (!selectedVoice) {
+    selectedVoice = availableVoices.find(voice => 
+      voice.lang.startsWith('en-')
+    );
+    if (selectedVoice) {
+      // console.log('✓ English voice found:', selectedVoice.name);
+    }
+  }
+  
+  // 6. 如果没有英语语音，选择第一个可用语音
+  if (!selectedVoice && availableVoices.length > 0) {
+    selectedVoice = availableVoices[0];
+    // console.log('✓ Using first available voice:', selectedVoice.name);
+  }
+  
+  // 更新全局语音
+  if (selectedVoice) {
+    globalVoice = selectedVoice;
+    // console.log('=== Voice Updated ===');
+    // console.log('Selected voice:', selectedVoice.name);
+    // console.log('====================');
+  }
+  
+  // 无论是否找到语音，都允许继续执行
+  globalVoicesLoaded = true;
+  
+  // 清除超时
+  if (voiceLoadTimeout) {
+    clearTimeout(voiceLoadTimeout);
+    voiceLoadTimeout = null;
+  }
+  
+  isGlobalInitializing = false;
+};
+
+// 页面卸载时停止所有朗读
+const handlePageUnload = () => {
+  if (globalSpeechSynthesis) {
+    globalSpeechSynthesis.cancel();
+    // 重置全局状态
+    currentSpeakingComponentId = null;
+  }
+};
+
 // 初始化全局语音合成
 const initGlobalSpeechSynthesis = () => {
   if (!('speechSynthesis' in window)) {
@@ -63,178 +176,28 @@ const initGlobalSpeechSynthesis = () => {
   // 重置尝试次数
   voicesLoadedAttempts = 0;
   
-  // 获取语音列表
-  const getGlobalVoices = () => {
-    voicesLoadedAttempts++;
-    const availableVoices = globalSpeechSynthesis!.getVoices();
-    
-    if (availableVoices.length === 0) {
-      // console.log(`⏳ Waiting for voices to load... Attempt ${voicesLoadedAttempts}/${MAX_VOICE_LOAD_ATTEMPTS}`);
-      
-      // 限制尝试次数
-      if (voicesLoadedAttempts < MAX_VOICE_LOAD_ATTEMPTS) {
-        // 增加延迟，避免过于频繁的尝试
-        setTimeout(getGlobalVoices, 500);
-      } else {
-        // console.error('⚠️ Voice loading timed out after multiple attempts');
-        // 尝试使用默认语音，不依赖具体语音加载
-        globalVoicesLoaded = true;
-        isGlobalInitializing = false;
-      }
-      return;
-    }
-    
-    // 详细记录可用语音，便于调试
-    // console.log('=== Available Voices on this device ===');
-    availableVoices.forEach((voice, index) => {
-      // console.log(`${index + 1}. ${voice.name} (${voice.lang}) - ${voice.default ? '(default)' : ''}`);
-    });
-    // console.log('=====================================');
-    
-    // 增强的语音匹配逻辑 - 更灵活，适应移动端
-    let selectedVoice = null;
-    
-    // 检测是否为移动端
-    const isMobile = navigator.userAgent.match(/Mobile|mobile|Android|iOS|iPhone|iPad/i) !== null;
-    // console.log(`📱 Device type: ${isMobile ? 'Mobile' : 'Desktop'}`);
-    
-    // 更详细的设备信息
-    // console.log(`💻 Device info: ${navigator.userAgent}`);
-    
-    // 1. 精确匹配完整语音名称
-    selectedVoice = availableVoices.find(voice => voice.name === TARGET_VOICE);
-    if (selectedVoice) {
-      // console.log('✓ Exact match found:', selectedVoice.name);
-    }
-    
-    // 2. 移动端特殊处理 - 更灵活的匹配逻辑，特别针对Microsoft Libby语音
-    if (!selectedVoice && isMobile) {
-      // 移动端可能有不同的语音名称格式，使用更灵活的匹配
-      selectedVoice = availableVoices.find(voice => {
-        const voiceLower = voice.name.toLowerCase();
-        // 移动端可能只有简化的语音名称
-        return (
-          // 优先匹配包含"libby"的语音
-          voiceLower.includes('libby') ||
-          // 其次匹配包含"online"和"en-GB"的Microsoft语音
-          (voiceLower.includes('microsoft') && 
-           voiceLower.includes('online') && 
-           (voice.lang === 'en-GB' || voiceLower.includes('uk')))
-        );
-      });
-      if (selectedVoice) {
-        // console.log('✓ Mobile Libby voice match found:', selectedVoice.name);
-      }
-    }
-    
-    // 3. 增强的模糊匹配 - 针对不同平台的语音名称变化
-    if (!selectedVoice) {
-      selectedVoice = availableVoices.find(voice => {
-        const voiceLower = voice.name.toLowerCase();
-        return (
-          // 匹配关键特征：Microsoft + (Libby或Online) + 英语 + 英国
-          voiceLower.includes('microsoft') &&
-          (voiceLower.includes('libby') || voiceLower.includes('online')) &&
-          (voiceLower.includes('english') || voice.lang.startsWith('en-')) &&
-          (voiceLower.includes('uk') || voiceLower.includes('united kingdom') || voice.lang === 'en-GB')
-        );
-      });
-      if (selectedVoice) {
-        // console.log('✓ Enhanced fuzzy match found:', selectedVoice.name);
-      }
-    }
-    
-    // 4. 基于语音URI的匹配 - 有些浏览器使用URI标识在线语音
-    if (!selectedVoice) {
-      selectedVoice = availableVoices.find(voice => {
-        // 检查voice.voiceURI属性（如果存在）
-        if ('voiceURI' in voice) {
-          const uri = (voice as any).voiceURI.toLowerCase();
-          return uri.includes('libby') || 
-                 (uri.includes('microsoft') && uri.includes('en-gb') && uri.includes('online'));
-        }
-        return false;
-      });
-      if (selectedVoice) {
-        // console.log('✓ Voice URI match found:', selectedVoice.name);
-      }
-    }
-    
-    // 5. Microsoft UK英语语音 - 其他Microsoft英国英语语音
-    if (!selectedVoice) {
-      selectedVoice = availableVoices.find(voice => 
-        voice.name.toLowerCase().includes('microsoft') &&
-        (voice.lang === 'en-GB' || voice.name.toLowerCase().includes('uk')) &&
-        voice.name.toLowerCase().includes('online')
-      );
-      if (selectedVoice) {
-        // console.log('✓ Microsoft Online UK English voice found:', selectedVoice.name);
-      }
-    }
-    
-    // 6. 任何在线英国英语语音
-    if (!selectedVoice) {
-      selectedVoice = availableVoices.find(voice => 
-        (voice.name.toLowerCase().includes('online') || voice.name.toLowerCase().includes('neural')) &&
-        voice.lang === 'en-GB'
-      );
-      if (selectedVoice) {
-        // console.log('✓ Online UK English voice found:', selectedVoice.name);
-      }
-    }
-    
-    // 7. 任何英国英语语音
-    if (!selectedVoice) {
-      selectedVoice = availableVoices.find(voice => voice.lang === 'en-GB');
-      if (selectedVoice) {
-        // console.log('✓ UK English voice found:', selectedVoice.name);
-      }
-    }
-    
-    // 8. 任何英语语音
-    if (!selectedVoice) {
-      selectedVoice = availableVoices.find(voice => voice.lang.startsWith('en-'));
-      if (selectedVoice) {
-        // console.log('✓ English voice found:', selectedVoice.name);
-      }
-    }
-    
-    // 9. 有默认标记的语音
-    if (!selectedVoice) {
-      selectedVoice = availableVoices.find(voice => voice.default);
-      if (selectedVoice) {
-        // console.log('✓ Default voice found:', selectedVoice.name);
-      }
-    }
-    
-    // 10. 第一个可用语音
-    if (!selectedVoice && availableVoices.length > 0) {
-      selectedVoice = availableVoices[0];
-      // console.log('✓ Using first available voice:', selectedVoice.name);
-    }
-    
-    // 即使没有找到语音，也要标记为已加载，允许使用默认语音
-    globalVoice = selectedVoice || null;
-    globalVoicesLoaded = true;
-    
-    // console.log('=== Global Voice Initialized ===');
-    // console.log('Selected voice:', selectedVoice?.name || 'Default voice');
-    // console.log('==============================');
-    
-    // 清除超时
-    if (voiceLoadTimeout) {
-      clearTimeout(voiceLoadTimeout);
-      voiceLoadTimeout = null;
-    }
-    
-    isGlobalInitializing = false;
+  // 监听语音列表变化
+  globalSpeechSynthesis.onvoiceschanged = () => {
+    // console.log('🔔 onvoiceschanged event fired!');
+    getGlobalVoices();
   };
   
-  // 监听语音列表变化
-  globalSpeechSynthesis.onvoiceschanged = getGlobalVoices;
-  
   // 初始获取语音
+  const initialVoices = globalSpeechSynthesis.getVoices();
+  // console.log(`🚀 Initial voices count: ${initialVoices.length}`);
+  
+  // 手动触发一次getGlobalVoices
   getGlobalVoices();
+  
+  // 修复：某些浏览器需要手动触发onvoiceschanged事件
+  // 特别是在移动设备上，语音列表可能需要时间加载
+  setTimeout(() => {
+    const voicesAfterTimeout = globalSpeechSynthesis!.getVoices();
+    if (voicesAfterTimeout.length > 0 && voicesAfterTimeout.length > initialVoices.length) {
+      // console.log('🔄 Manual voice check after timeout found more voices:', voicesAfterTimeout.length);
+      getGlobalVoices();
+    }
+  }, 1000);
   
   // 设置全局超时
   voiceLoadTimeout = window.setTimeout(() => {
@@ -243,6 +206,9 @@ const initGlobalSpeechSynthesis = () => {
     globalVoicesLoaded = true;
     isGlobalInitializing = false;
   }, 5000);
+  
+  // 监听页面卸载事件，确保关闭页面时停止所有朗读
+  window.addEventListener('beforeunload', handlePageUnload);
 };
 
 // 组件挂载时初始化
@@ -255,11 +221,28 @@ onMounted(() => {
   });
 });
 
+// 组件销毁前停止朗读（页面离开时触发）
+onBeforeUnmount(() => {
+  // 如果当前组件正在朗读，停止所有语音
+  if (currentSpeakingComponentId === componentId && globalSpeechSynthesis) {
+    globalSpeechSynthesis.cancel();
+    // 重置全局状态
+    currentSpeakingComponentId = null;
+    isSpeaking.value = false;
+    isPaused.value = false;
+  }
+});
+
 const handleRead = () => {
-  // 检查浏览器支持
+  // 确保全局语音合成已初始化
   if (!globalSpeechSynthesis) {
-    alert('Your browser does not support speech synthesis.');
-    return;
+    // console.log('🔄 Initializing speech synthesis...');
+    initGlobalSpeechSynthesis();
+    // 重新检查浏览器支持
+    if (!globalSpeechSynthesis) {
+      alert('Your browser does not support speech synthesis.');
+      return;
+    }
   }
   
   // 获取当前段落内容
@@ -270,44 +253,21 @@ const handleRead = () => {
     return;
   }
   
-  // 语音状态检查 - 改进版，更适合移动端
-  if (!globalVoicesLoaded) {
-    // 如果还没有初始化，立即初始化
-    if (!globalSpeechSynthesis && !isGlobalInitializing) {
-      // console.log('⏳ Initializing speech synthesis...');
-      initGlobalSpeechSynthesis();
-      // 不显示alert，让用户等待并尝试再次点击
-      return;
-    }
-    
-    // 如果正在初始化，不重复提示
-    if (isGlobalInitializing) {
-      // console.log('⏳ Still initializing, please try again shortly...');
-      return;
-    }
+  // 移动端优化：在用户交互时重新检查语音列表
+  // 因为移动端浏览器可能只在用户交互时才加载完整的语音列表
+  if (voicesLoadedAttempts < MAX_VOICE_LOAD_ATTEMPTS) {
+    // console.log('🔄 Rechecking voices on user interaction...');
+    getGlobalVoices();
   }
   
-  // 不再严格要求globalVoice，允许浏览器使用默认语音
-  // 如果没有找到特定语音，浏览器会自动使用默认语音
-  if (!globalVoice) {
-    // console.log('ℹ️ No specific voice found, using browser default');
-    // 继续执行，不阻止朗读
-  }
-  
-  // 1. 检查当前状态
+  // 检查当前状态
   const isCurrentComponent = currentSpeakingComponentId === componentId;
   const isSpeakingNow = globalSpeechSynthesis.speaking;
   const isPausedNow = globalSpeechSynthesis.paused;
   
-  // console.log(`📋 Current state for component ${componentId}:`);
-  // console.log(`   - isCurrentComponent: ${isCurrentComponent}`);
-  // console.log(`   - isSpeakingNow: ${isSpeakingNow}`);
-  // console.log(`   - isPausedNow: ${isPausedNow}`);
-  // console.log(`   - isPaused.value: ${isPaused.value}`);
-  // console.log(`   - isSpeaking.value: ${isSpeaking.value}`);
-  
-  // 2. 处理不同状态
+  // 状态控制逻辑
   if (isCurrentComponent) {
+    // 点击的是当前组件
     if (isPaused.value || isPausedNow) {
       // 当前已暂停，从头开始
       // console.log(`🔄 Restarting speech from beginning for component ${componentId}`);
@@ -319,73 +279,104 @@ const handleRead = () => {
       isPaused.value = false;
       isSpeaking.value = false;
       
-      // 立即启动新语音，不使用setTimeout，避免移动端浏览器拒绝
-      // 更新当前组件ID和状态
-      currentSpeakingComponentId = componentId;
-      isSpeaking.value = true;
+      // 保存当前上下文以便在setTimeout中使用
+      const currentSpeechSynthesis = globalSpeechSynthesis;
+      const currentSlotContent = slotContent;
       
-      // console.log(`\n🎤 Starting speech after restart for component ${componentId}`);
-      // console.log('Using voice:', globalVoice ? globalVoice.name : 'Browser default voice');
-      
-      // 创建新的utterance实例
-      const newUtterance = new SpeechSynthesisUtterance(slotContent);
-      // 只有当globalVoice存在时才设置，否则使用浏览器默认语音
-      if (globalVoice) {
-        newUtterance.voice = globalVoice;
-      }
-      
-      // 改进的事件处理
-      newUtterance.onend = () => {
-        // console.log(`✅ Speech ended for component ${componentId}`);
-        currentSpeakingComponentId = null;
-        isSpeaking.value = false;
-        isPaused.value = false;
-      };
-      
-      newUtterance.onerror = (event) => {
-        // console.error(`❌ Speech error for component ${componentId}:`, event.error);
-        // 忽略interrupted错误，因为这是正常的取消操作
-        if (event.error === 'interrupted') {
-          // console.log('⚠️ Speech interrupted (expected behavior for restart)');
+      // 使用更长的延迟来避免interrupted错误
+      // 移动设备需要更多时间来处理cancel()操作
+      setTimeout(() => {
+        // 更新当前组件ID和状态
+        currentSpeakingComponentId = componentId;
+        isSpeaking.value = true;
+        
+        // console.log(`
+        // 🎤 Starting speech after restart for component ${componentId}`);
+        // console.log('Using voice:', globalVoice ? globalVoice.name : 'Browser default voice');
+        
+        // 创建新的utterance实例
+        const newUtterance = new SpeechSynthesisUtterance(currentSlotContent);
+        // 设置语言，浏览器会自动使用匹配的默认语音
+        newUtterance.lang = TARGET_VOICE_LANG;
+        // 只在globalVoice存在时设置，否则使用浏览器默认语音
+        if (globalVoice) {
+          newUtterance.voice = globalVoice;
         }
-        currentSpeakingComponentId = null;
-        isSpeaking.value = false;
-        isPaused.value = false;
-      };
+        
+        // 改进的事件处理
+        newUtterance.onend = () => {
+          // console.log(`✅ Speech ended for component ${componentId}`);
+          currentSpeakingComponentId = null;
+          isSpeaking.value = false;
+          isPaused.value = false;
+        };
+        
+        newUtterance.onerror = (event) => {
+          // console.error(`❌ Speech error for component ${componentId}:`, event.error);
+          // 忽略interrupted错误，因为这是正常的取消操作
+          if (event.error === 'interrupted') {
+            // console.log('⚠️ Speech interrupted (expected behavior for restart)');
+          } else {
+            // 其他错误才显示
+            // console.error('❌ Unexpected speech error:', event.error);
+          }
+          currentSpeakingComponentId = null;
+          isSpeaking.value = false;
+          isPaused.value = false;
+        };
+        
+        // 开始朗读
+        try {
+          currentSpeechSynthesis.speak(newUtterance);
+        } catch (error) {
+          // console.error(`❌ Failed to speak for component ${componentId}:`, error);
+          currentSpeakingComponentId = null;
+          isSpeaking.value = false;
+          isPaused.value = false;
+        }
+      }, 100); // 增加延迟到100ms，给浏览器足够时间处理
       
-      // 开始朗读
-      try {
-        globalSpeechSynthesis.speak(newUtterance);
-      } catch (error) {
-        // console.error(`❌ Failed to speak for component ${componentId}:`, error);
-        currentSpeakingComponentId = null;
-        isSpeaking.value = false;
-        isPaused.value = false;
-      }
+      return; // 提前返回，避免后续代码执行
     } else if (isSpeakingNow) {
       // 当前正在朗读，暂停
       // console.log(`⏸️ Pausing speech for component ${componentId}`);
       globalSpeechSynthesis.pause();
       isSpeaking.value = false;
       isPaused.value = true;
+      return;
     }
   } else {
     // 点击的是不同组件
     // console.log(`🔇 Stopping all speech synthesis`);
     globalSpeechSynthesis.cancel();
     isPaused.value = false;
-    
-    // 正常启动新的语音
+    // 给浏览器一点时间来处理cancel()操作
+    setTimeout(() => {
+      // 在新的组件中开始朗读
+      startNewSpeech();
+    }, 50);
+    return;
+  }
+  
+  // 正常启动新的语音（非重启场景）
+  startNewSpeech();
+  
+  // 辅助函数：开始新的语音合成
+  function startNewSpeech() {
     // 更新当前组件ID和状态
     currentSpeakingComponentId = componentId;
     isSpeaking.value = true;
     
-    // console.log(`\n🎤 Starting speech for component ${componentId}`);
+    // console.log(`
+    // 🎤 Starting speech for component ${componentId}`);
+    // console.log('Available voices count:', allAvailableVoices.length);
     // console.log('Using voice:', globalVoice ? globalVoice.name : 'Browser default voice');
     
     // 创建新的utterance实例
     const utterance = new SpeechSynthesisUtterance(slotContent);
-    // 只有当globalVoice存在时才设置，否则使用浏览器默认语音
+    // 设置语言，这会让浏览器使用最合适的默认语音
+    utterance.lang = TARGET_VOICE_LANG;
+    // 只在globalVoice存在时设置，否则使用浏览器默认语音
     if (globalVoice) {
       utterance.voice = globalVoice;
     }
@@ -400,9 +391,12 @@ const handleRead = () => {
     
     utterance.onerror = (event) => {
       // console.error(`❌ Speech error for component ${componentId}:`, event.error);
-      // 忽略interrupted错误，因为这是正常的取消操作
+      // 忽略interrupted错误，因为这是正常的切换组件操作
       if (event.error === 'interrupted') {
         // console.log('⚠️ Speech interrupted (expected behavior when switching components)');
+      } else {
+        // 其他错误才显示
+        // console.error('❌ Unexpected speech error:', event.error);
       }
       currentSpeakingComponentId = null;
       isSpeaking.value = false;
