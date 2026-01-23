@@ -7,6 +7,7 @@
  // 二、在config.ts中注册markdown自定义容器，需要下载markdown-it-container插件，windows命令：npm install -D markdown-it-container
  // 三、在index.ts中引入custom_block.scss文件
 
+
 :root {
     --custom-block-info-left: #cccccc;
     --custom-block-info-bg: #fafafa;
@@ -202,7 +203,7 @@
   // #endregion custom-block //
 
   /* .vitepress/theme/style/blockquote.css */
-.vp-doc blockquote {
+.vp-doc blockquote.vp-quote-special {
   border-radius: 10px;
   padding: 18px 20px 20px 15px;
   position: relative;

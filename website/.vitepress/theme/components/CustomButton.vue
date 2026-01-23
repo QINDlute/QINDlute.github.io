@@ -5,18 +5,18 @@
 <!-- 有href时渲染<a>标签（链接功能），无href时渲染<button>标签（按钮功能） -->
 <template>
   <component
-    :is="href ? 'a' : 'button'"
-    :href="href"
+    :is="href && !disabled ? 'a' : 'button'"
+    :href="href && !disabled ? href : undefined"
     :class="[
       'VPButton',
       size,
       type,
       { 'is-disabled': disabled }
     ]"
-    :target="href ? target : undefined"
-    :rel="href && target === '_blank' ? 'noopener noreferrer' : null"
+    :target="href && !disabled && target ? target : undefined"
+    :rel="href && !disabled && target === '_blank' ? 'noopener noreferrer' : null"
     @click="handleClick"
-    :disabled="!href && disabled"
+    :disabled="disabled"
   >
     <slot></slot>
   </component>
@@ -89,11 +89,11 @@ const handleClick = (event: MouseEvent) => {
 
 <style scoped>
 /* 优化7：简化样式结构，保留核心禁用样式，提高样式优先级兼容性 */
-/* 原样式无问题，优化注释说明，便于维护 */
 .VPButton.is-disabled {
   opacity: 0.6;
-  cursor: not-allowed;
-  pointer-events: none; /* 彻底阻止交互，解决部分浏览器禁用状态仍可点击的兼容性问题 */
+  cursor: not-allowed; /* 显示禁止光标 */
+  /* 移除 pointer-events: none，允许鼠标悬停以显示禁止光标 */
+  /* 功能禁用由 button 的 disabled 属性或事件处理保证 */
 }
 
 /* 补充：解决动态标签（button）的默认样式干扰，提高兼容性 */

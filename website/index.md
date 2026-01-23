@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 浏览笔记
-      link: /notes/
+      link: /others/archive
     - theme: alt
       text: 关于
       link: /others/about/aboutstyle

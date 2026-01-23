@@ -155,12 +155,14 @@ const prevSlide = () => {
   flex-basis: 60%;
   background-color: #f5f5f5;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   transform: translateX(100%);
   transition: 0.6s all ease-in-out;
-  padding: 30px; /* 增加内边距以容纳诗词内容 */
+  padding: 20px;
+  overflow-y: auto; /* 关键修改：长诗词时显示垂直滚动条 */
 }
 
 .poem-content {
@@ -170,6 +172,26 @@ const prevSlide = () => {
   line-height: 2.5;
   color: #333;
   max-width: 80%;
+  flex-shrink: 0; /* 防止诗词内容被压缩 */
+}
+
+/* 美化滚动条样式 */
+.carousel-item_poem::-webkit-scrollbar {
+  width: 8px; /* 滚动条宽度 */
+}
+
+.carousel-item_poem::-webkit-scrollbar-track {
+  background: #e0e0e0; /* 滚动条轨道颜色 */
+  border-radius: 4px;
+}
+
+.carousel-item_poem::-webkit-scrollbar-thumb {
+  background: #888; /* 滚动条滑块颜色 */
+  border-radius: 4px;
+}
+
+.carousel-item_poem::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 滚动条滑块悬停颜色 */
 }
 
 .poem-line { /* 诗词行 */
@@ -329,10 +351,9 @@ const prevSlide = () => {
 
 /* 响应式设计 - 移动端适配 */
 @media (max-width: 768px) {
-  /* 修改轮播容器的高度为自适应 */
   .carousel {
-    height: auto;
-    max-height: none;
+    height: 550px;
+    max-height: 700px;
     min-height: 550px;
   }
   
@@ -341,28 +362,44 @@ const prevSlide = () => {
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    height: auto;
+    height: 100%;
     min-height: 550px;
   }
   
   /* 调整标题区域的样式 */
   .carousel-item_info {
     width: 100%;
-    height: auto;
+    height: 30%;
     order: 1;
     padding: 30px 20px 0px 20px ; /* 增加内边距 */
     flex-direction: column;
     text-align: center;
   }
   
-  /* 调整诗词区域的样式 */
+  /* 调整诗词区域的样式 - 关键修改：高度设置为100%，使用负margin覆盖标题区域 */
   .carousel-item_poem {
     width: 100%;
-    height: 400px;
+    height: 100%; /* 高度100%，覆盖整个轮播项 */
     order: 2;
-    padding: 4px;
+    padding: 15px;
     transform: translateY(100%);
-    position: relative; /* 添加相对定位，用于定位导航按钮 */
+    position: absolute; /* 绝对定位，覆盖整个轮播项 */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* 内容底部对齐 */
+  }
+  
+  /* 调整诗词内容区域，确保内容在底部70%区域显示 */
+  .carousel-item_poem .poem-content {
+    width: 100%;
+    height: 70%; /* 诗词内容占轮播项的70% */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
   }
   
   /* 调整导航按钮的位置 */
@@ -374,6 +411,7 @@ const prevSlide = () => {
     background-color: rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* 提高层级，确保在诗词区域之上 */
   }
   
   /* 调整诗词内容的字体大小 */
@@ -381,6 +419,32 @@ const prevSlide = () => {
     font-size: 20px;
     line-height: 2;
     max-width: 90%;
+  }
+  
+  /* 修复：确保滚动条样式应用到响应式布局 */
+  .carousel-item_poem::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .carousel-item_poem::-webkit-scrollbar-track {
+    background: #e0e0e0;
+    border-radius: 4px;
+  }
+  
+  .carousel-item_poem::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .carousel-item_poem::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* 确保标题区域在诗词区域之上显示 */
+  .carousel-item_info {
+    position: relative;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.9); /* 半透明背景，确保标题可读性 */
   }
   
   /* 调整标题大小 */

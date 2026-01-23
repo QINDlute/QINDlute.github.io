@@ -10,11 +10,14 @@ const fontSizeLevels = [12, 14, 16, 18, 20] // 对应等级0-4的像素值
 let storedFontSizeLevel = 2
 const DEFAULT_FONT_SIZE_LEVEL = 2
 try {
-  const rawData = localStorage.getItem('vitepress-font-size-level')
-  if (rawData) {
-    storedFontSizeLevel = parseInt(rawData)
-    // 确保值在有效范围内（0-4）
-    storedFontSizeLevel = Math.max(0, Math.min(4, storedFontSizeLevel))
+  // 检查是否在浏览器环境中
+  if (typeof window !== 'undefined' && localStorage) {
+    const rawData = localStorage.getItem('vitepress-font-size-level')
+    if (rawData) {
+      storedFontSizeLevel = parseInt(rawData)
+      // 确保值在有效范围内（0-4）
+      storedFontSizeLevel = Math.max(0, Math.min(4, storedFontSizeLevel))
+    }
   }
 } catch (e) {
   console.warn('读取字体大小存储失败，使用默认值', e)
@@ -26,12 +29,15 @@ const fontSizeLevel = ref(storedFontSizeLevel)
 let storedFontType = 'sans'
 const DEFAULT_FONT_TYPE = 'sans'
 try {
-  const rawData = localStorage.getItem('vitepress-font-type')
-  if (rawData) {
-    storedFontType = rawData
-    // 确保值为有效值
-    if (!['sans', 'serif'].includes(storedFontType)) {
-      storedFontType = DEFAULT_FONT_TYPE
+  // 检查是否在浏览器环境中
+  if (typeof window !== 'undefined' && localStorage) {
+    const rawData = localStorage.getItem('vitepress-font-type')
+    if (rawData) {
+      storedFontType = rawData
+      // 确保值为有效值
+      if (!['sans', 'serif'].includes(storedFontType)) {
+        storedFontType = DEFAULT_FONT_TYPE
+      }
     }
   }
 } catch (e) {
@@ -44,12 +50,15 @@ const fontType = ref(storedFontType)
 let storedTheme = 'white'
 const DEFAULT_THEME = 'white'
 try {
-  const rawData = localStorage.getItem('vitepress-theme')
-  if (rawData) {
-    storedTheme = rawData
-    // 确保值为有效值
-    if (!['white', 'sepia', 'night'].includes(storedTheme)) {
-      storedTheme = DEFAULT_THEME
+  // 检查是否在浏览器环境中
+  if (typeof window !== 'undefined' && localStorage) {
+    const rawData = localStorage.getItem('vitepress-theme')
+    if (rawData) {
+      storedTheme = rawData
+      // 确保值为有效值
+      if (!['white', 'sepia', 'night'].includes(storedTheme)) {
+        storedTheme = DEFAULT_THEME
+      }
     }
   }
 } catch (e) {
@@ -178,18 +187,36 @@ onMounted(() => {
 
 // 监听字体大小变化，写入localStorage
 watch(fontSizeLevel, (newValue) => {
-  localStorage.setItem('vitepress-font-size-level', String(newValue))
+  try {
+    if (typeof window !== 'undefined' && localStorage) {
+      localStorage.setItem('vitepress-font-size-level', String(newValue))
+    }
+  } catch (e) {
+    console.warn('写入字体大小存储失败', e)
+  }
   applyFontSize() // 重新应用字体大小
 })
 
 // 监听字体类型变化，写入localStorage
 watch(fontType, (newValue) => {
-  localStorage.setItem('vitepress-font-type', newValue)
+  try {
+    if (typeof window !== 'undefined' && localStorage) {
+      localStorage.setItem('vitepress-font-type', newValue)
+    }
+  } catch (e) {
+    console.warn('写入字体类型存储失败', e)
+  }
 })
 
 // 监听主题变化，写入localStorage
 watch(theme, (newValue) => {
-  localStorage.setItem('vitepress-theme', newValue)
+  try {
+    if (typeof window !== 'undefined' && localStorage) {
+      localStorage.setItem('vitepress-theme', newValue)
+    }
+  } catch (e) {
+    console.warn('写入主题存储失败', e)
+  }
 })
 
 // 组件卸载时移除所有事件监听器
@@ -391,6 +418,16 @@ onUnmounted(() => {
   border-color: var(--vp-c-brand-3);
 }
 
+  /* 调整按钮激活状态样式，增强视觉反馈 */
+.button.active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 优化触摸反馈 */
+.button:active {
+  transform: scale(0.95);
+}
+
 .font-settings-container {
   display: inline-flex;
   align-items: center;
@@ -470,5 +507,81 @@ onUnmounted(() => {
 
 :global(.theme-night.dark) {
   --vp-c-bg-rgb: 30, 30, 30;
+}
+
+/* 移动端响应式样式 */
+@media (max-width: 768px) {
+  /* 调整字体设置按钮大小，确保足够的触摸目标 */
+  .btn.toggle-dropdown {
+    padding: 10px 18px 9px;
+    font-size: 11px;
+  }
+  
+  .btn i {
+    font-size: 14px;
+  }
+  
+  /* 优化下拉菜单样式 */
+  .font-settings-dropdown {
+    width: 120px; /* 调整宽度，适合更小的按钮 */
+    min-width: 110px;
+    padding: 4px;
+    margin-top: 4px;
+    left: 50%; /* 居中显示 */
+    right: auto;
+    transform: translateX(-50%); /* 水平居中 */
+    top: 127%; /* 调整与按钮的间距 */
+    background-color: rgba(var(--vp-c-bg-rgb), 0.8); /* 更高的背景透明度，提高可读性 */
+    transition: all 0.2s ease; /* 增加过渡效果 */
+  }
+  
+  /* 调整下拉菜单箭头位置 */
+  .dropdown-caret {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  
+  /* 调整下拉菜单分区样式 */
+  .dropdown-section {
+    padding: 10px;
+  }
+  
+  /* 调整按钮样式，减小尺寸 */
+  .button {
+    padding: 6px 6px;
+    font-size: 10px;
+    min-width: 40px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 调整按钮组样式：靠左排列 + 减小间距 */
+  .buttons {
+    gap: 6px; /* 减小间距 */
+    justify-content: flex-start; /* 靠左排列 */
+  }
+  
+  /* 调整字体大小调整按钮样式，减小尺寸 */
+  .dropdown-section:nth-child(1) .button {
+    font-size: 11px; /* 减小字体大小 */
+    padding: 6px 8px; /* 减小内边距 */
+  }
+  
+  /* 优化字体类型按钮样式，减小尺寸 */
+  .dropdown-section:nth-child(2) .button {
+    font-size: 11px; /* 减小字体大小 */
+    padding: 6px 8px; /* 减小内边距 */
+  }
+  
+  /* 优化主题切换按钮样式，确保与其他按钮大小一致 */
+  .dropdown-section:nth-child(3) .button {
+    font-size: 10px; /* 更小的字体 */
+    padding: 6px 6px; /* 更小的内边距 */
+  }
+  
+
 }
 </style>

@@ -92,6 +92,4 @@ Tailwind CSS 提供了丰富的间距工具，方便您调整元素之间的距�
 </div>
 
 
-<style>
-@import "tailwindcss";
-</style>
+<CustomLink title='【编程】Prisma 教程 | 快速入门 | 下一代 Node.js 和 TypeScript ORM' href='https://www.bilibili.com/video/BV1yo4y1x7e7/'/>

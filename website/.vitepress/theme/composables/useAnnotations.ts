@@ -41,7 +41,14 @@ export function useAnnotations() {
     try {
       isLoading.value = true
       const currentPage = getCurrentPageUrl()
-      const saved = localStorage.getItem(`vitepress-annotations-${currentPage}`)
+      let saved = null;
+      try {
+        if (typeof window !== 'undefined' && localStorage) {
+          saved = localStorage.getItem(`vitepress-annotations-${currentPage}`);
+        }
+      } catch (e) {
+        console.warn('读取批注失败', e);
+      }
       
       if (saved) {
         annotations.value = JSON.parse(saved).map((anno: any) => ({
@@ -65,10 +72,16 @@ export function useAnnotations() {
   const saveAnnotations = () => {
     try {
       const currentPage = getCurrentPageUrl()
-      localStorage.setItem(
-        `vitepress-annotations-${currentPage}`,
-        JSON.stringify(annotations.value)
-      )
+      try {
+        if (typeof window !== 'undefined' && localStorage) {
+          localStorage.setItem(
+            `vitepress-annotations-${currentPage}`,
+            JSON.stringify(annotations.value)
+          );
+        }
+      } catch (e) {
+        console.warn('保存批注失败', e);
+      }
     } catch (err) {
       console.error('Failed to save annotations:', err)
     }
