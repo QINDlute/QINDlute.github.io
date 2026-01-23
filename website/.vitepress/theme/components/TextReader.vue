@@ -19,7 +19,9 @@
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
       </svg>
     </button>
-    <div ref="contentRef"><slot></slot></div>
+    <div ref="contentRef" class="text-reader-content">
+      <slot></slot>
+    </div>
   </div>
 </template>
 
@@ -42,6 +44,62 @@ const componentId = `text-reader-${Math.random().toString(36).substr(2, 9)}`;
 const isSpeaking = ref(false);
 const isPaused = ref(false);
 const contentRef = ref<HTMLElement | null>(null);
+
+// 修复DOM结构，确保所有文本段落都被<p>包裹
+const fixParagraphs = () => {
+  if (!contentRef.value) return;
+  
+  const contentElement = contentRef.value;
+  let firstTextNodeFound = false;
+  
+  // 遍历所有子节点
+  for (let i = 0; i < contentElement.childNodes.length; i++) {
+    const child = contentElement.childNodes[i];
+    
+    // 处理文本节点
+    if (child.nodeType === Node.TEXT_NODE) {
+      const text = child.textContent?.trim() || '';
+      if (text) {
+        // 创建<p>标签包裹文本
+        const p = document.createElement('p');
+        p.textContent = text;
+        contentElement.insertBefore(p, child);
+        contentElement.removeChild(child);
+        i--; // 调整索引，因为我们替换了节点
+        firstTextNodeFound = true;
+      } else {
+        // 移除空文本节点
+        contentElement.removeChild(child);
+        i--;
+      }
+    }
+    // 处理元素节点
+    else if (child.nodeType === Node.ELEMENT_NODE) {
+      // 跳过已经是<p>标签的元素
+      if (child.nodeName === 'P') {
+        firstTextNodeFound = true;
+        continue;
+      }
+      
+      // 如果是第一个元素节点且还没有找到文本节点，检查其内部是否有直接文本
+      if (!firstTextNodeFound) {
+        const element = child as HTMLElement;
+        if (element.childNodes.length === 1 && element.firstChild?.nodeType === Node.TEXT_NODE) {
+          const text = element.firstChild.textContent?.trim() || '';
+          if (text) {
+            // 创建新的<p>标签
+            const p = document.createElement('p');
+            p.textContent = text;
+            contentElement.insertBefore(p, child);
+            contentElement.removeChild(child);
+            i--;
+            firstTextNodeFound = true;
+          }
+        }
+      }
+    }
+  }
+};
 
 // 语音加载超时处理
 let voiceLoadTimeout: number | null = null;
@@ -218,6 +276,9 @@ onMounted(() => {
     if (!globalSpeechSynthesis) {
       initGlobalSpeechSynthesis();
     }
+    
+    // 修复段落结构，确保所有文本都被<p>包裹
+    fixParagraphs();
   });
 });
 
