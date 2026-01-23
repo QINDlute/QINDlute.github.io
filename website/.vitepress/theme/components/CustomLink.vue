@@ -27,6 +27,18 @@ const hrefSource = computed(() => {
     return 'youtube'
   else if (/github\.com/.test(href))
     return 'github'
+    else if (/zhihu\.com/.test(href))
+    return 'zhihu'
+  else if (/markdown\.cn/.test(href))
+    return 'markdown'
+  else if (/qindlute\.github\.io/.test(href))
+    return 'qindlute'
+  else if (/vitepress\.dev/.test(href))
+    return 'vitepress'
+  else if (/chodocs\.cn/.test(href))
+    return 'chodocs'
+  else if (/fe-qianxun\.com/.test(href))
+    return 'qianxun'
   else if (/zsxq\.com/.test(href))
     return 'zsxq'
   else if (/vercel/.test(href))
@@ -43,14 +55,6 @@ const hrefSource = computed(() => {
     return 'stackoverflow'
   else if (/bun/.test(href))
     return 'bun'
-  else if (/zhihu/.test(href))
-    return 'zhihu'
-  else if (/markdown/.test(href))
-    return 'markdown'
-  else if (/qindlute/.test(href))
-    return 'qindlute'
-  else if (/vitepress/.test(href))
-    return 'vitepress'
   else return 'web'
 })
 
@@ -102,6 +106,8 @@ const component = computed(() => {
               <!-- Custom Icon Component -->
               <CustomIcon v-if="hrefSource === 'qindlute'" image="/img/qind_ico.svg" class="w-7 h-7" />
               <CustomIcon v-if="hrefSource === 'vitepress'" image="/img/customIcon/vitepress-icon.svg" class="w-7 h-7" />
+              <CustomIcon v-if="hrefSource === 'chodocs'" image="/img/customIcon/chodocs-icon.svg" class="w-7 h-7" />
+              <CustomIcon v-if="hrefSource === 'qianxun'" image="/img/customIcon/qianxun-icon.png" class="w-7 h-7" />
               <CustomIcon v-if="hrefSource === 'web'" name="web" class="text-slate-600 dark:text-slate-300 w-7 h-7" />
               <span class="text-ellipsis w-full whitespace-nowrap overflow-hidden text-sm opacity-75 font-500">{{ href
               }}</span>
@@ -137,6 +143,32 @@ const component = computed(() => {
 .dark .custom-wrap {
   border: unset;
   background-image: radial-gradient(at left top, #71717a, 50px, #27272a 50%);
+}
+
+/* Sepia主题样式 */
+.theme-sepia .custom-link {
+  color: var(--vp-c-text-1);
+}
+
+.theme-sepia .custom-wrap {
+  border-color: #d8c8a8;
+  background-image: radial-gradient(at left top, #e8d8b8, 50px, #f4ecd8 50%);
+}
+
+.theme-sepia .custom-wrap > div {
+  background-color: #f0e6c8;
+}
+
+.theme-sepia .custom-link section {
+  background-color: #f0e6c8;
+}
+
+.theme-sepia .custom-link span.group-hover\:text-\[\#06f\] {
+  color: var(--vp-c-text-1);
+}
+
+.theme-sepia .custom-link:hover span.group-hover\:text-\[\#06f\] {
+  color: #06f;
 }
 
 .custom-link:hover {
