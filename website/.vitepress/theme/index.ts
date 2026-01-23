@@ -11,38 +11,43 @@ import './style/index.scss'
 
 import FontSettingsPlugin from './components/FontSettingsPlugin.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
-import ArchiveCount from './components/ArchiveCount.vue'
-import ArticleMetadata from './components/ArticleMetadata.vue'
-import CustomButton from './components/CustomButton.vue'
-import MarkerText from './components/MarkerText.vue'
-import CarouselComponent from './components/CarouselComponent.vue'
-import YAMLCarousel from './components/YAMLCarousel.vue'
-import PrevNextNav from './components/PrevNextNav.vue'
+// import ArchiveCount from './components/ArchiveCount.vue'
+// import ArticleMetadata from './components/ArticleMetadata.vue'
+// import CustomButton from './components/CustomButton.vue'
+// import MarkerText from './components/MarkerText.vue'
+// import CarouselComponent from './components/CarouselComponent.vue'
+// import YAMLCarousel from './components/YAMLCarousel.vue'
+// import PrevNextNav from './components/PrevNextNav.vue'
+// import VideoLink from './components/VideoLink.vue'
 
 import TextSelectionMenu from './components/TextSelectionMenu.vue'
 import AnnotationRenderer from './components/AnnotationRenderer.vue'
 import TextReader from './components/TextReader.vue'
-
+import CustomLink from './components/CustomLink.vue'
 
 import mediumZoom from 'medium-zoom'
 
 import 'virtual:group-icons.css'
+import "virtual:uno.css";
 
 export default {
   extends: DefaultTheme,
   // 注册全局组件
   enhanceApp({ app }) {
-    app.component('ArchiveCount', ArchiveCount)
-    app.component('ArticleMetadata', ArticleMetadata)
-    app.component('CustomButton', CustomButton)
-    app.component('MarkerText', MarkerText)
-    app.component('CarouselComponent', CarouselComponent)
-    app.component('YAMLCarousel', YAMLCarousel)
-    app.component('PrevNextNav', PrevNextNav)
+    // app.component('ArchiveCount', ArchiveCount)
+    // app.component('ArticleMetadata', ArticleMetadata)
+    // app.component('CustomButton', CustomButton)
+    // app.component('MarkerText', MarkerText)
+    // app.component('CarouselComponent', CarouselComponent)
+    // app.component('YAMLCarousel', YAMLCarousel)
+    // app.component('PrevNextNav', PrevNextNav)
+    // app.component('VideoLink', VideoLink)
 
     app.component('TextSelectionMenu', TextSelectionMenu)
     app.component('AnnotationRenderer', AnnotationRenderer)
     app.component('TextReader', TextReader)
+    app.component('CustomLink', CustomLink)
+
     // 添加全局方法
     app.config.globalProperties.$copyText = async (text: string) => {
       try {
@@ -135,10 +140,16 @@ export default {
         return;
       }
       
-      const scrollTop = window.scrollY;
-      const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
-      scrollPosMap[currentPath] = scrollTop;
-      window.localStorage.setItem(scrollPosKey, JSON.stringify(scrollPosMap));
+      try {
+        if (typeof window !== 'undefined' && localStorage) {
+          const scrollTop = window.scrollY;
+          const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
+          scrollPosMap[currentPath] = scrollTop;
+          window.localStorage.setItem(scrollPosKey, JSON.stringify(scrollPosMap));
+        }
+      } catch (e) {
+        console.warn('保存滚动位置失败', e);
+      }
     };
     
     // 恢复滚动位置
@@ -152,8 +163,15 @@ export default {
         return;
       }
       
-      const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
-      const targetScrollTop = scrollPosMap[currentPath] || 0;
+      let targetScrollTop = 0;
+      try {
+        if (typeof window !== 'undefined' && localStorage) {
+          const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
+          targetScrollTop = scrollPosMap[currentPath] || 0;
+        }
+      } catch (e) {
+        console.warn('恢复滚动位置失败', e);
+      }
       
       nextTick(() => {
         window.scrollTo({

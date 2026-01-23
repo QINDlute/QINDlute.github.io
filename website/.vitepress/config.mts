@@ -5,8 +5,16 @@ import { resolve } from 'path'
 import markdownItContainer from 'markdown-it-container'
 
 import { groupIconMdPlugin, groupIconVitePlugin, localIconLoader } from 'vitepress-plugin-group-icons'
+// import tailwindcss from '@tailwindcss/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Components from 'unplugin-vue-components/vite'
+import UnoCSS from 'unocss/vite'
+import { presetUno, presetIcons, presetAttributify } from 'unocss'
 
 import { nav, sidebar, head, customIcon } from './configs'
+import { MarkdownTransform } from './plugin/markdownTransform'
+
 
 // 导入自定义图标配置
 // import { customIcon } from './configs/customIcons'
@@ -19,7 +27,7 @@ export default defineConfig({
 
   appearance: false,
 
-  // 添加外部脚本，提前应用自定义样式配置，消除闪烁问题
+  // 添加外部脚本，提前应用自定义样式配置
   head,
 
   // 使用VitePress内置的主题配置
@@ -97,15 +105,43 @@ export default defineConfig({
 
   vite: {
     plugins: [
+      // tailwindcss(), // 添加 Tailwind CSS 插件
+      UnoCSS({
+        presets: [
+          presetUno(),
+          presetIcons({
+            scale: 1.2,
+            warn: true,
+          }),
+          presetAttributify(),
+        ],
+      }), // 添加 UnoCSS 插件
+      Components({
+        dirs: resolve(__dirname, './theme/components'),
+        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        resolvers: [
+          IconsResolver({
+            componentPrefix: '',
+          }),
+        ],
+        dts: './components.d.ts',
+        transformer: 'vue3',
+      }), // 添加 Components 插件，用于自动注册图标组件
       groupIconVitePlugin({
         customIcon
-      }) // 使用导入的图标配置
+      }), // 使用导入的图标配置
+      Icons({
+        compiler: 'vue3',
+        autoInstall: true,
+        defaultStyle: 'display: inline-block',
+      }),
+      MarkdownTransform(),
     ],
     resolve: {
       alias: {
         '@': resolve(__dirname, '..'), // 项目根目录
-        '@components': resolve(__dirname, 'components'),
-        '@composables': resolve(__dirname, 'composables')
+        '@components': resolve(__dirname, 'components'), // 组件目录
+        '@composables': resolve(__dirname, 'composables') // 可组合函数目录
       }
     }
   },
