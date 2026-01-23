@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as s}from"./chunks/framework.CVQtqtvW.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"essays/index.md","filePath":"essays/index.md","lastUpdated":1768295952000}'),a={name:"essays/index.md"};function n(r,o,d,c,i,p){return s(),t("div")}const f=e(a,[["render",n]]);export{m as __pageData,f as default};
