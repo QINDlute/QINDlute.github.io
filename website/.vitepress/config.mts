@@ -124,7 +124,7 @@ export default defineConfig({
             componentPrefix: '',
           }),
         ],
-        dts: './components.d.ts',
+        dts: './.vitepress/components.d.ts',
         transformer: 'vue3',
       }), // 添加 Components 插件，用于自动注册图标组件
       groupIconVitePlugin({
