@@ -1,7 +1,7 @@
 <!-- components/SnowEffect.vue -->
 <!-- 取自 https://www.hajidong.cn/ -->
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch, onBeforeUnmount } from 'vue'
 
 const isMobile = ref(false)
 const canvas = ref<HTMLCanvasElement | null>(null)
@@ -25,6 +25,34 @@ const checkMobile = (): boolean => {
   const userAgent = navigator.userAgent
   const mobileRegex = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
   return mobileRegex.test(userAgent)
+}
+
+// 检测当前主题并设置雪花颜色
+const updateSnowColor = () => {
+  const root = document.documentElement
+  const isWhite = root.classList.contains('theme-white')
+  const isSepia = root.classList.contains('theme-sepia')
+  
+  // 当主题为white或sepia时，雪花颜色改为粉色；night主题保持白色
+  if (isWhite || isSepia) {
+    config.value.color = "255, 182, 193" // 粉色
+  } else {
+    config.value.color = "255, 255, 255" // 白色
+  }
+}
+
+// 监听主题变化
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      updateSnowColor()
+    }
+  })
+})
+
+// 处理主题变化
+const handleThemeChange = () => {
+  updateSnowColor()
 }
 
 // 雪花类
@@ -151,6 +179,9 @@ onMounted(() => {
   canvas.value.width = window.innerWidth
   canvas.value.height = window.innerHeight
   
+  // 初始化雪花颜色（根据当前主题）
+  updateSnowColor()
+  
   // 创建雪花
   for (let i = 0; i < config.value.flakeCount; i++) {
     snowflakes.push(new Snowflake(
@@ -164,6 +195,12 @@ onMounted(() => {
   window.addEventListener('mousemove', handleMouseMove)
   window.addEventListener('resize', handleResize)
   
+  // 监听主题变化
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class']
+  })
+  
   // 开始动画
   animationFrameId = requestAnimationFrame(animate)
 })
@@ -175,6 +212,9 @@ onUnmounted(() => {
   }
   window.removeEventListener('mousemove', handleMouseMove)
   window.removeEventListener('resize', handleResize)
+  
+  // 停止主题观察
+  observer.disconnect()
 })
 </script>
 
