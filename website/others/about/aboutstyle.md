@@ -487,7 +487,7 @@ VitePress 中支持使用 ***LaTeX*** 语法来书写数学公式，本站的 wh
 ::: whiteboard LaTeX Demo
  #### $\sqrt{3x-1}+(1+x)^2$ 
 
-> 技巧：在容器内使用`#`来单独标记 LaTeX 公式是不会在目录中展示的。
+>: 技巧：在容器内使用`#`来单独标记 LaTeX 公式是不会在目录中展示的。
 
 展示公式：$h(x) = \frac{1}{1+e^{-x}}$
 :::
@@ -708,3 +708,27 @@ const allowedCrossElements: string[] = [
 > [!warning]
 > 本组件依赖Web Speech API，而移动浏览器（edge）出于性能和隐私考虑，限制了Web Speech API的某些功能，因此移动端只有默认语音来完成朗读功能。
 
+## 鼠标点击特效
+
+本站自定义了一个鼠标点击特效插件，当用户点击页面时，会在点击位置显示一个小小的动画效果，模拟鼠标点击的反馈。该组件可在 `.vitepress/theme/index.ts` 中配置挂载来设置是否启用。
+
+::: code-group
+```ts [index.ts]
+Layout: () => {
+  return h(DefaultTheme.Layout, null, {
+    'layout-top': () => h(ClickHearts)
+  })
+},
+```
+:::
+
+![鼠标点击特效](/img/aboutstyle/clickEmo.png){.center}
+
+图六&emsp;鼠标点击特效{.figure-caption}
+
+该特效源自**致美化**的官网：
+<custom-link
+  href="https://zhutix.com/"
+  title="致美化官网"
+  desc="专注于视觉美化的研究及交流平台"
+/>

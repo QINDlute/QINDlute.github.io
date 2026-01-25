@@ -4,10 +4,53 @@
  * Customize default theme styling by overriding CSS variables:
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
+ 
+/* .vitepress/theme/style/style.css */
+.nometa-h1 {
+    display: block;
+    font-size: 2em !important;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+
+:root {
+  /* 默认主题变量 */
+  --nav-card-bg: transparent;
+  --nav-card-border: var(--vp-c-border);
+  --nav-card-hover-bg: transparent;
+  --nav-card-text: #374151; /* gray-700 */
+  --nav-card-hover-text: #1f2937; /* gray-800 */
+  --nav-card-desc: #4b5563; /* gray-600 */
+  --nav-card-shadow: rgba(0, 0, 0, 0.1);
+}
+:root.theme-sepia {
+  --nav-card-bg: #f4e9d8;
+  --nav-card-border: #d0b48c;
+  --nav-card-hover-bg: #ede0cd;
+  --nav-card-text: #5c4732;
+  --nav-card-hover-text: #3e2e1f;
+  --nav-card-desc: #7d6b56;
+  --nav-card-shadow: rgba(176, 144, 96, 0.15);
+}
+:root.theme-night {
+  --nav-card-bg: transparent;
+  --nav-card-border: var(--vp-c-border);
+  --nav-card-hover-bg: transparent;
+  --nav-card-text: #d1d5db; /* gray-300 */
+  --nav-card-hover-text: #f9fafb; /* gray-50 */
+  --nav-card-desc: #9ca3af; /* gray-400 */
+  --nav-card-shadow: rgba(255, 255, 255, 0.1);
+}
+
 
 /* 全局链接样式 - 取消下划线 */
 a {
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 .center {

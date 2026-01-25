@@ -26,50 +26,6 @@
         transform: scale(1.05);
     }
 
-    /* 标签页面样式 */
-    .tags-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 16px;
-        margin: 2rem 0;
-    }
-    .tag-card {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px;
-        background: var(--vp-c-bg-alt);
-        border: 1px solid var(--vp-c-border);
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        color: var(--vp-c-text-1);
-    }
-    .tag-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--vp-shadow-2);
-        background: var(--vp-c-brand);
-        color: var(--vp-c-white);
-        border-color: var(--vp-c-brand);
-    }
-    .tag-name {
-        font-size: 1rem;
-        font-weight: 500;
-    }
-    .tag-count {
-        font-size: 0.8rem;
-        background: var(--vp-c-bg);
-        color: var(--vp-c-text-2);
-        padding: 2px 8px;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-    }
-    .tag-card:hover .tag-count {
-        background: rgba(255, 255, 255, 0.2);
-        color: var(--vp-c-white);
-    }
-
-
 
     /* 笔记归档样式 */
     .archive-nav {
@@ -148,18 +104,6 @@
     
     /* 媒体查询：移动端适配 */
     @media (max-width: 768px) {
-        /* 标签页面移动端样式 */
-        .tags-container {
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 12px;
-        }
-        .tag-card {
-            padding: 12px;
-        }
-        .tag-name {
-            font-size: 0.9rem;
-        }
-        
         /* 归档页面移动端样式 */
         .archive-posts {
             padding-left: 15px;

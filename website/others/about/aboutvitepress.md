@@ -2,7 +2,7 @@
 
 VitePress 是一个基于 Vite 的静态站点生成器，专为构建快速、现代的文档网站而设计。它继承了 Vite 的速度优势，并结合了 Vue 3 的强大功能，为开发者提供了出色的写作和开发体验。
 
-本站就是由 VitePress 构建而成，你可以在 [VitePress 官方网站](https://vitepress.dev/) 查看更多详细信息。
+本站就是由 VitePress 构建而成，你可以在 [VitePress 官方网站](https://vitepress.dev/ "") 查看更多详细信息。
 
 ## 核心特性
 

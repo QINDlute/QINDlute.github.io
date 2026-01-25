@@ -25,12 +25,6 @@
     }
 }
 
-.VPContent, .vp-doc, .vp-doc p, .vp-doc li, .vp-doc span, .vp-doc a, .vp-doc dd, .vp-doc dt, .vp-doc th, .vp-doc td {
-    font-size: var(--vp-custom-font-size);
-    font-family: var(--vp-custom-font-family);
-    transition: all .1s ease;
-}
-
 .VPDocFooter {
     margin-top: 64px;
 }

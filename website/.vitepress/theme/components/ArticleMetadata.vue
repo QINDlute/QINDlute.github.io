@@ -80,7 +80,7 @@ onMounted(() => {
             fill="currentColor" 
           ></path>
         </svg>
-        发表于: {{ publishedDate.toLocaleDateString() }}
+        发表: {{ publishedDate.toLocaleDateString() }}
         <!-- 空格分隔 -->
       </template>
       <svg

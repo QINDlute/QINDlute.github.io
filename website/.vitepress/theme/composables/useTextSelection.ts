@@ -13,7 +13,7 @@ export function useTextSelection() {
   const isPathAllowed = () => {
     const currentPath = window.location.pathname
     const vitepressThemeConfig = (window as any).vitepressThemeConfig
-    const allowedPaths = vitepressThemeConfig?.allowedAnnotationPaths || ['/essays/']
+    const allowedPaths = vitepressThemeConfig?.allowedAnnotationPaths || ['/essays/'] // 允许标注的路径，默认 essays 目录
     return allowedPaths.some(excludePath => {
       if (excludePath.endsWith('/')) {
         return currentPath.startsWith(excludePath)
@@ -72,7 +72,7 @@ export function useTextSelection() {
       // 检查选中文本是否包含不允许的元素（如链接、按钮等）
       const isInDisallowedElement = (range: Range) => {
         // 不允许的元素标签列表
-        const disallowedTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'IMG', 'VIDEO', 'AUDIO', 'CANVAS', 'SCRIPT', 'STYLE']
+        const disallowedTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'IMG', 'VIDEO', 'AUDIO', 'SCRIPT', 'STYLE']
         
         const checkElement = (el: Element | null) => {
           while (el) {
@@ -105,6 +105,27 @@ export function useTextSelection() {
             rangeRect.right > elementRect.left &&
             rangeRect.top < elementRect.bottom &&
             rangeRect.bottom > elementRect.top
+          ) {
+            return true
+          }
+        }
+        
+        // 单独处理CANVAS元素，忽略带有pointer-events: none的canvas
+        const canvasElements = document.querySelectorAll('canvas')
+        for (const canvas of canvasElements) {
+          // 获取canvas的pointer-events样式
+          const pointerEvents = window.getComputedStyle(canvas).pointerEvents
+          if (pointerEvents === 'none') {
+            continue // 忽略不可交互的canvas
+          }
+          
+          const canvasRect = canvas.getBoundingClientRect()
+          // 检查选择范围是否与canvas相交
+          if (
+            rangeRect.left < canvasRect.right &&
+            rangeRect.right > canvasRect.left &&
+            rangeRect.top < canvasRect.bottom &&
+            rangeRect.bottom > canvasRect.top
           ) {
             return true
           }
@@ -201,41 +222,60 @@ export function useTextSelection() {
         return false
       }
       
-      // 兼容处理：部分移动端浏览器不支持intersectsNode
-      const isInHeading = (range: Range) => {
-        const checkElement = (el: Element | null) => {
-          while (el) {
-            if (/^h[1-6]$/i.test(el.tagName)) return true
-            el = el.parentElement
-          }
-          return false
-        }
+      // 检查选中文本是否在禁止选中的元素内
+  const isInDisabledElement = (range: Range) => {
+    // 禁止选中的配置
+    const disabledConfig = {
+      // 禁止选中的HTML标签
+      tags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      // 禁止选中的CSS类名
+      classes: ['nometa-h1', 'faq-h1']
+    }
+    
+    const checkElement = (el: Element | null) => {
+      while (el) {
+        // 检查是否是禁止选中的标签
+        if (disabledConfig.tags.some(tag => tag.toLowerCase() === el.tagName.toLowerCase())) return true
         
-        const commonAncestor = range.commonAncestorContainer
-        const currentElement = commonAncestor.nodeType === Node.TEXT_NODE 
-          ? commonAncestor.parentElement 
-          : (commonAncestor as Element)
+        // 检查是否包含禁止选中的类名
+        if (disabledConfig.classes.some(cls => el.classList.contains(cls))) return true
         
-        // 优先检查当前元素，避免使用intersectsNode
-        if (checkElement(currentElement)) return true
-        
-        // 降级检查所有标题（仅在必要时）
-        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-        for (const heading of headings) {
-          const rect = heading.getBoundingClientRect()
-          const rangeRect = range.getBoundingClientRect()
-          // 用矩形重叠判断是否相交（替代intersectsNode）
-          if (
-            rangeRect.left < rect.right &&
-            rangeRect.right > rect.left &&
-            rangeRect.top < rect.bottom &&
-            rangeRect.bottom > rect.top
-          ) {
-            return true
-          }
-        }
-        return false
+        el = el.parentElement
       }
+      return false
+    }
+    
+    const commonAncestor = range.commonAncestorContainer
+    const currentElement = commonAncestor.nodeType === Node.TEXT_NODE 
+      ? commonAncestor.parentElement 
+      : (commonAncestor as Element)
+    
+    // 优先检查当前元素，避免使用intersectsNode
+    if (checkElement(currentElement)) return true
+    
+    // 构建选择器：包含所有禁止选中的标签和类
+    const selectors = [
+      ...disabledConfig.tags,
+      ...disabledConfig.classes.map(cls => `.${cls}`)
+    ].join(', ')
+    
+    // 降级检查所有禁止选中的元素（仅在必要时）
+    const disabledElements = document.querySelectorAll(selectors)
+    for (const element of disabledElements) {
+      const rect = element.getBoundingClientRect()
+      const rangeRect = range.getBoundingClientRect()
+      // 用矩形重叠判断是否相交（替代intersectsNode）
+      if (
+        rangeRect.left < rect.right &&
+        rangeRect.right > rect.left &&
+        rangeRect.top < rect.bottom &&
+        rangeRect.bottom > rect.top
+      ) {
+        return true
+      }
+    }
+    return false
+  }
       
       // 检查是否在不允许的元素内
       if (isInDisallowedElement(range)) return null
@@ -243,8 +283,8 @@ export function useTextSelection() {
       // 检查选中文本是否跨标签
       if (isCrossElementSelection(range)) return null
       
-      // 检查是否在标题内
-      if (isInHeading(range)) return null
+      // 检查是否在禁止选中的元素内
+      if (isInDisabledElement(range)) return null
       
       // 检查是否在VPContent内（兼容移动端视口）
       const vpContent = document.querySelector('.VPContent')
