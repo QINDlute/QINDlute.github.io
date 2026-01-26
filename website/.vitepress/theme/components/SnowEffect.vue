@@ -5,6 +5,8 @@ import { onMounted, onUnmounted, ref, watch, onBeforeUnmount } from 'vue'
 
 const isMobile = ref(false)
 const canvas = ref<HTMLCanvasElement | null>(null)
+// 雪花效果是否激活，默认关闭
+const isActive = ref(false)
 let animationFrameId: number
 let mouseX = -100
 let mouseY = -100
@@ -165,35 +167,87 @@ const handleResize = () => {
   }
 }
 
+// 切换雪花效果的函数
+const toggleSnowEffect = (active: boolean) => {
+  // console.log('toggleSnowEffect called with active:', active)
+  
+  // 如果状态没有变化，直接返回，避免重复执行
+  if (isActive.value === active) {
+    // console.log('Snow effect is already in the requested state, returning')
+    return
+  }
+  
+  isActive.value = active
+  
+  if (isActive.value) {
+    // 激活雪花效果
+    // console.log('Activating snow effect, canvas exists:', !!canvas.value)
+    if (!canvas.value) {
+      // console.error('Canvas element is null')
+      return
+    }
+    
+    // 初始化画布
+    canvas.value.width = window.innerWidth
+    canvas.value.height = window.innerHeight
+    
+    // 初始化雪花颜色（根据当前主题）
+    updateSnowColor()
+    
+    // 根据设备类型调整雪花数量，移动端减少雪花以提高性能
+    const flakeCount = isMobile.value ? config.value.flakeCount / 2 : config.value.flakeCount
+    // console.log('Creating', flakeCount, 'snowflakes')
+    
+    // 创建雪花
+    snowflakes.length = 0 // 清空现有雪花
+    for (let i = 0; i < flakeCount; i++) {
+      snowflakes.push(new Snowflake(
+        canvas.value.width,
+        canvas.value.height,
+        config.value
+      ))
+    }
+    
+    // 开始动画
+    // console.log('Starting animation')
+    // 确保只请求一个动画帧
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId)
+    }
+    animationFrameId = requestAnimationFrame(animate)
+  } else {
+    // 停止雪花效果
+    // console.log('Deactivating snow effect')
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId)
+      animationFrameId = 0 // 重置动画帧ID
+    }
+    // 清空雪花数组
+    snowflakes.length = 0
+  }
+}
+
 onMounted(() => {
   // 只在客户端执行
   if (typeof window === 'undefined') return
   
   // 检测是否为移动端
   isMobile.value = checkMobile()
-  if (isMobile.value) return
   
-  // 初始化画布
-  if (!canvas.value) return
-  
-  canvas.value.width = window.innerWidth
-  canvas.value.height = window.innerHeight
-  
-  // 初始化雪花颜色（根据当前主题）
-  updateSnowColor()
-  
-  // 创建雪花
-  for (let i = 0; i < config.value.flakeCount; i++) {
-    snowflakes.push(new Snowflake(
-      canvas.value.width,
-      canvas.value.height,
-      config.value
-    ))
+  // 初始化画布尺寸
+  if (canvas.value) {
+    canvas.value.width = window.innerWidth
+    canvas.value.height = window.innerHeight
   }
   
-  // 添加事件监听
+  // 总是添加事件监听，包括事件监听器
   window.addEventListener('mousemove', handleMouseMove)
   window.addEventListener('resize', handleResize)
+  
+  // 监听雪花开关事件
+  window.addEventListener('toggle-snow', (event: any) => {
+    toggleSnowEffect(event.detail.active)
+  })
   
   // 监听主题变化
   observer.observe(document.documentElement, {
@@ -201,8 +255,17 @@ onMounted(() => {
     attributeFilter: ['class']
   })
   
-  // 开始动画
-  animationFrameId = requestAnimationFrame(animate)
+  // 从localStorage读取初始状态，自动恢复雪花特效
+  if (typeof window !== 'undefined') {
+    const savedState = localStorage.getItem('snowEffectActive')
+    const shouldBeActive = savedState ? JSON.parse(savedState) : false
+    
+    // 如果应该激活，直接调用toggleSnowEffect
+    if (shouldBeActive) {
+      // console.log('Restoring snow effect from localStorage')
+      toggleSnowEffect(true)
+    }
+  }
 })
 
 onUnmounted(() => {
@@ -220,7 +283,7 @@ onUnmounted(() => {
 
 <template>
   <canvas 
-    v-if="!isMobile"
+    v-show="isActive"
     ref="canvas"
     id="snow"
     style="
