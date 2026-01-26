@@ -1,5 +1,7 @@
 # 1. Node.js 依赖目录（必忽略）
 node_modules/
+# 例外：VitePress主题组件目录（需要提交自定义修改）
+!node_modules/vitepress/dist/client/theme-default/components/
 # 2. VitePress 缓存目录（解决你之前的警告问题）
 website/.vitepress/cache/
 # 3. VitePress 构建产物（部署时再生成，无需提交）
