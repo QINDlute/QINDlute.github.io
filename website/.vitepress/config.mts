@@ -15,10 +15,6 @@ import { presetUno, presetIcons, presetAttributify } from 'unocss'
 import { nav, sidebar, head, customIcon } from './configs'
 import { MarkdownTransform } from './plugin/markdownTransform'
 
-
-// 导入自定义图标配置
-// import { customIcon } from './configs/customIcons'
-
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "琴殿",

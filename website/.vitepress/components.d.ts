@@ -42,6 +42,8 @@ declare module 'vue' {
     TextSelectionMenu: typeof import('./theme/components/TextSelectionMenu.vue')['default']
     'Uiw:weixin': typeof import('~icons/uiw/weixin')['default']
     VideoLink: typeof import('./theme/components/VideoLink.vue')['default']
+    VPNavScreenSnow: typeof import('./theme/components/VPNavScreenSnow.vue')['default']
+    VPSwitchSnow: typeof import('./theme/components/VPSwitchSnow.vue')['default']
     'VscodeIcons:fileTypeBun': typeof import('~icons/vscode-icons/file-type-bun')['default']
     YAMLCarousel: typeof import('./theme/components/YAMLCarousel.vue')['default']
   }

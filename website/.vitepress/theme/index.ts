@@ -47,7 +47,7 @@ export default {
         h(ReadingProgress),
         h(TextSelectionMenu),
         h(AnnotationRenderer),
-        // h(SnowEffect),
+        h(SnowEffect),
       ],
       'layout-top': () => [
         h(ClickHearts),
