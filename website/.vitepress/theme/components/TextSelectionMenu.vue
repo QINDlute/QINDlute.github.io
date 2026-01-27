@@ -770,32 +770,11 @@ const handleKeyDown = (event: KeyboardEvent) => {
   }
   // Ctrl+Del组合键处理 - 清除高亮
   else if (event.ctrlKey && event.key === 'Delete') {
-    // 执行清除高亮操作
-    const currentSelection = selection.value
-    
-    // 如果有标注ID，只删除指定ID的标注
-    if (currentSelection.annotationId) {
-      // 查找并移除指定ID的标注
-      removeAnnotation(currentSelection.annotationId)
-      
-      // 清除页面上对应ID的高亮
-      const highlight = document.querySelector(`[data-annotation-id="${currentSelection.annotationId}"]`)
-      if (highlight) {
-        const parent = highlight.parentNode
-        if (parent) {
-          const textNode = document.createTextNode(highlight.textContent || '')
-          parent.replaceChild(textNode, highlight)
-          parent.normalize()
-        }
-      }
+    // 直接调用取消高亮的action函数
+    const cancelHighlightAction = functionButtons.find(btn => btn.title === '取消高亮')?.action
+    if (cancelHighlightAction) {
+      cancelHighlightAction()
     }
-    
-    // 关闭菜单
-    clearSelection()
-    showNoteInput.value = false
-    noteText.value = ''
-    editingAnnotation.value = null
-    
     event.preventDefault()
   }
 }

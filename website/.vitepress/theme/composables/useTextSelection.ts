@@ -229,7 +229,7 @@ export function useTextSelection() {
       // 禁止选中的HTML标签
       tags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       // 禁止选中的CSS类名
-      classes: ['nometa-h1', 'faq-h1']
+      classes: ['nometa-h1', 'faq-h1', 'marker']
     }
     
     const checkElement = (el: Element | null) => {

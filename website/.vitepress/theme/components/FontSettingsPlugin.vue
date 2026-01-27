@@ -458,10 +458,12 @@ onUnmounted(() => {
 :global(.vp-doc dd),
 :global(.vp-doc dt),
 :global(.vp-doc th),
-:global(.vp-doc td) {
+:global(.vp-doc td),
+:global(.vp-doc summary),
+:global(.vp-doc blockquote > p) {
   font-size: var(--vp-custom-font-size);
   font-family: var(--vp-custom-font-family);
-  transition: all 0.1s ease; /* 针对.vp-doc中的元素全局设置过渡 */
+  /* transition: all 100ms ease; */
 }
 
 /* 标题字体大小 - 基于基础字体大小的相对比例 */

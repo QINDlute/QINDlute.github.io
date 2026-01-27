@@ -63,10 +63,7 @@ a {
 .vp-doc .figure-caption {
     text-align: center;
     font-weight: bold;
-    font-size: 0.95rem;
-    /* 图表标题与图片之间的间距 */
     margin: 8px 0 32px 0;
-    /* 图表标题颜色 */
     color: var(--vp-c-text-2);
 }
 

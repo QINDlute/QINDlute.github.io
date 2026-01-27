@@ -32,7 +32,7 @@ const waitForPageLoad = () => {
     checkPageLoad()
   })
 }
-// 现在跨标签（allowedCrossElements列表内）的文本高亮在刷新后可以显示了，但是却分为了一块块的部分，怎么将这些成一块，点击高亮可以全部选中，就像
+
 // 处理 URL 变化
 const handleUrlChange = () => {
   const newUrl = window.location.pathname
@@ -400,41 +400,6 @@ onMounted(() => {
     }, 100)
   })
   
-  // 优化：减少MutationObserver的监听范围和频率
-  const observer = new MutationObserver((mutations) => {
-    // 检查是否有任何突变发生在排除区域外
-    const hasValidMutation = mutations.some(mutation => {
-      // 检查突变目标是否在排除区域内
-      let target = mutation.target as Element
-      while (target) {
-        if (target.classList.contains('content-body') && 
-            target.parentElement?.classList.contains('content')) {
-          return false // 突变发生在排除区域内，跳过
-        }
-        target = target.parentElement as Element
-      }
-      return true // 突变发生在排除区域外，需要处理
-    })
-    
-    if (hasValidMutation) {
-      // 使用防抖，减少触发次数
-      if ((window as any).annotationRenderTimeout) {
-        clearTimeout((window as any).annotationRenderTimeout)
-      }
-      (window as any).annotationRenderTimeout = setTimeout(() => {
-        renderAnnotations()
-        addClickListeners()
-      }, 200)
-    }
-  })
-  
-  // 优化：只监听内容区域，而不是整个body
-  const contentElement = document.querySelector('.content') || document.querySelector('.main') || document.body
-  observer.observe(contentElement, {
-    childList: true,
-    subtree: true
-  })
-  
   onUnmounted(() => {
     // 清除定时器
     if (urlCheckInterval !== null) {
@@ -442,7 +407,6 @@ onMounted(() => {
       urlCheckInterval = null
     }
     
-    observer.disconnect()
     clearTimeout((window as any).annotationRenderTimeout)
     window.removeEventListener('popstate', handleRouteChange)
     window.removeEventListener('hashchange', handleRouteChange)
@@ -471,11 +435,6 @@ watch(getCurrentPageAnnotations, () => {
 <style scoped>
 .annotation-renderer {
   display: none;
-}
-
-/* 高亮样式 */
-:deep(.text-highlight) {
-  transition: background-color 0.3s ease;
 }
 
 :deep(.text-highlight:hover) {
