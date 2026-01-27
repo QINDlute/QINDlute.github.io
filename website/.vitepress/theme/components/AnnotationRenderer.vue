@@ -48,7 +48,7 @@ const handleUrlChange = () => {
   }
 }
 
-// 渲染标注到页面 - 优化版本，避免破坏HTML结构
+// 渲染标注到页面 - 修复版本，支持同一节点内的多个标注
 const renderAnnotations = () => {
   // 1. 先获取所有高亮元素，检查是否需要更新，避免不必要的DOM操作
   const existingHighlights = new Map()
@@ -57,7 +57,6 @@ const renderAnnotations = () => {
     if (annotationId) {
       existingHighlights.set(annotationId, el)
     }
-    // 不再兼容旧元素的textContent查找
   })
 
   // 2. 获取当前页面的标注
@@ -79,45 +78,7 @@ const renderAnnotations = () => {
   const vpContent = document.querySelector('.VPContent')
   if (!vpContent) return
   
-  // 4. 一次性收集所有可用的文本节点（在处理任何标注之前）
-  const allTextNodes = []
-  const walker = document.createTreeWalker(
-    vpContent,
-    NodeFilter.SHOW_TEXT,
-    { 
-      acceptNode: node => {
-        if (!node.parentElement) return NodeFilter.FILTER_SKIP
-        
-        // 检查是否在排除区域内: div.content > div.content-body
-        let parent = node.parentElement
-        while (parent) {
-          // 排除特定区域: div.content > div.content-body
-          if (parent.classList.contains('content-body') && 
-              parent.parentElement?.classList.contains('content')) {
-            return NodeFilter.FILTER_SKIP
-          }
-          
-          // 检查是否在标题内
-          if (/^h[1-6]$/i.test(parent.tagName)) {
-            return NodeFilter.FILTER_SKIP
-          }
-          parent = parent.parentElement
-        }
-        
-        return NodeFilter.FILTER_ACCEPT
-      }
-    }
-  )
-
-  let node
-  while ((node = walker.nextNode())) {
-    allTextNodes.push(node)
-  }
-  
-  // 5. 标记哪些文本节点已经被使用
-  const usedTextNodes = new Set()
-  
-  // 6. 处理每个标注
+  // 4. 处理每个标注
   annotations.forEach(annotation => {
     try {
       // 如果已经存在高亮且颜色正确，跳过
@@ -154,18 +115,46 @@ const renderAnnotations = () => {
         return
       }
       
+      // 重新收集文本节点，因为之前的可能已经被修改
+      const freshTextNodes = []
+      const freshWalker = document.createTreeWalker(
+        vpContent,
+        NodeFilter.SHOW_TEXT,
+        { 
+          acceptNode: node => {
+            if (!node.parentElement) return NodeFilter.FILTER_SKIP
+            
+            // 检查是否在排除区域内
+            let parent = node.parentElement
+            while (parent) {
+              if (parent.classList.contains('content-body') && 
+                  parent.parentElement?.classList.contains('content')) {
+                return NodeFilter.FILTER_SKIP
+              }
+              
+              if (/^h[1-6]$/i.test(parent.tagName)) {
+                return NodeFilter.FILTER_SKIP
+              }
+              parent = parent.parentElement
+            }
+            
+            return NodeFilter.FILTER_ACCEPT
+          }
+        }
+      )
+
+      let freshNode
+      while ((freshNode = freshWalker.nextNode())) {
+        freshTextNodes.push(freshNode)
+      }
+      
       // 寻找匹配的文本 - 支持跨多个文本节点的情况
       let matchedNodes: Text[] = []
       let matchedText = ''
       let bestMatchScore = 0
       
       // 尝试单节点匹配（优先）
-      for (const textNode of allTextNodes) {
-        // 跳过已经被使用的节点
-        if (usedTextNodes.has(textNode)) {
-          continue
-        }
-        
+      for (const textNode of freshTextNodes) {
         const text = textNode.textContent || ''
         
         // 检查文本是否包含标注文本
@@ -216,12 +205,7 @@ const renderAnnotations = () => {
         let tempNodes: Text[] = []
         
         // 遍历所有文本节点，寻找连续的文本片段
-        for (const textNode of allTextNodes) {
-          // 跳过已经被使用的节点
-          if (usedTextNodes.has(textNode)) {
-            continue
-          }
-          
+        for (const textNode of freshTextNodes) {
           const text = textNode.textContent || ''
           currentText += text
           tempNodes.push(textNode)
@@ -250,7 +234,6 @@ const renderAnnotations = () => {
       if (matchedNodes.length === 1) {
         // 单节点匹配
         const textNode = matchedNodes[0]
-        usedTextNodes.add(textNode)
         
         const text = textNode.textContent || ''
         const index = text.indexOf(annotation.text)
@@ -298,13 +281,9 @@ const renderAnnotations = () => {
         const annotationNotes = annotation.notes || annotation.text
         
         let currentPosition = 0
-        let inHighlight = false
-        let currentHighlight: HTMLElement | null = null
         
         // 遍历匹配的节点
         for (const textNode of matchedNodes) {
-          usedTextNodes.add(textNode)
-          
           const text = textNode.textContent || ''
           const nodeStart = currentPosition
           const nodeEnd = currentPosition + text.length
@@ -314,22 +293,6 @@ const renderAnnotations = () => {
             // 计算在当前节点中的高亮范围
             const highlightStart = Math.max(0, index - nodeStart)
             const highlightEnd = Math.min(text.length, index + annotation.text.length - nodeStart)
-            
-            // 创建高亮元素（如果尚未创建）
-            if (!inHighlight) {
-              currentHighlight = document.createElement('span')
-              currentHighlight.className = 'text-highlight'
-              currentHighlight.dataset.annotationId = annotation.id // 添加标注ID
-              const color = colorOptions.find(c => c.id === annotation.color)
-              currentHighlight.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
-              currentHighlight.style.borderRadius = '2px'
-              currentHighlight.style.padding = '0 2px'
-              currentHighlight.style.cursor = 'pointer'
-              // 设置title为标注内容的前20个字符，超出部分用……代替
-              const annotationNotes = annotation.notes || annotation.text
-              currentHighlight.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
-              inHighlight = true
-            }
             
             // 分割文本节点
             if (highlightStart > 0) {
