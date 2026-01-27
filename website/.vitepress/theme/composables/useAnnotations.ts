@@ -191,29 +191,63 @@ export function useAnnotations() {
     }
   }
 
+  // 存储定时器和事件监听器引用
+  let urlCheckInterval: number | null = null
+  let currentPageUrl: string | null = null
+  
+  // 提取存储变化事件处理函数为命名函数
+  const handleStorageChange = (event: StorageEvent) => {
+    const currentPage = getCurrentPageUrl()
+    if (event.key === `vitepress-annotations-${currentPage}`) {
+      loadAnnotations()
+    }
+  }
+
+  // 加载当前页面的标注
+  const loadCurrentPageAnnotations = () => {
+    const pageUrl = getCurrentPageUrl()
+    if (pageUrl !== currentPageUrl) {
+      currentPageUrl = pageUrl
+      loadAnnotations()
+    }
+  }
+
   // 页面加载时自动加载标注
   if (typeof window !== 'undefined') {
-    loadAnnotations()
+    loadCurrentPageAnnotations()
     
     // 监听页面变化
-    window.addEventListener('popstate', loadAnnotations)
-    window.addEventListener('hashchange', loadAnnotations)
+    window.addEventListener('popstate', loadCurrentPageAnnotations)
+    window.addEventListener('hashchange', loadCurrentPageAnnotations)
     
     // 监听 VitePress 路由变化 - 更可靠的方式：轮询检查当前页面URL
-    let currentUrl = window.location.pathname
-    setInterval(() => {
-      if (window.location.pathname !== currentUrl) {
-        currentUrl = window.location.pathname
+    currentPageUrl = window.location.pathname
+    urlCheckInterval = window.setInterval(() => {
+      const newUrl = window.location.pathname
+      if (newUrl !== currentPageUrl) {
+        currentPageUrl = newUrl
         loadAnnotations()
       }
     }, 300) // 每300ms检查一次URL变化
     
     // 监听存储变化（多标签页同步）
-    window.addEventListener('storage', (event) => {
-      if (event.key?.startsWith('vitepress-annotations-')) {
-        loadAnnotations()
+    window.addEventListener('storage', handleStorageChange)
+  }
+
+  // 清理函数，用于组件卸载时清理资源
+  const cleanup = () => {
+    if (typeof window !== 'undefined') {
+      // 清除定时器
+      if (urlCheckInterval !== null) {
+        clearInterval(urlCheckInterval)
+        urlCheckInterval = null
       }
-    })
+      
+      // 移除事件监听器
+      window.removeEventListener('popstate', loadCurrentPageAnnotations)
+      window.removeEventListener('hashchange', loadCurrentPageAnnotations)
+      window.removeEventListener('storage', handleStorageChange)
+    }
   }
 
   return {
@@ -228,6 +262,7 @@ export function useAnnotations() {
     getCurrentPageAnnotations,
     searchAnnotations,
     exportAnnotations,
-    importAnnotations
+    importAnnotations,
+    cleanup
   }
 }

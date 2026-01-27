@@ -11,6 +11,43 @@ import { useAnnotations } from '../composables/useAnnotations'
 
 const { getCurrentPageAnnotations, colorOptions } = useAnnotations()
 
+// 添加当前页面 URL 跟踪
+let currentPageUrl = ''
+let urlCheckInterval: number | null = null
+
+// 等待页面加载完成
+const waitForPageLoad = () => {
+  return new Promise((resolve) => {
+    // 检查页面内容是否已经加载
+    const checkPageLoad = () => {
+      const contentElement = document.querySelector('.VPContent')
+      if (contentElement && contentElement.textContent?.length > 0) {
+        resolve()
+      } else {
+        // 每 100ms 检查一次
+        setTimeout(checkPageLoad, 100)
+      }
+    }
+    // 开始检查
+    checkPageLoad()
+  })
+}
+// 现在跨标签（allowedCrossElements列表内）的文本高亮在刷新后可以显示了，但是却分为了一块块的部分，怎么将这些成一块，点击高亮可以全部选中，就像
+// 处理 URL 变化
+const handleUrlChange = () => {
+  const newUrl = window.location.pathname
+  if (newUrl !== currentPageUrl) {
+    currentPageUrl = newUrl
+    // 等待页面内容完全加载后再渲染
+    waitForPageLoad().then(() => {
+      setTimeout(() => {
+        renderAnnotations()
+        addClickListeners()
+      }, 200) // 额外延迟，确保所有内容都已就绪
+    })
+  }
+}
+
 // 渲染标注到页面 - 优化版本，避免破坏HTML结构
 const renderAnnotations = () => {
   // 1. 先获取所有高亮元素，检查是否需要更新，避免不必要的DOM操作
@@ -117,11 +154,12 @@ const renderAnnotations = () => {
         return
       }
       
-      // 寻找匹配的文本节点
-      let targetTextNode = null
+      // 寻找匹配的文本 - 支持跨多个文本节点的情况
+      let matchedNodes: Text[] = []
+      let matchedText = ''
       let bestMatchScore = 0
       
-      // 遍历所有文本节点，寻找最佳匹配
+      // 尝试单节点匹配（优先）
       for (const textNode of allTextNodes) {
         // 跳过已经被使用的节点
         if (usedTextNodes.has(textNode)) {
@@ -167,54 +205,163 @@ const renderAnnotations = () => {
         // 如果找到更好的匹配，更新目标节点
         if (matchScore > bestMatchScore) {
           bestMatchScore = matchScore
-          targetTextNode = textNode
+          matchedNodes = [textNode]
+          matchedText = text
+        }
+      }
+      
+      // 如果没有找到单节点匹配，尝试跨节点匹配
+      if (matchedNodes.length === 0) {
+        let currentText = ''
+        let tempNodes: Text[] = []
+        
+        // 遍历所有文本节点，寻找连续的文本片段
+        for (const textNode of allTextNodes) {
+          // 跳过已经被使用的节点
+          if (usedTextNodes.has(textNode)) {
+            continue
+          }
+          
+          const text = textNode.textContent || ''
+          currentText += text
+          tempNodes.push(textNode)
+          
+          // 检查累积的文本是否包含标注文本
+          if (currentText.includes(annotation.text)) {
+            matchedNodes = tempNodes
+            matchedText = currentText
+            break
+          }
+          
+          // 如果累积的文本过长，重置
+          if (currentText.length > annotation.text.length * 2) {
+            currentText = text
+            tempNodes = [textNode]
+          }
         }
       }
       
       // 如果没有找到匹配的节点，跳过
-      if (!targetTextNode) {
+      if (matchedNodes.length === 0) {
         return
       }
       
-      // 标记该文本节点为已使用
-      usedTextNodes.add(targetTextNode)
-      
-      const text = targetTextNode.textContent || ''
-      const index = text.indexOf(annotation.text)
-      if (index === -1) return
-      
-      // 创建高亮元素
-      const span = document.createElement('span')
-      span.className = 'text-highlight'
-      span.dataset.annotationId = annotation.id // 添加标注ID
-      const color = colorOptions.find(c => c.id === annotation.color)
-      span.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
-      span.style.borderRadius = '2px'
-      span.style.padding = '0 2px'
-      span.style.cursor = 'pointer'
-      // 设置title为标注内容的前20个字符，超出部分用……代替
-      const annotationNotes = annotation.notes || annotation.text
-      span.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
-      
-      // 分割文本节点
-      const beforeText = text.substring(0, index)
-      const highlightedText = text.substring(index, index + annotation.text.length)
-      const afterText = text.substring(index + annotation.text.length)
-      
-      // 创建新的文本节点和高亮节点
-      if (beforeText) {
-        targetTextNode.parentNode?.insertBefore(document.createTextNode(beforeText), targetTextNode)
+      // 处理匹配结果
+      if (matchedNodes.length === 1) {
+        // 单节点匹配
+        const textNode = matchedNodes[0]
+        usedTextNodes.add(textNode)
+        
+        const text = textNode.textContent || ''
+        const index = text.indexOf(annotation.text)
+        if (index === -1) return
+        
+        // 设置title为标注内容的前20个字符，超出部分用……代替
+        const annotationNotes = annotation.notes || annotation.text
+        
+        // 创建高亮元素
+        const span = document.createElement('span')
+        span.className = 'text-highlight'
+        span.dataset.annotationId = annotation.id // 添加标注ID
+        const color = colorOptions.find(c => c.id === annotation.color)
+        span.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
+        span.style.borderRadius = '2px'
+        span.style.padding = '0 2px'
+        span.style.cursor = 'pointer'
+        span.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+        
+        // 分割文本节点
+        const beforeText = text.substring(0, index)
+        const highlightedText = text.substring(index, index + annotation.text.length)
+        const afterText = text.substring(index + annotation.text.length)
+        
+        // 创建新的文本节点和高亮节点
+        if (beforeText) {
+          textNode.parentNode?.insertBefore(document.createTextNode(beforeText), textNode)
+        }
+        
+        span.appendChild(document.createTextNode(highlightedText))
+        textNode.parentNode?.insertBefore(span, textNode)
+        
+        if (afterText) {
+          textNode.parentNode?.insertBefore(document.createTextNode(afterText), textNode)
+        }
+        
+        // 删除原有的文本节点
+        textNode.parentNode?.removeChild(textNode)
+      } else {
+        // 跨节点匹配
+        const index = matchedText.indexOf(annotation.text)
+        if (index === -1) return
+        
+        // 设置title为标注内容的前20个字符，超出部分用……代替
+        const annotationNotes = annotation.notes || annotation.text
+        
+        let currentPosition = 0
+        let inHighlight = false
+        let currentHighlight: HTMLElement | null = null
+        
+        // 遍历匹配的节点
+        for (const textNode of matchedNodes) {
+          usedTextNodes.add(textNode)
+          
+          const text = textNode.textContent || ''
+          const nodeStart = currentPosition
+          const nodeEnd = currentPosition + text.length
+          
+          // 检查当前节点是否与高亮范围重叠
+          if (nodeStart < index + annotation.text.length && nodeEnd > index) {
+            // 计算在当前节点中的高亮范围
+            const highlightStart = Math.max(0, index - nodeStart)
+            const highlightEnd = Math.min(text.length, index + annotation.text.length - nodeStart)
+            
+            // 创建高亮元素（如果尚未创建）
+            if (!inHighlight) {
+              currentHighlight = document.createElement('span')
+              currentHighlight.className = 'text-highlight'
+              currentHighlight.dataset.annotationId = annotation.id // 添加标注ID
+              const color = colorOptions.find(c => c.id === annotation.color)
+              currentHighlight.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
+              currentHighlight.style.borderRadius = '2px'
+              currentHighlight.style.padding = '0 2px'
+              currentHighlight.style.cursor = 'pointer'
+              // 设置title为标注内容的前20个字符，超出部分用……代替
+              const annotationNotes = annotation.notes || annotation.text
+              currentHighlight.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+              inHighlight = true
+            }
+            
+            // 分割文本节点
+            if (highlightStart > 0) {
+              const beforeText = text.substring(0, highlightStart)
+              textNode.parentNode?.insertBefore(document.createTextNode(beforeText), textNode)
+            }
+            
+            const highlightedText = text.substring(highlightStart, highlightEnd)
+            const highlightPart = document.createElement('span')
+            highlightPart.className = 'text-highlight'
+            highlightPart.dataset.annotationId = annotation.id
+            const color = colorOptions.find(c => c.id === annotation.color)
+            highlightPart.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
+            highlightPart.style.borderRadius = '2px'
+            highlightPart.style.padding = '0 2px'
+            highlightPart.style.cursor = 'pointer'
+            highlightPart.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+            highlightPart.appendChild(document.createTextNode(highlightedText))
+            textNode.parentNode?.insertBefore(highlightPart, textNode)
+            
+            if (highlightEnd < text.length) {
+              const afterText = text.substring(highlightEnd)
+              textNode.parentNode?.insertBefore(document.createTextNode(afterText), textNode)
+            }
+            
+            // 删除原有的文本节点
+            textNode.parentNode?.removeChild(textNode)
+          }
+          
+          currentPosition = nodeEnd
+        }
       }
-      
-      span.appendChild(document.createTextNode(highlightedText))
-      targetTextNode.parentNode?.insertBefore(span, targetTextNode)
-      
-      if (afterText) {
-        targetTextNode.parentNode?.insertBefore(document.createTextNode(afterText), targetTextNode)
-      }
-      
-      // 删除原有的文本节点
-      targetTextNode.parentNode?.removeChild(targetTextNode)
       
       // 标记为已处理
       existingHighlights.delete(annotation.id)
@@ -262,9 +409,15 @@ const addClickListeners = () => {
 
 // 监听页面变化
 onMounted(() => {
+  // 初始化当前页面 URL
+  currentPageUrl = window.location.pathname
+  
   // 初始渲染
   renderAnnotations()
   addClickListeners()
+  
+  // 添加 URL 变化检测定时器
+  urlCheckInterval = window.setInterval(handleUrlChange, 300)
   
   // 监听路由变化
   // 1. 监听 popstate 事件（浏览器前进/后退）
@@ -320,6 +473,12 @@ onMounted(() => {
   })
   
   onUnmounted(() => {
+    // 清除定时器
+    if (urlCheckInterval !== null) {
+      clearInterval(urlCheckInterval)
+      urlCheckInterval = null
+    }
+    
     observer.disconnect()
     clearTimeout((window as any).annotationRenderTimeout)
     window.removeEventListener('popstate', handleRouteChange)
@@ -330,11 +489,13 @@ onMounted(() => {
 
 // 处理路由变化
 const handleRouteChange = () => {
-  // 延迟执行，确保页面内容已经更新
-  setTimeout(() => {
-    renderAnnotations()
-    addClickListeners()
-  }, 200)
+  // 等待页面内容完全加载后再渲染
+  waitForPageLoad().then(() => {
+    setTimeout(() => {
+      renderAnnotations()
+      addClickListeners()
+    }, 200) // 额外延迟，确保所有内容都已就绪
+  })
 }
 
 // 监听标注变化

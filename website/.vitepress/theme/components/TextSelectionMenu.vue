@@ -76,7 +76,8 @@ const {
   addAnnotation, 
   updateAnnotation, 
   removeAnnotation,
-  getCurrentPageAnnotations 
+  getCurrentPageAnnotations,
+  cleanup
 } = useAnnotations()
 
 // 响应式数据
@@ -290,16 +291,16 @@ const functionButtons = [
         // 查找并移除指定ID的标注
         removeAnnotation(currentSelection.annotationId)
         
-        // 清除页面上对应ID的高亮
-        const highlight = document.querySelector(`[data-annotation-id="${currentSelection.annotationId}"]`)
-        if (highlight) {
+        // 清除页面上对应ID的所有高亮元素
+        const highlights = document.querySelectorAll(`.text-highlight[data-annotation-id="${currentSelection.annotationId}"]`)
+        highlights.forEach(highlight => {
           const parent = highlight.parentNode
           if (parent) {
             const textNode = document.createTextNode(highlight.textContent || '')
             parent.replaceChild(textNode, highlight)
             parent.normalize()
           }
-        }
+        })
       }
       
       clearSelection()
@@ -844,6 +845,9 @@ onUnmounted(() => {
   
   // 移除窗口大小变化监听
   window.removeEventListener('resize', handleResize)
+  
+  // 清理标注相关的资源（定时器和事件监听器）
+  cleanup()
 })
 </script>
 
