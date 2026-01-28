@@ -1,43 +1,49 @@
 /* .vitepress/theme/style/marker.css */
 
-
 .marker {
-  white-space: normal; /* 确保文本会换行 */
+  position: relative;
   display: inline;
   line-height: 1.5;
+  box-decoration-break: clone;
   
-  /* 使用完整的渐变背景 */
   background-image: linear-gradient(
-    var(--marker-color, rgba(79, 192, 141, 0.5)), /* 使用CSS变量，默认绿色背景 */
-    var(--marker-color, rgba(79, 192, 141, 0.5)) /* 重复颜色属性，用于创建渐变效果 */
-    );
+    var(--marker-color, rgba(79, 192, 141, 0.5)) 0%,
+    var(--marker-color, rgba(79, 192, 141, 0.5)) 100%,
+    transparent 34%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+  background-position: 0 -66%;
+  background-repeat: no-repeat;
   
-  /* 初始状态：只显示底部34% */
-  background-size: 100% 34%;
-  background-position: 0 100%; /* 背景从底部开始显示 */
-  background-repeat: no-repeat; /* 防止背景重复 */
-    /* 过渡效果 */
-  transition: background-size 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;  
+  /* 平滑过渡效果 - 使用background-position */
+  transition: background-position 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
+  -webkit-transition: background-position 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
+  -moz-transition: background-position 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
+  -ms-transition: background-position 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
 }
 
 /* 夜间模式 */
 .theme-night .marker {
-  --marker-color: var(--marker-color, rgba(80, 227, 194, 0.4)); /* 夜间模式默认 */
-  --marker-color: var(--marker-color, rgba(80, 227, 194, 0.4));
+  --marker-color: rgba(80, 227, 194, 0.4);
 }
 
 /* 鼠标悬停效果 */
 .marker:not(.marker-full):hover {
-  /* 悬停时：背景扩展为整行 */
-  background-size: 100% 100%;
+  /* 悬停时：显示完整背景 */
+  background-position: 0 0;
   transition-delay: 80ms !important;
 }
 
 /* 完整覆盖状态 */
 .marker-full {
+  background-image: linear-gradient(
+    var(--marker-color, rgba(79, 192, 141, 0.5)) 0%,
+    var(--marker-color, rgba(79, 192, 141, 0.5)) 100%
+  ) !important;
   background-size: 100% 100% !important;
   background-position: 0 0 !important;
-  pointer-events: none; /* 禁用悬停效果 */
+  pointer-events: none;
 }
 
 /* 颜色变体 */
@@ -45,7 +51,7 @@
 .marker-orange { --marker-color: rgba(251, 146, 60, 0.5); }
 .marker-blue { --marker-color: rgba(59, 130, 246, 0.5); }
 .marker-purple { --marker-color: rgba(168, 85, 247, 0.5); }
-.marker-green { --marker-color: rgba(79, 192, 141, 0.5); } /* 默认绿色 */
+.marker-green { --marker-color: rgba(79, 192, 141, 0.5); }
 .marker-magenta { --marker-color: rgba(255, 0, 255, 0.3); }
 
 /* 夜间模式下的颜色变体 */
