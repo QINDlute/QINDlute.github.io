@@ -231,6 +231,19 @@ export default defineConfig({
         }
       })
 
+      // 注册 sdetails 自定义容器，渲染为 SmoothDetails 组件
+      md.use(markdownItContainer, 'sdetails', {
+        render: (tokens, idx) => {
+          const token = tokens[idx]
+          if (token.nesting === 1) {
+            // 提取标题
+            const title = token.info.trim().replace(/^sdetails\s*/, '').trim() || '点击展开'
+            return `<SmoothDetails><template #title>${title}</template>`
+          }
+          return `</SmoothDetails>`
+        }
+      })
+
     }
   },
   
