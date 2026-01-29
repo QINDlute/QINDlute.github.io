@@ -1,3 +1,4 @@
+// .vitepress/config.mts
 import { defineConfig } from 'vitepress'
 import { resolve } from 'path'
 
@@ -14,6 +15,8 @@ import { presetUno, presetIcons, presetAttributify } from 'unocss'
 
 import { nav, sidebar, head, customIcon } from './configs'
 import { MarkdownTransform } from './plugin/markdownTransform'
+
+
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -98,7 +101,6 @@ export default defineConfig({
     }
   },
 
-
   vite: {
     plugins: [
       // tailwindcss(), // 添加 Tailwind CSS 插件
@@ -132,6 +134,7 @@ export default defineConfig({
         defaultStyle: 'display: inline-block',
       }),
       MarkdownTransform(),
+
     ],
     resolve: {
       alias: {
@@ -231,13 +234,13 @@ export default defineConfig({
         }
       })
 
-      // 注册 sdetails 自定义容器，渲染为 SmoothDetails 组件
-      md.use(markdownItContainer, 'sdetails', {
+      // 注册 details: 自定义容器，渲染为 SmoothDetails 组件
+      md.use(markdownItContainer, 'details:', {
         render: (tokens, idx) => {
           const token = tokens[idx]
           if (token.nesting === 1) {
             // 提取标题
-            const title = token.info.trim().replace(/^sdetails\s*/, '').trim() || '点击展开'
+            const title = token.info.trim().replace(/^details:\s*/, '').trim() || '点击展开'
             return `<SmoothDetails><template #title>${title}</template>`
           }
           return `</SmoothDetails>`

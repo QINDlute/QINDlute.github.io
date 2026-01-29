@@ -105,6 +105,10 @@ const handleClick = (event: MouseEvent) => {
   cursor: pointer;
   outline: none;
 }
+
+a {
+  text-decoration: none;
+} 
 </style>
 
 <!-- <CustomButton type="类型" href="链接" size="尺寸">按钮文本</CustomButton> -->

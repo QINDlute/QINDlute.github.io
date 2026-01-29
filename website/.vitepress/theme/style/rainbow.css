@@ -423,5 +423,5 @@
     --vp-home-hero-image-filter: blur(80px);
 
     --custom-h1-color: transparent;
-    --custom-h1-background: -webkit-linear-gradient(120deg, #41d1ff 70%, #bd34fe);
+    --custom-h1-background: -webkit-linear-gradient(120deg, #41d1ff 50%, #bd34fe);
 }

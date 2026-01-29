@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "学习笔记"
   text: "个人笔记网站"
-  tagline: 记录知识，分享感悟
+  tagline: 千里之行，始于足下
   image:
     src: /img/index.png
     alt: index image

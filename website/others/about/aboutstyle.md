@@ -36,7 +36,7 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 
 ```md
 ::: info
-这是一个信息
+这是一条注释
 :::
 
 ::: warning
@@ -71,6 +71,18 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 
 ::: details 点我查看详情
 这是一个详情容器
+:::
+
+::: details: 特殊平滑详情容器
+这是使用 `::: details:` Markdown 语法创建的内容
+你可以使用简单的 Markdown 语法来创建带有平滑过渡效果的详情容器
+展开/收起时会有流畅的动画效果
+同时支持多行内容和 Markdown 格式
+- 支持列表
+- 支持 **加粗** 文本
+- 支持 *斜体* 文本
+
+这里是一个段落
 :::
 
 > 这是一个引用测试
@@ -82,7 +94,7 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 效果如下：
 
 ::: info
-这是一个信息
+这是一条注释
 :::
 
 ::: warning
@@ -117,6 +129,19 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 
 ::: details 点我查看详情
 这是一个详情容器
+:::
+
+::: details: 特殊平滑详情容器
+这是使用 `::: details:` Markdown 语法创建的内容
+你可以使用简单的 Markdown 语法来创建带有平滑过渡效果的详情容器
+展开/收起时会有流畅的动画效果同时支持多行内容和 Markdown 格式
+
+[测试链接](/test "")
+- 支持列表
+- 支持 **加粗** 文本
+- 支持 *斜体* 文本
+
+这里是一个段落
 :::
 
 > 这是一个引用测试
@@ -135,10 +160,11 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 <!-- 或 这是一个记号笔效果（原始）{.marker} -->
 ```
 
-该原始样式取自<marker-text color="red">千浔物语</marker-text>的记号笔样式，另外本站所展示的信息容器也都取自该博客。
+该原始样式取自<MarkerText color="red">千浔物语</MarkerText>的记号笔样式，另外本站所展示的信息容器也都取自该博客。
+
 [千浔物语](https://docs.fe-qianxun.com/efficiency/software/vitepress#记号笔)
 
-但原始样式存在不能换行的问题，在小屏幕上容易超出屏幕，对移动端极不友好，这里将其转换为行内元素，从而解决该问题。
+但原始样式存在不能换行的问题，在小屏幕上容易超出屏幕，对移动端极不友好，这里将其转换为行内元素，然后使用**背景偏移**从而解决问题。
 
 ::: whiteboard 记号笔示例：
 在使用 html 元素的时候，<span class="marker">必须将 markdown 容器首行的`:::`与带有 html 元素的代码空行使用，否则对应的容器会失效并显现原来的文本。</span>
@@ -207,8 +233,6 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
   <MarkerText color="red" status="full">这是一段 full 状态的多行文本示例，用于展示完全覆盖模式下的多行表现。所有行都会被完全覆盖，并且没有悬停效果。</MarkerText>
 </div>
 ```
-> [!caution] 可能影响
-> 对比原博客中的记号笔，本站的记号笔动画会有轻微的抖动，如果介意可以采用原博客的样式。
 
 
 ## 图片的全屏查看
@@ -655,7 +679,17 @@ const scrollMemoryExcludes: string[] = [
 
 页面的标注数据可以在不同的设备中共享，只需将本地的 localStorage 数据导出并导入到其他设备即可。
 
+下面展示两个脚本文件`export-localStorage.js`和`import-localStorage.js`，分别用于下载及导入 localStorage 数据。
+
+::: code-group
 <<< @/.vitepress/scripts/export-localStorage.js
+<<< @/.vitepress/scripts/import-localStorage.js
+:::
+
+使用方法：
+- 按 F12 打开开发者工具
+- 切换到 Console 标签
+- 复制粘贴脚本内容并执行
 
 ### 关于菜单的配置
 
@@ -732,3 +766,11 @@ Layout: () => {
   title="致美化官网"
   desc="专注于视觉美化的研究及交流平台"
 />
+
+## 视频播放
+本站使用了 [Vidstack](https://vidstack.io/ "") 的视频播放组件，功能较为全面。
+
+<media-player title="test" src="/video/test.mp4" poster playsinline>
+  <media-provider></media-provider>
+  <media-video-layout thumbnails="/video/test.vtt"></media-video-layout>
+</media-player>
