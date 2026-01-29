@@ -1,0 +1,16 @@
+/* .vitepress/theme/style/var.css */
+.VPDoc h1 {
+  background: var(--custom-h1-background);
+  -webkit-text-fill-color: var(--custom-h1-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* VPFeatures 页卡悬浮效果 */
+.VPFeatures .items .item {
+  transition: transform 0.3s;
+}
+
+.VPFeatures .items .item:hover {
+  transform: translateY(-5px);
+}
