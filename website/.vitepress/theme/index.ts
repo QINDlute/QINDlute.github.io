@@ -1,9 +1,9 @@
+// .vitepress/theme/index.ts
 import { h } from 'vue'
 import { onMounted, onUnmounted, watch, nextTick } from 'vue'
 
 import { useRoute } from 'vitepress'
 import type { Theme } from 'vitepress'
-
 
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
@@ -23,8 +23,12 @@ import mediumZoom from 'medium-zoom'
 import 'virtual:group-icons.css'
 import "virtual:uno.css";
 
-let homePageStyle: HTMLStyleElement | undefined
+import 'vidstack/player';
+import 'vidstack/player/layouts/default';
+import 'vidstack/player/ui';
 
+
+let homePageStyle: HTMLStyleElement | undefined
 export default {
   extends: DefaultTheme,
   // 注册全局组件
