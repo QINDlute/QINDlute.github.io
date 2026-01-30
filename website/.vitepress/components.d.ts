@@ -26,7 +26,6 @@ declare module 'vue' {
     MarkerText: typeof import('./theme/components/MarkerText.vue')['default']
     NavCard: typeof import('./theme/components/NavCard.vue')['default']
     'Ph:planetFill': typeof import('~icons/ph/planet-fill')['default']
-    Player: typeof import('./theme/components/Player.vue')['default']
     PrevNextNav: typeof import('./theme/components/PrevNextNav.vue')['default']
     ReadingProgress: typeof import('./theme/components/ReadingProgress.vue')['default']
     'SimpleIcons:markdown': typeof import('~icons/simple-icons/markdown')['default']

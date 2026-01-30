@@ -55,14 +55,6 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 有助于用户更顺利达成目标的建议性信息。
 :::
 
-::: note
-强调用户在快速浏览文档时也不应忽略的重要信息。
-:::
-
-::: important
-对用户达成目标至关重要的信息。
-:::
-
 > [!NOTE]
 > 这是一个注意信息(github 风格)
 
@@ -74,15 +66,9 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 :::
 
 ::: details: 特殊平滑详情容器
-这是使用 `::: details:` Markdown 语法创建的内容
-你可以使用简单的 Markdown 语法来创建带有平滑过渡效果的详情容器
-展开/收起时会有流畅的动画效果
-同时支持多行内容和 Markdown 格式
-- 支持列表
-- 支持 **加粗** 文本
-- 支持 *斜体* 文本
+这是使用 `::: details:` Markdown 语法创建的内容，你可以使用简单的 Markdown 语法来创建带有平滑过渡效果的详情容器，展开/收起时会有流畅的动画效果同时支持多行内容和 Markdown 格式。
 
-这里是一个段落
+该样式参考了 [Docusaurus 官方文档](https://docusaurus.io/zh-CN/docs/markdown-features "")的详情容器。
 :::
 
 > 这是一个引用测试
@@ -113,14 +99,6 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 有助于用户更顺利达成目标的建议性信息。
 :::
 
-::: note
-强调用户在快速浏览文档时也不应忽略的重要信息。
-:::
-
-::: important
-对用户达成目标至关重要的信息。
-:::
-
 > [!NOTE]
 > 这是一个注意信息(github 风格)
 
@@ -132,16 +110,9 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 :::
 
 ::: details: 特殊平滑详情容器
-这是使用 `::: details:` Markdown 语法创建的内容
-你可以使用简单的 Markdown 语法来创建带有平滑过渡效果的详情容器
-展开/收起时会有流畅的动画效果同时支持多行内容和 Markdown 格式
+这是使用 `::: details:` Markdown 语法创建的内容，你可以使用简单的 Markdown 语法来创建带有平滑过渡效果的详情容器，展开/收起时会有流畅的动画效果同时支持多行内容和 Markdown 格式。
 
-[测试链接](/test "")
-- 支持列表
-- 支持 **加粗** 文本
-- 支持 *斜体* 文本
-
-这里是一个段落
+该样式参考了 [Docusaurus 官方文档](https://docusaurus.io/zh-CN/docs/markdown-features "")的详情容器。
 :::
 
 > 这是一个引用测试
@@ -774,3 +745,12 @@ Layout: () => {
   <media-provider></media-provider>
   <media-video-layout thumbnails="/video/test.vtt"></media-video-layout>
 </media-player>
+
+```html
+<media-player title="test" src="/video/test.mp4" poster playsinline>
+  <media-provider></media-provider>
+  <media-video-layout thumbnails="/video/test.vtt"></media-video-layout>
+</media-player>
+<!-- 或原始video标签： -->
+ <video src="/video/test.mp4" controls></video>
+```

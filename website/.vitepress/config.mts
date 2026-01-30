@@ -164,7 +164,7 @@ export default defineConfig({
           const token = tokens[idx]
           const info = token.info.trim().slice(5).trim()
           return token.nesting === 1
-            ? `<div class="custom-block note"><div class="custom-block-title">${info || 'Note'}</div>`
+            ? `<div class="custom-block note"><div class="custom-block-title">${info || 'NOTE'}</div>`
             : '</div>'
         }
       })
@@ -174,7 +174,7 @@ export default defineConfig({
           const token = tokens[idx]
           const info = token.info.trim().slice(10).trim()
           return token.nesting === 1
-            ? `<div class="custom-block important"><div class="custom-block-title">${info || 'Important'}</div>`
+            ? `<div class="custom-block important"><div class="custom-block-title">${info || 'IMPORTANT'}</div>`
             : '</div>'
         }
       })
@@ -184,7 +184,7 @@ export default defineConfig({
           const token = tokens[idx]
           const info = token.info.trim().slice(8).trim()
           return token.nesting === 1
-            ? `<div class="custom-block caution"><div class="custom-block-title">${info || 'Caution'}</div>`
+            ? `<div class="custom-block caution"><div class="custom-block-title">${info || 'CAUTION'}</div>`
             : '</div>'
         }
       })
