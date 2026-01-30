@@ -1,25 +1,31 @@
+/* .vitepress/theme/style/sdetails.css */
 :root {
   --sdetails-background-color: #eef9fd;
+  --sdetails-border-color: #4cb3d4;
   --sdetails-shadow-lw: 0 1px 2px 0 #0000001a;
+  
   --sdetails-transition-timing: cubic-bezier(.08, .52, .52, 1);
+  
+  --sdetails-spacing: 1rem;
+  --sdetails-border-radius: .4rem;
 }
+
 .dark {
   --sdetails-background-color: #193c47;
 }
 
 .smooth-details {
-  margin: 0 0 1rem;
-  border: 1px solid #4cb3d4;
-  border-radius: .4rem;
+  margin: 0 0 var(--sdetails-spacing);
+  border: 1px solid var(--sdetails-border-color);
+  border-radius: var(--sdetails-border-radius);
   box-shadow: var(--sdetails-shadow-lw);
   background-color: var(--sdetails-background-color);
   overflow: hidden;
-  padding: 1rem 1rem 0;
+  padding: 0 1rem 0;
 }
 
 .smooth-details-summary {
   cursor: pointer;
-  padding-left: 1rem;
   list-style: none;
   position: relative;
   background: none;
@@ -28,14 +34,15 @@
   text-align: left;
   font: inherit;
   color: inherit;
+  padding: var(--sdetails-spacing) 0 var(--sdetails-spacing) var(--sdetails-spacing);
 }
 
 .smooth-details-summary::before {
   content: "";
   border-width: 0.38rem;
   border-style: solid;
-  border-color: transparent transparent transparent #4cb3d4;
-  transition: transform 0.2s ease;
+  border-color: transparent transparent transparent var(--sdetails-border-color);
+  transition: transform var(--sdetails-transition-duration) ease-in-out;
   transform-origin: calc(0.38rem / 2) 50%;
   position: absolute;
   top: 50%;
@@ -47,45 +54,21 @@
   transform: translateY(-50%) rotate(90deg);
 }
 
-/* 占位元素样式，保持收起状态时的间距 */
-.smooth-details-placeholder {
-  margin-top: 1rem;
+.smooth-details-content {
+  overflow: hidden;
+  max-height: 0;
+  margin-top: 0;
+  border-top: 1px solid var(--sdetails-border-color);
 }
 
-.smooth-details-content {
-  border-top: 1px solid #4cb3d4;
-  margin-top: 1rem;
-}
-/* 链接样式 */
 .smooth-details-content a {
   color: var(--vp-c-text-1);
   transition: color .2s var(--sdetails-transition-timing);
-  -webkit-text-decoration-color: #4cb3d4;
-  text-decoration-color: #4cb3d4;
+  -webkit-text-decoration-color: var(--sdetails-border-color);
+  text-decoration-color: var(--sdetails-border-color);
 }
+
 .smooth-details-content a:hover {
   color: var(--vp-c-text-1);
   text-decoration-thickness: 2px;
-}
-
-/* 过渡动画 */
-.smooth-details-enter-active,
-.smooth-details-leave-active {
-  transition: max-height 0.314s ease-in-out, opacity 0.314s ease-in-out;
-  max-height: 3000px; /* 为过渡动画留出足够空间 */
-  overflow: hidden;
-}
-
-.smooth-details-enter-from,
-.smooth-details-leave-to {
-  max-height: 0;
-  opacity: 0;
-}
-
-.smooth-details-enter-from {
-  opacity: 0;
-}
-
-.smooth-details-leave-to {
-  opacity: 0;
 }
