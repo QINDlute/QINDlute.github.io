@@ -97,7 +97,7 @@ const createHeartEffect = (x: number, y: number): void => {
     transform: translate(-50%, -50%);
     will-change: transform, opacity;
     text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
-    transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+    transition: transform 0.9s ease-in, opacity 0.7s ease-in;
   `
   
   document.body.appendChild(heart)
@@ -160,46 +160,34 @@ const createRandomEmojiEffect = (x: number, y: number): void => {
     transform: translate(-50%, -50%);
     will-change: transform, opacity;
     text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+    transition: transform 0.9s ease-in, opacity 0.7s ease-in;
   `
   
   document.body.appendChild(randomEmoji)
   effectQueue.value.push(randomEmoji)
   
-  // 动画效果
-  const animationDuration = 1000
-  const startTime = Date.now()
+  // 使用 CSS 过渡动画
+  setTimeout(() => {
+    randomEmoji.style.transform = `translate(${xOffset}px, ${yOffset}px) translate(-50%, -50%)`
+    randomEmoji.style.opacity = '0'
+  }, 10)
   
-  const animate = () => {
-    const elapsed = Date.now() - startTime
-    const progress = Math.min(elapsed / animationDuration, 1)
-    
-    // jQuery swing 缓动函数
-    const easeIn = -Math.cos(progress * Math.PI) / 2 + 0.5
-    
-    // 计算当前位置
-    const currentX = x + (xOffset * easeIn)
-    const currentY = y + (yOffset * easeIn)
-    const currentOpacity = 1 - easeIn
-    
-    randomEmoji.style.left = `${currentX}px`
-    randomEmoji.style.top = `${currentY}px`
-    randomEmoji.style.opacity = `${currentOpacity}`
-    
-    if (progress < 1) {
-      requestAnimationFrame(animate)
-    } else {
-      // 动画完成，移除元素
-      if (randomEmoji.parentNode) {
-        randomEmoji.parentNode.removeChild(randomEmoji)
-        const index = effectQueue.value.indexOf(randomEmoji)
-        if (index > -1) {
-          effectQueue.value.splice(index, 1)
-        }
+  // 动画完成后移除元素
+  setTimeout(() => {
+    if (randomEmoji.parentNode) {
+      randomEmoji.parentNode.removeChild(randomEmoji)
+      const index = effectQueue.value.indexOf(randomEmoji)
+      if (index > -1) {
+        effectQueue.value.splice(index, 1)
       }
     }
-  }
-  
-  requestAnimationFrame(animate)
+  }, 1000)
+}
+
+// ========== 统一创建效果 ==========
+const createEffects = (x: number, y: number) => {
+  createHeartEffect(x, y)
+  createRandomEmojiEffect(x, y)
 }
 
 // ========== 节流函数 ==========
@@ -222,13 +210,8 @@ const handleClick = (event: MouseEvent): void => {
     return
   }
   lastClickTime = now
-  
-  const x = event.clientX
-  const y = event.clientY
-  
-  // 同时触发两种效果
-  createHeartEffect(x, y)
-  createRandomEmojiEffect(x, y)
+
+  createEffects(event.clientX, event.clientY)
 }
 
 // 使用节流包装点击处理函数
