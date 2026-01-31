@@ -4,6 +4,12 @@ import { onMounted, onUnmounted, ref } from 'vue'
 
 const clickCount = ref(0)
 
+// ========== 性能优化配置 ==========
+const MAX_EFFECTS = 50 // 最大效果数量
+const THROTTLE_DELAY = 100 // 节流延迟（毫秒）
+const effectQueue = ref<HTMLElement[]>([])
+let lastClickTime = 0
+
 // ========== 随机表情数据 ==========
 const randomEmojis = [
   '😀', '😁', '😂', '😃', '😄', '😅', '😆', '😇', '😈', '😉', '😊', '😋', '😌', '😍', '😎', '😏',
@@ -60,6 +66,11 @@ const getEmojiByCount = (count: number): string => {
 
 // ========== 创建爱心效果 ==========
 const createHeartEffect = (x: number, y: number): void => {
+  // 检查效果数量限制
+  if (effectQueue.value.length >= MAX_EFFECTS) {
+    return
+  }
+  
   clickCount.value++
   const currentCount = clickCount.value
   
@@ -86,40 +97,37 @@ const createHeartEffect = (x: number, y: number): void => {
     transform: translate(-50%, -50%);
     will-change: transform, opacity;
     text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+    transition: transform 1.5s ease-out, opacity 1.5s ease-out;
   `
   
   document.body.appendChild(heart)
+  effectQueue.value.push(heart)
   
-  // 动画效果
-  const animationDuration = 1500
-  const startTime = Date.now()
+  // 使用 CSS 过渡动画
+  setTimeout(() => {
+    heart.style.transform = `translate(-50%, -200px)`
+    heart.style.opacity = '0'
+  }, 10)
   
-  const animate = () => {
-    const elapsed = Date.now() - startTime
-    const progress = Math.min(elapsed / animationDuration, 1)
-    
-    // 向上移动并淡出
-    const translateY = -20 - (progress * 160) // 从-20px到-180px
-    const opacity = 1 - progress
-    
-    heart.style.transform = `translate(-50%, ${translateY}px)`
-    heart.style.opacity = `${opacity}`
-    
-    if (progress < 1) {
-      requestAnimationFrame(animate)
-    } else {
-      // 动画完成，移除元素
-      if (heart.parentNode) {
-        heart.parentNode.removeChild(heart)
+  // 动画完成后移除元素
+  setTimeout(() => {
+    if (heart.parentNode) {
+      heart.parentNode.removeChild(heart)
+      const index = effectQueue.value.indexOf(heart)
+      if (index > -1) {
+        effectQueue.value.splice(index, 1)
       }
     }
-  }
-  
-  requestAnimationFrame(animate)
+  }, 1500)
 }
 
 // ========== 创建随机表情效果 ==========
 const createRandomEmojiEffect = (x: number, y: number): void => {
+  // 检查效果数量限制
+  if (effectQueue.value.length >= MAX_EFFECTS) {
+    return
+  }
+  
   // 检测是否为移动端
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
   
@@ -155,8 +163,9 @@ const createRandomEmojiEffect = (x: number, y: number): void => {
   `
   
   document.body.appendChild(randomEmoji)
+  effectQueue.value.push(randomEmoji)
   
-  // 动画
+  // 动画效果
   const animationDuration = 1000
   const startTime = Date.now()
   
@@ -164,7 +173,7 @@ const createRandomEmojiEffect = (x: number, y: number): void => {
     const elapsed = Date.now() - startTime
     const progress = Math.min(elapsed / animationDuration, 1)
     
-    // jQuery swing 缓动公式
+    // jQuery swing 缓动函数
     const easeIn = -Math.cos(progress * Math.PI) / 2 + 0.5
     
     // 计算当前位置
@@ -182,6 +191,10 @@ const createRandomEmojiEffect = (x: number, y: number): void => {
       // 动画完成，移除元素
       if (randomEmoji.parentNode) {
         randomEmoji.parentNode.removeChild(randomEmoji)
+        const index = effectQueue.value.indexOf(randomEmoji)
+        if (index > -1) {
+          effectQueue.value.splice(index, 1)
+        }
       }
     }
   }
@@ -189,8 +202,27 @@ const createRandomEmojiEffect = (x: number, y: number): void => {
   requestAnimationFrame(animate)
 }
 
+// ========== 节流函数 ==========
+const throttle = (func: Function, limit: number) => {
+  let inThrottle: boolean = false
+  return function(this: any, ...args: any[]) {
+    const context = this
+    if (!inThrottle) {
+      func.apply(context, args)
+      inThrottle = true
+      setTimeout(() => inThrottle = false, limit)
+    }
+  }
+}
+
 // ========== 统一点击处理 ==========
 const handleClick = (event: MouseEvent): void => {
+  const now = Date.now()
+  if (now - lastClickTime < THROTTLE_DELAY) {
+    return
+  }
+  lastClickTime = now
+  
   const x = event.clientX
   const y = event.clientY
   
@@ -199,17 +231,28 @@ const handleClick = (event: MouseEvent): void => {
   createRandomEmojiEffect(x, y)
 }
 
+// 使用节流包装点击处理函数
+const throttledHandleClick = throttle(handleClick, THROTTLE_DELAY)
+
 onMounted(() => {
   // 只在客户端执行
   if (typeof window === 'undefined') return
   
   // 添加点击事件监听
-  document.addEventListener('click', handleClick)
+  document.addEventListener('click', throttledHandleClick)
 })
 
 onUnmounted(() => {
   // 移除事件监听
-  document.removeEventListener('click', handleClick)
+  document.removeEventListener('click', throttledHandleClick)
+  
+  // 清理剩余效果
+  effectQueue.value.forEach(element => {
+    if (element.parentNode) {
+      element.parentNode.removeChild(element)
+    }
+  })
+  effectQueue.value = []
 })
 </script>
 
