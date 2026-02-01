@@ -25,6 +25,7 @@ declare module 'vue' {
     'Logos:reactQueryIcon': typeof import('~icons/logos/react-query-icon')['default']
     MarkerText: typeof import('./theme/components/MarkerText.vue')['default']
     NavCard: typeof import('./theme/components/NavCard.vue')['default']
+    NavMenu: typeof import('./theme/components/NavMenu.vue')['default']
     'Ph:planetFill': typeof import('~icons/ph/planet-fill')['default']
     PrevNextNav: typeof import('./theme/components/PrevNextNav.vue')['default']
     ReadingProgress: typeof import('./theme/components/ReadingProgress.vue')['default']

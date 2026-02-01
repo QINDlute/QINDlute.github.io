@@ -1,7 +1,8 @@
 /* @import "tailwindcss"; */
 
 @import 'vidstack/player/styles/default/theme.css';
-@import 'vidstack/player/styles/default/layouts/video.css';
+@import 'vidstack/player/styles/default/layouts/audio.css'; 
+@import 'vidstack/player/styles/default/layouts/video.css'; 
 
 /**
  * Customize default theme styling by overriding CSS variables:
@@ -266,4 +267,13 @@ a {
 :root {
   /* 搜索框样式 */
   --docsearch-primary-color: var(--vp-c-brand-1);
+}
+
+.VPSidebarItem.level-1 .text:hover {
+    font-weight: 600;
+    font-size: 16px;
+    transform: scale(1.05);
+}
+.VPSidebarItem.level-1 .text {
+    transition: all .3s ease;
 }

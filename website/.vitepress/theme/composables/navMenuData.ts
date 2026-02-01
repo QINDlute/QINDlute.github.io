@@ -4,10 +4,34 @@ import type { menuItem } from './types'
 const navMenus: menuItem[] = [
   {
     id: 1,
-    name: '简介',
-    url: '/test',
-    image: '/test/image.png'
+    name: 'VP yiov大佬',
+    url: 'https://vitepress.yiov.top/',
+    image: '/menu/vitepress-icon.png'
   },
+  {
+    id: 2,
+    name: 'VP teek大佬',
+    url: 'https://vp.teek.top/',
+    image: '/menu/vitepress_teek.png'
+  },
+  {
+    id: 3,
+    name: 'VP 千浔物语',
+    url: 'https://docs.fe-qianxun.com/',
+    image: '/menu/qianxun-icon.png'
+  },
+  {
+    id: 4,
+    name: 'VP chodocs',
+    url: 'https://chodocs.cn/',
+    image: '/menu/chodocs-menu.png'
+  },
+  {
+    id: 5,
+    name: 'VP 官方文档',
+    url: 'https://vitepress.dev/zh/',
+    image: '/menu/vitepress-icon.png'
+  }
 ]
 
 // 编程导航数据

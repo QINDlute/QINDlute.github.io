@@ -95,7 +95,8 @@ export default {
     const allowedAnnotationPaths: string[] = [
       '/others/',
       '/test',
-      '/test/'
+      '/test/',
+      '/essays/'
     ];
     
     // 配置：允许跨标签选择文本的元素列表

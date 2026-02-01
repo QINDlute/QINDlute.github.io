@@ -29,6 +29,10 @@ export default defineConfig({
   // 添加外部脚本，提前应用自定义样式配置
   head,
 
+  sitemap: {
+    hostname: 'https://docs.qindlute.cloud',
+  },
+
   // 使用VitePress内置的主题配置
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -98,7 +102,7 @@ export default defineConfig({
         }
         
       }
-    }
+    },
   },
 
   vite: {

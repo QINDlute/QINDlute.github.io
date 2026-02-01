@@ -75,7 +75,7 @@ const createHeartEffect = (x: number, y: number): void => {
   const currentCount = clickCount.value
   
   const emoji = getEmojiByCount(currentCount)
-  const size = emoji === "❤" ? Math.round(Math.random() * 14 + 6) : 18
+  const size = emoji === "❤" ? Math.round(Math.random() * 8 + 12) : 18
   
   // 创建元素
   const heart = document.createElement('span')
@@ -97,7 +97,7 @@ const createHeartEffect = (x: number, y: number): void => {
     transform: translate(-50%, -50%);
     will-change: transform, opacity;
     text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
-    transition: transform 0.9s ease-in, opacity 0.7s ease-in;
+    transition: transform 1s ease-in, opacity 0.8s ease-in;
   `
   
   document.body.appendChild(heart)

@@ -119,6 +119,19 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 
 >: 这是一个特殊引用
 
+::: details: Vitepress 官方的 Badge 组件
+* VitePress <Badge type="info" text="default" />
+* VitePress <Badge type="tip" text="^1.9.0" />
+* VitePress <Badge type="warning" text="beta" />
+* VitePress <Badge type="danger" text="caution" />
+
+```html
+* VitePress <Badge type="info" text="default" />
+* VitePress <Badge type="tip" text="^1.9.0" />
+* VitePress <Badge type="warning" text="beta" />
+* VitePress <Badge type="danger" text="caution" />
+```
+:::
 
 ## MarkerText 组件使用示例
 
@@ -128,7 +141,7 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 
 ```html
 <span class='marker'>这是一个记号笔效果（原始）</span>
-<!-- 或 这是一个记号笔效果（原始）{.marker} -->
+<!-- 这是一个记号笔效果（原始）{.marker} -->
 ```
 
 该原始样式取自<MarkerText color="red">千浔物语</MarkerText>的记号笔样式，另外本站所展示的信息容器也都取自该博客。
@@ -252,11 +265,11 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
   title="ChoDocs 博客"
 />
 
-如果想要原格式的链接，可在网址末尾添加一对双引号`""`或直接使用 html 标签，如[琴殿博客](https://qindlute.github.io/ "")
+如果想要原格式的链接，可在网址末尾添加一对双引号`""`或直接使用 html 标签，如[琴殿博客](https://docs.qindlute.cloud/ "")
 
 ```html
-[琴殿博客](https://qindlute.github.io/ "")
-<!-- <a href="https://qindlute.github.io/" target="_blank">琴殿博客</a> -->
+[琴殿博客](https://docs.qindlute.cloud/ "")
+<!-- <a href="https://docs.qindlute.cloud/" target="_blank">琴殿博客</a> -->
 ```
 无独有偶，ChoDocs 博客中还有一个B站视频链接，我也一并借来了，传送门（以ChoDocs 作者视频为例）样式如下：
 <VideoLink bvId="BV1ky4y1Z7rG">从大学学编程到前端工作，我积累的一些好用的网站，整合在了资源导航页面！</VideoLink>
@@ -287,13 +300,13 @@ const hrefSource = computed(() => {
 效果如下：
 
 <CustomLink
-  href="https://qindlute.github.io/"
+  href="https://docs.qindlute.cloud/"
   title="琴殿博客"
 />
 
 ```html
 <CustomLink
-  href="https://qindlute.github.io/"
+  href="https://docs.qindlute.cloud/"
   title="琴殿博客"
 />
 ```
@@ -354,7 +367,7 @@ SVG图标模式需在 `CustomIcom.vue` 中 `<template v-else>` 下添加自制�
 > [!NOTE] 
 > 一般情况下，在 VitePress 中使用了 markdown 的标题语法，都会在内嵌的目录中展示，而如果不想在`whiteboard`中的标题出现在目录中，需要用 html 标签`<h>`来代替 markdown 的`#`标题用法。
 
-```md{20}
+````md
 ::: whiteboard 我的笔记本（自定义标题）
 <h4>这是白板容器内部，支持所有 Markdown 语法：</h4>
 
@@ -374,9 +387,9 @@ print('hello world')
 print('hello world')
 name = "VitePress"
 print(name)
-# ```  这里由于与代码块冲突，使用时将'#'去掉即可
-:::
 ```
+:::
+````
 
 ::: whiteboard 我的笔记本（自定义标题）
 <h4>这是白板容器内部，支持所有 Markdown 语法：</h4>
@@ -508,20 +521,20 @@ VitePress 中支持使用 ***LaTeX*** 语法来书写数学公式，本站的 wh
 
 <span class='marker'>简单来说就是在自定义容器中不能嵌套自定义容器，</span>不过在容器内引用信息容器时，可以使用 github 风格，避免使用`:::`，例如：
 
-```md
+````md
 ::: details 点击展开查看更多
 ``` python
 print('hello world')
 print('hello world')
 name = "VitePress"
 print(name)
-# ``` 这里由于与代码块冲突，使用时将'#'去掉即可
+```
 > [!note] 注意
 > 这里面是藏起来的文字
 
 这是底部的文字
 :::
-```
+````
 效果：
 ::: details 点击展开查看更多
 ``` python
@@ -657,14 +670,18 @@ const scrollMemoryExcludes: string[] = [
 <<< @/.vitepress/scripts/import-localStorage.js
 :::
 
-使用方法：
-- 按 F12 打开开发者工具
-- 切换到 Console 标签
-- 复制粘贴脚本内容并执行
+使用步骤：
+1. 按 `F12` 打开开发者工具
+2. 切换到 Console 标签
+3. 复制粘贴脚本内容并执行
+
+::: details: 悄悄话
+个人安利一个非常好用的网页标注工具 [Web Annotator](https://web-annotator.com/zh "")，这是一个UI精良、功能丰富的浏览器拓展，基本满足用户的各种需求，只是无法在移动端浏览器中使用。
+:::
 
 ### 关于菜单的配置
 
-本菜单默认所有页面都添加了选择文本功能菜单，但允许用户设置 `.vitepress/theme/index.ts` 中的 allowedAnnotationPaths 列表，允许特定的路径列表使用文本标注功能。同时还支持用户设置元素内部允许跨标签选择文本的元素列表，在该列表中的元素，其内部文本被选中后可触发菜单的显示。
+本菜单默认所有页面禁用选择文本功能菜单，但允许用户设置 `.vitepress/theme/index.ts` 中的 allowedAnnotationPaths 列表，允许特定的路径列表使用文本标注功能。同时还支持用户设置元素内部允许跨标签选择文本的元素列表，在该列表中的元素，其内部文本被选中后可触发菜单的显示。
 
 ::: code-group
 ```ts [index.ts]
@@ -687,7 +704,7 @@ const allowedCrossElements: string[] = [
 :::
 
 > [!NOTE]
-> * 本功能菜单在移动端中的标注窗口不太稳定，PC 端则正常
+> * 菜单在移动端中有时不稳定
 > * 被选中的文本在取消高亮后，其原始样式会丢失，刷新后即可复原
 
 
@@ -743,14 +760,55 @@ Layout: () => {
 
 <media-player title="test" src="/video/test.mp4" poster playsinline>
   <media-provider></media-provider>
-  <media-video-layout thumbnails="/video/test.vtt"></media-video-layout>
+  <media-video-layout></media-video-layout>
 </media-player>
 
 ```html
 <media-player title="test" src="/video/test.mp4" poster playsinline>
   <media-provider></media-provider>
-  <media-video-layout thumbnails="/video/test.vtt"></media-video-layout>
+  <media-video-layout></media-video-layout>
 </media-player>
 <!-- 或原始video标签： -->
  <video src="/video/test.mp4" controls></video>
 ```
+
+下面是 Vidstack 官方的 Demo 演示：
+<media-player
+  view-type="video"
+  stream-type="on-demand"
+  log-level="warn"
+  crossorigin
+  playsinline
+  title="Sprite Fight"
+  poster="https://files.vidstack.io/sprite-fight/poster.webp"
+>
+  <media-provider>
+    <media-poster class="vds-poster"></media-poster>
+    <source src="https://files.vidstack.io/sprite-fight/hls/stream.m3u8" />
+    <track
+      src="https://files.vidstack.io/sprite-fight/subs/english.vtt"
+      label="English"
+      language="en-US"
+      kind="subtitles"
+      type="vtt"
+      default
+    />
+    <track
+      src="https://files.vidstack.io/sprite-fight/subs/spanish.vtt"
+      label="Spanish"
+      language="es-ES"
+      kind="subtitles"
+      type="vtt"
+    />
+    <track
+      src="https://files.vidstack.io/sprite-fight/chapters.vtt"
+      language="en-US"
+      kind="chapters"
+      type="vtt"
+      default
+    />
+  </media-provider>
+  <media-video-layout
+    thumbnails="https://files.vidstack.io/sprite-fight/thumbnails.vtt"
+  ></media-video-layout>
+</media-player>

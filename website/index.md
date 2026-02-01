@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "学习笔记"
+  name: "琴殿博客"
   text: "个人笔记网站"
   tagline: 千里之行，始于足下
   image:
