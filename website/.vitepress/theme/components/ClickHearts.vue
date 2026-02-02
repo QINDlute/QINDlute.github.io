@@ -15,6 +15,7 @@ const MAX_NODES = 30 // 最大节点数
 const THROTTLE_DELAY = 100 // 节流延迟（毫秒）
 const nodeQueue: HTMLElement[] = [] // 节点队列
 let lastClickTime = 0 // 上次点击时间
+let asideElement: HTMLElement | null = null // 侧边栏元素引用
 
 const getEmojiByCount = (count: number): string => {
   if (count <= 105) {
@@ -172,15 +173,27 @@ const handleClick = (e: MouseEvent | TouchEvent) => {
 
 onMounted(() => {
   if (typeof window !== 'undefined') {
-    // 使用 mousedown 事件代替 click 事件，同时支持触摸事件
-    const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
-    window.addEventListener(tapEvent, handleClick)
+    // 1. 为其余区域使用 click 事件
+    document.addEventListener('click', handleClick as any)
+    
+    // 2. 为 aside 元素（侧边栏）使用 mousedown/touchstart 事件
+    asideElement = document.querySelector('aside, .VPSidebar')
+    if (asideElement) {
+      const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
+      asideElement.addEventListener(tapEvent, handleClick as any)
+    }
   }
 })
 onUnmounted(() => {
-  // 使用相同的事件类型移除监听
-  const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
-  window.removeEventListener(tapEvent, handleClick)
+  // 1. 移除其余区域的 click 事件监听
+  document.removeEventListener('click', handleClick as any)
+  
+  // 2. 移除 aside 元素的事件监听
+  if (asideElement) {
+    const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
+    asideElement.removeEventListener(tapEvent, handleClick as any)
+    asideElement = null
+  }
   
   // 清理所有还在跑动画的元素
   nodeQueue.forEach(el => {
