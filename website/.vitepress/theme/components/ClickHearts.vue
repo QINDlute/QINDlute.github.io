@@ -3,14 +3,6 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 
 const clickCount = ref(0)
-
-// ========== 性能优化配置 ==========
-const MAX_EFFECTS = 50 // 最大效果数量
-const THROTTLE_DELAY = 100 // 节流延迟（毫秒）
-const effectQueue = ref<HTMLElement[]>([])
-let lastClickTime = 0
-
-// ========== 随机表情数据 ==========
 const randomEmojis = [
   '😀', '😁', '😂', '😃', '😄', '😅', '😆', '😇', '😈', '😉', '😊', '😋', '😌', '😍', '😎', '😏',
   '😐', '😑', '😒', '😓', '😔', '😕', '😖', '😗', '😘', '😙', '😚', '😛', '😜', '😝', '😞', '😟',
@@ -18,9 +10,13 @@ const randomEmojis = [
   '😰', '😱', '😲', '😳', '😴', '😵', '😶', '😷', '😸', '😹', '😺', '😻', '😼', '😽', '😾', '😿'
 ].slice(0, 62)
 
-// ========== 爱心效果逻辑 ==========
+// ========== 性能优化配置 ==========
+const MAX_NODES = 30 // 最大节点数
+const THROTTLE_DELAY = 100 // 节流延迟（毫秒）
+const nodeQueue: HTMLElement[] = [] // 节点队列
+let lastClickTime = 0 // 上次点击时间
+
 const getEmojiByCount = (count: number): string => {
-  // 如果小于等于105，按原逻辑处理（包含100-105的愤怒表情）
   if (count <= 105) {
     switch(count) {
       case 10: return "OωO"
@@ -40,159 +36,48 @@ const getEmojiByCount = (count: number): string => {
       case 105:
         return "(ꐦ°᷄д°᷅)"
       default:
-        return "❤"
+        return "❤\uFE0E"
     }
   }
-  
-  // 105次之后，开始新循环
-  const cycleEmojis = [
-    "OωO",
-    "(๑•́ ∀ •̀๑)", 
-    "(๑•́ ₃ •̀๑)",
-    "(๑•̀_•́๑)",
-    "（￣へ￣）",
-    "(╯°口°)╯(┴—┴",
-    "૮( ᵒ̌皿ᵒ̌ )ა",
-    "╮(｡>口<｡)╭",
-    "( ง ᵒ̌皿ᵒ̌)ง⁼³₌₃"
-  ]
+  const cycleEmojis = ["OωO", "(๑•́ ∀ •̀๑)", "(๑•́ ₃ •̀๑)", "(๑•̀_•́๑)", "（￣へ￣）", "(╯°口°)╯(┴—┴", "૮( ᵒ̌皿ᵒ̌ )ა", "╮(｡>口<｡)╭", "( ง ᵒ̌皿ᵒ̌)ง⁼³₌₃"]
   const relativeCount = count - 106
   if (relativeCount >= 10 && (relativeCount - 10) % 10 === 0) {
-    const index = Math.floor((relativeCount - 10) / 10) % cycleEmojis.length
-    return cycleEmojis[index]
+    return cycleEmojis[Math.floor((relativeCount - 10) / 10) % cycleEmojis.length]
   }
-  return "❤"
+  return "❤\uFE0E"
 }
 
-// ========== 创建爱心效果 ==========
-const createHeartEffect = (x: number, y: number): void => {
-  // 检查效果数量限制
-  if (effectQueue.value.length >= MAX_EFFECTS) {
-    return
+// 安全添加元素并管理节点队列
+const safeAppend = (el: HTMLElement) => {
+  document.body.appendChild(el)
+  nodeQueue.push(el)
+  
+  // 如果节点太多，强制回收旧的，不等待 setTimeout
+  if (nodeQueue.length > MAX_NODES) {
+    const oldest = nodeQueue.shift()
+    if (oldest?.parentNode) {
+      oldest.parentNode.removeChild(oldest)
+    }
   }
-  
-  clickCount.value++
-  const currentCount = clickCount.value
-  
-  const emoji = getEmojiByCount(currentCount)
-  const size = emoji === "❤" ? Math.round(Math.random() * 8 + 12) : 18
-  
-  // 创建元素
-  const heart = document.createElement('span')
-  heart.textContent = emoji
-  
-  // 设置初始样式
-  heart.style.cssText = `
-    position: fixed;
-    z-index: 99999;
-    color: #E94F06;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    font-size: ${size}px;
-    pointer-events: none;
-    user-select: none;
-    opacity: 1;
-    left: ${x}px;
-    top: ${y}px;
-    transform: translate(-50%, -50%);
-    will-change: transform, opacity;
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
-    transition: transform 1s ease-in, opacity 0.8s ease-in;
-  `
-  
-  document.body.appendChild(heart)
-  effectQueue.value.push(heart)
-  
-  // 使用 CSS 过渡动画
+}
+
+// 通用的元素移除逻辑
+const removeElement = (el: HTMLElement, delay: number) => {
   setTimeout(() => {
-    heart.style.transform = `translate(-50%, -200px)`
-    heart.style.opacity = '0'
-  }, 10)
-  
-  // 动画完成后移除元素
-  setTimeout(() => {
-    if (heart.parentNode) {
-      heart.parentNode.removeChild(heart)
-      const index = effectQueue.value.indexOf(heart)
+    if (el.parentNode) {
+      el.parentNode.removeChild(el)
+      // 从队列中移除
+      const index = nodeQueue.indexOf(el)
       if (index > -1) {
-        effectQueue.value.splice(index, 1)
+        nodeQueue.splice(index, 1)
       }
     }
-  }, 1500)
+  }, delay)
 }
 
-// ========== 创建随机表情效果 ==========
-const createRandomEmojiEffect = (x: number, y: number): void => {
-  // 检查效果数量限制
-  if (effectQueue.value.length >= MAX_EFFECTS) {
-    return
-  }
-  
-  // 检测是否为移动端
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
-  
-  // 随机参数
-  const color = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')
-  const emoji = randomEmojis[Math.floor(Math.random() * randomEmojis.length)]
-  // 移动端减小偏移量：-100 到 100，桌面端：-200 到 200
-  const offsetRange = isMobile ? 200 : 400
-  const xOffset = Math.floor(Math.random() * offsetRange) - offsetRange / 2
-  const yOffset = Math.floor(Math.random() * offsetRange) - offsetRange / 2
-  // 移动端缩小表情大小：18-26，桌面端：26-36
-  const baseSize = isMobile ? 18 : 26
-  const sizeRange = isMobile ? 8 : 10
-  const size = Math.round(Math.random() * sizeRange + baseSize)
-  
-  // 创建元素
-  const randomEmoji = document.createElement('span')
-  randomEmoji.textContent = emoji
-  randomEmoji.style.cssText = `
-    position: fixed;
-    z-index: 99999;
-    color: ${color};
-    font-weight: bold;
-    font-size: ${size}px;
-    top: ${y}px;
-    left: ${x}px;
-    pointer-events: none;
-    user-select: none;
-    opacity: 1;
-    transform: translate(-50%, -50%);
-    will-change: transform, opacity;
-    text-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
-    transition: transform 0.9s ease-in, opacity 0.7s ease-in;
-  `
-  
-  document.body.appendChild(randomEmoji)
-  effectQueue.value.push(randomEmoji)
-  
-  // 使用 CSS 过渡动画
-  setTimeout(() => {
-    randomEmoji.style.transform = `translate(${xOffset}px, ${yOffset}px) translate(-50%, -50%)`
-    randomEmoji.style.opacity = '0'
-  }, 10)
-  
-  // 动画完成后移除元素
-  setTimeout(() => {
-    if (randomEmoji.parentNode) {
-      randomEmoji.parentNode.removeChild(randomEmoji)
-      const index = effectQueue.value.indexOf(randomEmoji)
-      if (index > -1) {
-        effectQueue.value.splice(index, 1)
-      }
-    }
-  }, 1000)
-}
-
-// ========== 统一创建效果 ==========
-const createEffects = (x: number, y: number) => {
-  createHeartEffect(x, y)
-  createRandomEmojiEffect(x, y)
-}
-
-// ========== 节流函数 ==========
+// 节流函数
 const throttle = (func: Function, limit: number) => {
-  let inThrottle: boolean = false
+  let inThrottle = false
   return function(this: any, ...args: any[]) {
     const context = this
     if (!inThrottle) {
@@ -203,44 +88,108 @@ const throttle = (func: Function, limit: number) => {
   }
 }
 
-// ========== 统一点击处理 ==========
-const handleClick = (event: MouseEvent): void => {
+const createEffects = (x: number, y: number) => {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+  clickCount.value++
+
+  // 1. 爱心/表情文字效果 (向上飘散)
+  const emoji = getEmojiByCount(clickCount.value)
+  
+  // 根据设备类型调整爱心大小
+  const heartSize = emoji === "❤\uFE0E"
+    ? (isMobile
+      ? Math.round(Math.random() * 8 + 8)
+      : Math.round(Math.random() * 8 + 12)
+    )
+    : 18;  // 特殊表情固定大小
+  
+  const heart = document.createElement('span')
+  heart.textContent = emoji
+  heart.style.cssText = `
+    position: fixed; z-index: 99999; color: #E94F06; font-weight: bold;
+    font-size: ${heartSize}px;
+    left: ${x}px; top: ${y}px; pointer-events: none; user-select: none;
+    will-change: transform, opacity; transform: translate(-50%, -50%);
+    transition: transform 1.5s cubic-bezier(0.45, 0, 0.55, 1), opacity 1.5s cubic-bezier(0.45, 0, 0.55, 1);
+  `
+  heart.style.textShadow = `
+    0 0 5px rgba(255, 255, 255, 0.5), 
+    0 0 10px rgba(233, 79, 6, 0.3)
+  `
+  safeAppend(heart)
+
+  // 2. 随机 Emoji 效果 (四周扩散)
+  const randomEmoji = document.createElement('span')
+  const offsetRange = isMobile ? 200 : 400
+  const xOffset = Math.random() * offsetRange - offsetRange / 2
+  const yOffset = Math.random() * offsetRange - offsetRange / 2
+  randomEmoji.textContent = randomEmojis[Math.floor(Math.random() * randomEmojis.length)]
+  randomEmoji.style.cssText = `
+    position: fixed; z-index: 99998;
+    font-size: ${isMobile ? '18px' : '26px'};
+    left: ${x}px; top: ${y}px; pointer-events: none; user-select: none;
+    will-change: transform, opacity; transform: translate(-50%, -50%);
+    transition: transform 1s cubic-bezier(0.45, 0, 0.55, 1), opacity 1s cubic-bezier(0.45, 0, 0.55, 1);
+  `
+  randomEmoji.style.textShadow = `
+    0 0 5px rgba(255, 255, 255, 0.5), 
+    0 0 10px rgba(233, 79, 6, 0.3)
+  `
+  safeAppend(randomEmoji)
+
+  // 触发动画 (使用 requestAnimationFrame 确保 transition 生效)
+  requestAnimationFrame(() => {
+    heart.style.transform = `translate(-50%, -180px)`
+    heart.style.opacity = '0'
+
+    randomEmoji.style.transform = `translate(calc(-50% + ${xOffset}px), calc(-50% + ${yOffset}px))`
+    randomEmoji.style.opacity = '0'
+  })
+
+  removeElement(heart, 1500)
+  removeElement(randomEmoji, 1000)
+}
+
+// 节流包装点击处理函数
+const throttledCreateEffects = throttle((x: number, y: number) => {
+  createEffects(x, y)
+}, THROTTLE_DELAY)
+
+const handleClick = (e: MouseEvent | TouchEvent) => {
+  // 获取正确的坐标
+  const x = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX
+  const y = 'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY
+  
+  // 节流处理
   const now = Date.now()
   if (now - lastClickTime < THROTTLE_DELAY) {
     return
   }
   lastClickTime = now
-
-  createEffects(event.clientX, event.clientY)
+  
+  throttledCreateEffects(x, y)
 }
 
-// 使用节流包装点击处理函数
-const throttledHandleClick = throttle(handleClick, THROTTLE_DELAY)
-
 onMounted(() => {
-  // 只在客户端执行
-  if (typeof window === 'undefined') return
-  
-  // 添加点击事件监听
-  document.addEventListener('click', throttledHandleClick)
+  if (typeof window !== 'undefined') {
+    // 使用 mousedown 事件代替 click 事件，同时支持触摸事件
+    const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
+    window.addEventListener(tapEvent, handleClick)
+  }
 })
-
 onUnmounted(() => {
-  // 移除事件监听
-  document.removeEventListener('click', throttledHandleClick)
+  // 使用相同的事件类型移除监听
+  const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
+  window.removeEventListener(tapEvent, handleClick)
   
-  // 清理剩余效果
-  effectQueue.value.forEach(element => {
-    if (element.parentNode) {
-      element.parentNode.removeChild(element)
+  // 清理所有还在跑动画的元素
+  nodeQueue.forEach(el => {
+    if (el.parentNode) {
+      el.parentNode.removeChild(el)
     }
   })
-  effectQueue.value = []
+  nodeQueue.length = 0
 })
 </script>
 
-<template>
-</template>
-
-<style scoped>
-</style>
+<template></template>
