@@ -7,20 +7,16 @@
   box-decoration-break: clone;
   
   background-image: linear-gradient(
-    var(--marker-color, rgba(79, 192, 141, 0.5)) 0%,
-    var(--marker-color, rgba(79, 192, 141, 0.5)) 100%,
-    transparent 34%,
-    transparent 100%
+    transparent 50%,
+    var(--marker-color, rgba(79, 192, 141, 0.5)) 50%
   );
   background-size: 100% 200%;
-  background-position: 0 -66%;
+  background-position: 0 34%;
   background-repeat: no-repeat;
   
   /* 平滑过渡效果 - 使用background-position */
   transition: background-position 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
   -webkit-transition: background-position 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
-  -moz-transition: background-position 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
-  -ms-transition: background-position 200ms cubic-bezier(0, 0.8, 0.13, 1) !important;
 }
 
 /* 夜间模式 */
@@ -31,7 +27,7 @@
 /* 鼠标悬停效果 */
 .marker:not(.marker-full):hover {
   /* 悬停时：显示完整背景 */
-  background-position: 0 0;
+  background-position: 0 100%;
   transition-delay: 80ms !important;
 }
 
