@@ -131,6 +131,7 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 * VitePress <Badge type="warning" text="beta" />
 * VitePress <Badge type="danger" text="caution" />
 ```
+<br>
 :::
 
 ## MarkerText 组件使用示例

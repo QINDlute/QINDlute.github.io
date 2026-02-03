@@ -9,7 +9,7 @@
     }
 }
 
-@media (min-width: 960px) {
+/* @media (min-width: 960px) {
     .VPDoc-prevnext {
         padding:0px 32px 0
     }
@@ -23,7 +23,7 @@
     .VPDoc-prevnext:not(.has-sidebar) .content {
         max-width: 752px
     }
-}
+} */
 
 .VPDocFooter {
     margin-top: 64px;

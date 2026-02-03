@@ -30,6 +30,21 @@ export function MarkdownTransform(): Plugin {
         return `<blockquote class="vp-quote-special">\n\n${content}\n\n</blockquote>`
       })
 
+      // 处理词性高亮 (n. v. adj. ad.)
+      const posMap: Record<string, string> = {
+        'n.': 'orange',
+        'v.': 'red',
+        'adj.': 'blue',
+        'ad.': 'purple'
+      }
+
+      // 使用正则匹配独立出现的词性缩写
+      // \b 确保匹配单词边界，防止误伤
+      code = code.replace(/\b(n\.|v\.|adj\.|ad\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
+        const color = posMap[match];
+        return `&nbsp;<span style="color: ${color};">${match}</span>`;
+      });
+
       return code
     }
   }

@@ -146,6 +146,9 @@ export default defineConfig({
         '@components': resolve(__dirname, 'components'), // 组件目录
         '@composables': resolve(__dirname, 'composables') // 可组合函数目录
       }
+    },
+    ssr: {
+      noExternal: ['pdfjs-dist', '@vue-pdf-viewer/viewer']
     }
   },
 

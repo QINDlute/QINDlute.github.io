@@ -20,7 +20,7 @@ import { computed } from 'vue';
 const props = defineProps<{
   /**
    * 标记颜色
-   * 可选值: red, orange, blue, purple, green, 或自定义颜色值
+   * 可选值: red, orange, yellow, blue, purple, green, magenta, 或自定义颜色值
    */
   color?: string;
   
@@ -35,7 +35,7 @@ const props = defineProps<{
 // 计算颜色类名
 const colorClass = computed(() => {
   // 如果是预定义颜色，则返回对应的类名
-  const predefinedColors = ['red', 'orange', 'blue', 'purple', 'green', 'magenta'];
+  const predefinedColors = ['red', 'orange', 'yellow', 'blue', 'purple', 'green', 'magenta'];
   if (props.color && predefinedColors.includes(props.color)) {
     return `marker-${props.color}`;
   }
@@ -45,7 +45,7 @@ const colorClass = computed(() => {
 // 计算自定义样式
 const customStyle = computed(() => {
   // 如果是自定义颜色值，则使用内联样式
-  const predefinedColors = ['red', 'orange', 'blue', 'purple', 'green', 'magenta'];
+  const predefinedColors = ['red', 'orange', 'yellow', 'blue', 'purple', 'green', 'magenta'];
   if (props.color && !predefinedColors.includes(props.color)) {
     return {
       '--marker-color': props.color

@@ -39,5 +39,31 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                 }
             ]
         },
+    ],
+    '/study/': [
+        { text: '学习',
+            items: [
+                { text: '英语', 
+                    items: [
+                        { text: '写作', link: '/study/english/writing/ChangeYourLife' },
+                        { text: '词汇', 
+                            items: [
+                                { text: '基础词汇全贯通',
+                                    items: [
+                                        { text: '词根 A', link: '/study/english/vocabulary/basic_vocabulary/A' },
+                                    ],
+                                },
+                                { text: 'Oxford 3000', link: '/study/english/vocabulary/oxford_3000' },
+                            ]
+                        },
+                        { text: '长难句', 
+                            items: [
+                                { text: '2026.02.03', link: '/study/english/sentence/2-3' },
+                            ]
+                        },
+                    ]
+                },
+            ]
+        }
     ]
 }

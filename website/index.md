@@ -14,7 +14,7 @@ hero:
   actions:
     - theme: brand
       text: 浏览笔记
-      link: /others/archive
+      link: /study/english/vocabulary/basic_vocabulary/A
     - theme: alt
       text: 关于
       link: /others/about/aboutstyle
@@ -22,7 +22,7 @@ features:
   - icon: 📚
     title: 学习
     details: 记录学习经验，强化自身理解。
-    link: /#
+    link: /study/english/vocabulary/basic_vocabulary/A
     linkText: 好好学习，天天向上！
   - icon: 📔
     title: 随笔

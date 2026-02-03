@@ -4,7 +4,13 @@ export const nav: DefaultTheme.Config["nav"] = [
       { text: '首页', link: '/' },
       { text: '学习', 
             items: [
-                  { text: '英语', link: '/study/english/writing/ChangeYourLife' },
+                  { text: '英语', 
+                        items: [
+                              { text: '写作', link: '/study/english/writing/ChangeYourLife' },
+                              { text: '基础词汇全贯通', link: '/study/english/vocabulary/basic_vocabulary/A' },
+                              { text: 'Oxford 3000', link: '/study/english/vocabulary/oxford_3000' },                              
+                        ]
+                  },
                   { text: '数学', link: '#' },
             ]
        },

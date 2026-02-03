@@ -16,6 +16,7 @@ const THROTTLE_DELAY = 100 // 节流延迟（毫秒）
 const nodeQueue: HTMLElement[] = [] // 节点队列
 let lastClickTime = 0 // 上次点击时间
 let asideElement: HTMLElement | null = null // 侧边栏元素引用
+let observer: MutationObserver | null = null // DOM变化观察者
 
 const getEmojiByCount = (count: number): string => {
   if (count <= 105) {
@@ -171,17 +172,37 @@ const handleClick = (e: MouseEvent | TouchEvent) => {
   throttledCreateEffects(x, y)
 }
 
+// 绑定侧边栏事件
+const bindAsideEvent = () => {
+  const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
+  // 先移除旧的事件监听（如果有）
+  if (asideElement) {
+    asideElement.removeEventListener(tapEvent, handleClick as any)
+  }
+  // 查找新的侧边栏元素
+  asideElement = document.querySelector('aside, .VPSidebar')
+  // 绑定新的事件监听
+  if (asideElement) {
+    asideElement.addEventListener(tapEvent, handleClick as any)
+  }
+}
+
 onMounted(() => {
   if (typeof window !== 'undefined') {
     // 1. 为其余区域使用 click 事件
     document.addEventListener('click', handleClick as any)
     
-    // 2. 为 aside 元素（侧边栏）使用 mousedown/touchstart 事件
-    asideElement = document.querySelector('aside, .VPSidebar')
-    if (asideElement) {
-      const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
-      asideElement.addEventListener(tapEvent, handleClick as any)
-    }
+    // 2. 尝试绑定侧边栏事件
+    bindAsideEvent()
+    
+    // 3. 使用 MutationObserver 监听 DOM 变化，确保侧边栏加载后能绑定事件
+    observer = new MutationObserver(() => {
+      bindAsideEvent()
+    })
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    })
   }
 })
 onUnmounted(() => {
@@ -193,6 +214,12 @@ onUnmounted(() => {
     const tapEvent = 'ontouchstart' in window ? 'touchstart' : 'mousedown'
     asideElement.removeEventListener(tapEvent, handleClick as any)
     asideElement = null
+  }
+  
+  // 3. 断开 MutationObserver
+  if (observer) {
+    observer.disconnect()
+    observer = null
   }
   
   // 清理所有还在跑动画的元素

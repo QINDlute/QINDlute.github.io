@@ -94,9 +94,10 @@ export default {
     // 配置：允许使用文本标注功能的路径列表
     const allowedAnnotationPaths: string[] = [
       '/others/',
-      '/test',
+      '/essays/',
+      '/study/',
       '/test/',
-      '/essays/'
+      '/test',
     ];
     
     // 配置：允许跨标签选择文本的元素列表
