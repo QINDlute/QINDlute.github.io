@@ -13,7 +13,7 @@ export function useTextSelection() {
   const isPathAllowed = () => {
     const currentPath = window.location.pathname
     const vitepressThemeConfig = (window as any).vitepressThemeConfig
-    const allowedPaths = vitepressThemeConfig?.allowedAnnotationPaths || ['/essays/'] // 允许标注的路径，默认 essays 目录
+    const allowedPaths = vitepressThemeConfig?.allowedAnnotationPaths || ['/essays/', '/study/'] // 允许标注的路径，默认 essays 和 study 目录
     return allowedPaths.some(excludePath => {
       if (excludePath.endsWith('/')) {
         return currentPath.startsWith(excludePath)
@@ -68,6 +68,9 @@ export function useTextSelection() {
       if (!text) return null
       
       const range = winSelection.getRangeAt(0)
+      
+      // 获取选择范围的边界矩形
+      const rangeRect = range.getBoundingClientRect()
       
       // 检查选中文本是否包含不允许的元素（如链接、按钮等）
       const isInDisallowedElement = (range: Range) => {
@@ -245,36 +248,26 @@ export function useTextSelection() {
       return false
     }
     
-    const commonAncestor = range.commonAncestorContainer
-    const currentElement = commonAncestor.nodeType === Node.TEXT_NODE 
-      ? commonAncestor.parentElement 
-      : (commonAncestor as Element)
-    
-    // 优先检查当前元素，避免使用intersectsNode
-    if (checkElement(currentElement)) return true
-    
-    // 构建选择器：包含所有禁止选中的标签和类
-    const selectors = [
-      ...disabledConfig.tags,
-      ...disabledConfig.classes.map(cls => `.${cls}`)
-    ].join(', ')
-    
-    // 降级检查所有禁止选中的元素（仅在必要时）
-    const disabledElements = document.querySelectorAll(selectors)
-    for (const element of disabledElements) {
-      const rect = element.getBoundingClientRect()
-      const rangeRect = range.getBoundingClientRect()
-      // 用矩形重叠判断是否相交（替代intersectsNode）
-      if (
-        rangeRect.left < rect.right &&
-        rangeRect.right > rect.left &&
-        rangeRect.top < rect.bottom &&
-        rangeRect.bottom > rect.top
-      ) {
-        return true
+    // 检查选择范围的起始和结束节点是否都在允许选中的元素内
+    const checkRangeNodes = (range: Range) => {
+      // 检查节点是否在禁止选中的元素内
+      const isNodeInDisabledElement = (node: Node) => {
+        const element = node.nodeType === Node.TEXT_NODE 
+          ? node.parentElement 
+          : (node as Element)
+        return checkElement(element)
       }
+      
+      // 检查起始节点
+      if (isNodeInDisabledElement(range.startContainer)) return true
+      
+      // 检查结束节点
+      if (isNodeInDisabledElement(range.endContainer)) return true
+      
+      return false
     }
-    return false
+    
+    return checkRangeNodes(range)
   }
       
       // 检查是否在不允许的元素内
@@ -286,19 +279,26 @@ export function useTextSelection() {
       // 检查是否在禁止选中的元素内
       if (isInDisabledElement(range)) return null
       
-      // 检查是否在VPContent内（兼容移动端视口）
-      const vpContent = document.querySelector('.VPContent')
-      if (!vpContent) return null
-      const vpRect = vpContent.getBoundingClientRect()
-      const rangeRect = range.getBoundingClientRect()
-      // 用矩形重叠判断是否在VPContent内
-      const isInVPContent = (
-        rangeRect.left < vpRect.right &&
-        rangeRect.right > vpRect.left &&
-        rangeRect.top < vpRect.bottom &&
-        rangeRect.bottom > vpRect.top
-      )
-      if (!isInVPContent) return null
+      // 检查是否在VPContent或.content类元素内（基于DOM结构）
+      const isInAllowedContainer = () => {
+        const commonAncestor = range.commonAncestorContainer
+        let currentElement = commonAncestor.nodeType === Node.TEXT_NODE 
+          ? commonAncestor.parentElement 
+          : (commonAncestor as Element)
+        
+        // 检查当前元素或其祖先元素是否在允许的容器中
+        while (currentElement) {
+          if (currentElement.classList.contains('VPContent') || 
+              currentElement.classList.contains('content') ||
+              currentElement.tagName.toLowerCase() === 'main') {
+            return true
+          }
+          currentElement = currentElement.parentElement
+        }
+        return false
+      }
+      
+      if (!isInAllowedContainer()) return null
       
       return { text, range, rangeRect }
     }
