@@ -267,7 +267,53 @@ export function useTextSelection() {
       return false
     }
     
-    return checkRangeNodes(range)
+    // 检查选择范围是否与任何禁止选中的元素相交
+    const checkRangeIntersection = (range: Range) => {
+      // 构建选择器：包含所有禁止选中的标签和类
+      const selectors = [
+        ...disabledConfig.tags,
+        ...disabledConfig.classes.map(cls => `.${cls}`)
+      ].join(', ')
+      
+      // 检查选择范围是否与任何禁止选中的元素相交
+      const disabledElements = document.querySelectorAll(selectors)
+      
+      for (const element of disabledElements) {
+        // 快速判断：如果元素完全在视口外，跳过
+        const elementRect = element.getBoundingClientRect()
+        if (elementRect.right < 0 || elementRect.left > window.innerWidth ||
+            elementRect.bottom < 0 || elementRect.top > window.innerHeight) {
+          continue
+        }
+        
+        // 用 Range.intersectsNode() 方法更精确地检查范围是否与节点相交
+        // 只有当选择范围确实与禁止元素相交时，才返回 true
+        try {
+          // 检查选择范围是否与禁止元素相交
+          if (range.intersectsNode(element)) {
+            // 进一步检查：如果选择范围完全包含在禁止元素内，返回 true
+            // 如果选择范围只是部分与禁止元素重叠，也返回 true
+            return true
+          }
+        } catch (e) {
+          // 如果 intersectsNode 方法失败，回退到矩形重叠判断
+          const rangeRect = range.getBoundingClientRect()
+          if (
+            rangeRect.left < elementRect.right &&
+            rangeRect.right > elementRect.left &&
+            rangeRect.top < elementRect.bottom &&
+            rangeRect.bottom > elementRect.top
+          ) {
+            return true
+          }
+        }
+      }
+      
+      return false
+    }
+    
+    // 先检查范围节点，再检查范围与禁止元素的相交
+    return checkRangeNodes(range) || checkRangeIntersection(range)
   }
       
       // 检查是否在不允许的元素内
