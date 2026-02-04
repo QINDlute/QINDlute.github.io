@@ -311,19 +311,57 @@ const functionButtons = [
         // 清除页面上对应ID的所有高亮元素
         const highlights = document.querySelectorAll(`.text-highlight[data-annotation-id="${currentSelection.annotationId}"]`)
         highlights.forEach(highlight => {
-          const parent = highlight.parentNode
-          if (parent) {
-            const textNode = document.createTextNode(highlight.textContent || '')
-            parent.replaceChild(textNode, highlight)
-            parent.normalize()
-          }
+          removeHighlight(highlight)
         })
       }
       
       clearSelection()
+    }  }
+]
+
+/**
+ * 移除高亮元素并保留原始样式
+ * @param highlight 高亮元素
+ * @param isTemporary 是否为临时高亮
+ */
+const removeHighlight = (highlight: HTMLElement, isTemporary: boolean = false) => {
+  // 移除事件监听器
+  if (!isTemporary) {
+    highlight.removeEventListener('click', handleHighlightClickEvent)
+  }
+  
+  // 移除高亮相关的类和样式
+  if (isTemporary) {
+    highlight.classList.remove('text-highlight-temp')
+  } else {
+    highlight.classList.remove('text-highlight')
+    highlight.removeAttribute('data-annotation-id')
+    highlight.removeAttribute('title')
+  }
+  
+  // 移除内联样式
+  highlight.removeAttribute('style')
+  
+  // 如果元素没有其他类和属性，将其转换为文本节点
+  if (!highlight.classList.length && !highlight.hasAttributes()) {
+    const parent = highlight.parentNode
+    if (parent) {
+      // 获取高亮元素的文本内容
+      const text = highlight.textContent || ''
+      
+      // 保存当前高亮元素的位置
+      const nextSibling = highlight.nextSibling
+      
+      // 删除高亮元素
+      parent.removeChild(highlight)
+      
+      // 在原位置插入文本节点
+      const textNode = document.createTextNode(text)
+      parent.insertBefore(textNode, nextSibling)
+      parent.normalize()
     }
   }
-]
+}
 
 /**
  * 选择高亮颜色
@@ -640,22 +678,7 @@ const cancelNote = () => {
   }
   // 2. 处理正在创建的新标注（临时高亮）
   else if (tempHighlightRef.value) {
-    const parent = tempHighlightRef.value.parentNode
-    if (parent) {
-      // 获取临时高亮的文本内容
-      const text = tempHighlightRef.value.textContent || ''
-      
-      // 保存当前临时高亮的位置
-      const nextSibling = tempHighlightRef.value.nextSibling
-      
-      // 删除临时高亮元素
-      parent.removeChild(tempHighlightRef.value)
-      
-      // 在原位置插入文本节点
-      const textNode = document.createTextNode(text)
-      parent.insertBefore(textNode, nextSibling)
-      parent.normalize()
-    }
+    removeHighlight(tempHighlightRef.value, true)
     
     // 重置临时高亮引用
     tempHighlightRef.value = null
@@ -730,22 +753,7 @@ watch(isVisible, (newVal) => {
     
     // 菜单关闭时，清理临时高亮
     if (tempHighlightRef.value) {
-      const parent = tempHighlightRef.value.parentNode
-      if (parent) {
-        // 获取临时高亮的文本内容
-        const text = tempHighlightRef.value.textContent || ''
-        
-        // 保存当前临时高亮的位置
-        const nextSibling = tempHighlightRef.value.nextSibling
-        
-        // 删除临时高亮元素
-        parent.removeChild(tempHighlightRef.value)
-        
-        // 在原位置插入文本节点
-        const textNode = document.createTextNode(text)
-        parent.insertBefore(textNode, nextSibling)
-        parent.normalize()
-      }
+      removeHighlight(tempHighlightRef.value, true)
       
       // 重置临时高亮引用
       tempHighlightRef.value = null

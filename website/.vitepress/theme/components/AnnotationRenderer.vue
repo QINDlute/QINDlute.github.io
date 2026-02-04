@@ -506,19 +506,46 @@ const cleanupUnusedHighlights = (existingHighlights: Map<string, HTMLElement>, a
   existingHighlights.forEach((el, key) => {
     // 只删除不再需要的元素
     if (!neededAnnotationIds.has(key)) {
-      const parent = el.parentNode
-      if (parent) {
-        // 先移除事件监听器，避免内存泄漏
-        el.removeEventListener('click', handleHighlightClick)
-        
-        // 替换为文本节点
-        parent.replaceChild(document.createTextNode(el.textContent || ''), el)
-        
-        // 合并相邻文本节点，减少DOM节点数量
-        parent.normalize()
-      }
+      removeHighlight(el)
     }
   })
+}
+
+/**
+ * 移除高亮元素并保留原始样式
+ * @param highlight 高亮元素
+ */
+const removeHighlight = (highlight: HTMLElement) => {
+  // 移除事件监听器
+  highlight.removeEventListener('click', handleHighlightClick)
+  
+  // 移除高亮相关的类和样式
+  highlight.classList.remove('text-highlight')
+  highlight.removeAttribute('data-annotation-id')
+  highlight.removeAttribute('title')
+  
+  // 移除内联样式
+  highlight.removeAttribute('style')
+  
+  // 如果元素没有其他类和属性，将其转换为文本节点
+  if (!highlight.classList.length && !highlight.hasAttributes()) {
+    const parent = highlight.parentNode
+    if (parent) {
+      // 获取高亮元素的文本内容
+      const text = highlight.textContent || ''
+      
+      // 保存当前高亮元素的位置
+      const nextSibling = highlight.nextSibling
+      
+      // 删除高亮元素
+      parent.removeChild(highlight)
+      
+      // 在原位置插入文本节点
+      const textNode = document.createTextNode(text)
+      parent.insertBefore(textNode, nextSibling)
+      parent.normalize()
+    }
+  }
 }
 
 /**
