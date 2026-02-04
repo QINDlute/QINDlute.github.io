@@ -1,4 +1,7 @@
-// .vitepress/theme/composables/useAnnotations.ts
+/**
+ * 标注管理模块
+ * 负责标注的存储、检索、更新和删除等操作
+ */
 import { ref, watch } from 'vue'
 
 export interface Annotation {
@@ -18,6 +21,26 @@ export interface Annotation {
   updatedAt: Date
 }
 
+/**
+ * 防抖函数
+ * @param func 要执行的函数
+ * @param wait 等待时间（毫秒）
+ * @returns 防抖处理后的函数
+ */
+const debounce = (func: Function, wait: number) => {
+  let timeout: number | null = null
+  return function executedFunction(...args: any[]) {
+    const later = () => {
+      timeout = null
+      func(...args)
+    }
+    if (timeout !== null) {
+      clearTimeout(timeout)
+    }
+    timeout = window.setTimeout(later, wait)
+  }
+}
+
 export function useAnnotations() {
   const annotations = ref<Annotation[]>([])
   const isLoading = ref(false)
@@ -31,12 +54,17 @@ export function useAnnotations() {
     { id: 'blue', name: '蓝色', class: 'bg-blue-100 text-blue-800', rgba: 'rgba(59, 130, 246, 0.3)' }
   ]
 
-  // 获取页面路径（去除哈希和查询参数）
+  /**
+   * 获取页面路径（去除哈希和查询参数）
+   * @returns 当前页面路径
+   */
   const getCurrentPageUrl = () => {
     return window.location.pathname
   }
 
-  // 加载标注
+  /**
+   * 加载标注
+   */
   const loadAnnotations = () => {
     try {
       isLoading.value = true
@@ -68,8 +96,10 @@ export function useAnnotations() {
     }
   }
 
-  // 保存标注
-  const saveAnnotations = () => {
+  /**
+   * 保存标注（防抖处理）
+   */
+  const saveAnnotations = debounce(() => {
     try {
       const currentPage = getCurrentPageUrl()
       try {
@@ -85,9 +115,13 @@ export function useAnnotations() {
     } catch (err) {
       console.error('Failed to save annotations:', err)
     }
-  }
+  }, 300)
 
-  // 创建范围标识符
+  /**
+   * 创建范围标识符
+   * @param range 选择范围
+   * @returns 范围标识符字符串
+   */
   const createRangeIdentifier = (range: Range): string => {
     const { startContainer, startOffset, endContainer, endOffset } = range
     return JSON.stringify({
@@ -102,7 +136,11 @@ export function useAnnotations() {
     })
   }
 
-  // 添加标注
+  /**
+   * 添加标注
+   * @param data 标注数据
+   * @returns 新创建的标注对象
+   */
   const addAnnotation = (data: {
     type: 'highlight' | 'underline'
     color: string
@@ -139,7 +177,11 @@ export function useAnnotations() {
     }
   }
 
-  // 更新标注
+  /**
+   * 更新标注
+   * @param id 标注ID
+   * @param updates 更新数据
+   */
   const updateAnnotation = (id: string, updates: Partial<Annotation>) => {
     const index = annotations.value.findIndex(a => a.id === id)
     if (index !== -1) {
@@ -152,7 +194,10 @@ export function useAnnotations() {
     }
   }
 
-  // 删除标注
+  /**
+   * 删除标注
+   * @param id 标注ID
+   */
   const removeAnnotation = (id: string) => {
     const index = annotations.value.findIndex(a => a.id === id)
     if (index !== -1) {
@@ -161,26 +206,41 @@ export function useAnnotations() {
     }
   }
 
-  // 获取当前页面的标注
+  /**
+   * 获取当前页面的标注
+   * @returns 当前页面的标注数组
+   */
   const getCurrentPageAnnotations = () => {
     const currentPage = getCurrentPageUrl()
     return annotations.value.filter(anno => anno.position.pageUrl === currentPage)
   }
 
-  // 搜索标注
+  /**
+   * 搜索标注
+   * @param query 搜索关键词
+   * @returns 匹配的标注数组
+   */
   const searchAnnotations = (query: string) => {
+    const lowerQuery = query.toLowerCase()
     return annotations.value.filter(anno => 
-      anno.text.toLowerCase().includes(query.toLowerCase()) ||
-      anno.notes?.toLowerCase().includes(query.toLowerCase())
+      anno.text.toLowerCase().includes(lowerQuery) ||
+      anno.notes?.toLowerCase().includes(lowerQuery)
     )
   }
 
-  // 导出标注
+  /**
+   * 导出标注
+   * @returns 标注数据的JSON字符串
+   */
   const exportAnnotations = () => {
     return JSON.stringify(annotations.value, null, 2)
   }
 
-  // 导入标注
+  /**
+   * 导入标注
+   * @param json 标注数据的JSON字符串
+   * @throws 导入失败时抛出错误
+   */
   const importAnnotations = (json: string) => {
     try {
       const imported = JSON.parse(json)
@@ -195,7 +255,10 @@ export function useAnnotations() {
   let urlCheckInterval: number | null = null
   let currentPageUrl: string | null = null
   
-  // 提取存储变化事件处理函数为命名函数
+  /**
+   * 处理存储变化事件（多标签页同步）
+   * @param event 存储变化事件
+   */
   const handleStorageChange = (event: StorageEvent) => {
     const currentPage = getCurrentPageUrl()
     if (event.key === `vitepress-annotations-${currentPage}`) {
@@ -203,7 +266,9 @@ export function useAnnotations() {
     }
   }
 
-  // 加载当前页面的标注
+  /**
+   * 加载当前页面的标注
+   */
   const loadCurrentPageAnnotations = () => {
     const pageUrl = getCurrentPageUrl()
     if (pageUrl !== currentPageUrl) {
@@ -234,7 +299,9 @@ export function useAnnotations() {
     window.addEventListener('storage', handleStorageChange)
   }
 
-  // 清理函数，用于组件卸载时清理资源
+  /**
+   * 清理函数，用于组件卸载时清理资源
+   */
   const cleanup = () => {
     if (typeof window !== 'undefined') {
       // 清除定时器

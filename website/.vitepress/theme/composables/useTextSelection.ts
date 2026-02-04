@@ -1,4 +1,7 @@
-// .vitepress/theme/composables/useTextSelection.ts
+/**
+ * 文本选择处理模块
+ * 负责处理文本选择逻辑，适配移动端和桌面端
+ */
 import { ref, onMounted, onUnmounted } from 'vue'
 
 export interface TextSelection {
@@ -8,12 +11,35 @@ export interface TextSelection {
   annotationId?: string
 }
 
+/**
+ * 防抖函数
+ * @param func 要执行的函数
+ * @param wait 等待时间（毫秒）
+ * @returns 防抖处理后的函数
+ */
+const debounce = (func: Function, wait: number) => {
+  let timeout: number | null = null
+  return function executedFunction(...args: any[]) {
+    const later = () => {
+      timeout = null
+      func(...args)
+    }
+    if (timeout !== null) {
+      clearTimeout(timeout)
+    }
+    timeout = window.setTimeout(later, wait)
+  }
+}
+
 export function useTextSelection() {
-  // 检查当前路径是否允许标注
+  /**
+   * 检查当前路径是否允许标注
+   * @returns 是否允许标注
+   */
   const isPathAllowed = () => {
     const currentPath = window.location.pathname
     const vitepressThemeConfig = (window as any).vitepressThemeConfig
-    const allowedPaths = vitepressThemeConfig?.allowedAnnotationPaths || ['/essays/', '/study/'] // 允许标注的路径，默认 essays 和 study 目录
+    const allowedPaths = vitepressThemeConfig?.allowedAnnotationPaths || ['/essays/', '/study/'] // 允许标注的默认路径
     return allowedPaths.some(excludePath => {
       if (excludePath.endsWith('/')) {
         return currentPath.startsWith(excludePath)
@@ -31,8 +57,13 @@ export function useTextSelection() {
   const isVisible = ref(false)
   const isTouchDevice = ref(false)
   const ignoreNextClick = ref(false)
-  // 新增：标记是否正在处理移动端文本选择，避免重复触发
+  // 标记是否正在处理移动端文本选择，避免重复触发
   const isProcessingSelection = ref(false)
+  
+  // 缓存不允许的元素列表，减少DOM查询
+  let disallowedElementsCache: NodeListOf<Element> | null = null
+  let disallowedElementsTimestamp: number = 0
+  const DISALLOWED_ELEMENTS_CACHE_DURATION = 1000 // 缓存持续时间（毫秒）
 
   // 重构：统一的文本选择处理逻辑，适配移动端延迟检测
   const handleTextSelection = (event?: MouseEvent | Event) => {
@@ -72,11 +103,20 @@ export function useTextSelection() {
       // 获取选择范围的边界矩形
       const rangeRect = range.getBoundingClientRect()
       
-      // 检查选中文本是否包含不允许的元素（如链接、按钮等）
+      /**
+       * 检查选中文本是否包含不允许的元素（如链接、按钮等）
+       * @param range 选择范围
+       * @returns 是否在不允许的元素内
+       */
       const isInDisallowedElement = (range: Range) => {
         // 不允许的元素标签列表
         const disallowedTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT', 'IMG', 'VIDEO', 'AUDIO', 'SCRIPT', 'STYLE']
         
+        /**
+         * 检查元素及其祖先元素是否在不允许的标签列表中
+         * @param el 要检查的元素
+         * @returns 是否在不允许的元素内
+         */
         const checkElement = (el: Element | null) => {
           while (el) {
             if (disallowedTags.includes(el.tagName)) {
@@ -96,8 +136,21 @@ export function useTextSelection() {
         // 检查当前元素及其祖先元素
         if (checkElement(currentElement)) return true
         
+        /**
+         * 获取不允许的元素列表（使用缓存）
+         * @returns 不允许的元素列表
+         */
+        const getDisallowedElements = () => {
+          const now = Date.now()
+          if (!disallowedElementsCache || now - disallowedElementsTimestamp > DISALLOWED_ELEMENTS_CACHE_DURATION) {
+            disallowedElementsCache = document.querySelectorAll(disallowedTags.join(','))
+            disallowedElementsTimestamp = now
+          }
+          return disallowedElementsCache
+        }
+        
         // 检查选择范围是否与任何不允许的元素相交
-        const disallowedElements = document.querySelectorAll(disallowedTags.join(','))
+        const disallowedElements = getDisallowedElements()
         const rangeRect = range.getBoundingClientRect()
         
         for (const element of disallowedElements) {
@@ -137,9 +190,16 @@ export function useTextSelection() {
         return false
       }
       
-      // 检查选中文本是否跨标签（不在同一个元素内）
+      /**
+       * 检查选中文本是否跨标签（不在同一个元素内）
+       * @param range 选择范围
+       * @returns 是否跨标签选择
+       */
       const isCrossElementSelection = (range: Range) => {
-        // 检查共同祖先元素是否在允许的元素内，如果是，则允许跨标签选择
+        /**
+         * 检查共同祖先元素是否在允许的元素内，如果是，则允许跨标签选择
+         * @returns 是否在允许的元素内
+         */
         const isInAllowedElement = () => {
           const commonAncestor = range.commonAncestorContainer
           let currentElement = commonAncestor.nodeType === Node.TEXT_NODE 
@@ -194,8 +254,8 @@ export function useTextSelection() {
             // 检查startOffset和endOffset是否跨越了多个子节点
             let currentNode = commonAncestor.firstChild
             let currentOffset = 0
-            let startNode = null
-            let endNode = null
+            let startNode: Node | null = null
+            let endNode: Node | null = null
             
             // 遍历子节点，找到startOffset和endOffset所在的节点
             while (currentNode) {
@@ -225,96 +285,117 @@ export function useTextSelection() {
         return false
       }
       
-      // 检查选中文本是否在禁止选中的元素内
-  const isInDisabledElement = (range: Range) => {
-    // 禁止选中的配置
-    const disabledConfig = {
-      // 禁止选中的HTML标签
-      tags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-      // 禁止选中的CSS类名
-      classes: ['nometa-h1', 'faq-h1', 'marker']
-    }
-    
-    const checkElement = (el: Element | null) => {
-      while (el) {
-        // 检查是否是禁止选中的标签
-        if (disabledConfig.tags.some(tag => tag.toLowerCase() === el.tagName.toLowerCase())) return true
-        
-        // 检查是否包含禁止选中的类名
-        if (disabledConfig.classes.some(cls => el.classList.contains(cls))) return true
-        
-        el = el.parentElement
-      }
-      return false
-    }
-    
-    // 检查选择范围的起始和结束节点是否都在允许选中的元素内
-    const checkRangeNodes = (range: Range) => {
-      // 检查节点是否在禁止选中的元素内
-      const isNodeInDisabledElement = (node: Node) => {
-        const element = node.nodeType === Node.TEXT_NODE 
-          ? node.parentElement 
-          : (node as Element)
-        return checkElement(element)
-      }
-      
-      // 检查起始节点
-      if (isNodeInDisabledElement(range.startContainer)) return true
-      
-      // 检查结束节点
-      if (isNodeInDisabledElement(range.endContainer)) return true
-      
-      return false
-    }
-    
-    // 检查选择范围是否与任何禁止选中的元素相交
-    const checkRangeIntersection = (range: Range) => {
-      // 构建选择器：包含所有禁止选中的标签和类
-      const selectors = [
-        ...disabledConfig.tags,
-        ...disabledConfig.classes.map(cls => `.${cls}`)
-      ].join(', ')
-      
-      // 检查选择范围是否与任何禁止选中的元素相交
-      const disabledElements = document.querySelectorAll(selectors)
-      
-      for (const element of disabledElements) {
-        // 快速判断：如果元素完全在视口外，跳过
-        const elementRect = element.getBoundingClientRect()
-        if (elementRect.right < 0 || elementRect.left > window.innerWidth ||
-            elementRect.bottom < 0 || elementRect.top > window.innerHeight) {
-          continue
+      /**
+       * 检查选中文本是否在禁止选中的元素内
+       * @param range 选择范围
+       * @returns 是否在禁止选中的元素内
+       */
+      const isInDisabledElement = (range: Range) => {
+        // 禁止选中的配置
+        const disabledConfig = {
+          // 禁止选中的HTML标签
+          tags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+          // 禁止选中的CSS类名
+          classes: ['nometa-h1', 'faq-h1', 'marker']
         }
         
-        // 用 Range.intersectsNode() 方法更精确地检查范围是否与节点相交
-        // 只有当选择范围确实与禁止元素相交时，才返回 true
-        try {
-          // 检查选择范围是否与禁止元素相交
-          if (range.intersectsNode(element)) {
-            // 进一步检查：如果选择范围完全包含在禁止元素内，返回 true
-            // 如果选择范围只是部分与禁止元素重叠，也返回 true
-            return true
+        /**
+         * 检查元素及其祖先元素是否在禁止选中的配置中
+         * @param el 要检查的元素
+         * @returns 是否在禁止选中的元素内
+         */
+        const checkElement = (el: Element | null) => {
+          while (el) {
+            // 检查是否是禁止选中的标签
+            if (disabledConfig.tags.some(tag => tag.toLowerCase() === el.tagName.toLowerCase())) return true
+            
+            // 检查是否包含禁止选中的类名
+            if (disabledConfig.classes.some(cls => el.classList.contains(cls))) return true
+            
+            el = el.parentElement
           }
-        } catch (e) {
-          // 如果 intersectsNode 方法失败，回退到矩形重叠判断
-          const rangeRect = range.getBoundingClientRect()
-          if (
-            rangeRect.left < elementRect.right &&
-            rangeRect.right > elementRect.left &&
-            rangeRect.top < elementRect.bottom &&
-            rangeRect.bottom > elementRect.top
-          ) {
-            return true
-          }
+          return false
         }
+        
+        /**
+         * 检查选择范围的起始和结束节点是否都在允许选中的元素内
+         * @param range 选择范围
+         * @returns 是否在禁止选中的元素内
+         */
+        const checkRangeNodes = (range: Range) => {
+          /**
+           * 检查节点是否在禁止选中的元素内
+           * @param node 要检查的节点
+           * @returns 是否在禁止选中的元素内
+           */
+          const isNodeInDisabledElement = (node: Node) => {
+            const element = node.nodeType === Node.TEXT_NODE 
+              ? node.parentElement 
+              : (node as Element)
+            return checkElement(element)
+          }
+          
+          // 检查起始节点
+          if (isNodeInDisabledElement(range.startContainer)) return true
+          
+          // 检查结束节点
+          if (isNodeInDisabledElement(range.endContainer)) return true
+          
+          return false
+        }
+        
+        /**
+         * 检查选择范围是否与任何禁止选中的元素相交
+         * @param range 选择范围
+         * @returns 是否与禁止选中的元素相交
+         */
+        const checkRangeIntersection = (range: Range) => {
+          // 构建选择器：包含所有禁止选中的标签和类
+          const selectors = [
+            ...disabledConfig.tags,
+            ...disabledConfig.classes.map(cls => `.${cls}`)
+          ].join(', ')
+          
+          // 检查选择范围是否与任何禁止选中的元素相交
+          const disabledElements = document.querySelectorAll(selectors)
+          
+          for (const element of disabledElements) {
+            // 快速判断：如果元素完全在视口外，跳过
+            const elementRect = element.getBoundingClientRect()
+            if (elementRect.right < 0 || elementRect.left > window.innerWidth ||
+                elementRect.bottom < 0 || elementRect.top > window.innerHeight) {
+              continue
+            }
+            
+            // 用 Range.intersectsNode() 方法更精确地检查范围是否与节点相交
+            // 只有当选择范围确实与禁止元素相交时，才返回 true
+            try {
+              // 检查选择范围是否与禁止元素相交
+              if (range.intersectsNode(element)) {
+                // 进一步检查：如果选择范围完全包含在禁止元素内，返回 true
+                // 如果选择范围只是部分与禁止元素重叠，也返回 true
+                return true
+              }
+            } catch (e) {
+              // 如果 intersectsNode 方法失败，回退到矩形重叠判断
+              const rangeRect = range.getBoundingClientRect()
+              if (
+                rangeRect.left < elementRect.right &&
+                rangeRect.right > elementRect.left &&
+                rangeRect.top < elementRect.bottom &&
+                rangeRect.bottom > elementRect.top
+              ) {
+                return true
+              }
+            }
+          }
+          
+          return false
+        }
+        
+        // 先检查范围节点，再检查范围与禁止元素的相交
+        return checkRangeNodes(range) || checkRangeIntersection(range)
       }
-      
-      return false
-    }
-    
-    // 先检查范围节点，再检查范围与禁止元素的相交
-    return checkRangeNodes(range) || checkRangeIntersection(range)
-  }
       
       // 检查是否在不允许的元素内
       if (isInDisallowedElement(range)) return null
@@ -480,7 +561,10 @@ export function useTextSelection() {
     setTimeout(handleTextSelection, 100)
   }
   
-  // 优化的handleScroll函数，滚动时重置所有标注状态
+    /**
+   * 处理滚动事件
+   * 滚动时重置所有标注状态
+   */
   const handleScroll = () => {
     clearSelection()
     // 重置处理状态，确保滚动后能正常进行新的文本选择

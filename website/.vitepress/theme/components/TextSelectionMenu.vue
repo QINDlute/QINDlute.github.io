@@ -69,6 +69,26 @@ import { ref, computed, nextTick, onMounted, onUnmounted, watch } from 'vue'
 import { useTextSelection } from '../composables/useTextSelection'
 import { useAnnotations, type Annotation } from '../composables/useAnnotations'
 
+/**
+ * 防抖函数
+ * @param func 要执行的函数
+ * @param wait 等待时间（毫秒）
+ * @returns 防抖处理后的函数
+ */
+const debounce = (func: Function, wait: number) => {
+  let timeout: number | null = null
+  return function executedFunction(...args: any[]) {
+    const later = () => {
+      timeout = null
+      func(...args)
+    }
+    if (timeout !== null) {
+      clearTimeout(timeout)
+    }
+    timeout = window.setTimeout(later, wait)
+  }
+}
+
 // 组合式函数
 const { selection, isVisible, clearSelection, handleCopy } = useTextSelection()
 const { 
@@ -92,7 +112,9 @@ const editingAnnotation = ref<Annotation | null>(null)
 const tempHighlightRef = ref<HTMLElement | null>(null)
 const tempHighlightRange = ref<Range | null>(null)
 
-// 计算属性
+/**
+ * 计算菜单位置和样式
+ */
 const menuStyle = computed(() => {
   // 菜单宽度（固定）
   const menuWidth = 240
@@ -104,6 +126,7 @@ const menuStyle = computed(() => {
   const BELOW_TEXT_SPACING = 5 // 菜单显示在文本下方时，顶部与文本的间距
   const ABOVE_TEXT_SPACING = 5 // 菜单显示在文本上方时，底部与文本的间距
   const VIEWPORT_MARGIN = 10 // 菜单与视口边缘的最小间距
+  const DEFAULT_LINE_HEIGHT = 24 // 默认行高
   
   // 获取当前视口尺寸
   const viewportWidth = window.innerWidth
@@ -129,6 +152,11 @@ const menuStyle = computed(() => {
     left = viewportWidth - VIEWPORT_MARGIN - menuWidth / 2
   }
   
+  /**
+   * 获取菜单边缘位置
+   * @param top 菜单顶部位置
+   * @returns 菜单边缘位置对象
+   */
   const getMenuEdges = (top: number) => ({
     topEdge: top,
     bottomEdge: top + menuHeight
@@ -137,37 +165,35 @@ const menuStyle = computed(() => {
   // 垂直位置计算 - 确保菜单完全在视口内且不遮挡选中文本
   const textBaseY = selection.value.position.y;
   
-  // 计算选中文本的行高
+  /**
+   * 计算选中文本的行高
+   * @returns 行高值
+   */
   const getLineHeight = (): number => {
-    // 如果selection.range存在，使用它来获取更准确的行高
+    // 优化：减少DOM操作，使用更简单的方法获取行高
     if (selection.value.range) {
-      const range = selection.value.range;
-      // 创建临时元素，用于获取行高
-      const tempElement = document.createElement('span');
-      tempElement.textContent = 'x'; // 使用单个字符获取行高
-      tempElement.style.visibility = 'hidden';
-      tempElement.style.position = 'absolute';
-      tempElement.style.pointerEvents = 'none';
-      
-      // 复制范围并折叠到起始位置
-      const tempRange = range.cloneRange();
-      tempRange.collapse(true);
-      
-      // 插入临时元素
-      tempRange.insertNode(tempElement);
-      
-      // 获取行高
-      const rect = tempElement.getBoundingClientRect();
-      const lineHeight = rect.height;
-      
-      // 移除临时元素
-      tempElement.parentNode?.removeChild(tempElement);
-      
-      return lineHeight;
-    } else {
-      // 如果没有range，使用默认行高24px
-      return 24;
+      try {
+        // 使用getComputedStyle获取父元素的行高
+        const range = selection.value.range;
+        const commonAncestor = range.commonAncestorContainer;
+        const element = commonAncestor.nodeType === Node.TEXT_NODE 
+          ? commonAncestor.parentElement 
+          : commonAncestor as Element;
+        
+        if (element) {
+          const computedStyle = window.getComputedStyle(element);
+          const lineHeight = computedStyle.lineHeight;
+          // 如果是具体数值，直接返回
+          if (!isNaN(parseFloat(lineHeight))) {
+            return parseFloat(lineHeight);
+          }
+        }
+      } catch (error) {
+        console.warn('获取行高失败，使用默认值:', error);
+      }
     }
+    // 如果没有range或获取失败，使用默认行高
+    return DEFAULT_LINE_HEIGHT;
   };
   
   const lineHeight = getLineHeight();
@@ -193,9 +219,6 @@ const menuStyle = computed(() => {
     Math.min(targetTop, viewportHeight - menuHeight - VIEWPORT_MARGIN)
   );
   
-  // 最终确保菜单完全在视口内（兜底检查）
-  // finalTop = Math.max(VIEWPORT_MARGIN, Math.min(finalTop, viewportHeight - menuHeight - VIEWPORT_MARGIN))
-  
   return {
     left: `${left}px`,
     top: `${finalTop}px`,
@@ -206,19 +229,11 @@ const menuStyle = computed(() => {
   }
 })
 
-// 添加清空缓存功能
-// const clearAllAnnotations = () => {
-//   if (confirm('确定要清空所有标注吗？此操作不可恢复。')) {
-//     // 获取当前页面URL
-//     const currentPage = window.location.pathname;
-//     // 清空当前页面的标注
-//     localStorage.removeItem(`vitepress-annotations-${currentPage}`);
-//     // 重新加载页面
-//     window.location.reload();
-//   }
-// };
 
-// 功能按钮配置
+
+/**
+ * 功能按钮配置
+ */
 const functionButtons = [
   {
     title: '复制',
@@ -239,7 +254,8 @@ const functionButtons = [
       clearSelection()
     }
   },
-  { title: '标注',
+  {
+    title: '标注',
     icon: '📝',
     action: () => {
       // 保存当前范围，用于创建临时高亮
@@ -281,7 +297,8 @@ const functionButtons = [
       clearSelection()
     }
   },
-  { title: '取消高亮',
+  {
+    title: '取消高亮',
     icon: '🧼',
     action: () => {
       const currentSelection = selection.value
@@ -305,15 +322,13 @@ const functionButtons = [
       
       clearSelection()
     }
-  },
-//   {
-//     title: '清空缓存',
-//     icon: '🗑️',
-//     action: clearAllAnnotations
-//   }
+  }
 ]
 
-// 方法
+/**
+ * 选择高亮颜色
+ * @param colorId 颜色ID
+ */
 const selectColor = (colorId: string) => {
   // 保存原始颜色，用于取消编辑时恢复
   const originalColor = selectedColor.value
@@ -322,31 +337,55 @@ const selectColor = (colorId: string) => {
   
   // 如果显示标注输入框
   if (showNoteInput.value) {
-    // 情况1：正在编辑现有标注
-    if (editingAnnotation.value && selection.value.annotationId) {
-      // 查找颜色信息
-      const colorInfo = colorOptions.find(c => c.id === colorId)
-      if (colorInfo) {
-        // 立即更新DOM中高亮元素的颜色（预览效果）
-        const highlight = document.querySelector(`[data-annotation-id="${selection.value.annotationId}"]`)
-        if (highlight) {
-          highlight.style.backgroundColor = colorInfo.rgba
-        }
-      }
-    }
-    // 情况2：正在创建新标注（有临时高亮）
-    else if (tempHighlightRef.value) {
-      // 查找颜色信息
-      const colorInfo = colorOptions.find(c => c.id === colorId)
-      if (colorInfo) {
-        // 更新临时高亮颜色
-        tempHighlightRef.value.style.backgroundColor = colorInfo.rgba
-        tempHighlightRef.value.style.opacity = '0.7' // 临时高亮稍微降低不透明度，与永久高亮区分
-      }
-    }
-  } else if (!showNoteInput.value) {
+    handleColorChangeForNoteInput(colorId)
+  } else {
     // 如果不显示标注输入框，直接创建高亮
     createHighlight()
+  }
+}
+
+/**
+ * 处理标注输入框状态下的颜色变化
+ * @param colorId 颜色ID
+ */
+const handleColorChangeForNoteInput = (colorId: string) => {
+  // 情况1：正在编辑现有标注
+  if (editingAnnotation.value && selection.value.annotationId) {
+    updateExistingAnnotationColor(colorId)
+  }
+  // 情况2：正在创建新标注（有临时高亮）
+  else if (tempHighlightRef.value) {
+    updateTemporaryHighlightColor(colorId)
+  }
+}
+
+/**
+ * 更新现有标注的颜色
+ * @param colorId 颜色ID
+ */
+const updateExistingAnnotationColor = (colorId: string) => {
+  // 查找颜色信息
+  const colorInfo = colorOptions.find(c => c.id === colorId)
+  if (colorInfo && selection.value.annotationId) {
+    // 立即更新DOM中高亮元素的颜色（预览效果）
+    const highlight = document.querySelector(`[data-annotation-id="${selection.value.annotationId}"]`)
+    if (highlight) {
+      highlight.style.backgroundColor = colorInfo.rgba
+    }
+  }
+}
+
+/**
+ * 更新临时高亮的颜色
+ * @param colorId 颜色ID
+ */
+const updateTemporaryHighlightColor = (colorId: string) => {
+  // 查找颜色信息
+  const colorInfo = colorOptions.find(c => c.id === colorId)
+  if (colorInfo && tempHighlightRef.value) {
+    // 更新临时高亮颜色
+    tempHighlightRef.value.style.backgroundColor = colorInfo.rgba
+    tempHighlightRef.value.style.opacity = '0.7' // 临时高亮稍微降低不透明度，与永久高亮区分
   }
 }
 
@@ -421,22 +460,29 @@ const createHighlight = () => {
   }
 }
 
+/**
+ * 应用高亮到DOM
+ * @param range 选择范围
+ * @param color 高亮颜色
+ * @param annotationId 标注ID
+ */
 const applyHighlight = (range: Range, color: string, annotationId: string) => {
   // 创建高亮元素
-      const span = document.createElement('span')
-      span.className = 'text-highlight'
-      span.dataset.annotationId = annotationId // 添加标注ID
-      
-      // 确保能找到颜色
-      const colorInfo = colorOptions.find(c => c.id === color)
-      span.style.backgroundColor = colorInfo ? colorInfo.rgba : '#FFFF00' // 默认黄色
-      span.style.borderRadius = '2px'
-      span.style.padding = '0 2px'
-      span.style.cursor = 'pointer'
-      span.style.transition = 'background-color 0.3s ease'
-      // 设置title为标注内容的前20个字符，超出部分用……代替
-      const annotationNotes = noteText.value || ''
-      span.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+  const span = document.createElement('span')
+  span.className = 'text-highlight'
+  span.dataset.annotationId = annotationId // 添加标注ID
+  
+  // 确保能找到颜色
+  const colorInfo = colorOptions.find(c => c.id === color)
+  span.style.backgroundColor = colorInfo ? colorInfo.rgba : '#FFFF00' // 默认黄色
+  span.style.borderRadius = '2px'
+  span.style.padding = '0 2px'
+  span.style.cursor = 'pointer'
+  span.style.transition = 'background-color 0.3s ease'
+  
+  // 设置title为标注内容的前20个字符，超出部分用……代替
+  const annotationNotes = noteText.value || ''
+  span.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
   
   try {
     // 直接使用当前范围，不进行复杂的重新定位
@@ -447,28 +493,35 @@ const applyHighlight = (range: Range, color: string, annotationId: string) => {
       range.insertNode(span)
       
       // 为新添加的高亮立即添加点击事件
-      span.addEventListener('click', (event) => {
-        event.stopPropagation()
-        const text = span.textContent || ''
-        
-        // 触发自定义事件，通知打开菜单
-        const customEvent = new CustomEvent('highlight-click', {
-          detail: {
-            text: text,
-            element: span,
-            annotationId: span.dataset.annotationId
-          },
-          bubbles: true,
-          composed: true
-        })
-        
-        event.currentTarget?.dispatchEvent(customEvent)
-      })
+      span.addEventListener('click', handleHighlightClickEvent)
     }
   } catch (error) {
     console.error('应用高亮失败:', error)
     // 简化失败处理，减少性能开销
   }
+}
+
+/**
+ * 处理高亮元素点击事件
+ * @param event 点击事件
+ */
+const handleHighlightClickEvent = (event: MouseEvent) => {
+  event.stopPropagation()
+  const span = event.currentTarget as HTMLElement
+  const text = span.textContent || ''
+  
+  // 触发自定义事件，通知打开菜单
+  const customEvent = new CustomEvent('highlight-click', {
+    detail: {
+      text: text,
+      element: span,
+      annotationId: span.dataset.annotationId
+    },
+    bubbles: true,
+    composed: true
+  })
+  
+  event.currentTarget?.dispatchEvent(customEvent)
 }
 
 const saveNote = () => {
@@ -779,8 +832,10 @@ const handleKeyDown = (event: KeyboardEvent) => {
   }
 }
 
-// 处理窗口大小变化
-const handleResize = () => {
+/**
+ * 处理窗口大小变化（防抖处理）
+ */
+const handleResize = debounce(() => {
   if (isVisible.value) {
     // 窗口大小变化时，强制更新菜单位置
     // 通过重新设置selection对象触发menuStyle计算属性重新计算
@@ -788,9 +843,11 @@ const handleResize = () => {
       ...selection.value
     }
   }
-}
+}, 100)
 
-// 监听showNoteInput变化，重新计算位置
+/**
+ * 监听showNoteInput变化，重新计算位置
+ */
 watch(showNoteInput, (newVal) => {
   if (isVisible.value) {
     // 打开标注窗口时，菜单高度增加，重新计算位置
