@@ -7,9 +7,15 @@ const isMobile = ref(false)
 const canvas = ref<HTMLCanvasElement | null>(null)
 // 雪花效果是否激活，默认关闭
 const isActive = ref(false)
+// 是否进入观赏模式（鼠标不动超过10秒）
+const iswatchMode = ref(false)
 let animationFrameId: number
 let mouseX = -100
 let mouseY = -100
+// 鼠标移动定时器
+let mouseMoveTimeout: number | null = null
+// 观赏模式触发时间（毫秒）
+const watchModeTimeout = 10000
 
 // 配置参数
 const config = ref({
@@ -116,8 +122,9 @@ const animate = () => {
     const dy = mouseY - flake.y
     const dist = Math.sqrt(dx * dx + dy * dy)
     
-    // 如果鼠标靠近，产生排斥力
-    if (dist < minDist) {
+    // 检查是否进入观赏模式
+    if (!iswatchMode.value && dist < minDist) {
+      // 如果鼠标靠近，产生排斥力
       const force = minDist / (dist * dist) / 2
       flake.velX -= force * (dx / dist)
       flake.velY -= force * (dy / dist)
@@ -153,10 +160,33 @@ const animate = () => {
   animationFrameId = requestAnimationFrame(animate)
 }
 
+// 重置鼠标移动定时器
+const resetMouseMoveTimeout = () => {
+  // 清除之前的定时器
+  if (mouseMoveTimeout !== null) {
+    clearTimeout(mouseMoveTimeout)
+    mouseMoveTimeout = null
+  }
+  
+  // 退出观赏模式
+  if (iswatchMode.value) {
+    iswatchMode.value = false
+  }
+  
+  // 设置新的定时器
+  mouseMoveTimeout = window.setTimeout(() => {
+    // 进入观赏模式
+    iswatchMode.value = true
+  }, watchModeTimeout)
+}
+
 // 处理鼠标移动
 const handleMouseMove = (e: MouseEvent) => {
   mouseX = e.clientX
   mouseY = e.clientY
+  
+  // 重置鼠标移动定时器
+  resetMouseMoveTimeout()
 }
 
 // 处理窗口大小变化
@@ -208,6 +238,9 @@ const toggleSnowEffect = (active: boolean) => {
       ))
     }
     
+    // 初始化鼠标移动定时器
+    resetMouseMoveTimeout()
+    
     // 开始动画
     // console.log('Starting animation')
     // 确保只请求一个动画帧
@@ -224,6 +257,15 @@ const toggleSnowEffect = (active: boolean) => {
     }
     // 清空雪花数组
     snowflakes.length = 0
+    
+    // 清除鼠标移动定时器
+    if (mouseMoveTimeout !== null) {
+      clearTimeout(mouseMoveTimeout)
+      mouseMoveTimeout = null
+    }
+    
+    // 重置观赏模式
+    iswatchMode.value = false
   }
 }
 
@@ -275,6 +317,12 @@ onUnmounted(() => {
   }
   window.removeEventListener('mousemove', handleMouseMove)
   window.removeEventListener('resize', handleResize)
+  
+  // 清除鼠标移动定时器
+  if (mouseMoveTimeout !== null) {
+    clearTimeout(mouseMoveTimeout)
+    mouseMoveTimeout = null
+  }
   
   // 停止主题观察
   observer.disconnect()
