@@ -17,7 +17,7 @@
 @media (max-width: 768px) {
   .interval {
     margin: 0;
-    white-space: nowrap;
+    white-space: normal;
   }
 }
 

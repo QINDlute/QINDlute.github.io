@@ -294,9 +294,9 @@ export function useTextSelection() {
         // 禁止选中的配置
         const disabledConfig = {
           // 禁止选中的HTML标签
-          tags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+          tags: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'details'],
           // 禁止选中的CSS类名
-          classes: ['nometa-h1', 'faq-h1', 'marker']
+          classes: ['nometa-h1', 'faq-h1', 'marker', 'smooth-details']
         }
         
         /**

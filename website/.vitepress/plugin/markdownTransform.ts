@@ -31,11 +31,12 @@ export function MarkdownTransform(): Plugin {
       })
 
       // 处理词性高亮 (n. v. adj. ad.)
+      // 使用 marker.css 中定义的颜色，保持颜色风格一致
       const posMap: Record<string, string> = {
-        'n.': 'orange',
-        'v.': 'red',
-        'adj.': 'blue',
-        'ad.': 'purple'
+        'n.': 'rgba(251, 146, 60)',
+        'v.': 'rgba(239, 68, 68)',
+        'adj.': 'rgba(59, 130, 246)',
+        'ad.': 'rgba(168, 85, 247)'
       }
 
       // 使用正则匹配独立出现的词性缩写

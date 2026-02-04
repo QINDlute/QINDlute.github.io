@@ -53,7 +53,7 @@ export default defineConfig({
     returnToTopLabel: '回到顶部',
     
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/qindlute' },
+      { icon: 'github', link: 'https://github.com/QINDlute/QINDlute.github.io/tree/master' },
       { icon: 'gmail', link: 'mailto:qindlute@gmail.com' }
     ],
 

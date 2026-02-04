@@ -5,7 +5,7 @@ date: 2026-2-3
 # 词根 A
 
 ## act
-词根 act 源于拉丁语 agree，意为 做、驱动、<marker-text color="red">行动</marker-text>。
+词根 act 源于拉丁语 agree，意为“做、驱动、<marker-text color="red">行动</marker-text>“。
 
 直接派生词：
 - action n.行动

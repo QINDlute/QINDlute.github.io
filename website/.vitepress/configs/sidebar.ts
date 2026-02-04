@@ -50,7 +50,9 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                             items: [
                                 { text: '基础词汇全贯通',
                                     items: [
+                                        { text: '前后缀讲解', link: '/study/english/vocabulary/basic_vocabulary/前后缀讲解' },
                                         { text: '词根 A', link: '/study/english/vocabulary/basic_vocabulary/A' },
+                                        { text: '词根 B', link: '/study/english/vocabulary/basic_vocabulary/B' },
                                     ],
                                 },
                                 { text: 'Oxford 3000', link: '/study/english/vocabulary/oxford_3000' },
@@ -59,6 +61,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '长难句', 
                             items: [
                                 { text: '2026.02.03', link: '/study/english/sentence/2-3' },
+                                { text: '2026.02.04', link: '/study/english/sentence/2-4' },
                             ]
                         },
                     ]
