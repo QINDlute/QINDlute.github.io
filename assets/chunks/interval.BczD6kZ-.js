@@ -1,0 +1,1 @@
+import{_ as n,c as s,o,r as t}from"./framework.B7XirQ9q.js";const _={},c={class:"interval"};function r(e,a){return o(),s("span",c,[t(e.$slots,"default",{},void 0,!0)])}const l=n(_,[["render",r],["__scopeId","data-v-464e87ae"]]);export{l as _};
