@@ -236,7 +236,26 @@ const renderAnnotations = () => {
         const textNode = matchedNodes[0]
         
         const text = textNode.textContent || ''
-        const index = text.indexOf(annotation.text)
+        let index = -1
+        
+        // 优先使用标注中保存的精确偏移量
+        try {
+          // 尝试解析位置信息，获取精确的起始偏移量
+          const startContainer = JSON.parse(annotation.position.startContainer)
+          const startInfo = startContainer.start
+          // 使用保存的偏移量作为索引
+          index = startInfo.offset
+          
+          // 验证偏移量是否有效
+          if (index < 0 || index + annotation.text.length > text.length) {
+            // 如果偏移量无效，回退到indexOf
+            index = text.indexOf(annotation.text)
+          }
+        } catch (err) {
+          // 位置信息解析失败，回退到indexOf
+          index = text.indexOf(annotation.text)
+        }
+        
         if (index === -1) return
         
         // 设置title为标注内容的前20个字符，超出部分用……代替
