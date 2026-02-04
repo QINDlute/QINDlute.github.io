@@ -28,6 +28,18 @@ const config = ref({
   stepsize: 0.5
 })
 
+// 缓存配置（用于动画循环，避免响应式开销）
+let cachedConfig = { ...config.value }
+let cachedMinDist = cachedConfig.minDist
+let cachedColor = cachedConfig.color
+
+// 监听配置变化，更新缓存
+watch(config, (newConfig) => {
+  cachedConfig = { ...newConfig }
+  cachedMinDist = newConfig.minDist
+  cachedColor = newConfig.color
+}, { deep: true })
+
 // 检测是否为移动端
 const checkMobile = (): boolean => {
   const userAgent = navigator.userAgent
@@ -44,8 +56,10 @@ const updateSnowColor = () => {
   // 当主题为white或sepia时，雪花颜色改为粉色；night主题保持白色
   if (isWhite || isSepia) {
     config.value.color = "255, 182, 193" // 粉色
+    cachedColor = "255, 182, 193" // 同步更新缓存
   } else {
     config.value.color = "255, 255, 255" // 白色
+    cachedColor = "255, 255, 255" // 同步更新缓存
   }
 }
 
@@ -90,11 +104,11 @@ class Snowflake {
   reset(width: number) {
     this.x = Math.floor(Math.random() * width)
     this.y = 0
-    this.size = 3 * Math.random() + config.value.size
-    this.speed = 1 * Math.random() + config.value.speed
+    this.size = 3 * Math.random() + cachedConfig.size
+    this.speed = 1 * Math.random() + cachedConfig.speed
     this.velY = this.speed
     this.velX = 0
-    this.opacity = 0.5 * Math.random() + config.value.opacity
+    this.opacity = 0.5 * Math.random() + cachedConfig.opacity
   }
 }
 
@@ -110,7 +124,8 @@ const animate = () => {
   
   const width = canvas.value.width
   const height = canvas.value.height
-  const minDist = config.value.minDist
+  const minDist = cachedMinDist
+  const color = cachedColor
   
   // 清空画布
   ctx.clearRect(0, 0, width, height)
@@ -150,7 +165,7 @@ const animate = () => {
     }
     
     // 绘制雪花
-    ctx.fillStyle = `rgba(${config.value.color}, ${flake.opacity})`
+    ctx.fillStyle = `rgba(${color}, ${flake.opacity})`
     ctx.beginPath()
     ctx.arc(flake.x, flake.y, flake.size, 0, Math.PI * 2)
     ctx.fill()
@@ -180,21 +195,33 @@ const resetMouseMoveTimeout = () => {
   }, watchModeTimeout)
 }
 
-// 处理鼠标移动
+// 处理鼠标移动（添加防抖）
+let lastMouseMoveTime = 0
 const handleMouseMove = (e: MouseEvent) => {
-  mouseX = e.clientX
-  mouseY = e.clientY
-  
-  // 重置鼠标移动定时器
-  resetMouseMoveTimeout()
+  const now = Date.now()
+  // 限制鼠标移动事件处理频率（每100ms处理一次）
+  if (now - lastMouseMoveTime > 100) {
+    mouseX = e.clientX
+    mouseY = e.clientY
+    lastMouseMoveTime = now
+    
+    // 重置鼠标移动定时器
+    resetMouseMoveTimeout()
+  }
 }
 
-// 处理窗口大小变化
+// 处理窗口大小变化（添加节流）
+let resizeTimeout: number | null = null
 const handleResize = () => {
-  if (canvas.value) {
-    canvas.value.width = window.innerWidth
-    canvas.value.height = window.innerHeight
+  if (resizeTimeout) {
+    clearTimeout(resizeTimeout)
   }
+  resizeTimeout = window.setTimeout(() => {
+    if (canvas.value) {
+      canvas.value.width = window.innerWidth
+      canvas.value.height = window.innerHeight
+    }
+  }, 200)
 }
 
 // 切换雪花效果的函数
@@ -324,6 +351,12 @@ onUnmounted(() => {
     mouseMoveTimeout = null
   }
   
+  // 清除窗口 resize 定时器
+  if (resizeTimeout !== null) {
+    clearTimeout(resizeTimeout)
+    resizeTimeout = null
+  }
+  
   // 停止主题观察
   observer.disconnect()
 })
@@ -342,6 +375,7 @@ onUnmounted(() => {
       height: 100%;
       z-index: 100;
       pointer-events: none;
+      will-change: transform;
     "
   />
 </template>
