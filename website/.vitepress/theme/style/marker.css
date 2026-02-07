@@ -46,16 +46,18 @@
 .marker-red { --marker-color: rgba(239, 68, 68, 0.5); }
 .marker-orange { --marker-color: rgba(251, 146, 60, 0.5); }
 .marker-yellow { --marker-color: rgba(255, 255, 0, 0.5); }
+.marker-green { --marker-color: rgba(79, 192, 141, 0.5); }
+.marker-cyan { --marker-color: rgba(0, 255, 255, 0.5); }
 .marker-blue { --marker-color: rgba(59, 130, 246, 0.5); }
 .marker-purple { --marker-color: rgba(168, 85, 247, 0.5); }
-.marker-green { --marker-color: rgba(79, 192, 141, 0.5); }
 .marker-magenta { --marker-color: rgba(255, 0, 255, 0.3); }
 
 /* 夜间模式下的颜色变体 */
 .theme-night .marker-red { --marker-color: rgba(248, 113, 113, 0.4); }
 .theme-night .marker-orange { --marker-color: rgba(251, 160, 40, 0.4); }
 .theme-night .marker-yellow { --marker-color: rgba(255, 255, 0, 0.4); }
+.theme-night .marker-green { --marker-color: rgba(80, 227, 194, 0.4); }
+.theme-night .marker-cyan { --marker-color: rgba(0, 255, 255, 0.4); }
 .theme-night .marker-blue { --marker-color: rgba(100, 100, 255, 0.4); }
 .theme-night .marker-purple { --marker-color: rgba(186, 129, 255, 0.4); }
-.theme-night .marker-green { --marker-color: rgba(80, 227, 194, 0.4); }
 .theme-night .marker-magenta { --marker-color: rgba(255, 0, 255, 0.3); }

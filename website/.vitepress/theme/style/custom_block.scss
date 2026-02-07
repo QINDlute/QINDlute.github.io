@@ -200,9 +200,15 @@
     top: -1px;
 }
 
-  // #endregion custom-block //
 
-  /* .vitepress/theme/style/blockquote.css */
+.VPBadge.green {
+    border-color: transparent;
+    background-color: var(--custom-block-tip-bg);
+    color: var(--custom-block-tip-left);
+}
+
+
+// #endregion custom-block //
 .vp-doc blockquote.vp-quote-special {
   border-radius: 10px;
   padding: 18px 20px 20px 15px;

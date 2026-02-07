@@ -36,12 +36,13 @@ export function MarkdownTransform(): Plugin {
         'n.': 'rgba(251, 146, 60)',
         'v.': 'rgba(239, 68, 68)',
         'adj.': 'rgba(59, 130, 246)',
-        'ad.': 'rgba(168, 85, 247)'
+        'ad.': 'rgba(168, 85, 247)',
+        'prep.': 'rgba(152, 251, 152)' // 薄荷绿
       }
 
       // 使用正则匹配独立出现的词性缩写
       // \b 确保匹配单词边界，防止误伤
-      code = code.replace(/\b(n\.|v\.|adj\.|ad\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
+      code = code.replace(/\b(n\.|v\.|adj\.|ad\.|prep\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
         const color = posMap[match];
         return `&nbsp;<span style="color: ${color};">${match}</span>`;
       });
