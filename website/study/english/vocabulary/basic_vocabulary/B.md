@@ -69,19 +69,6 @@ bio=生命
 - embarrass v. 使窘迫；使尴尬
 - bargain v. 讨价还价 n. 便宜货
 
-## bene
-bene=好处、利益、善举
-
-- benefit n. 利益；津贴 v. 使受益 <interval>benefit=bene+fit=好+做</interval>
-- beneficial adj. 有益的
-- benediction n. 祝福
-- benefactor n. 捐助者
-
-## bio
-bio=生命
-
-- biology n. 生物学
-- biochemistry n. 生物化学
 
 ## botan
 botan=植物、草

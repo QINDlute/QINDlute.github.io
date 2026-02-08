@@ -33,16 +33,17 @@ export function MarkdownTransform(): Plugin {
       // 处理词性高亮 (n. v. adj. ad.)
       // 使用 marker.css 中定义的颜色，保持颜色风格一致
       const posMap: Record<string, string> = {
-        'n.': 'rgba(251, 146, 60)',
-        'v.': 'rgba(239, 68, 68)',
-        'adj.': 'rgba(59, 130, 246)',
-        'ad.': 'rgba(168, 85, 247)',
-        'prep.': 'rgba(152, 251, 152)' // 薄荷绿
+        'n.': 'rgba(251, 146, 60)', // 橙色
+        'v.': 'rgba(239, 68, 68)', // 红色
+        'adj.': 'rgba(59, 130, 246)', // 蓝色
+        'ad.': 'rgba(168, 85, 247)', // 紫色
+        'prep.': 'rgba(152, 251, 152)', // 薄荷绿
+        'conj.': 'rgba(0, 255, 255)' // 青色
       }
 
       // 使用正则匹配独立出现的词性缩写
       // \b 确保匹配单词边界，防止误伤
-      code = code.replace(/\b(n\.|v\.|adj\.|ad\.|prep\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
+      code = code.replace(/\b(n\.|v\.|adj\.|ad\.|prep\.|conj\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
         const color = posMap[match];
         return `&nbsp;<span style="color: ${color};">${match}</span>`;
       });

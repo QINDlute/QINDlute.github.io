@@ -58,11 +58,6 @@ alter=改变、修改
 - alteration n. 改变
 - alternative adj. 可替代的、可选择的 n. 替代品
 
-## audi
-audi=听
-
-- audience n. 听众 <interval>similar=>spectator n. 观众</interval>
-- audit [n.][v.] 审核、审计
 
 ## able
 able=有能力的、有能力的人

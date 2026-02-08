@@ -49,6 +49,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '词汇', 
                             items: [
                                 { text: '基础词汇全贯通',
+                                    collapsed: false,
                                     items: [
                                         { text: '前缀', link: '/study/english/vocabulary/basic_vocabulary/prefix' },
                                         { text: '词根 A', link: '/study/english/vocabulary/basic_vocabulary/A' },
@@ -60,11 +61,14 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                             ]
                         },
                         { text: '长难句', 
+                            collapsed: false,
                             items: [
                                 { text: '2026.02.03', link: '/study/english/sentence/2-3' },
                                 { text: '2026.02.04', link: '/study/english/sentence/2-4' },
                                 { text: '2026.02.05', link: '/study/english/sentence/2-5' },
                                 { text: '2026.02.06', link: '/study/english/sentence/2-6' },
+                                { text: '2026.02.07', link: '/study/english/sentence/2-7' },
+                                { text: '2026.02.08', link: '/study/english/sentence/2-8' },
                             ]
                         },
                     ]

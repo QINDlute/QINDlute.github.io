@@ -3,7 +3,6 @@ date: 2026-2-5
 ---
 
 # 词根 C
-
 ## cept=ceive=cip
 cept=ceive=cip=拿、取、抓住（to take, to seize）
 
@@ -30,6 +29,7 @@ cap=头
 - escape [n.][v.] 逃跑
 - cabbage n. 卷心菜
 
+
 ## cess=ceed=cede
 cess=ceed=cede=走，移动（to go, to move）
 
@@ -48,6 +48,7 @@ cess=cede=让步、撤退、放弃（to yield, to withdraw, to give away）
 - concede v. 承让；让步；授予
 :::
 
+
 ## cre
 cre=产生、创造、带来（to generate, make, bring forth）
 
@@ -57,12 +58,14 @@ cre=产生、创造、带来（to generate, make, bring forth）
 - creature n. 创造物；生物；人
 - recreation n. 消遣 <interval>similar=>entertainment, pleasure, amusement</interval>
 
+
 ## creas
 creas=生长（to grow）
 
 - increase v. 增加
 - decrease v. 减少
 - creascent n. 新月；月牙形的
+
 
 ## cur
 1. 治疗（healing）
@@ -99,6 +102,7 @@ creas=生长（to grow）
 - cassette n. 盒式磁带；暗盒
 - capsule n. 胶囊；太空舱
 
+
 ## cad=cid
 cad=cid=降临（to befall）
 
@@ -108,6 +112,7 @@ cad=cid=降临（to befall）
 - deciduous adj. 落叶的 <interval>`de-`+cid+`-ous`=down+落下+adj.</interval>
 - coincide v. 同时发生；一致；重叠
 - coincidence n. 巧合
+
 
 ## circ
 `circ`是拉丁语词根，意为“圆、环”（round, ring）
@@ -121,6 +126,7 @@ cad=cid=降临（to befall）
 - circumference n. 圆周；周长 <interval>circum+fer+ence=周围+携带+n.=携带一圈的长度</interval>
 - circumstance n. 情况；环境 <interval>circum+stance=周围+站立=站在你周围的所有事物→环境</interval>
 
+
 ## cycl
 `cycl`是希腊语词根，意为“圆、环”（circle, ring, wheel）
 
@@ -133,6 +139,7 @@ cad=cid=降临（to befall）
 - recycle v. 回收利用
 - cyclone n. 气旋；旋风
 - cyclic adj. 循环的；周期性的
+
 
 ## clos=clud=clus
 1. 关闭、结束（to shut, to close）
@@ -153,6 +160,7 @@ cad=cid=降临（to befall）
 - enclosure n. 附件；围场
 - disclose v. 披露；公开 <interval>`dis-`+close=否定+封闭</interval>
 - disclosure n. 披露；公开
+
 
 ## cern=cer=cret=cre
 词根`cern`来自拉丁语`cernere`，其过去分词形式为`cretus`，得到变体`cret-`。
@@ -193,6 +201,7 @@ crit=判断、评判
 - certain adj. 确定的；肯定的
 - ascertain v. 查明；确定 
 
+
 ## cit
 1. 、唤起、激发（to arouse, to stimulate）
 - excite v. 使兴奋；激发；刺激
@@ -201,6 +210,7 @@ crit=判断、评判
 2. 呼唤、召唤（to call, to summon）
 - recite v. 背诵；重复
 - resuscitate v. 使复活；使苏醒 <interval>`re-`+sus+cit+ate=再+下+唤醒=从下界地狱唤醒你的灵魂=复活</interval>
+
 
 ## cid=cis
 词根`cid`来自拉丁语`caedere`，其过去分词形式为`cisus`，得到变体`cis-`。
@@ -246,6 +256,7 @@ cent=百、百分之一
 - centigram n. 厘克
 - centigrade n. 摄氏度
 
+
 ## cover
 cover=覆盖、隐藏（to cover）
 
@@ -257,6 +268,7 @@ cover=覆盖、隐藏（to cover）
 - discovery n. 发现；发觉
 - uncover v. 揭开；揭露
 - recover v. 恢复；痊愈；重新获得
+
 
 ## civ=civil
 
@@ -270,6 +282,7 @@ cover=覆盖、隐藏（to cover）
 - civility n. 礼貌；恭谦
 - civilize v. 使文明化；使开化
 - civilization n. 文明；文明社会
+
 
 ## clin
 1. 倾斜、依靠（to lean, to bend）
@@ -292,6 +305,7 @@ cover=覆盖、隐藏（to cover）
 - acclimate v. 使适应气候
 :::
 
+
 ## cord=cor
 1. 心脏、核心（heart, core）
 - core n. 核心；精髓
@@ -307,6 +321,7 @@ cover=覆盖、隐藏（to cover）
 - discord n. 不一致；不和；【音乐】不和谐
 - record [n.][v.] 记录；录制；唱片
 
+
 ## cult
 1. 耕种、培养（to till, to cultivate）
 - cultivate v. 耕种；培养
@@ -317,6 +332,7 @@ cover=覆盖、隐藏（to cover）
 - culture n. 文化；教养；栽培
 - cultural adj. 文化的
 - cult n. 祭祀；邪教
+
 
 ## crim=crimin
 crim=crimin=罪（evil）
@@ -338,6 +354,7 @@ centr=cent=中心、中枢（center, hub）
 - eccentricity n. 偏心；古怪
 - concentric adj. 同心的
 
+
 ## calc
 1. 计算、核算（to count）
 - calculate v. 计算；核算；计划
@@ -349,6 +366,17 @@ centr=cent=中心、中枢（center, hub）
 - calcium n. 钙
 - calcify v. 钙化；硬化
 - calcite n. 方解石
+
+
+## count
+count=计算；数（to compute）
+
+- count v. 计算；认为 n. 总数
+- counter n. 柜台；计数器 adj. 相反的
+- countless adj. 无数的
+- account n. 账户；解释 v. 说明；认为
+- discount n. 折扣 v. 打折；低估
+
 
 ## chant=cant=cent
 
@@ -368,3 +396,138 @@ centr=cent=中心、中枢（center, hub）
 - capable adj. 有能力的；能胜任的
 - capacity n. 能力；容量；生产力
 
+
+## cast
+cast=投掷、发送（to throw）
+
+- cast v. 投掷；抛掷；丢弃 n. 演员表
+- forecast [n.][v.] 预报；预测
+- boardcast [n.][v.] 广播
+
+
+## cumul
+cumul=堆、堆积、聚集（to stack）
+
+- accumulate v. 积累；堆积
+- accumulation n. 积累；聚积；堆积物
+- cumulative adj. 累计的；渐增的
+
+
+## camp
+camp=军营、营地
+
+- camp n. 营地；帐篷；阵营 v. 露营；扎营
+- campus n. 校园；校区
+- campsite n. 露营地；营地
+- campaign n. 战役；运动 v. 发起运动
+- champion n. 冠军；拥护者 v. 拥护；捍卫
+- champagne n. 香槟
+
+
+## carry
+carry=运送、搬运；携带
+
+- carry v. 运送；携带；支撑 n. 搬运
+- carrier n. 携带者；运输者；载体
+- career n. 职业；生涯
+
+
+## chart
+chart=图表；海图；绘制（纸/纸质载体）
+
+- chart n. 图表；海图 v. 绘制；记录；规划
+- card n. 卡片；纸牌；名片
+- cartoon n. 卡通；动画片 v. 画漫画
+
+
+## custom
+custom=习惯；习俗；定制
+
+- custom n. 习惯；习俗；海关 adj. 定制的 <interval>“过海关习惯性交点小税”</interval>
+- customer n. 客户；顾客
+- customary adj. 习惯的；惯例的
+- customize v. 定制；个性化改造
+- customization n. 定制；个性化设置
+- customs n. 海关；关税
+- costume n. 服装；造型 <interval>“符合习俗的穿着”</interval>
+
+
+## class
+class=<Badge type="warning">等级</Badge>；班级；种类；课程
+
+- class n. 等级；班级；种类；课程；阶级 v. 分类；归类
+- classic adj. 经典的；古典的；优秀的 n. 经典作品；古典著作；典范
+- classical adj. 古典的；经典的；传统的；
+- classify v. 分类；归类；划分等级
+- classification n. 分类；归类；等级；分类法
+- subclass n. 亚类；子类
+- clash n. 冲突；碰撞；抵触 n. 冲突；撞击声
+- clashing adj. 冲突的；撞色的
+
+
+## cube
+cube=立方体；立方（数）
+
+- cube n. 立方体；立方形；骰子；立方（数） v. 求……的立方
+- cubic adj. 立方体的；立方的
+- cuboid n. 长方体 adj. 长方体的
+
+
+## chem
+chem=化学；炼金
+
+- chemist n. 化学家；药剂师
+- chemistry n. 化学；化学性质
+- chemical adj. 化学的 n. 化学品
+- chemically ad. 化学地；用化学方法
+- chemic [adj.][n.] 化学的；化学家（小众）
+
+
+## caus
+caus=原因；理由；事业；导致
+
+- cause n. 原因；事业 v. 导致
+- causal adj. 因果的
+- because conj. 因为
+- accuse v. 指控；控告；指责
+- accusatory adj. 指责的；控告的
+
+
+## counc
+counc=会议；商议；和解（meeting）
+
+- council n. 委员会；地方议会
+- councilor n. 委员；议员
+- conciliate v. 安抚；调解
+- conciliation n. 安抚；调解
+- conciliatory adj. 安抚的；调和的
+- reconcile v. 使和解；使恢复友好
+- reconciliation n. 重新和解；恢复和睦
+- counsel n. 劝告；建议；法律顾问/律师 v. 劝告；忠告
+- counsellor n. 顾问；心理咨询师；律师
+
+
+## curr
+curr=跑；流动（run, flow）
+
+- currency n. 货币
+- current adj. 当前的；流通的；流行的
+- course n. 路线；课程；进程 v. 奔流
+- cursor n. 光标；指针
+- precursor n. 先驱；前身；先兆
+- concur v. 同意；同时发生
+- concurrent adj. 同时发生的；并发的
+
+
+## 其他
+
+- cave n. 洞穴
+- corporation n. 公司；团体
+- candle n. 蜡烛
+- carbon n. 碳
+- carpet n. 地毯
+- chorus n. 合唱；合唱团
+- cautious adj. 谨慎的；小心的
+- characteristic adj. 典型的；特有的 n. 特征；特性
+- check [n.][v.] 核对；抑制
+- combine v. 使结合 <interval>`com-`+bine=共同+捆绑</interval>
