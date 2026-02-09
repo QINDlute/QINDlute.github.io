@@ -7,7 +7,7 @@ export const nav: DefaultTheme.Config["nav"] = [
                   { text: '英语', 
                         items: [
                               { text: '写作', link: '/study/english/writing/ChangeYourLife' },
-                              { text: '基础词汇全贯通', link: '/study/english/vocabulary/basic_vocabulary/A' },
+                              { text: '词汇', link: '/study/english/vocabulary/basic_vocabulary/A' },
                               { text: '长难句', link: '/study/english/sentence/2-3'},                       
                         ]
                   },

@@ -461,7 +461,7 @@ class=<Badge type="warning">等级</Badge>；班级；种类；课程
 - classify v. 分类；归类；划分等级
 - classification n. 分类；归类；等级；分类法
 - subclass n. 亚类；子类
-- clash n. 冲突；碰撞；抵触 n. 冲突；撞击声
+- clash n. 冲突；碰撞；抵触 n. 冲突；撞击声 <interval>等级对立→阵营冲突→物理/抽象碰撞</interval>
 - clashing adj. 冲突的；撞色的
 
 

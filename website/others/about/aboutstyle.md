@@ -266,9 +266,11 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
   title="ChoDocs 博客"
 />
 
+为了方便使用该组件，设置了自动识别 markdown 格式的链接，如`[](网址)`会自动识别为自定义链接组件。
+
 如果想要原格式的链接，可在网址末尾添加一对双引号`""`或直接使用 html 标签，如[琴殿博客](https://docs.qindlute.cloud/ "")
 
-```html
+```md
 [琴殿博客](https://docs.qindlute.cloud/ "")
 <!-- <a href="https://docs.qindlute.cloud/" target="_blank">琴殿博客</a> -->
 ```

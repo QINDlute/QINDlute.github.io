@@ -22,6 +22,9 @@ ad-：拉丁前缀，意为“向、朝”（to, towards）
 1. 共同，一起（together, with）
 2. 完全、彻底（completely, thoroughly）
 
+### contra-
+contra-：反对、拒绝、与……相反（against, opposite of）
+
 
 ## D
 ### de- <badge type="warning">active</badge>
@@ -84,6 +87,12 @@ for-：古英语前缀，表“反对、禁止、远离” （away、against）
 2. 在内、进入、朝向（in, into, on, upon）
 
 表示方向或位置。主要加在**动词或名词**前。
+
+### intro-
+intro-：向内部、深入进入某空间/领域/场景
+
+### inter-
+inter-：……之间、相互（在多个主体之间）
 
 
 ## N
