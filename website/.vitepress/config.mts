@@ -155,6 +155,9 @@ export default defineConfig({
   markdown: {
     math: true,
     lineNumbers: true,
+    image: {
+      lazyLoading: true
+    },
     config: (md) => {
       md.use(groupIconMdPlugin) // 代码组图标
 

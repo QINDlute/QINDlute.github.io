@@ -519,6 +519,16 @@ curr=跑；流动（run, flow）
 - concurrent adj. 同时发生的；并发的
 
 
+## cuss
+cuss=敲打、撞击（shake）
+
+- discuss v. 讨论；探讨；议论 <interval>将话题敲击震碎来分析（打破砂锅问到底）</interval>
+- discutable adj. 可讨论的；可争论的
+- concussion n. 震动、脑震荡
+- percussion n. 敲击；打击乐器
+
+
+
 ## 其他
 
 - cave n. 洞穴
@@ -531,3 +541,4 @@ curr=跑；流动（run, flow）
 - characteristic adj. 典型的；特有的 n. 特征；特性
 - check [n.][v.] 核对；抑制
 - combine v. 使结合 <interval>`com-`+bine=共同+捆绑</interval>
+- quash v. 撤销；宣布无效；平息

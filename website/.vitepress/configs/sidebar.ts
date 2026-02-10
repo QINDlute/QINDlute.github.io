@@ -71,6 +71,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                                 { text: '2026.02.07', link: '/study/english/sentence/2-7' },
                                 { text: '2026.02.08', link: '/study/english/sentence/2-8' },
                                 { text: '2026.02.09', link: '/study/english/sentence/2-9' },
+                                { text: '2026.02.10', link: '/study/english/sentence/2-10' },
                             ]
                         },
                     ]

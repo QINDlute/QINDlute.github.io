@@ -65,6 +65,7 @@ able=有能力的、有能力的人
 - able adj. 能……的
 - ability n. 能力
 - unable adj. 不能的
+- disability n. 无能力；残疾
 
 ## astro
 astro=星星⭐⭐
