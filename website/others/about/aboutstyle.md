@@ -715,16 +715,16 @@ const allowedCrossElements: string[] = [
 
 关于朗读英文组件（不支持朗读中文）的使用，示例：
 
-<TextReader>
+<ReaderText>
 
   This is a simple test sentence. Click the speaker icon to hear it read aloud.{.marker}
-</TextReader>
+</ReaderText>
 
 ```html
-<TextReader>
+<ReaderText>
 
   This is a simple test sentence. Click the speaker icon to hear it read aloud.{.marker}
-</TextReader>
+</ReaderText>
 ```
 点击文本右上角的按钮即可朗读文本，再次点击停止朗读，第三次点击则重新开始朗读，也可切换不同的文本进行朗读。
 
