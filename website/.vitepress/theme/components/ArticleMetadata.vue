@@ -24,8 +24,14 @@ const publishedDate = computed(() => {
   return null;
 });
 
+// 从frontmatter中获取word字段，用于控制是否显示单词数目
+const showWordCount = computed(() => {
+  return frontmatter.value?.word === true;
+});
+
 const wordCount = ref(0);
 const imageCount = ref(0);
+const dashWordCount = ref(0);
 
 const wordTime = computed(() => {
   return (wordCount.value / 275) * 60;
@@ -50,7 +56,9 @@ function analyze() {
   const imgs = docDomContainer?.querySelectorAll<HTMLImageElement>(".content-container .main img");
   imageCount.value = imgs?.length || 0;
   const words = docDomContainer?.querySelector(".content-container .main")?.textContent || "";
-  wordCount.value = countWord(words);
+  wordCount.value = countWord(words) - 19;
+  const listItems = docDomContainer?.querySelectorAll(".content-container .main ul li");
+  dashWordCount.value = listItems ? listItems.length : 0;
 }
 
 onMounted(() => {
@@ -61,7 +69,26 @@ onMounted(() => {
 <template>
   <div class="word">
     <p>
-      <!-- 发表字段：包统一容器，v-if保留，移除多余空格 -->
+      
+      <!-- 单词数目字段，只在 frontmatter 中启用 word:true 时显示 -->
+      <template v-if="showWordCount">
+        <span class="meta-item">
+          <svg
+            viewBox="0 0 24 24"
+            class="icon"
+            width="16"
+            height="16"
+          >
+            <path
+              d="M9 4v3h5v12h3V7h5V4H9zm-6 8h3v7h3v-7h3V9H3v3z"
+              fill="currentColor"
+            ></path>
+          </svg>
+          单词: {{ dashWordCount }}
+        </span>
+      </template>
+
+      <!-- 发表字段，只在 frontmatter 中存在 date 字段时显示 -->
       <template v-if="publishedDate">
         <span class="meta-item">
           <svg 
@@ -79,7 +106,7 @@ onMounted(() => {
         </span>
       </template>
 
-      <!-- 更新字段：包统一容器 -->
+      <!-- 更新字段 -->
       <span class="meta-item">
         <svg
           t="1724572866572"
@@ -100,7 +127,7 @@ onMounted(() => {
         更新: {{ updatedDate.toLocaleDateString() }}
       </span>
 
-      <!-- 数字段：包统一容器 -->
+      <!-- 字数字段 -->
       <span class="meta-item">
         <svg
           t="1724571760788"
@@ -127,7 +154,7 @@ onMounted(() => {
         字数: {{ wordCount }} 字
       </span>
 
-      <!-- 时长字段：包统一容器 -->
+      <!-- 时长字段 -->
       <span class="meta-item">
         <svg
           t="1724572797268"
