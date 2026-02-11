@@ -56,6 +56,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                                         { text: '词根 B', link: '/study/english/vocabulary/basic_vocabulary/B' },
                                         { text: '词根 C', link: '/study/english/vocabulary/basic_vocabulary/C' },
                                         { text: '词根 D', link: '/study/english/vocabulary/basic_vocabulary/D' },
+                                        { text: '词根 E', link: '/study/english/vocabulary/basic_vocabulary/E' },
+                                        { text: '词根 F', link: '/study/english/vocabulary/basic_vocabulary/F' },
                                     ],
                                 },
                                 { text: 'Oxford 3000', link: '/study/english/vocabulary/oxford_3000' },
@@ -72,6 +74,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                                 { text: '2026.02.08', link: '/study/english/sentence/2-8' },
                                 { text: '2026.02.09', link: '/study/english/sentence/2-9' },
                                 { text: '2026.02.10', link: '/study/english/sentence/2-10' },
+                                { text: '2026.02.11', link: '/study/english/sentence/2-11' },
                             ]
                         },
                     ]

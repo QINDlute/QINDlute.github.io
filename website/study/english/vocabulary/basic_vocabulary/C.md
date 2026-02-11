@@ -1,10 +1,11 @@
 ---
 date: 2026-2-5
+word: true
 ---
 
 # 词根 C
 ## cept=ceive=cip
-cept=ceive=cip=拿、取、抓住（to take, to seize）
+*cept=ceive=cip*=拿、取、抓住（to take, to seize）
 
 - accept v. 接受
 - except v. 免除 prep. 除了……外
@@ -21,7 +22,7 @@ cept=ceive=cip=拿、取、抓住（to take, to seize）
 
 
 ## cap
-cap=头
+*cap*=头
 
 - capital n. 首都；资本；大写字母
 - captain n. 首领；船长
@@ -31,7 +32,7 @@ cap=头
 
 
 ## cess=ceed=cede
-cess=ceed=cede=走，移动（to go, to move）
+*cess=ceed=cede*=走，移动（to go, to move）
 
 - access n. 通道；使用权 v. 访问
 - accessible n. 易接近的；可访问的 <interval>`ac-`+cess+ible=to+走+……的能力</interval>
@@ -41,7 +42,7 @@ cess=ceed=cede=走，移动（to go, to move）
 - successful adj. 成功的
 
 ::: tip 引申义
-cess=cede=让步、撤退、放弃（to yield, to withdraw, to give away）
+*cess=cede*=让步、撤退、放弃（to yield, to withdraw, to give away）
 - necessary adj. 必要的 <interval>`ne-`+cess+ary=否定+让步+adj.</interval>
 - necessity n. 必要性
 - cession n. （领土的）割让；（权力的）放弃
@@ -50,7 +51,7 @@ cess=cede=让步、撤退、放弃（to yield, to withdraw, to give away）
 
 
 ## cre
-cre=产生、创造、带来（to generate, make, bring forth）
+*cre*=产生、创造、带来（to generate, make, bring forth）
 
 - create v. 创造；生产
 - creation n. 创造；生产
@@ -60,7 +61,7 @@ cre=产生、创造、带来（to generate, make, bring forth）
 
 
 ## creas
-creas=生长（to grow）
+*creas*=生长（to grow）
 
 - increase v. 增加
 - decrease v. 减少
@@ -104,7 +105,7 @@ creas=生长（to grow）
 
 
 ## cad=cid
-cad=cid=降临（to befall）
+*cad=cid*=降临（to befall）
 
 - accident n. 事故；意外
 - accidental adj. 偶然的；意外的
@@ -246,7 +247,7 @@ crit=判断、评判
 
 
 ## cent
-cent=百、百分之一
+*cent*=百、百分之一
 
 - century n. 世纪；一百年
 - percent [n.][ad.] 百分之……
@@ -258,7 +259,7 @@ cent=百、百分之一
 
 
 ## cover
-cover=覆盖、隐藏（to cover）
+*cover*=覆盖、隐藏（to cover）
 
 - cover [n.][v.] 覆盖；掩盖；封面
 - coverlet n. 床罩；被单
@@ -335,7 +336,7 @@ cover=覆盖、隐藏（to cover）
 
 
 ## crim=crimin
-crim=crimin=罪（evil）
+*crim=crimin*=罪（evil）
 
 - crime n. 犯罪；罪行
 - criminal n. 罪犯 adj. 犯罪的；刑事的
@@ -344,7 +345,7 @@ crim=crimin=罪（evil）
 
 
 ## centr=cent
-centr=cent=中心、中枢（center, hub）
+*centr=cent*=中心、中枢（center, hub）
 
 - center n. 中心；中央；核心
 - central adj. 中心的；中央的；主要的
@@ -369,7 +370,7 @@ centr=cent=中心、中枢（center, hub）
 
 
 ## count
-count=计算；数（to compute）
+*count*=计算；数（to compute）
 
 - count v. 计算；认为 n. 总数
 - counter n. 柜台；计数器 adj. 相反的
@@ -398,7 +399,7 @@ count=计算；数（to compute）
 
 
 ## cast
-cast=投掷、发送（to throw）
+*cast*=投掷、发送（to throw）
 
 - cast v. 投掷；抛掷；丢弃 n. 演员表
 - forecast [n.][v.] 预报；预测
@@ -406,7 +407,7 @@ cast=投掷、发送（to throw）
 
 
 ## cumul
-cumul=堆、堆积、聚集（to stack）
+*cumul*=堆、堆积、聚集（to stack）
 
 - accumulate v. 积累；堆积
 - accumulation n. 积累；聚积；堆积物
@@ -414,7 +415,7 @@ cumul=堆、堆积、聚集（to stack）
 
 
 ## camp
-camp=军营、营地
+*camp*=军营、营地
 
 - camp n. 营地；帐篷；阵营 v. 露营；扎营
 - campus n. 校园；校区
@@ -425,7 +426,7 @@ camp=军营、营地
 
 
 ## carry
-carry=运送、搬运；携带
+*carry*=运送、搬运；携带
 
 - carry v. 运送；携带；支撑 n. 搬运
 - carrier n. 携带者；运输者；载体
@@ -433,7 +434,7 @@ carry=运送、搬运；携带
 
 
 ## chart
-chart=图表；海图；绘制（纸/纸质载体）
+*chart*=图表；海图；绘制（纸/纸质载体）
 
 - chart n. 图表；海图 v. 绘制；记录；规划
 - card n. 卡片；纸牌；名片
@@ -441,7 +442,7 @@ chart=图表；海图；绘制（纸/纸质载体）
 
 
 ## custom
-custom=习惯；习俗；定制
+*custom*=习惯；习俗；定制
 
 - custom n. 习惯；习俗；海关 adj. 定制的 <interval>“过海关习惯性交点小税”</interval>
 - customer n. 客户；顾客
@@ -453,7 +454,7 @@ custom=习惯；习俗；定制
 
 
 ## class
-class=<Badge type="warning">等级</Badge>；班级；种类；课程
+*class*=<Badge type="warning">等级</Badge>；班级；种类；课程
 
 - class n. 等级；班级；种类；课程；阶级 v. 分类；归类
 - classic adj. 经典的；古典的；优秀的 n. 经典作品；古典著作；典范
@@ -466,7 +467,7 @@ class=<Badge type="warning">等级</Badge>；班级；种类；课程
 
 
 ## cube
-cube=立方体；立方（数）
+*cube*=立方体；立方（数）
 
 - cube n. 立方体；立方形；骰子；立方（数） v. 求……的立方
 - cubic adj. 立方体的；立方的
@@ -474,7 +475,7 @@ cube=立方体；立方（数）
 
 
 ## chem
-chem=化学；炼金
+*chem*=化学；炼金
 
 - chemist n. 化学家；药剂师
 - chemistry n. 化学；化学性质
@@ -484,7 +485,7 @@ chem=化学；炼金
 
 
 ## caus
-caus=原因；理由；事业；导致
+*caus*=原因；理由；事业；导致
 
 - cause n. 原因；事业 v. 导致
 - causal adj. 因果的
@@ -494,7 +495,7 @@ caus=原因；理由；事业；导致
 
 
 ## counc
-counc=会议；商议；和解（meeting）
+*counc*=会议；商议；和解（meeting）
 
 - council n. 委员会；地方议会
 - councilor n. 委员；议员
@@ -508,7 +509,7 @@ counc=会议；商议；和解（meeting）
 
 
 ## curr
-curr=跑；流动（run, flow）
+*curr*=跑；流动（run, flow）
 
 - currency n. 货币
 - current adj. 当前的；流通的；流行的
@@ -520,7 +521,7 @@ curr=跑；流动（run, flow）
 
 
 ## cuss
-cuss=敲打、撞击（shake）
+*cuss*=敲打、撞击（shake）
 
 - discuss v. 讨论；探讨；议论 <interval>将话题敲击震碎来分析（打破砂锅问到底）</interval>
 - discutable adj. 可讨论的；可争论的

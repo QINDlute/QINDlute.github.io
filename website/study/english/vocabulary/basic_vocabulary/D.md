@@ -1,10 +1,11 @@
 ---
 date: 2026-2-9
+word: true
 ---
 
 # 词根 D
 ## dorm
-dorm=睡觉（to sleep）
+*dorm*=睡觉（to sleep）
 
 - dormitory n. 宿舍（书面语）
 - dorm n. 宿舍
@@ -13,7 +14,7 @@ dorm=睡觉（to sleep）
 
 
 ## dom
-dom=统治；支配；主宰（to rule over）
+*dom*=统治；支配；主宰（to rule over）
 
 - dominate v. 统治；支配；主宰；占主导地位
 - dominant adj. 占主导地位的；支配的；显性（基因）的
@@ -34,7 +35,7 @@ dom=统治；支配；主宰（to rule over）
 
 
 ## don
-don=给予（to give）
+*don*=给予（to give）
 
 - donate v. 捐赠；赠与
 - donation n. 捐赠；捐赠物
@@ -67,7 +68,7 @@ don=给予（to give）
 
 
 ## duc=duct
-duc=duct=引导、带领、牵引（to lead, direct）
+*duc=duct*=引导、带领、牵引（to lead, direct）
 
 - introduce v. 介绍；引入；提出
 - introduction n. 介绍；引入；导论
@@ -92,7 +93,7 @@ duc=duct=引导、带领、牵引（to lead, direct）
 
 
 ## dict=dic
-dict=dic=说
+*dict=dic*=说
 
 - addict v. 上瘾 <interval>”一直念叨一个事物“</interval>
 - abdicate v. 退位
@@ -110,7 +111,7 @@ dict=dic=说
 
 
 ## doub=dub
-doub=dub=二
+*doub=dub*=二
 
 - dub v. 给……配音 n. 配音；替身 <interval>”影子“</interval>
 - double n. 两倍 v. 变两倍 adj. 双倍的
@@ -124,7 +125,7 @@ doub=dub=二
 
 
 ## dra
-dra=做、行动
+*dra*=做、行动
 
 - drama n. 戏剧；冲突
 - dramatic adj. 戏剧性的；巨大的
@@ -134,17 +135,17 @@ dra=做、行动
 
 
 ## draw
-draw=拉、拖、牵引
+*draw*=拉、拖、牵引
 
 - draw v. 画，描绘；拖，拉
 - drawer n. 抽屉
-- drawl v. 慢吞吞地说 n. 慢吞吞的说话方式
+- drawl v. 慢悠悠地说 n. 慢悠悠的说话方式
 - drawback n. 缺点；弊端
 - drag v. 拖；拉；拖拽 n. 累赘；阻力
 
 
 ## dyna
-dyna=力量、统治（power, rule）
+*dyna*=力量、统治（power, rule）
 
 - dynasty n. 王朝；朝代
 - dynastic adj. 王朝的
@@ -163,7 +164,7 @@ dyna-→dino：可怕的，saur=蜥蜴
 
 
 ## decor
-decor=优美、体面、装饰
+*decor*=优美、体面、装饰
 
 - decor n. 室内陈设、装饰
 - decorate v. 装饰；装修 n. 装潢
@@ -181,7 +182,7 @@ decor=优美、体面、装饰
 
 
 ## doc
-doc=（接受）教导
+*doc*=（接受）教导
 
 - document n. 文件；文献 v. 记录
 - documentary adj. 纪实的 n. 纪录片
@@ -193,7 +194,7 @@ doc=（接受）教导
 
 
 ## duty
-duty=欠
+*duty*=欠
 
 - duty n. 责任、义务
 - dutiful adj. 尽责的；孝顺的
@@ -203,7 +204,7 @@ duty=欠
 
 
 ## digit
-digit=手指、脚趾
+*digit*=手指、脚趾
 
 - digit n. 数字（0-9）；手指/脚趾
 - digital adj. 数字的；数码的；手指/脚趾的
@@ -212,7 +213,7 @@ digit=手指、脚趾
 
 
 ## dec
-dec=十
+*dec*=十
 
 - decade n. 十年；十年期
 - decadal adj. 十年的；每十年的 <interval>decennial 含义相同，但强调纪念或庆祝意义</interval>
@@ -222,7 +223,7 @@ dec=十
 
 
 ## vot
-vot=誓言、承诺
+*vot*=誓言、承诺
 
 - vow v. 发誓；郑重承诺 n. 誓言
 - vote v. 投票；表决 n. 选票；投票权
@@ -236,7 +237,7 @@ vot=誓言、承诺
 
 
 ## rect
-rect=直、引导
+*rect*=直、引导
 
 - direct v. 引导；指挥；指向 adj. 直接的；径直的 <interval>`di-`+rect=加强+引导</interval>
 - indirect adj. 间接的；迂回的
@@ -248,16 +249,6 @@ rect=直、引导
 - rectangle n. 矩形；长方形
 - regulate v. 规范；调节；控制
 - regulation n. 规则；法规；调节
-
-
-## ease
-ease=舒适
-
-- ease n. 舒适；安逸 v. 减轻（痛苦）；使舒适
-- easy adj. 容易的；简单的
-- unease n. 不安；焦虑
-- disease n. 疾病
-- diseased adj. 患病的；有病害的
 
 
 ## 其他

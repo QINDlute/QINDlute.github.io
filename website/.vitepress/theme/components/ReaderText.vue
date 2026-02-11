@@ -1,12 +1,12 @@
 <template>
-  <div class="text-reader">
+  <div class="reader-text">
     <button
-      class="text-reader-button"
+      class="reader-text-button"
       @click="handleRead"
       aria-label="Read text aloud"
     >
       <svg
-        class="text-reader-icon"
+        class="reader-text-icon"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
         fill="none"
@@ -19,7 +19,7 @@
         <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
       </svg>
     </button>
-    <div ref="contentRef" class="text-reader-content">
+    <div ref="contentRef" class="reader-text-content">
       <slot></slot>
     </div>
   </div>
@@ -40,7 +40,7 @@ const TARGET_VOICE = 'Microsoft Libby Online (Natural) - English (United Kingdom
 const TARGET_VOICE_LANG = 'en-GB';
 
 // 组件实例状态
-const componentId = `text-reader-${Math.random().toString(36).substr(2, 9)}`;
+const componentId = `reader-text-${Math.random().toString(36).substr(2, 9)}`;
 const isSpeaking = ref(false);
 const isPaused = ref(false);
 const contentRef = ref<HTMLElement | null>(null);
@@ -479,13 +479,13 @@ const handleRead = () => {
 </script>
 
 <style scoped>
-.text-reader {
+.reader-text {
   display: block;
   position: relative;
   padding-top: 20px;
 }
 
-.text-reader-button {
+.reader-text-button {
   background: none;
   border: none;
   cursor: pointer;
@@ -502,38 +502,38 @@ const handleRead = () => {
   z-index: 10;
 }
 
-.text-reader-button:hover {
+.reader-text-button:hover {
   background-color: var(--vp-c-bg-soft);
   color: var(--vp-c-primary);
 }
 
-.text-reader-button:active {
+.reader-text-button:active {
   transform: scale(0.98);
 }
 
-.text-reader-button:disabled {
+.reader-text-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
 }
 
-.text-reader-button:disabled:hover {
+.reader-text-button:disabled:hover {
   background-color: transparent;
   color: var(--vp-c-text-2);
 }
 
-.text-reader-icon {
+.reader-text-icon {
   width: 16px;
   height: 16px;
 }
 
 @media (max-width: 768px) {
-  .text-reader-button {
+  .reader-text-button {
     padding: 3px 6px;
     margin-right: 6px;
   }
   
-  .text-reader-icon {
+  .reader-text-icon {
     width: 14px;
     height: 14px;
   }

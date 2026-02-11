@@ -728,7 +728,7 @@ const allowedCrossElements: string[] = [
 ```
 点击文本右上角的按钮即可朗读文本，再次点击停止朗读，第三次点击则重新开始朗读，也可切换不同的文本进行朗读。
 
-更多体验可查看 [TextReader 组件测试页面](/test/text-reader-test)
+更多体验可查看 [ReaderText 组件测试页面](/test/reader-text-test)
 
 > [!warning]
 > 本组件依赖Web Speech API，而移动浏览器（edge）出于性能和隐私考虑，限制了Web Speech API的某些功能，因此移动端只有默认语音来完成朗读功能。
