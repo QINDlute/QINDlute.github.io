@@ -26,9 +26,46 @@ export function MarkdownTransform(): Plugin {
       )
 
       // 将 >: 转换为自定义 HTML
-      code = code.replace(/^>\s*:\s*(.+)$/gm, (match, content) => {
-        return `<blockquote class="vp-quote-special">\n\n${content}\n\n</blockquote>`
-      })
+      const lines = code.split('\n');
+      let result = '';
+      let inQuote = false;
+      let quoteContent = [];
+
+      for (const line of lines) {
+        if (line.match(/^>\s*:\s*/)) {
+          // 遇到 >: 开头的行
+          if (!inQuote) {
+            // 开始新的引用容器
+            inQuote = true;
+            quoteContent = [];
+          }
+          // 清理 >: 并添加到内容中（保留原始格式）
+          quoteContent.push(line.replace(/^>\s*:\s*/, ''));
+        } else {
+          // 遇到非 >: 开头的行
+          if (inQuote) {
+            // 结束当前引用容器
+            inQuote = false;
+            // 保留原始 Markdown 格式，让 VitePress 解析器处理
+            const cleanedContent = quoteContent.join('\n');
+            if (cleanedContent) {
+              result += `<blockquote class="vp-quote-special">\n\n${cleanedContent}\n\n</blockquote>\n\n`;
+            }
+          }
+          // 添加普通行
+          result += line + '\n';
+        }
+      }
+
+      // 处理文件末尾的引用容器
+      if (inQuote) {
+        const cleanedContent = quoteContent.join('\n');
+        if (cleanedContent) {
+          result += `<blockquote class="vp-quote-special">\n\n${cleanedContent}\n\n</blockquote>\n\n`;
+        }
+      }
+
+      code = result;
 
       // 处理词性高亮 (n. v. adj. ad.)
       // 使用 marker.css 中定义的颜色，保持颜色风格一致
