@@ -56,7 +56,17 @@ function analyze() {
   const imgs = docDomContainer?.querySelectorAll<HTMLImageElement>(".content-container .main img");
   imageCount.value = imgs?.length || 0;
   const words = docDomContainer?.querySelector(".content-container .main")?.textContent || "";
-  wordCount.value = countWord(words) - 19;
+  // 根据 frontmatter 中的字段动态调整减去值
+  let subtractValue = 14; // 默认 5+4+5=14
+  
+  // 检查 frontmatter 中的字段
+  const hasDate = frontmatter.value?.date !== undefined;
+  const hasWord = frontmatter.value?.word === true;
+  
+  if (hasDate) subtractValue += 5; // 有 date 字段时加 5
+  if (hasWord) subtractValue += 3; // 有 word 字段时加 3
+  
+  wordCount.value = countWord(words) - subtractValue;
   const listItems = docDomContainer?.querySelectorAll(".content-container .main ul li");
   dashWordCount.value = listItems ? listItems.length : 0;
 }
