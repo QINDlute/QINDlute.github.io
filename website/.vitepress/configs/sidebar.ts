@@ -1,4 +1,7 @@
 import type { DefaultTheme } from "vitepress";
+import { getLiCountForVocabulary } from "../scripts/calculateLiCount";
+
+const vocabLiCount = getLiCountForVocabulary();
 
 export const sidebar: DefaultTheme.Config["sidebar"] = {
     '/others/': [
@@ -48,7 +51,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '写作', link: '/study/english/writing/ChangeYourLife' },
                         { text: '词汇', 
                             items: [
-                                { text: '基础词汇全贯通',
+                                { text: `基础词汇（${vocabLiCount}）`,
                                     collapsed: false,
                                     items: [
                                         { text: '前缀', link: '/study/english/vocabulary/basic_vocabulary/prefix' },
@@ -58,6 +61,10 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                                         { text: '词根 D', link: '/study/english/vocabulary/basic_vocabulary/D' },
                                         { text: '词根 E', link: '/study/english/vocabulary/basic_vocabulary/E' },
                                         { text: '词根 F', link: '/study/english/vocabulary/basic_vocabulary/F' },
+                                        { text: '词根 G', link: '/study/english/vocabulary/basic_vocabulary/G' },
+                                        { text: '词根 H', link: '/study/english/vocabulary/basic_vocabulary/H' },
+                                        { text: '词根 I', link: '/study/english/vocabulary/basic_vocabulary/I' },
+                                        { text: '词根 J', link: '/study/english/vocabulary/basic_vocabulary/J' },
                                     ],
                                 },
                                 { text: 'Oxford 3000', link: '/study/english/vocabulary/oxford_3000' },
@@ -75,6 +82,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                                 { text: '2026.02.09', link: '/study/english/sentence/2-9' },
                                 { text: '2026.02.10', link: '/study/english/sentence/2-10' },
                                 { text: '2026.02.11', link: '/study/english/sentence/2-11' },
+                                { text: '2026.02.12', link: '/study/english/sentence/2-12' },
                             ]
                         },
                     ]
