@@ -18,7 +18,7 @@ ad-：拉丁前缀，意为“向、朝”（to, towards）
 
 
 ## C
-### con-=com- <badge type="green">assimilation</badge>
+### con-=com-=co- <badge type="green">assimilation</badge>
 1. 共同，一起（together, with）
 2. 完全、彻底（completely, thoroughly）
 
@@ -51,6 +51,10 @@ contra-：反对、拒绝、与……相反（against, opposite of）
 - disaster n. 灾难
 - distance n. 距离
 :::
+
+### dia-
+1. 穿过，经过（through）
+2. 加强语气（completely）
 
 
 ## E
@@ -95,6 +99,11 @@ intro-：向内部、深入进入某空间/领域/场景
 inter-：……之间、相互（在多个主体之间）
 
 
+## M
+### mis-
+mis-：坏的、错误的（bad, wrong）
+
+
 ## N
 ### ne-
 ne-：否定（not），变体有`neg-`
@@ -109,22 +118,29 @@ ne-：否定（not），变体有`neg-`
 
 ## P
 ### pro-
-1. 向前（forward）
+1. <Badge type="warning">向前</Badge>（forward）
 2. 公开（public）
 
-由“向前”引申。在公开场合向前站出來声明
+在公开场合向前站出来声明
 
 3. 支持（in favor of）
 
-由“向前”引申。想象在辩论中，你“向前”站一步表示支持。
+想象在辩论中，你“向前”站一步表示支持
 
 ### pre-
-pre-：在……之前（before），主要指**时间或位置**上的先后。
+pre-：在……之前、预先（before）
+
+侧重静态，通常用于描述某个事件或过程之前的阶段或准备工作
 
 ### per-
 1. 贯穿，通过，彻底（throughout, thoroughly）
 2. 完全，非常（completely, very）
 3. 每（for each）
+
+### para-
+1. 旁边，辅助
+2. 超越，相反
+3. 防护
 
 
 ## R

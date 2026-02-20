@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useData } from "vitepress";
 import { computed, ref, onMounted } from "vue";
-import { countWord } from "../utils/functions";
+import { countWord, getAllText } from "../utils/functions";
 
 const { page, frontmatter } = useData();
 
@@ -55,7 +55,11 @@ function analyze() {
   const docDomContainer = window.document.querySelector("#VPContent");
   const imgs = docDomContainer?.querySelectorAll<HTMLImageElement>(".content-container .main img");
   imageCount.value = imgs?.length || 0;
-  const words = docDomContainer?.querySelector(".content-container .main")?.textContent || "";
+  
+  // const words = docDomContainer?.querySelector(".content-container .main")?.textContent || "";
+  const mainContent = docDomContainer?.querySelector(".content-container .main");
+  const words = mainContent ? getAllText(mainContent) : "";
+  
   // 根据 frontmatter 中的字段动态调整减去值
   let subtractValue = 14; // 默认 5+4+5=14
   

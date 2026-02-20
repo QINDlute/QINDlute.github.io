@@ -90,6 +90,8 @@ word: true
 - burden n. 负担 v. 使负担
 - bear v. 忍受；携带
 - birth n. 出生；分娩
+- bring v. 带来；引起
+
 
 ## 其他
 

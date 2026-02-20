@@ -117,6 +117,7 @@ alcohol=酒精
 - arctic adj. 北极的
 - company n. 公司；陪伴
 - addition n. 增加；加法
+- adult n. 成年人
 - adolescent adj. 青春期的 n. 青少年
 - amaze v. 使惊讶
 - ancient adj. 古代的；古老的

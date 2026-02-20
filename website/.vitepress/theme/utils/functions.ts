@@ -16,3 +16,27 @@ export function countWord(data: string) {
   }
   return count;
 }
+
+/**
+ * 递归处理列表项，确保列表项之间有空格分隔
+ * 只有像："
+ *          - 列表
+ *          - 列表
+ *        "时，才会起作用
+ */
+export function getAllText(element: Element): string {
+  let text = "";
+  for (const node of element.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      text += node.textContent || "";
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      // 对于列表项，添加空格分隔
+      if (node.tagName === "LI") {
+        text += " " + getAllText(node as Element) + " ";
+      } else {
+        text += getAllText(node as Element);
+      }
+    }
+  }
+  return text;
+}
