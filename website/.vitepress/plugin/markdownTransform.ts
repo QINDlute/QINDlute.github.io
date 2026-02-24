@@ -1,4 +1,9 @@
 import type { Plugin } from 'vite'
+import { processSpecialQuotes } from './functions'
+import MarkdownIt from 'markdown-it'
+
+// 创建 markdown-it 实例
+const md = new MarkdownIt()
 
 export function MarkdownTransform(): Plugin {
   return {
@@ -28,7 +33,37 @@ export function MarkdownTransform(): Plugin {
       // 将 >: 转换为自定义 HTML
       code = processSpecialQuotes(code);
 
-      // 处理词性高亮 (n. v. adj. ad.)
+      // 处理 "& " 转换为 <interval></interval> 标签
+      const lines = code.split('\n'); // 按行分割代码
+      let inCodeBlock = false;
+      let resultLines: string[] = [];
+      
+      for (const line of lines) {
+        if (line.startsWith('```')) { // 检查是否进入或退出代码块
+          inCodeBlock = !inCodeBlock;
+          resultLines.push(line);
+          continue;
+        }
+        if (inCodeBlock) {
+          resultLines.push(line);
+          continue;
+        }
+        
+        const match = line.match(/(^|\s)(&\s)(.+)/);
+        if (match) {
+          const before = line.slice(0, match.index + match[1].length);
+          const after = match[3];
+          const renderedAfter = md.renderInline(after);
+          
+          resultLines.push(`${before}<interval>${renderedAfter}</interval>`);
+        } else {
+          resultLines.push(line);
+        }
+      }
+      
+      code = resultLines.join('\n');
+
+      // 处理词性高亮 (n. v. adj. ad. prep. conj. pref.)
       // 使用 marker.css 中定义的颜色，保持颜色风格一致
       const posMap: Record<string, string> = {
         'n.': 'rgba(251, 146, 60)', // 橙色
@@ -41,7 +76,11 @@ export function MarkdownTransform(): Plugin {
 
       // 使用正则匹配独立出现的词性缩写
       // \b 确保匹配单词边界，防止误伤
-      code = code.replace(/\b(n\.|v\.|adj\.|ad\.|prep\.|conj\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
+      code = code.replace(/\b(n\.|v\.|adj\.|ad\.|prep\.|conj\.|pref\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
+        // 对 pref. 特殊处理，使用渐变效果
+        if (match === 'pref.') {
+          return `&nbsp;<span class="text-gradient">${match}</span>`;
+        }
         const color = posMap[match];
         return `&nbsp;<span style="color: ${color};">${match}</span>`;
       });
@@ -51,86 +90,3 @@ export function MarkdownTransform(): Plugin {
   }
 }
 
-
-
-// 处理 Markdown 中的 ">: " 特殊引用语法
-export function processSpecialQuotes(content: string): string {
-  const lines = content.split('\n');
-  let result = '';
-  let inQuote = false;
-  let quoteContent = [];
-
-  for (const line of lines) {
-    if (line.match(/^>\s*:\s*/)) {
-      // 遇到 >: 开头的行
-      if (!inQuote) {
-        // 开始新的引用容器
-        inQuote = true;
-        quoteContent = [];
-      }
-      // 清理 >: 并添加到内容中（保留原始格式）
-      quoteContent.push(line.replace(/^>\s*:\s*/, ''));
-    } else {
-      // 遇到非 >: 开头的行
-      if (inQuote) {
-        // 结束当前引用容器
-        inQuote = false;
-        // 保留原始 Markdown 格式，让 VitePress 解析器处理
-        const cleanedContent = quoteContent.join('\n');
-        if (cleanedContent) {
-          result += `<blockquote class="vp-quote-special">\n\n${cleanedContent}\n\n</blockquote>\n\n`;
-        }
-      }
-      // 添加普通行
-      result += line + '\n';
-    }
-  }
-
-  // 处理文件末尾的引用容器
-  if (inQuote) {
-    const cleanedContent = quoteContent.join('\n');
-    if (cleanedContent) {
-      result += `<blockquote class="vp-quote-special">\n\n${cleanedContent}\n\n</blockquote>\n\n`;
-    }
-  }
-
-  return result;
-}
-
-// 为统计工具处理 ">: " 特殊引用语法，转换为普通 Markdown
-export function processSpecialQuotesForStats(content: string): string {
-  const lines = content.split('\n');
-  let result = '';
-  let inQuote = false;
-  let quoteContent = [];
-
-  for (const line of lines) {
-    if (line.match(/^>\s*:\s*/)) {
-      // 遇到 >: 开头的行，转换为普通文本
-      if (!inQuote) {
-        inQuote = true;
-        quoteContent = [];
-      }
-      // 清理 >: 并添加到内容中
-      quoteContent.push(line.replace(/^>\s*:\s*/, ''));
-    } else {
-      // 遇到非 >: 开头的行
-      if (inQuote) {
-        // 结束当前引用容器，将内容作为普通文本添加
-        inQuote = false;
-        if (quoteContent.length > 0) {
-          result += quoteContent.join('\n') + '\n';
-        }
-      }
-      // 添加普通行
-      result += line + '\n';
-    }
-  }
-
-  // 处理文件末尾的引用容器
-  if (inQuote && quoteContent.length > 0) {
-    result += quoteContent.join('\n') + '\n';
-  }
-
-  return result;
-}
