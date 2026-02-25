@@ -10,18 +10,6 @@
  */
  
 /* .vitepress/theme/style/style.css */
-.nometa-h1 {
-    display: block;
-    font-size: 2em !important;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    unicode-bidi: isolate;
-}
-
-
 :root {
   /* 默认主题变量 */
   --nav-card-bg: transparent;
@@ -49,26 +37,6 @@
   --nav-card-hover-text: #f9fafb; /* gray-50 */
   --nav-card-desc: #9ca3af; /* gray-400 */
   --nav-card-shadow: rgba(255, 255, 255, 0.1);
-}
-
-
-/* 全局链接样式 - 取消下划线 */
-a {
-  text-decoration: none;
-}
-
-.center {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* 图表标题样式（图片下标题） */
-.vp-doc .figure-caption {
-    text-align: center;
-    font-weight: bold;
-    margin: 8px 0 32px 0;
-    color: var(--vp-c-text-2);
 }
 
 /* 动态样式变量 - 支持通过组件实时修改 */

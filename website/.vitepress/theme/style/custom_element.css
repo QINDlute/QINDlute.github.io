@@ -120,3 +120,35 @@
         }
     }
 }
+
+.nometa-h1 {
+    display: block;
+    font-size: 2em !important;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+/* 图表标题样式（图片下标题） */
+.vp-doc .figure-caption {
+    text-align: center;
+    font-weight: bold;
+    margin: 8px 0 32px 0;
+    color: var(--vp-c-text-2);
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, #41d1ff, #bd34fe);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}

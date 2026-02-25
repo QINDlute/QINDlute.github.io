@@ -4,7 +4,7 @@ import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import MarkdownIt from 'markdown-it';
 import { parse } from 'node-html-parser';
-import { processSpecialQuotesForStats } from '../plugin/markdownTransform';
+import { processSpecialQuotesForStats } from '../plugin/functions';
 
 const md = new MarkdownIt();
 
@@ -66,7 +66,7 @@ function calculateLiCount(dirPath: string): number {
         
         // 使用 HTML 解析器统计 ul > li
         const root = parse(html);
-        const listItems = root.querySelectorAll('ul li');
+        const listItems = root.querySelectorAll('ul li:not(:has(ul)):not(:has(ol))');
         totalCount += listItems.length;
       }
     }

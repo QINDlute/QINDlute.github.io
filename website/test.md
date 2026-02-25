@@ -93,3 +93,14 @@ Tailwind CSS 提供了丰富的间距工具，方便您调整元素之间的距�
 
 
 <CustomLink title='【编程】Prisma 教程 | 快速入门 | 下一代 Node.js 和 TypeScript ORM' href='https://www.bilibili.com/video/BV1yo4y1x7e7/'/>
+
+<TypingText 
+  text="你好呀，朋友" 
+  fontSize="5.6rem" 
+  textColor="#333"
+  cursorColor="#666"
+/>
+
+```bash
+git reset --soft HEAD~1  # 撤回最近一次提交
+```

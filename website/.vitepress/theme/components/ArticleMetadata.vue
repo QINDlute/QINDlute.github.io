@@ -71,7 +71,8 @@ function analyze() {
   if (hasWord) subtractValue += 3; // 有 word 字段时加 3
   
   wordCount.value = countWord(words) - subtractValue;
-  const listItems = docDomContainer?.querySelectorAll(".content-container .main ul li");
+  // 只查找最里层的 li 元素（不包含子列表的 li）
+  const listItems = docDomContainer?.querySelectorAll(".content-container .main ul li:not(:has(ul)):not(:has(ol))");
   dashWordCount.value = listItems ? listItems.length : 0;
 }
 

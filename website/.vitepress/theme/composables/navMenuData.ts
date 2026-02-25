@@ -6,31 +6,31 @@ const navMenus: menuItem[] = [
     id: 1,
     name: 'VP yiov大佬',
     url: 'https://vitepress.yiov.top/',
-    image: '/menu/vitepress-icon.png'
+    image: '/img/menu/vitepress-icon.png'
   },
   {
     id: 2,
     name: 'VP teek大佬',
     url: 'https://vp.teek.top/',
-    image: '/menu/vitepress_teek.png'
+    image: '/img/menu/vitepress_teek.png'
   },
   {
     id: 3,
     name: 'VP 千浔物语',
     url: 'https://docs.fe-qianxun.com/',
-    image: '/menu/qianxun-icon.png'
+    image: '/img/menu/qianxun-icon.png'
   },
   {
     id: 4,
     name: 'VP chodocs',
     url: 'https://chodocs.cn/',
-    image: '/menu/chodocs-menu.png'
+    image: '/img/menu/chodocs-menu.png'
   },
   {
     id: 5,
     name: 'VP 官方文档',
     url: 'https://vitepress.dev/zh/',
-    image: '/menu/vitepress-icon.png'
+    image: '/img/menu/vitepress-icon.png'
   }
 ]
 

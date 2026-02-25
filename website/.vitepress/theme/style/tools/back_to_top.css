@@ -17,15 +17,13 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  /* 优化过渡效果：只过渡必要属性 */
-  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, font-size 0.3s ease;
-  /* 先过渡opacity，再过渡visibility */
-  transition-delay: 0s, 0.3s, 0s, 0s, 0s, 0s;
+  /* 过渡效果 */
+  transition: opacity 0.3s ease, visibility 0s ease 0.3s, transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, font-size 0.3s ease;
   z-index: 9998;
   font-size: 20px;
   box-shadow: var(--vp-shadow-2);
   /* 提示浏览器优化渲染 */
-  will-change: opacity, transform, box-shadow, width, height, font-size;
+  will-change: opacity, transform, box-shadow;
 }
 
 /* 移动端适配：缩小按钮尺寸 */
@@ -43,8 +41,8 @@
   opacity: 0.5;
   visibility: visible;
   pointer-events: auto;
-  /* 取消延迟，同时过渡所有属性 */
-  transition-delay: 0s;
+  /* 同时过渡所有属性，取消visibility的延迟 */
+  transition: opacity 0.3s ease, visibility 0s ease 0s, transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, font-size 0.3s ease;
 }
 
 #back-to-top:hover {

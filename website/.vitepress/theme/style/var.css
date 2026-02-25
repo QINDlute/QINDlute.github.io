@@ -14,3 +14,8 @@
 .VPFeatures .items .item:hover {
   transform: translateY(-5px);
 }
+
+/* 全局链接样式 - 取消下划线 */
+a {
+  text-decoration: none;
+}
