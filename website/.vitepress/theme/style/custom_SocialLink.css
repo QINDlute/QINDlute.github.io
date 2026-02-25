@@ -1,0 +1,44 @@
+:root {
+  /* 更亮的社交链接渐变背景变量 */
+  --vp-social-link-gradient-1: linear-gradient(120deg, #d48aff, #ff6666, #ffe080);
+  --vp-social-link-gradient-2: linear-gradient(120deg, #6eff8c, #00d11e);
+  --vp-social-link-gradient-3: rgb(120, 210, 255);
+  --vp-social-link-gradient-4: rgb(255, 86, 86);
+}
+:root.theme-night {
+  /* 社交链接渐变背景变量 */
+  --vp-social-link-gradient-1: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);
+  --vp-social-link-gradient-2: linear-gradient(120deg, #02ff2c, #008a12);
+  --vp-social-link-gradient-3: rgb(69, 187, 255);
+  --vp-social-link-gradient-4: rgb(255, 33, 33);
+}
+
+/* 悬停时的渐变背景 */
+.VPSocialLinks .VPSocialLink::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  background: var(--vp-social-link-gradient-1);
+  border-radius: 50px;
+  transition: 0.4s;
+}
+
+/* 不同社交平台的悬停渐变背景 */
+.VPSocialLinks .VPSocialLink:nth-child(2)::before {
+  background: var(--vp-social-link-gradient-2);
+}
+
+.VPSocialLinks .VPSocialLink:nth-child(3)::before {
+  background: var(--vp-social-link-gradient-3);
+}
+
+.VPSocialLinks .VPSocialLink:nth-child(4)::before {
+  background: var(--vp-social-link-gradient-4);
+}
+
+/* 悬停效果 - 渐变背景出现 */
+.VPSocialLinks .VPSocialLink:hover::before {
+  width: 35px;
+  height: 35px;
+}
