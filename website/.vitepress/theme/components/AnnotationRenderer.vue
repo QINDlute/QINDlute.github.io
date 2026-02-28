@@ -384,15 +384,16 @@ const renderAnnotations = () => {
         // 创建更精确的XPath表达式，包含起始文本信息
         const startText = startInfo.text?.substring(0, 20) || ''
         if (startText) {
-          const xpathExpression = `//*[contains(text(), '${startText}')]`
-          const result = document.evaluate(xpathExpression, vpContent, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
+          // 优先搜索代码块元素
+          const codeXpathExpression = `//code[contains(text(), '${startText}')] | //pre[contains(text(), '${startText}')]`
+          const codeResult = document.evaluate(codeXpathExpression, vpContent, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
           
           let targetElement = null
           let targetRange = null
           
-          // 遍历结果，找到最精确的匹配
-          for (let i = 0; i < result.snapshotLength; i++) {
-            const element = result.snapshotItem(i) as Element
+          // 先检查代码块元素
+          for (let i = 0; i < codeResult.snapshotLength; i++) {
+            const element = codeResult.snapshotItem(i) as Element
             const elementText = element.textContent || ''
             
             if (elementText.includes(text)) {
@@ -421,6 +422,48 @@ const renderAnnotations = () => {
                   targetElement = element
                   targetRange = range
                   break
+                }
+              }
+            }
+          }
+          
+          // 如果没有找到代码块元素，搜索所有元素
+          if (!targetRange) {
+            const xpathExpression = `//*[contains(text(), '${startText}')]`
+            const result = document.evaluate(xpathExpression, vpContent, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null)
+            
+            // 遍历结果，找到最精确的匹配
+            for (let i = 0; i < result.snapshotLength; i++) {
+              const element = result.snapshotItem(i) as Element
+              const elementText = element.textContent || ''
+              
+              if (elementText.includes(text)) {
+                // 创建范围来包含标注文本
+                const range = document.createRange()
+                const textNode = Array.from(element.childNodes).find(node => 
+                  node.nodeType === Node.TEXT_NODE && node.textContent?.includes(text)
+                ) as Text
+                
+                if (textNode) {
+                  // 优先使用保存的偏移量
+                  let startOffset = startInfo.offset
+                  
+                  // 验证偏移量是否有效
+                  if (startOffset < 0 || startOffset + text.length > (textNode.textContent?.length || 0)) {
+                    // 如果偏移量无效，使用indexOf
+                    startOffset = textNode.textContent?.indexOf(text) || 0
+                  }
+                  
+                  // 验证偏移量对应的文本是否正确
+                  if (textNode.textContent?.substring(startOffset, startOffset + text.length) === text) {
+                    const endOffset = startOffset + text.length
+                    
+                    range.setStart(textNode, startOffset)
+                    range.setEnd(textNode, endOffset)
+                    targetElement = element
+                    targetRange = range
+                    break
+                  }
                 }
               }
             }
@@ -475,6 +518,124 @@ const renderAnnotations = () => {
         }
       } catch (error) {
         console.error('XPath查找失败:', error)
+      }
+      
+      // 增强代码块支持：直接在整个VPContent中搜索文本，包括代码块
+      try {
+        // 首先尝试直接在VPContent中查找包含标注文本的元素
+        // 包括代码块中的文本
+        const allElements = vpContent.querySelectorAll('*')
+        let targetElement = null
+        let targetTextNode = null
+        let targetIndex = -1
+        
+        // 遍历所有元素，寻找包含标注文本的元素
+        for (const element of allElements) {
+          // 检查元素是否包含标注文本
+          if (element.textContent?.includes(text)) {
+            // 检查是否是代码块相关元素
+            const isCodeBlock = element.tagName.toLowerCase() === 'code' || element.tagName.toLowerCase() === 'pre'
+            
+            // 优先选择代码块元素
+            if (isCodeBlock) {
+              // 在代码块中查找文本节点
+              const textNodes = []
+              const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null)
+              let node
+              while ((node = walker.nextNode())) {
+                textNodes.push(node)
+              }
+              
+              // 检查每个文本节点是否包含标注文本
+              for (const textNode of textNodes) {
+                const nodeText = textNode.textContent || ''
+                const index = nodeText.indexOf(text)
+                if (index !== -1) {
+                  targetElement = element
+                  targetTextNode = textNode
+                  targetIndex = index
+                  break
+                }
+              }
+              
+              if (targetTextNode) break
+            }
+          }
+        }
+        
+        // 如果找到了目标文本节点
+        if (targetTextNode && targetIndex !== -1) {
+          // 设置title为标注内容的前20个字符，超出部分用……代替
+          const annotationNotes = annotation.notes || annotation.text
+          
+          // 创建高亮元素
+          const span = document.createElement('span')
+          span.className = 'text-highlight'
+          span.dataset.annotationId = annotation.id // 添加标注ID
+          const color = colorOptions.find(c => c.id === annotation.color)
+          span.style.backgroundColor = color ? color.rgba : 'rgba(234, 179, 8, 0.3)'
+          span.style.borderRadius = '2px'
+          span.style.padding = '0 2px'
+          span.style.cursor = 'pointer'
+          span.title = annotationNotes.length > 20 ? `${annotationNotes.substring(0, 20)}……` : annotationNotes
+          
+          // 尝试使用Range API来保留HTML结构
+          try {
+            const range = document.createRange()
+            range.setStart(targetTextNode, targetIndex)
+            range.setEnd(targetTextNode, targetIndex + text.length)
+            
+            const fragment = range.extractContents()
+            span.appendChild(fragment)
+            range.insertNode(span)
+          } catch (error) {
+            // 如果Range API失败，回退到文本节点
+            const nodeText = targetTextNode.textContent || ''
+            const beforeText = nodeText.substring(0, targetIndex)
+            const highlightedText = nodeText.substring(targetIndex, targetIndex + text.length)
+            const afterText = nodeText.substring(targetIndex + text.length)
+            
+            // 创建新的文本节点和高亮节点
+            if (beforeText) {
+              targetTextNode.parentNode?.insertBefore(document.createTextNode(beforeText), targetTextNode)
+            }
+            
+            span.appendChild(document.createTextNode(highlightedText))
+            targetTextNode.parentNode?.insertBefore(span, targetTextNode)
+            
+            if (afterText) {
+              targetTextNode.parentNode?.insertBefore(document.createTextNode(afterText), targetTextNode)
+            }
+            
+            // 删除原有的文本节点
+            targetTextNode.parentNode?.removeChild(targetTextNode)
+          }
+          
+          // 为高亮元素添加点击事件
+          span.addEventListener('click', (event) => {
+            event.stopPropagation()
+            const text = span.textContent || ''
+            
+            // 触发自定义事件，通知TextSelectionMenu组件打开菜单
+            const customEvent = new CustomEvent('highlight-click', {
+              detail: {
+                text: text,
+                element: span,
+                annotationId: span.dataset.annotationId
+              },
+              bubbles: true,
+              composed: true
+            })
+            
+            event.currentTarget?.dispatchEvent(customEvent)
+          })
+          
+          // 标记为已处理
+          existingHighlights.delete(annotation.id)
+          return
+        }
+      } catch (error) {
+        console.error('代码块处理失败:', error)
       }
       
       // 如果上述方法都失败，回退到原有的文本节点匹配方法，但添加更精确的匹配逻辑
