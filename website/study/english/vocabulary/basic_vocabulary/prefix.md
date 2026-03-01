@@ -153,5 +153,9 @@ pre-：在……之前、预先（before）
 ### se-
 se-：分离，分开（apart, away），强调从**整体**中分离
 
-### suf-
-*suf-*：在……下方
+
+## sub- <badge type="green">assimilation</badge>
+1. 在……下面（under, below）
+2. 次、低于、副、亚（less than, inferior）
+3. 分支、下级（secondary, branch）
+4. <Badge type="danger">向上、达到</Badge>（up to, up to the limit）
