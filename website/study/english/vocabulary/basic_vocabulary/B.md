@@ -44,7 +44,7 @@ word: true
 
 - bite v. 咬；攻击
 - bit n. 一小块；少量
-- bitter adj. 苦的；痛苦的 <interval>lenovo=>舌头👅像被咬了一下</interval>
+- bitter adj. 苦的；痛苦的 <interval>lenovo=>舌头像被咬了一下</interval>
 
 ## bar
 *bar*=栏杆，障碍

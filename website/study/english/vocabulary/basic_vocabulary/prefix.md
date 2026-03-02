@@ -16,6 +16,11 @@ ad-：拉丁前缀，意为“向、朝”（to, towards）
 音位同化：为了读起来更顺口，前缀依<marker-text color="red">词根首字母</marker-text>发音规律做出规律性的拼写调整，实现与词根首字母的发音同化，这是典型的拉丁构词规律。
 :::
 
+### ana-
+1. 在……上、在……后
+2. 与……类似
+3. 从上到下、彻底贯穿
+
 
 ## C
 ### con-=com-=co- <badge type="green">assimilation</badge>

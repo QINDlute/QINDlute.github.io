@@ -43,8 +43,9 @@ word: true
 
 2. *leg*=选择、委派、收集
 - college n. 大学；学院；社团 <interval>`col-`+leg+e=一起+选→选到一起学习的地方</interval>
-- colleague n. 同事；同僚
-- delegate v. 委派；授权 <interval>`de-`+leg+ate=向下+选+v.→选出来向下委派</interval>
+- collegiate adj. 大学的；学院的；大学生的
+- colleague n. 同事；同僚 & “一起被选中派往的人”
+- delegate v. 委派；授权；选派 n. 代理；代理人 <interval>`de-`+leg+ate=向下+选+v.→选出来向下委派</interval>
 - delegation n. 代表团；代表；委派
 - elegant adj. 优雅的；优美的；简洁的 <interval>`e-`+leg+`-ant`=出+选+adj.→百里挑一的、出众的→优雅的</interval>
 - legacy n. 遗产；后遗症；遗赠 <interval>leg+`-acy`=祖辈委派留下的东西</interval>
@@ -78,7 +79,7 @@ word: true
 - legitimate adj. 合法的；合理的 v. 使合法；认为正当
 - illegitimate adj. 私生的；非法的；不合逻辑的
 - legitimize v. 使合法化；正式批准
-- legislate v. 立法；制定法律
+- legislate v. 立法；制定法律 & leg+is+*[lat](#lat)*+e=法律+携带→把法律意义带出来的行为→立法
 - legislator n. 立法者；立法委员
 - legislation n. 立法；法规；法律
 - legislature n. 立法机关；议会
@@ -133,7 +134,7 @@ word: true
 - lexicographer n. 词典编纂者
 
 3. *leg=lect*=说、宣读、讲课
-- lecture n. 演讲；讲课；训话 v. 讲课；训斥 & lect +`-ure`=说+n.→正式的讲话→讲座
+- lecture n. 演讲；讲课；训话 v. 讲课；训斥 & lect +`-ure`=说+n.→正式的讲话→讲座 similar=>presentation, speech
 - lecturer n.演讲者；讲师；授课老师
 - legend n. 传说；图例；传奇；铭文 & leg+end=说+n.→被世人世代传颂的传说
 - legendary adj. 传奇的；传说的；享有盛名的
@@ -144,6 +145,47 @@ word: true
 - idiolect n. 个人习语；个人语型 & `idio-`+lect=个人+说→个人的说话方式
 - lectern n. 讲台；（教堂内的）诵经台
 - lector n. 大学讲师🧑‍🏫；（教堂的）诵经员
+
+
+## ly=li=lig
+*ly=lig=leg*=捆绑、束缚（tie, bind）
+
+1. 捆绑、束缚
+- ligate v. 结扎（伤口）；绑
+- ligation n. 结扎；（结）扎法
+- ligature n. 带子；绳索；绷带；连体字
+- liable adj. 有义务的；有责任的；有……倾向的 & 被动被捆绑：有义务的；主动被捆绑：有倾向的
+- lien n. 留置权；扣押权
+- <gdt>re-</gdt> 回、再
+    - rely v. 依靠；依赖；信赖 & `re-`+ly=再+绑→因为信任而抱大腿🦵
+    - reliable adj. 可靠的；可信赖的
+    - reliant adj. 信赖的；信任的；依靠的
+    - reliance n. 依赖；信任；依靠
+    - religion n. 宗教；信仰；信念 & `re-`+lig+ion=再、重复+捆绑+n.→通过共同的信念牢固的捆绑在一起
+    - religious adj. 宗教的；虔诚的 n. 修道士；尼姑
+- <gdt>ob-</gdt> 加强、朝向
+    - oblige v. （以法律、义务）迫使，强迫；帮忙；效劳 & `ob-`+lig+e=加强+绑→被道德绑架而被迫去做
+    - obliged adj. 感激的；感谢的 & “他还得谢谢咱呢”
+    - obliging adj. 乐于施惠于人的；热心助人的 & simialr=>accomodating
+    - obligee n. 债权人；权利人 & “债务/义务的承受者”
+    - obligor n. 债务人；义务人；权利人 & “债务/义务的发起者”
+    - obligate v. 使有责任；强制；使负义务
+    - obligation n. 义务；责任；债务
+    - obligatory adj. 必须的；强制性的；义务的
+
+2. 联合
+- league n. 联盟；社团；同盟；水平；里格（距离单位） v. 结盟
+- legato [adj.][ad.] 连奏的（地），连唱的（地） n. 连奏
+- ally n. 同盟国；同盟者；支持者 v. 结盟 & `al-`+ly=加强+捆绑→大家捆在一起→同盟
+- rally n. 集合 v. 振作；集合；复苏；恢复 & `re-`+ly=再+捆绑→再次集结、重振旗鼓
+- alliance n. 联盟；联姻；结盟
+- alloy n. 合金 v. 把……铸成合金；融合；结合
+- ligand n. 配体；配合基 & “与中心原子结合的分子”
+
+3. 连接
+- ligament n. 韧带；纽带 & “连接骨骼的结缔组织”
+- colligate v. （使）发生紧密联系
+- liaison n. 🤙🏻联络；暧昧；通奸
 
 
 ## lev=liver
@@ -231,6 +273,112 @@ word: true
     - delimit v. 划界；划定界限；限定 & `de-`+limit=加强+界限→明确划定界限
     - delimitation n. 划界；区划；界限
 
+
+## lic=lac
+*lic=lac*=诱惑、引诱（to entice, to lure）
+
+1. 诱惑👅
+- elicit v. 引出；诱出；探出 & `e-`+lic+it=向外+引诱→向外引诱出→引出
+- delicious adj. 美味的；令人愉快的；可口的；有趣的 & `de-`+lic+`ious`=加强+诱惑+adj.→充满诱惑的美食😋
+- delicate adj. 微妙的；精致的；易碎的；脆弱的；灵敏的 & “精致玲珑的事物引诱人来保护”
+- delicacy n. 佳肴；微妙；精美；棘手
+- licentious adj. 放荡的；淫乱的；肆意的 & lic+entious=引诱+adj.→诱惑你去放荡堕落
+- licit adj. 合法的；法律准许的
+- illicit adj. 非法的；不正当的；违禁的
+
+2. 缠绕、勾连🪢
+>: 触手、SM捆绑很诱惑→缠绕
+- lace n. 鞋带；饰带；花边；缎带
+- interlace v. 交错；交织；相间；隔行扫描
+- necklace n. 项链；项圈
+
+
+## liqu=lix
+*liqu=lix*=液体、流动（liquid, to flow）
+s
+1. 液体、流动
+- liquid n. 液体 adj. 液体的；液态的；流动的
+- liquor n. 酒；烈酒；汁；汤
+- liqueur n. 烈酒；酒心巧克力
+- liquidity n. 流动性；资产流动性；资产变现能力 & liquid+`-ity`=液态的+n.→像液体一样流动的能力
+- illiquid adj. 无流动资金的；非流动的；非现金的
+- liquidate v. 清算；变卖；消除；铲除 & liquid+`-ate`=液体+v.→清算流水账→清算
+- liquidation n. 清算；清盘；停业营业；杀戮
+- liquidator n. （公司债务）清算人
+- lixivium n. 碱水；灰汁
+- prolix adj. 啰嗦的；冗长的 & `pro-`+lix=向前+流动→说话像水一样流个不停→冗长的
+- prolixity n. 冗长；啰嗦 
+
+2. 液化
+- liquefy v. 液化；溶解
+- liquefaction n. 液化
+- liquidize v. 把……（尤指水果或蔬菜等）榨成汁
+- liquescent adj. 易液化的
+- deliquesce v. 液化，融化；溶解；潮解 & `de-`+liqu+esce→完全变成液体→潮解
+- deliquescent adj. 潮解的
+
+
+## lys=lyt
+*lys=lyt*=分解（break down）
+
+- lysis n. 溶解；消退
+- lytic adj. 溶解性的
+- lysosome n. 溶酶体 & lys+o+some=溶解+体→细胞中负责溶解的细胞器
+- <gdt>ana-</gdt> 完全、向上
+    - analysis n. 分析；分解；剖析 & `ana-`+lysis=彻底+分解→彻底分解→分析
+    - analyse v. 分析；分解
+    - analyst n. 化验员；分析者；分析师
+    - analytic adj. 分析的；善于分析的
+    - psychoanalysis n. 心理分析 & `psycho-`+`-`+analysis=心理+分析→心理分析
+    - urinalysis n. 尿分析 & `urine-`+analysis=尿+分析→尿分析
+- <gdt>cata-</gdt> 完全、向下
+    - catalysis n. 催化作用；触媒作用 & `cata-`+lysis=完全+分解→完全促进分解→催化
+    - catalyst n. 催化剂；接触剂
+    - catalytic adj. 催化的；促进性的
+- <gdt>electro-</gdt> 电
+    - electrolysis n. 电解
+    - electrolyte n. 电解质；电解液
+- <gdt>dia-</gdt> 穿过
+    - dialysis n. 透析；渗析 & `dia-`+lysis=穿透+分析→透析
+- <gdt>para-</gdt> 旁边、偏离
+    - paralysis n. 瘫痪；麻痹；停顿 & `para-`+lysis=旁边+分解→周围的神经都分解了→瘫痪
+    - paralyse v. 使瘫痪；使麻痹；使无效
+- spasmolytic adj. 解痉的 n. 解痉药
+- hydrolysis n. 水解 & `hydro-`+lysis=水+分解→水解
+- zymolysis n. 发酵；酵解（作用） & `zymo-`+lysis=酵+分解→发酵
+- glycolysis n. 糖酵解 & `glyco-`+lysis=糖+分解→糖酵解
+
+
+## lat
+*lat*=承载，携带（to bear, carry）
+
+1. 联系、关联
+- relate v. 叙述；理解；认同；把……联系起来；有关 & `re-`+late=回+携带→把消息带回来→讲述，联系
+- related adj. 相关的；有联系的
+- relative adj. 相对的；比较的；相关联的 n. 亲戚
+- relativity n. 相对论；相对性；相关性
+- relation n. 联系；亲属；关系
+- relationship n. 关系；联系；亲戚关系
+- correlate v. 相互关联 n. 相关联的人
+- correlation n. 相互关系；相关；关联
+- interrelate v. 相互影响；相互关联
+
+2. 传递
+- translate v. 翻译；转化；导致；造成 & `trans-`+lat+e=跨越+携带→把意思传递到另一种语言→翻译
+- translation n. 翻译；译文
+- translator n. 翻译员；翻译者
+
+3. <Badge type="green">携带</Badge>
+- collate v. 校对；整理；对照 & `col-`+lat+e=一起+携带→把东西放在一起来比较→校对
+- superlative adj. 最高级的；最佳的；过度的 n. 最高级；最高程度的 & `super-`+lat+`-ive`=在……之上的+携带+adj.→从至高之处带来的东西的品质
+- ablate v. 切除；融化；侵蚀； & `ab-`+lat+e=离开+携带→把东西带走→切除
+- elate v. 使高兴；使骄傲 adj. 得意的 & 把情绪带出来→兴高采烈
+- elated adj. 兴高采烈的
+- dilatory adj. 拖拉的；磨蹭的；拖沓的 & `di-`+lat+`-ory`=分开+携带+adj.→把事物分成一段一段做→拖延
+- prelate n. 高级教士，主教 & `pre-`+lat+e=在……之前+携带→走在前面携带教义的人
+- oblation n. 供物；祭品 & `ob-`+lat+`-ion`=对面+携带+n.=把祭品献给对面的神像
+
+
 ## 其他
 - length n. 长度
 - along prep. 沿着 ad. 一起；向前
@@ -241,3 +389,16 @@ word: true
 - outline n. 轮廓 v. 概述
 - underline v. 强调 & similar=>highlight, underscore, emphasize
 - loyal adj. 忠诚的；忠心的
+- collide v. 冲突；碰撞；相撞
+- collision n. 冲突；碰撞；抵触
+- library n. 图书馆；文库；藏书
+- librarian n. 图书管理员
+- lead v. 导致；领导；领先 n. 铅；带领；引导
+- leader n. 领袖；领导者；首领
+- leadership n. 领导；领导才能；领导地位
+- load n. 负荷；装载 v. 装载；载入
+- download [v.][n.] 下载
+- lack [n.][v.] 缺乏，不足
+- latter adj. 后面的；近来的
+- loose adj. 松懈的；不牢固的 v. 使松懈
+- label n. 标签；标记；商标；称号 v. 把……称为；贴标签于……

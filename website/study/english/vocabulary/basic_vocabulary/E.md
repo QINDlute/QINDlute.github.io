@@ -47,7 +47,7 @@ word: true
 - absence n. 缺席；缺少
 - present adj. 出席的；当前的 n. 礼物 v. 呈现
 - presence n. 出席；存在；在场
-- presentation n. 呈现
+- presentation n. 报告；展示；演出；陈述
 - representative n. 代表；代理人 adj. 具有代表性的
 - essence n. 本质；精髓
 - essential adj. 本质的；必不可少的

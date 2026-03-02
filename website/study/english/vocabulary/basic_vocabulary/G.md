@@ -63,7 +63,7 @@ word: true
 ## gene=gen
 1. <Badge type="warning">生育、产生</Badge>
 - generate v. 引起；产生；导致
-- hydrogen n. 氢 <interval>`hydro-`+gen=水+产生=产生水的物质（氢气燃烧会生成水）</interval>
+- hydrogen n. 氢 <interval>`hydro-`💧+gen=水+产生=产生水的物质（氢气燃烧会生成水）</interval>
 - oxygen n. 氧气
 - degenerate v. 退化；堕落 adj. 退化的
 - generation n. 一代；产生
