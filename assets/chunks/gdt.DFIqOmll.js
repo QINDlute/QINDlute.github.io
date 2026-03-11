@@ -1,0 +1,1 @@
+import{_ as n,c as s,o as t,r as o}from"./framework.CMJWtI5H.js";const c={},r={class:"text-gradient"};function _(e,a){return t(),s("span",r,[o(e.$slots,"default")])}const p=n(c,[["render",_]]);export{p as _};
