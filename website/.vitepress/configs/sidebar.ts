@@ -66,6 +66,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                                         { text: '词根 I', link: '/study/english/vocabulary/basic_vocabulary/I' },
                                         { text: '词根 J', link: '/study/english/vocabulary/basic_vocabulary/J' },
                                         { text: '词根 L', link: '/study/english/vocabulary/basic_vocabulary/L' },
+                                        { text: '词根 M', link: '/study/english/vocabulary/basic_vocabulary/M' },
+                                        { text: '词根 N', link: '/study/english/vocabulary/basic_vocabulary/N' },
                                     ],
                                 },
                                 { text: 'Oxford 3000', link: '/study/english/vocabulary/oxford_3000' },

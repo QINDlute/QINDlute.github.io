@@ -104,6 +104,35 @@ alcohol=酒精
 - airline n. 航线；航空公司
 - aircraft n. 飞机   <interval>air+craft=空气+工艺（航天器）</interval>
 
+
+## anim
+*anim*=生命、精神（life, soul）
+
+1. 生命，活物
+- animal n. 动物；野兽 adj. 动物的；野兽的
+- animalistic adj. 兽性说的；色情的 & “原始冲动的”
+- animate adj. 有生命的；有活力的 v. 做成动画；使具活力
+- animated adj. 活跃的；动画的；有生气的
+- animation n. 动画；兴奋；生气（生机）
+- inanimate adj. 无生命的；死的
+- animalcule n. 微生物 & animal+`-cule`=生命+小东西→微小的生命
+- anime n. 日本动漫 & “赋予生命的画面”
+- animism n. 万物有灵论 & “认为世间万物都有灵魂”
+
+2. 精神，心灵
+- animus n. 敌意；基本态度；仇恨 & 有侵略性的精神
+- animosity n. 仇恨；敌意；憎恶
+- unanimous adj. 一致同意的；全体一致的 & `un(i)-`+anim+`-ous`=一+精神+adj.→意志统一的
+- unanimity n. 一致同意；全体赞同
+- equanimity n. 沉着；镇定 & `equ-`+anim+`-ity`=平+精神+n.→精神平稳→沉着
+- magnanimous adj. 宽宏大量的；有雅量的；慷慨的
+- magnanimity n. 宽宏大量；大度
+- pusillanimous adj. 胆怯的；怯懦的
+- longanimity n. （对伤痛的）忍受；坚忍 & long+anim+`-ity`=长久的+精神+n.→精神持久→坚忍
+- animadvert v. 谴责；批评；大胆发言反对 & anim+advert=精神+转向=转而批斗别人的思想
+- animadversion n. 谴责，指摘；责备
+
+
 ## 其他
 
 - agent n. 代理人；经纪人

@@ -35,11 +35,12 @@ contra-：反对、拒绝、与……相反（against, opposite of）
 ### de- <badge type="warning">active</badge>
 1. 反转、否定、做相反动作（reversal，undoing）
 2. 剥夺、移除、去掉（removal or deprivation）
-3. 向下、减少、降级（downward movement or reduction）
+3. 离开、分离（away, apart）
+4. 向下、减少、降级（downward movement or reduction）
 
 表示**向下**的运动或**在程度、等级上的降低**。
 
-4. 加强语气（pejorative or intensive）
+5. 加强语气（pejorative or intensive）
 
 表示**彻底地、完全地**。
 
@@ -118,7 +119,8 @@ ne-：否定（not），变体有`neg-`
 ### ob- <badge type="green">assimilation</badge>
 1. 反对、对抗（against, opposing）
 2. 朝向、面对（toward, facing）
-3. 加强语气
+3. 阻碍（blocking）
+4. 加强语气
 
 
 ## P
@@ -159,8 +161,11 @@ pre-：在……之前、预先（before）
 se-：分离，分开（apart, away），强调从**整体**中分离
 
 
-## sub- <badge type="green">assimilation</badge>
+### sub- <badge type="green">assimilation</badge>
 1. 在……下面（under, below）
 2. 次、低于、副、亚（less than, inferior）
 3. 分支、下级（secondary, branch）
 4. <Badge type="danger">向上、达到</Badge>（up to, up to the limit）
+
+### super-=supre-=sur-
+super-=supre-=sur-：在……之上；超过，超越，超级

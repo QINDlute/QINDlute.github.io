@@ -147,6 +147,39 @@ word: true
 - lector n. 大学讲师🧑‍🏫；（教堂的）诵经员
 
 
+## loqu=locu
+*loqu=locu*=说、谈话（speak, talk）
+
+- <gdt>e-</gdt> 外、出
+    - eloquent adj. 有说服力的；雄辩的；传神的；口才流利的 & `e-`+loqu+`-ent`=外+说+adj.→把话说出来、说得好的
+    - eloquence n. 雄辩；口才
+    - elocution n. 演说术；演讲技巧
+- <gdt>circum-</gdt> 环绕、round
+    - circumlocution n. 遁词；冗长 & circum+locu+`-tion`=环绕+说+n.→绕着圈子说话
+    - circumlocutory adj. 委婉曲折的；拐弯抹角的
+- <gdt>grand-</gdt> 大、伟大的
+    - grandiloquent adj. 堆砌辞藻的；夸大的；做作的
+    - grandiloquence n. 豪言壮语；夸口
+- <gdt>magn-</gdt> 大
+    - magniloquent adj. 夸大的；言过其实的 & magni+loqu+`-ent`=大+说+adj.→说大话
+    - magniloqentce n. 夸夸其谈；大言；自负
+- <gdt>col-</gdt> 共同
+    - colloquy n. 谈话；会话 & `col-`+loqu+y=共同+说+n.→一起说话→对话
+    - colloquium n. 学术研讨会；学术会议 & “一起讨论的场合”
+    - colloquial adj. 口语的；会话的；通俗的 & “大家日常说话的样子”
+- <gdt>inter-</gdt> 在……之间
+    - interlocution n. 对话，交谈 & `inter-`+locu+`-tion`=在……之间+说+n.→两人之间的对话
+    - interlocutor n. 对话者；参加谈话的人
+- loquacity n. 多嘴；健谈；多话 & loqu+`-acity`=说+表性质→爱说话的性质
+- loquacious adj. 健谈的；喋喋不休的；话多的 
+- locution n. 语言风格；惯用语
+- obloquy n. 谩骂；毁谤；相对着 & `ob-`+loqu+y=反对+说+n.→说反对的话
+- soliloquy n. 独白；自言自语 & `soli-`+loqu+y=独自+说+n.→独自说话
+- somniloquy n. 梦话 & `somni-`+loqu+y=睡眠+说+n.→睡着时说的话
+- ventriloquism n. 口技，腹语术 & `ventri-`+loqu+`-ism`=腹+说+n.→用肚子说话
+- ventriloquist n. 口技表演者；腹语表演者
+
+
 ## ly=li=lig
 *ly=lig=leg*=捆绑、束缚（tie, bind）
 
@@ -165,8 +198,8 @@ word: true
     - religious adj. 宗教的；虔诚的 n. 修道士；尼姑
 - <gdt>ob-</gdt> 加强、朝向
     - oblige v. （以法律、义务）迫使，强迫；帮忙；效劳 & `ob-`+lig+e=加强+绑→被道德绑架而被迫去做
-    - obliged adj. 感激的；感谢的 & “他还得谢谢咱呢”
-    - obliging adj. 乐于施惠于人的；热心助人的 & simialr=>accomodating
+    - obliged adj. 感激的；感谢的 & “被帮助了很感激”
+    - obliging adj. 乐于施惠于人的；热心助人的 & similar=>accommodating
     - obligee n. 债权人；权利人 & “债务/义务的承受者”
     - obligor n. 债务人；义务人；权利人 & “债务/义务的发起者”
     - obligate v. 使有责任；强制；使负义务
@@ -295,7 +328,6 @@ word: true
 
 ## liqu=lix
 *liqu=lix*=液体、流动（liquid, to flow）
-s
 1. 液体、流动
 - liquid n. 液体 adj. 液体的；液态的；流动的
 - liquor n. 酒；烈酒；汁；汤
