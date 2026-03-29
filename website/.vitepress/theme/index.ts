@@ -8,15 +8,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import './style/index.scss'
-
-import FontSettingsPlugin from './components/FontSettingsPlugin.vue'
-import ReadingProgress from './components/ReadingProgress.vue'
-
-import TextSelectionMenu from './components/TextSelectionMenu.vue'
-import AnnotationRenderer from './components/AnnotationRenderer.vue'
-
-import ClickHearts from './components/ClickHearts.vue'
-import SnowEffect from './components/SnowEffect.vue'
+import Layout from './Layout.vue'
 
 import mediumZoom from 'medium-zoom'
 
@@ -31,6 +23,7 @@ import 'vidstack/player/ui';
 let homePageStyle: HTMLStyleElement | undefined
 export default {
   extends: DefaultTheme,
+  Layout: Layout,
   // 注册全局组件
   enhanceApp({ app, router}) {
     // 彩虹背景动画样式
@@ -53,22 +46,7 @@ export default {
       }
     }
   },
-  Layout: () => {
-    return h(DefaultTheme.Layout, null, {
-      // 将字体设置插件挂载到导航栏内容之前
-      'nav-bar-content-after': () => h(FontSettingsPlugin),
-      // 挂载到页面底部
-      'layout-bottom': () => [
-        h(ReadingProgress),
-        h(TextSelectionMenu),
-        h(AnnotationRenderer),
-        h(SnowEffect),
-      ],
-      'layout-top': () => [
-        h(ClickHearts),
-      ],
-    })
-  },
+
   setup() {
     // 监听路由变化
     const route = useRoute();

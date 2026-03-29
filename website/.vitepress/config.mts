@@ -58,18 +58,19 @@ export default defineConfig({
     ],
 
     // 页脚配置
-    footer: {
-      message: 'qindlute\'s notes',
-      copyright: 'Copyright © 2025-2026 qindlute'
-    },
+    // footer: {
+    //   message: 'qindlute\'s notes',
+    //   copyright: 'Copyright © 2025-2026 qindlute'
+    // },
+
     docFooter: {
       prev: '上一页',
       next: '下一页'
     },
     
-    // lastUpdated: {
-    //   text: '最后更新于'
-    // },
+    lastUpdated: {
+      text: '最后更新于'
+    },
 
     // 启用本地搜索功能
     search: {
