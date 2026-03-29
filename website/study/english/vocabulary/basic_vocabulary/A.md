@@ -68,11 +68,24 @@ word: true
 - unable adj. 不能的
 - disability n. 无能力；残疾
 
-## astro
-*astro*=星星⭐⭐
+## aster=astr
+*aster=astr*=星星⭐⭐
 
-- astronaut n. 宇航员
+1. 星星
+- aster n. 紫苑；星状体
+- asterisk n. 星号 v. 给……注上星号
+- asterism n. 星群；三星标；星状光彩；星芒
+- asteroid n. 小行星
+- astral adj. 星的；零星的
+
+2. 天文
+- astronomy n. 天文学
 - astronomer n. 天文学家
+- astronomical adj. 天文学的；巨大的
+- astronaut n. 宇航员🧑🏻‍🚀
+- astrobiology n. 天文生物学
+- astrology n. 占星术；占星学🔮
+
 
 ## anxi
 *anxi*=苦恼

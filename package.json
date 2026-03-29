@@ -27,7 +27,8 @@
     "unocss": "^0.57.7",
     "unplugin-icons": "^23.0.1",
     "unplugin-vue-components": "^31.0.0",
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "vitepress-theme-teek": "^1.5.5"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",

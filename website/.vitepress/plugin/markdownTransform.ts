@@ -66,17 +66,21 @@ export function MarkdownTransform(): Plugin {
       // 处理词性高亮 (n. v. adj. ad. prep. conj. pref.)
       // 使用 marker.css 中定义的颜色，保持颜色风格一致
       const posMap: Record<string, string> = {
-        'n.': 'rgba(251, 146, 60)', // 橙色
-        'v.': 'rgba(239, 68, 68)', // 红色
-        'adj.': 'rgba(59, 130, 246)', // 蓝色
-        'ad.': 'rgba(168, 85, 247)', // 紫色
-        'prep.': 'rgba(152, 251, 152)', // 薄荷绿
-        'conj.': 'rgba(0, 255, 255)' // 青色
+        'n.': 'rgba(251, 146, 60)', // 橙色，名词
+        'pron.': 'rgba(245, 158, 11)', // 琥珀色，代词
+        'adj.': 'rgba(59, 130, 246)', // 蓝色，形容词
+        'ad.': 'rgba(168, 85, 247)', // 紫色，副词
+        'v.': 'rgba(239, 68, 68)', // 红色，动词
+        'num.': 'rgba(16, 185, 129)', // 绿色，数词
+        'art.': 'rgba(96, 165, 250)', // 浅蓝，冠词
+        'prep.': 'rgba(152, 251, 152)', // 薄荷绿，介词
+        'conj.': 'rgba(0, 255, 255)', // 青色，连词
+        'int.': 'rgba(236, 72, 153)' // 粉色，感叹词
       }
 
       // 使用正则匹配独立出现的词性缩写
       // \b 确保匹配单词边界，防止误伤
-      code = code.replace(/\b(n\.|v\.|adj\.|ad\.|prep\.|conj\.|pref\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
+      code = code.replace(/\b(n\.|pron\.|adj\.|ad\.|v\.|num\.|art\.|prep\.|conj\.|int\.|pref\.)(?=\s|$|[^a-zA-Z])/g, (match) => {
         // 对 pref. 特殊处理，使用渐变效果
         if (match === 'pref.') {
           return `&nbsp;<span class="text-gradient">${match}</span>`;

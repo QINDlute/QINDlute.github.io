@@ -4,7 +4,7 @@
 ### a-
 1. 否定（=without, not）
 2. 状态或方向（=on, in, into）
-3. 离开、来自（来自ab-, =away, from）
+3. 离开、来自（来自`ab-`, =away, from）
 4. 动词强化（无实义）
 
 ### ad- <badge type="green">assimilation</badge>
@@ -94,7 +94,7 @@ for-：古英语前缀，表“反对、禁止、远离” （away、against）
 
 主要加在**形容词或名词**前，构成其反义词。
 
-2. 在内、进入、朝向（in, into, on, upon）
+2. 在内、向内、向上（in, into, on, upon）
 
 表示方向或位置。主要加在**动词或名词**前。
 
@@ -117,13 +117,13 @@ ne-：否定（not），变体有`neg-`
 
 ## O
 ### ob- <badge type="green">assimilation</badge>
-1. 反对、对抗（against, opposing）
+1. 反对、对抗、相对（against, opposing）
 2. 朝向、面对（toward, facing）
 3. 阻碍（blocking）
 4. 加强语气
 
 
-## P
+## 
 ### pro-
 1. <Badge type="warning">向前</Badge>（forward）
 2. 公开（public）
@@ -149,6 +149,8 @@ pre-：在……之前、预先（before）
 2. 超越，相反
 3. 防护
 
+### prim-/prin/pri
+prim-/prin/pri：第一、首要
 
 ## R
 ### re-

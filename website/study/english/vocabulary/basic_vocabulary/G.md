@@ -71,7 +71,6 @@ word: true
 - genesis n. 创始；起源
 - engender v. 使发生；引起
 - germinate v. 使产生；使发芽或发育
-- pregnant adj. 怀孕的；重要的
 - progeny n. 子孙后代
 - progenitor n. 祖先；创始人；先驱
 
@@ -118,31 +117,40 @@ word: true
 - ingratiate v. 讨好；逢迎 <interval>`in-`+grat+iate=进入+愉悦+v.=进入他人的愉悦状态</interval>
 
 
-## gno=gn=nob=not
-1. <Badge type="warning"><em>gno=gn</em></Badge>=*nob=not*=知道（know）
+## gno=gn=quaint
+1. *gno=gn=quaint*=知道（know）
 - know v. 知道；了解；认识 <interval>格林规律：g浊→k清</interval>
 - knowledge n. 知识；了解；学问
 - acknowledge v. 承认；感谢；认可
-- ignore v. 忽视；不理睬 <interval>`i-`+gnore=否定+知道=不（主动）知道→忽视</interval>
-- ignorant adj. 无知的；缺乏知识的
-- diagnose v. 诊断；判断 <interval>`dia-`+gnose=加强语气+知道=彻底了解病情→诊断</interval>
-- diagnosis n. 诊断；诊断书
-- prognosis n. 预测；预后；预断病情 <interval>`pro-`+gnosis=向前+知道=向前预断病情</interval>
-- gnosis n. 真知；灵知；诺斯替派 <interval>“无所不知的智慧”</interval>
+- <gdt>co-</gdt> 加强
+    - cognize v. 认知；认识 & `co-` 强调+gn 知道+`-ize` v.=彻底知道→认识
+    - recognize v. 认出；识别；承认 & `re-` 再次+cognize 认识=再次认识→认出
+    - recognition n. 识别；承认；认可
+    - cognizant adj. 认识的；知晓的
+    - cognizance n. 认识；察觉
+    - cognitive adj. 认知的；认识的
+    - cognition n. 认识；认知；感知
+    - incognito adj. 匿名的 ad. 伪装地、隐姓埋名地
+- <gdt>i-</gdt> 否定
+    - ignore v. 忽视；不理睬 & `i-` 否定+gno 知道+re=不（主动）知道→忽视
+    - ignorant adj. 无知的；缺乏知识的
+    - ignorance n. 无知；愚昧；不知道
+    - agnostic n. 不可知论者 adj. 不可知论的；怀疑的
+- <gdt>dia-</gdt> 贯穿、加强语气
+    - diagnose v. 诊断；判断 & `dia-` 加强语气+gno 知道+se=彻底了解病情→诊断
+    - diagnosis n. 诊断；诊断书
+- <gdt>pro-</gdt> 向前
+    - prognosis n. 预测；预后；预断病情 & `pro-`+gnosis=向前+知道=向前预断病情
+    - prognosticate v. 预测；语言；预示
+- gnosis n. 真知；灵知；诺斯替派 & “无所不知的智慧”
 - gnome n. 格言；侏儒；地精 <interval>“知晓很多秘密的精灵”→地精</interval>
 - gnomic adj. 格言的
-- cognition n. 认识；认知；感知 <interval>`co-`+gn+ition=强调+知道+n.=知道的过程→认知</interval>
-- recognize v. 认出；识别；承认 <interval>`re-`+cognize=再次+认识=再次认识→认出</interval>
-- incognito adj. 匿名的 ad. 伪装地、隐姓埋名地
-- noble adj. 高尚的；贵族的；高贵的 n. 贵族 <interval>“家喻户晓的人物”</interval>
-- nobility n. 高尚；高贵；贵族
-- ignoble adj. 平民的；卑鄙的；卑贱的
-- notice [n.][v.] 通知；注意 <interval>“使知道”→通知</interval>
-- notion n. 概念；想法；观念 <interval>“心里知道的东西”→概念</interval>
-- notify v. 通知；通告
-- notorious adj. 臭名昭著的；声名狼藉的 <interval>not+`-orious`=知道+多……的=被广泛知道的（好事不出门，坏事传千里）</interval>
+- physiognomy n. 相貌；面貌；地貌 & `physio-` 自然+gno 知道+my=通过自然外观而知道→面相
+- quaint adj. 古色古香的；古怪的；离奇有趣的 & 
+- acquaint v. 使熟悉；使了解；使认识 & `ac-` 去+quaint 知道=想要去了解
+- acquaintance n. 熟人；了解；相识 & 了解的很透彻的人→熟人
 
-::: tip 格林规律
+::: tip 格林规律{#green_law}
 格林定律是由德国语言学家 Jacob Grimm 提出的音变规律，它描述了原始印欧语（PIE）中的辅音在进入日耳曼语族（包括英语、德语、荷兰语等）时，发生的系统性、有规律的清浊音变化。
 
 | **PIE 辅音** | **日耳曼语对应** | **例子** |

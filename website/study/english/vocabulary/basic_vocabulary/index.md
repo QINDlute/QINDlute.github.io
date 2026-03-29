@@ -4,3 +4,6 @@
 
 参考：
 [etymonline](https://www.etymonline.com/)
+APP:词根单词
+
+本网页单词的词根词缀解读为作者个人理解，单纯用于记忆。

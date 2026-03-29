@@ -17,7 +17,8 @@ word: true
 - recipe n. 食谱；方法 <interval>`re-`+cipe=取回食材的方法</interval>
 - capture v. 捕获
 - participate v. 参与
-
+- disciple n. 弟子；门徒
+- discipline n. 纪律；管教；学科
 - occupation n. 占有；职业 <interval>similar=>profession</interval>
 
 
