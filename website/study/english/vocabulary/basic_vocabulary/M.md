@@ -398,7 +398,7 @@ word: true
 
 
 ## main=man=men
-*main=man=men*=停留、逗留、居住
+*main=man=men*=停留、居住
 
 1. 停留、持久
 - remain v. 剩下；保持；仍然是；留下 n. 遗迹；剩余物

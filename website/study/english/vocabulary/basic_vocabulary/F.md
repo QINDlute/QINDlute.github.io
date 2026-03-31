@@ -170,7 +170,7 @@ word: true
 - federation n. 联盟；联邦；联合会
 
 
-## fend=fens
+## fend=fens🛡️
 *fend=fens*=打击、防御（strike, ward off）
 
 - defend v. 防御；保卫；辩护

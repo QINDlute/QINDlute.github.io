@@ -187,7 +187,7 @@ word: true
     - deplete v. 耗尽；使枯竭；使衰竭
     - depletion n. 损耗；减损；耗尽
     - depletive adj. 耗尽的
-- <gdt>accom-</gdt> 完全倾向于……
+- <gdt>accom-(=ac-+com-)</gdt> 完全倾向于……
     - accomplish v. 完成；实现；达到
     - accomplishment n. 成就；完成；才艺；技能
     - accomplishable adj. 可达到的；可完成的
@@ -213,17 +213,17 @@ word: true
 - ineptitude n. 无能；笨拙；不合适
 - attitude n. 态度；看法；姿势
 - altitude n. 海拔；高度；高地
-<br><br>
+---
 
 - longitude n. 经度
 - latitude n. 维度；选择的余地
-<br><br>
+---
 
 - amplitude n. 振幅；丰富；广阔
 - magnitude n. 巨大；重要性；大小
 - plenitude n. 充分；充足；大量
 - infinitude n. 无限
-<br><br>
+---
 
 - rectitude n. 正直；操行端正；诚实
 - lassitude n. 无精打采；倦怠；疲乏
@@ -242,18 +242,18 @@ word: true
 - parting n. 离别；分别；分界线；分手
 - parcel n. 包裹 v. 打包；捆扎；分配
 - parse v. 作语法分析；解析
-<br><br>
+---
 - partake v. 参与；分享；分担 & park+take=取得一部分→参与/分享
 - impart v. 传授；给予；告知 & `im-` 向内+part 部分=把一部分“放入”对方→传授
 - partition n. 分割；划分；隔离物 v. 隔开
-<br><br>
+---
 - partner n. 配偶；合伙人；伙伴；搭档 v. 配对 & 共享同一部分的人→伙伴
 - partnership n. 合作关系；合作；伙伴关系
 - party n. 聚会；政党；当事人 adj. 党派的 v. 参加社交聚会
 - partisan adj. 偏袒的；党派性的 n. 党羽；游击队员；强烈支持者
 - bipartisan adj. 两党的；代表两党的
 - multipartism n. 多党制
-<br><br>
+---
 - particle n. 微粒；粒子；极小量 & part+icle=极小的部分→粒子
 - particulate adj. 粒子状的 n. 粒子；微粒状物质
 - particular adj. 特定的；特殊的；挑剔的 n. 详情；细节 & 用放大镜🔎找细微的错误→细节、挑剔
@@ -261,25 +261,25 @@ word: true
 - particularize v. 详细说明；列举
 - particularity n. 精确性；个性；详尽；特性
 - partitive adj. 区分的；部分的
-<br><br>
+---
 - participate v. 参加；参与；分享 & parti 部分+cip 拿取+ate v.=取得一份→参与
 - participation n. 参与；参加；分享
 - participative adj. 参与的
 - participant n. 参与者；参加者 adj. 参与的
-<br><br>
+---
 - partial adj. 部分的；偏袒的；不完全的；不公平的 & 只看到部分→偏袒
 - partially ad. 部分地；在某种程度上；局部地；偏爱地
 - impartial adj. 公平的；不偏不倚的
 - partiality n. 偏袒；偏心；偏爱
-<br><br>
+---
 - apart adj. 分离的；意见不一致的 ad. 相隔；相距；分离 & `a-` 离开+part 部分=分开一部分→分离
 - apartment n. 公寓；房间；套间
-<br><br>
+---
 - <gdt>de-</gdt> 移除
     - depart v. 离开；去世；背离；离职
     - departure n. 离开；出发；离职
     - department n. 部门；系；部
-<br><br>
+---
 - portion v. 分配；把……分成份额 n. 部分；一份 & 分出去→分配
 - apportion n. 并置；附着作用；同位语 & similar=>apposition
 - proportion n. 比例；份额；部分；均衡 & 分出去到手的一份→份额、比例
@@ -287,17 +287,17 @@ word: true
 - proportionate adj. 成比例的；相称的；均衡的 v. 使成比例
 - disproportion n. 不平衡
 - disproportionate adj. 不成比例的；不均衡的；不相称的
-<br><br>
+---
 - <gdt>com-</gdt> 一起
     - compartment n. 隔间；车厢 v. 分隔 & 将整体分成若干部分→隔间/对应物
     - compartmentalize v. 划分；分隔
     - counterpart n. 副本；职位相当的人；对应的事物
-<br><br>
+---
 - bipartite adj. 双边的；双方的
 - tripartite adj. 分为三部分的；涉及三方的
 - quadripartite adj. 分成四份的；由四部分组成的
 - multipartite adj. 多歧的；多国参加的；分成多部分的
-<br><br>
+---
 - jeopardy n. 危险；危险境地
 - jeopardize v. 危及；损害
 - repartee n. 敏捷的回答；机智的回答
@@ -452,13 +452,13 @@ word: true
 - viewpoint n. 观点；看法；视角
 - standpoint n. 立场；观点
 - pinpoint v. 精准定位 n. 精确位置；极小之物 adj. 精确的；精准的
-<br><br>
+---
 - appoint v. 任命；委派；约定（时间、地点） & `ap-` 朝向+point 点=手指指向某个点→任命/约定
 - appointment n. 任命；约会；约定；职位；预约
 - disappoint v. 使失望；使破灭；使挫败
 - disappointed adj. 失望的；沮丧的
 - disappointment n. 失望；挫折；伤心
-<br><br>
+---
 - punctual adj. 准时的；守时的 & 精确到一个时间点上🕑
 - punctuality n. 准时；守时
 - punctuate v. 强调；不时打断；加标点于 & 标注重点→强调
@@ -489,10 +489,10 @@ word: true
     - competent adj. 有能力的；胜任的；合格的；称职的 & 追得上的→有能力的
     - incompetent n. 没有能力的人 adj. 无能力的
     - competence n. 能力；胜任；本领；权限
-    <br><br>
+    ---
 - petition n. 请愿书；祈求 v.请求；祈求；请愿  & 向权威追求
 - petitioner n. 上述人；请愿人；离婚上诉方
-<br><br>
+---
 - <gdt>a(d)-</gdt> 朝向
     - appetite n. 欲望；食欲；爱好；胃口👅 & 欲望是原始驱动力
     - appetizer n. 开胃品
@@ -558,12 +558,12 @@ word: true
 - priority n. 优先权；优先事项；当务之急
 - primate n. 大主教；灵长类；首领
 - primacy n. 首位；首要性；卓越；领先优势
-<br><br>
+---
 - primitive adj. 原始的；粗糙的；简单的；简陋的；远古的
 - primordial adj. 原始的；最初的；远古的 & prim 最早的+ordin 秩序+`-al` adj.=最初的秩序→原始的
 - primeval adj. 原始的；远古的
 - pristine adj. 原始的；纯洁的；崭新的 & 保持最初的状态→纯洁
-<br><br>
+---
 - prince n. 王子；亲王；君主🤴🏻 & 继位第一人→王子
 - princess n. 公主；王妃
 - principal n. 校长；负责人；本金；首长 adj. 主要的；最重要的 & 地位取得第一位的
@@ -571,7 +571,7 @@ word: true
 - principality n. 公国；侯国；封邑
 - principle n. 原则；原理；法则；定律；信条；规范 & 最根本的东西→原则
 - unprincipled adj. 无原则的；无道德的；无特权的
-<br><br>
+---
 - premier n. 总理；首相 adj. 首要的；第一的
 - premiere [v.][n.] 首映；首演
 - priest n. 神父；牧师；教士
@@ -623,7 +623,7 @@ word: true
 - impending adj. 即将发生的；迫在眉睫的 v. 即将发生；迫近
 - perpendicular adj. 垂直的 n. 垂直线；垂直的位置；直立 & `per-` 贯穿+pend 悬挂+`-cular` 小东西=从上到下贯穿悬挂的
 - pound n. 英镑；镑 v. 捣碎；猛击
-<br><br>
+---
 - ponder v. 考虑；衡量；沉思；回想 & 在脑中反复称量→沉思
 - ponderous adj. 笨重的；沉闷的；沉重的
 - ponderable adj. 值得考虑的；有价值的；可估量的

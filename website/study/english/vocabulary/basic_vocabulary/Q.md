@@ -61,7 +61,7 @@ word: true
     - acquiesce v. 默许；勉强同意
     - acquiescent adj. 默许的；顺从的
     - acquiescence n. 默许
-    <br><br>
+    ---
 - quit v. 停止；离开；辞职；放弃 & 生活平静、没人讨债→偿还完债务、无罪释放→自由离开、主动放弃
 - quitclaim [v.][n.] 放弃权力
 - quite ad. 相当；完全；很；的确 & 结完债务的、自由的→彻底地、完全地

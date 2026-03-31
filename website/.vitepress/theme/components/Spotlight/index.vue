@@ -1,9 +1,24 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
-import { useData } from "vitepress";
+import { ref, watch, computed } from "vue";
+import { useData, useRoute } from "vitepress";
 import SpotlightHover from "./components/SpotlightHover.vue";
 
 const { frontmatter } = useData();
+const route = useRoute();
+
+// 禁用 spotlight 的路径列表
+const disabledPaths = [
+  '/others/archive',
+  '/others/tags',
+];
+
+/**
+ * 检查当前路径是否在禁用列表中
+ */
+const isPathDisabled = () => {
+  const currentPath = route.path;
+  return disabledPaths.some(path => currentPath.startsWith(path));
+};
 
 // 存储聚光灯状态
 const spotlight = ref(true);
@@ -12,6 +27,18 @@ const oldSpotlight = ref(spotlight.value);
 // 存储聚光灯模式
 const spotlightMode = ref<'aside' | 'under'>('aside');
 const oldSpotlightMode = ref(spotlightMode.value);
+
+// 路径禁用状态
+const isDisabledByPath = ref(false);
+
+// 监听路由变化，检查路径
+watch(
+  () => route.path,
+  () => {
+    isDisabledByPath.value = isPathDisabled();
+  },
+  { immediate: true }
+);
 
 // 文章单独设置是否使用聚光灯
 watch(
@@ -49,12 +76,17 @@ const isTouchDevice = () => {
 };
 
 const supportTouch = ref(isTouchDevice());
+
+// 计算最终是否启用 spotlight
+const isEnabled = computed(() => {
+  return spotlight.value && !supportTouch.value && !isDisabledByPath.value;
+});
 </script>
 
 <template>
   <SpotlightHover 
-    v-if="spotlight && !supportTouch" 
-    :enabled="spotlight && !supportTouch" 
+    v-if="isEnabled" 
+    :enabled="isEnabled" 
     :mode="spotlightMode"
   />
 </template>

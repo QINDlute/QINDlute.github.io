@@ -163,7 +163,7 @@ word: true
 - snobblish adj. 势利的；自命不凡的
 - snobbery n. 势利态度；阶级优越感
 - connoisseur n. 鉴识家；内行
-- reconnoiter vt. [军]侦察；勘察 vi. 侦察；踏勘
+- reconnoiter vt. 【军】侦察；勘察 vi. 侦察；踏勘
 - reconnaissance n. 侦察；勘察
 
 3. 讲述

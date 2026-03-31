@@ -140,7 +140,7 @@ pre-：在……之前、预先（before）
 侧重静态，通常用于描述某个事件或过程之前的阶段或准备工作
 
 ### per-
-1. 贯穿，通过，彻底（throughout, thoroughly）
+1. 贯穿，通过，始终（throughout, thoroughly）
 2. 完全，非常（completely, very）
 3. 每（for each）
 

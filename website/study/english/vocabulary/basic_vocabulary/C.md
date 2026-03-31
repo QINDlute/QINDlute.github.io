@@ -4,7 +4,7 @@ word: true
 ---
 
 # 词根 C
-## cept=ceive=cip
+## cept=ceive=cip🫳🏻
 *cept=ceive=cip*=拿、取、抓住（to take, to seize）
 
 - accept v. 接受

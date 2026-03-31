@@ -1,6 +1,7 @@
 ---
 date: 2026-2-3
 word: true
+# spotlightMode: under
 ---
 
 # 词根 A

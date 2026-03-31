@@ -31,6 +31,13 @@ const findChildElementUnderVPDocElement = (element: HTMLElement | null) => {
   else return findChildElementUnderVPDocElement(element.parentElement);
 };
 
+/**
+ * 检查元素是否包含图片
+ */
+const containsImage = (element: HTMLElement): boolean => {
+  return element.tagName === "IMG" || element.querySelector("img") !== null;
+};
+
 const watchHandler = () => {
   if (typeof window === 'undefined') return;
 
@@ -38,10 +45,38 @@ const watchHandler = () => {
 
   if (!(element && vpDocElement.value?.contains(element))) return;
 
+  // 忽视 <hr> 标签，保持之前的状态不变
+  if (element.tagName === "HR") {
+    return;
+  }
+
   const el = findChildElementUnderVPDocElement(element);
   highlightedElement.value = el || undefined;
 
-  if (highlightedElement.value && highlightedElement.value.tagName === "P") {
+  // 如果当前元素是图片，高亮整个段落（整行宽度）
+  if (element.tagName === "IMG") {
+    // 找到图片所在的段落
+    const parentParagraph = element.closest("p");
+    if (parentParagraph) {
+      const rect = parentParagraph.getBoundingClientRect();
+      boxStyles.value = computeBoxStyles({
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+      });
+    } else {
+      // 如果没有找到段落，则高亮图片本身
+      const rect = element.getBoundingClientRect();
+      boxStyles.value = computeBoxStyles({
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+      });
+    }
+  } else if (highlightedElement.value && highlightedElement.value.tagName === "P" && !containsImage(highlightedElement.value)) {
+    // 普通段落，按行高亮
     const val = highlightedElement.value;
     const style = window.getComputedStyle(val);
     const lineHeight = Number.parseFloat(style.lineHeight);
@@ -68,6 +103,7 @@ const watchHandler = () => {
       }
     }
   } else {
+    // 其他元素或包含图片的段落，高亮整个元素
     if (highlightedElement.value) {
       const rect = highlightedElement.value.getBoundingClientRect();
 
@@ -145,7 +181,7 @@ watch(
 .spotlight-hover {
   pointer-events: none;
   position: fixed;
-  z-index: 1;
+  z-index: 6;
   box-shadow: 0 0 15px var(--vp-c-brand);
 }
 
