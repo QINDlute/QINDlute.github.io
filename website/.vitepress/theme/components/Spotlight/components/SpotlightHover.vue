@@ -1,0 +1,169 @@
+<script setup lang="ts">
+import { onMounted, ref, watch } from "vue";
+import { useRoute } from "vitepress";
+
+const props = defineProps<{ enabled: boolean; mode?: 'aside' | 'under' }>();
+
+const shouldRecalculate = ref(false);
+const boxStyles = ref<Record<string, string | number>>({ display: "none" });
+const vpDocElement = ref<HTMLElement>();
+const highlightedElement = ref<HTMLElement>();
+
+const mousePosition = ref<{ x: number; y: number }>({ x: 0, y: 0 });
+const currentMode = ref(props.mode || 'aside');
+
+const computeBoxStyles = (bounding: { height: number; left: number; top: number; width: number }) => {
+  return {
+    display: "block",
+    width: `${bounding.width + 8}px`,
+    height: `${bounding.height + 8}px`,
+    left: `${bounding.left - 4}px`,
+    top: `${bounding.top - 4}px`,
+    transition: "all 0.2s ease",
+    borderRadius: "8px",
+  };
+};
+
+const findChildElementUnderVPDocElement = (element: HTMLElement | null) => {
+  if (element === null) return null;
+
+  if (element.parentElement === document.querySelector(".VPDoc main .vp-doc > div")) return element;
+  else return findChildElementUnderVPDocElement(element.parentElement);
+};
+
+const watchHandler = () => {
+  if (typeof window === 'undefined') return;
+
+  const element = document.elementFromPoint(mousePosition.value.x, mousePosition.value.y) as HTMLElement | null;
+
+  if (!(element && vpDocElement.value?.contains(element))) return;
+
+  const el = findChildElementUnderVPDocElement(element);
+  highlightedElement.value = el || undefined;
+
+  if (highlightedElement.value && highlightedElement.value.tagName === "P") {
+    const val = highlightedElement.value;
+    const style = window.getComputedStyle(val);
+    const lineHeight = Number.parseFloat(style.lineHeight);
+    const lines = Math.floor(val.offsetHeight / lineHeight);
+
+    const rect = val.getBoundingClientRect();
+    const relativeY = mousePosition.value.y - rect.top;
+
+    for (let i = 0; i < lines; i++) {
+      const top = i * lineHeight;
+      const height = lineHeight;
+      const left = val.offsetLeft;
+      const width = val.offsetWidth;
+
+      if (relativeY >= top && relativeY < top + height) {
+        boxStyles.value = computeBoxStyles({
+          top: top + rect.top,
+          left: left + rect.left,
+          width,
+          height,
+        });
+
+        break;
+      }
+    }
+  } else {
+    if (highlightedElement.value) {
+      const rect = highlightedElement.value.getBoundingClientRect();
+
+      boxStyles.value = computeBoxStyles({
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+      });
+    }
+  }
+};
+
+// 监听鼠标移动
+if (typeof window !== 'undefined') {
+  window.addEventListener('mousemove', (event: MouseEvent) => {
+    mousePosition.value = { x: event.clientX, y: event.clientY };
+  });
+
+  window.addEventListener('scroll', watchHandler, true);
+}
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    vpDocElement.value = document.querySelector(".VPDoc main .vp-doc") as HTMLElement;
+  }
+});
+
+const route = useRoute();
+watch(
+  route,
+  () => {
+    if (typeof window !== 'undefined') {
+      vpDocElement.value = document.querySelector(".VPDoc main .vp-doc") as HTMLElement;
+
+      shouldRecalculate.value = true;
+      boxStyles.value = { display: "none" };
+
+      watchHandler();
+      shouldRecalculate.value = false;
+    }
+  },
+  { flush: "post" }
+);
+
+watch([() => mousePosition.value.x, () => mousePosition.value.y], () => {
+  if (props.enabled) watchHandler();
+});
+
+watch(
+  () => props.enabled,
+  val => {
+    if (!val) boxStyles.value = { display: "none" };
+  }
+);
+</script>
+
+<template>
+  <Teleport to="body">
+    <div
+      v-if="props.enabled && !shouldRecalculate"
+      :style="boxStyles"
+      :class="[
+        'spotlight-hover',
+        currentMode === 'aside' ? 'spotlight-hover__aside' : 'spotlight-hover__under'
+      ]"
+      aria-hidden="true"
+      focusable="false"
+    />
+  </Teleport>
+</template>
+
+<style scoped>
+/* 文本中高亮 */
+.spotlight-hover {
+  pointer-events: none;
+  position: fixed;
+  z-index: 1;
+  box-shadow: 0 0 15px var(--vp-c-brand);
+}
+
+/* 侧边栏高亮 */
+.spotlight-hover__aside::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 4px;
+  height: 100%;
+  border-radius: 4px;
+  background-color: var(--vp-c-brand);
+  left: -24px;
+  box-shadow: 0 0 15px var(--vp-c-brand);
+}
+
+.spotlight-hover__under {
+  z-index: -1;
+  background-color: var(--vp-c-brand-soft);
+}
+</style>
