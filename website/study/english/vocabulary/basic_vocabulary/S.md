@@ -12,31 +12,37 @@ word: true
     - assist v. 帮助；协助；援助 & **站在**一旁，随时准备帮忙→协助
     - assistant n. 助手；助理；售货员 adj. 辅助的；助理的
     - assistance n. 帮助；援助；协助；辅助设备
+---
 - <gdt>con-</gdt> 强调
     - consist v. 在于；一致；由…组成；符合 & 坚定地站立→存在于/构成
     - consistent adj. 一致的；连续的
     - consistently ad. 一贯地；一致地
     - inconsistent adj. 不一致的；反复无常的
     - consistency n. 浓度；稠度；前后一致
+---
 - <gdt>re-</gdt> 返回、向后
     - resist v. 抵抗；抵制；反抗 & 反向**站立**在对立面→抵抗
     - resistant adj. 有抵抗力的；抵抗的 n. 抵抗者
     - resistance n. 抵抗；阻力；电阻；抵抗力
     - irresistible adj. 不可抵抗的；不可抗拒的
     - transistor n. 晶体管；晶体管收音机 & transfer 转移+resistor 电阻器=transistor=在电阻器上转移电流的**晶体管**
+---
 - <gdt>in-</gdt> 在内
     - insist v. 坚持；坚决要求；强调 & **站在**某一立场之内→坚持
     - insistent adj. 坚持的；持续的；迫切要求的
     - insistence n. 坚持；坚决主张；强调
+---
 - <gdt>per-</gdt> 贯穿、始终
     - persist v. 坚持；持续；继续存在 & 一直**站着**不走→坚持
     - persistent adj. 持续的；执着的；坚持的
     - persistence n. 坚持；毅力；持续
+---
 - <gdt>ex-</gdt> 向外
     - exist v. 存在；生存；或者 & **站**出来显现→存在
     - existence n. 存在；生存；生活
     - existential adj. 有关存在的；存在判断的
     - coexist v. 共存；共处
+---
 - desist v. 停止；不再 & `de-` 离开+sist 站立=离开**站立**的位置→停止
 - subsist v. 维持生活；生存下去；存在 & `sub-` 在下+sist 站立=在底层**站着**维生→勉强生存
 - subsistence n. 生存；生计；生活
@@ -79,12 +85,14 @@ word: true
     - instantaneous adj. 瞬间的；即刻的
     - instantaneously ad. 瞬间；突如其来地；立刻地
     - instance n. 例子；情况；场合
+---
 - <gdt>con-</gdt> 完全
     - constant n. 常数；常量 adj. 不变的；持续的；恒定的 & 完全**站稳**不动→持续不变
     - constantly ad. 不断地；经常地；总是
     - constancy n. 持久不变；坚定不移；坚贞
     - inconstant adj. 善变的；反复无常的
     - inconstancy n. 反复无常；不专一；不忠
+---
 - <gdt>sub-</gdt> 在下
     - substance n. 物质；实质；主旨；要点；物品 & 在下面**站立支撑**的基础本质→物质
     - substantial adj. 大量的；坚固的；实质的；结实的；富裕的 & 充满物质的→大量的
@@ -92,6 +100,7 @@ word: true
     - substantiate v. 证实；证明；实体化
     - unsubstantiated adj. 未经证实的；未被证明的
     - substantive adj. 实质性的；本质上的；大量的 n. 名词；实词
+---
 - <gdt>dis-</gdt> 分开
     - distant adj. 遥远的；疏远的；冷漠的；远处的 & 分开**站得**远远的→遥远的
     - distance n. 距离；远处；间隔；远方 v. 与……保持距离
@@ -177,7 +186,8 @@ word: true
 - bedstead n. 床架
 - staunch v. 止住流出 adj. 坚定的；忠实的 & 意志稳定的→坚定的
 - staid adj. 古板的；一本正经的；沉着的
-- stoic n. 坚忍克己之人 adj. 坚忍克己的；接受命运的
+- stoic n. 坚忍克己之人；斯多葛派人 adj. 斯多葛派的；坚忍克己的
+- stoicism n. 忍受痛苦；坚忍；斯多亚学派；恬淡寡欲 & motivation+discipline=stoicism
 
 3. 舞台💃🏻
 - stage n. 舞台；阶段；时期 v. 上演；举行；筹划 & 演员**站立**的地方→舞台、上演
@@ -214,11 +224,122 @@ word: true
 
 
 ## stitut🏗️
-*stitut*=建立、设置、放置（to set up, to place）
+*stitut*=建立、放置（to set up, to place）
 
+- <gdt>con-</gdt> 共同、一起
+    - constitute v. 构成；组成；建立；任命；被视为 & 各个部分共同建立→组成
+    - constitution n. 宪法；体格；体制；构成；制定；构造；章程
+    - constituent n. 成分；选民；要素 adj. 构成的；组成的
+    - constitutive adj. 本质的；基本的；构成的
+    - reconstitute v. 重组；使恢复原状；重新设立
+---
+- <gdt>in-</gdt> 使…
+    - institute v. 建立；制定 n. 学院；机构；协会；研究所 & 使…被建立起来、制定规则→组织、机构
+    - institution n. 制度；机构；制定；风俗；习惯
+    - institutional adj. 机构的；制度上的；由来已久的；习以为常的
+    - institutionalize v. 使机构化；使习俗化
+---
+- substitute n. 代替品；代用品 v. 替代；代替 & `sub-` 在下面+stitute 放置=**放在**原物下面以备替换→替换
+- substitution n. 替换；代替；替代
+- restitute v. 归还；恢复；复原 & `re-` 回、返+stitute 建立=把**建立**好的东西还回去→归还
+- restitution n. 赔偿；归还；恢复原状
+- destitute adj. 贫困的；一无所有的；赤贫的 & `de-` 向下+stitute 建立=基建落后→贫困的
+- destitution n. 缺乏；穷困
+- prostitute v. 卖淫；滥用才能；糟蹋自己 n. 妓女；卖淫者 & `pro-` 公共+stitute 放置=为了招徕客户而公开**摆放**展示→卖淫、作践、妓女
+
+
+## spect=spex=spic👁️
+*spect=spex*=看、观察（to look）
+
+- spectacle
+- spectacular
+- bespectacled
+- spectator
+- spectrum
+- specter
+- spectral
+- aspect
+---
+- <gdt>in-</gdt> 向内
+    - inspect
+    - inspection
+    - inspector
+---
+- <gdt>per-</gdt> 穿透
+    - perspective  & `per-` 穿透+spect 看→透视、视角
+    - perspicacious
+    - perspicacity
+    - perspicuous
+    - perspicuity
+---
+- <gdt>con-</gdt> 完全
+    - conspicuous
+    - conspectus
+---
+- <gdt>ex-</gdt> 向外
+    - expect  & 翘首以盼→期待
+    - expectant
+    - expectation
+    - unexpected
+    - unexpectedly
+---
+- <gdt>pro-</gdt> 向前
+    - prospect  & 向前**看**→前景
+    - prospectus
+    - prospecting
+    - prospector
+    - prospective
+---
+- <gdt>re-</gdt> 再
+    - respect  & 反复**回头**看→尊重🎩
+    - respectful
+    - respectfully
+    - respectable
+    - respective
+    - respectively
+    - irrespective
+    - disrespect
+---
+- <gdt>sus-(=sub-)</gdt> 在下
+    - suspect  & 从下往上偷偷**看**→怀疑
+    - suspicious
+    - suspicion
+    - unsuspecting
+---
+- <gdt>retro-</gdt> 向后
+    - retrospect
+    - retrospective
+---
+- <gdt>intro-</gdt> 向内
+    - introspect
+    - introspection
+    - introspective
+---
+- despite
+- despise
+- despicable
+- spite
+- spiteful
+- respite
+---
+- auspicious
+- auspex  & aus(=avis 鸟)+spex 看=通过**看鸟**占卜吉凶→吉祥
+- auspices
+---
+- circumspect  & `circum-` 周围+spect 看→向四周**看**→谨慎的
+- speculate  & spec 看+`-ulate` v.=通过**观察**推断→推测
+- speculation
+- speculative
+- speculator
+- speculum
+---
+- specimen
+- specious
+- frontispiece  & fronti 前面+spece 看=在前面供人看的图→卷首插画
 
 
 
 ## 其他
 - struggle [v.][n.] 斗争；奋斗
 - straightforward adj. 简单的；坦率的；正直的 ad. 坦率地
+- system n. 系统；体系；制度；体制

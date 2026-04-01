@@ -122,6 +122,7 @@ word: true
 - know v. 知道；了解；认识 <interval>格林规律：g浊→k清</interval>
 - knowledge n. 知识；了解；学问
 - acknowledge v. 承认；感谢；认可
+---
 - <gdt>co-</gdt> 加强
     - cognize v. 认知；认识 & `co-` 强调+gn 知道+`-ize` v.=彻底知道→认识
     - recognize v. 认出；识别；承认 & `re-` 再次+cognize 认识=再次认识→认出
@@ -131,17 +132,21 @@ word: true
     - cognitive adj. 认知的；认识的
     - cognition n. 认识；认知；感知
     - incognito adj. 匿名的 ad. 伪装地、隐姓埋名地
+---
 - <gdt>i-</gdt> 否定
     - ignore v. 忽视；不理睬 & `i-` 否定+gno 知道+re=不（主动）知道→忽视
     - ignorant adj. 无知的；缺乏知识的
     - ignorance n. 无知；愚昧；不知道
     - agnostic n. 不可知论者 adj. 不可知论的；怀疑的
+---
 - <gdt>dia-</gdt> 贯穿、加强语气
     - diagnose v. 诊断；判断 & `dia-` 加强语气+gno 知道+se=彻底了解病情→诊断
     - diagnosis n. 诊断；诊断书
+---
 - <gdt>pro-</gdt> 向前
     - prognosis n. 预测；预后；预断病情 & `pro-`+gnosis=向前+知道=向前预断病情
     - prognosticate v. 预测；语言；预示
+---
 - gnosis n. 真知；灵知；诺斯替派 & “无所不知的智慧”
 - gnome n. 格言；侏儒；地精 <interval>“知晓很多秘密的精灵”→地精</interval>
 - gnomic adj. 格言的

@@ -20,6 +20,7 @@ word: true
 - outmaneuvre v. 智取
 - manure n. 肥料 v. 给……施肥
 - inure v. 使……习惯；使……适应；使……坚强
+---
 - <gdt>co-</gdt> 一起
   - cooperate v. 合作；协作
   - cooperative adj. 合作的；协作的；善于合作的 n. 合作社；合作企业
@@ -62,9 +63,11 @@ word: true
 - ordinate v. 协调 n. 纵坐标 & 按顺序排列好各司其职→协调
 - inordinate adj. 过度的；无节制的
 - primordial adj. 原始的；最初的；远古的 & `prim-` 第一+ord 排列+`-ial` adj.=排在第一个的→最开始的
+---
 - <gdt>co-</gdt> 一起
   - coordinate v. 协调；配合 n. 坐标 adj. 同等的；并列的
   - coordination n. 协调；配合；协作；同等
+---
 - <gdt>sub-</gdt> 在……下面
   - subordinate adj. 次要的；下级的；附属的 n. 下属；从属物
   - subordination n. 附属；次要；下属
@@ -90,9 +93,11 @@ word: true
 - originally ad. 起初；原来；最初
 - originality n. 创造力；独创性；新颖
 - originate v. 起源；发源；创造；发生
+---
 - <gdt>ab-</gdt> 从……来
   - aborigine n. 土著
   - aboriginal adj. 土著的；原始的 n. 土著居民
+---
 - <gdt>ab-</gdt> 离开
   - abort n. 中止计划 v. 中止；放弃；流产；堕胎
   - abortion n. 流产；堕胎；失败

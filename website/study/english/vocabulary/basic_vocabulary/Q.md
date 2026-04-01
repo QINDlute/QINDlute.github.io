@@ -10,18 +10,22 @@ word: true
 - quest n. 追求；探求；搜寻之物 v. 寻找
 - question n. 问题；疑问 v. 询问；质疑
 - query [n.][v.] 疑问；询问
+---
 - <gdt>a(d)-</gdt> 朝向
     - acquire v. 获得；得到；收购；学会
     - acquirement n. 取得；成就；习得
     - acquisition n. 获得；收购；得到的东西
     - acquisitive adj. 贪得无厌的；渴望获得的
+---
 - <gdt>con-</gdt> 共同
     - conquer v. 征服；克服；战胜
     - conqueror n. 征服者；占领者
     - conquest n. 征服；攻克；战利品
+---
 - <gdt>ex-</gdt> 完全
     - exquisite adj. 精致的；强烈的；敏锐的；剧烈的
     - exquisiteness n. 精致；优雅；细腻
+---
 - <gdt>in-</gdt> 进入
     - inquire v. 询问；调查；打听
     - inquiry n. 询问；调查；探究；探索
@@ -29,6 +33,7 @@ word: true
     - inquisitive adj. 好奇的；好问的；爱打听的
     - inquisitor n. 审讯人；检察官；盘问人
     - inquest n. 审讯；验尸；讯问
+---
 - <gdt>re-</gdt> 再
     - require v. 需要；要求；命令
     - requirement n. 需求；必要条件
@@ -36,6 +41,7 @@ word: true
     - prerequisite n. 前提；先决条件 adj. 首要必备的
     - requisition [n.][v.] 征用；正式要求
     - request [v.][n.] 请求；要求
+---
 - perquisite n. 额外补贴；特权
 - questionnaire n. 调查表；调查问卷
 - questionable adj. 可疑的；有问题的；不可靠的
@@ -57,17 +63,20 @@ word: true
 - quietism n. 寂静主义
 - quiescent adj. 静止的；不活动的
 - quiescence n. 静止；沉寂
+---
 - <gdt>a(d)-</gdt> 朝向
     - acquiesce v. 默许；勉强同意
     - acquiescent adj. 默许的；顺从的
     - acquiescence n. 默许
-    ---
+---
 - quit v. 停止；离开；辞职；放弃 & 生活平静、没人讨债→偿还完债务、无罪释放→自由离开、主动放弃
 - quitclaim [v.][n.] 放弃权力
 - quite ad. 相当；完全；很；的确 & 结完债务的、自由的→彻底地、完全地
+---
 - <gdt>a(d)-</gdt> 朝向
     - acquit v. 宣布无罪；表现；履行 & `a-` 使 +quit 无罪释放
     - acquittal n. 宣布无罪；无罪的判决
+---
 - requite v. 报答；酬劳 & `re-` 再+quit 偿清债务=再次偿还→回报
 - unrequited adj. 没有回报的；无报酬的；有仇未报的
 

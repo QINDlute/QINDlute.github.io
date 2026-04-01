@@ -10,21 +10,26 @@ word: true
     - collect v. 收集；领取；堆积
     - collective adj. 集体的；共同的；集合的
     - collection n. 作品集；收藏品；收集物
+---
 - <gdt>se-</gdt> 分开、区分
     - select v. 选择；挑选 adj. 精选的；优等的；一流的
     - selective adj. 选择的；顶级的
     - selection n. 选择；精选物；选集
+---
 - <gdt>e(x)-</gdt> 向外、出来
     - elect v. 选举；选择；决定 adj. 当选的 <interval>选出来</interval>
     - election n. 选举；当选；选择权
     - eligible adj. 有资格的；合格的；符合条件的 <interval>能被选出来的→有资格的</interval>
     - ineligible adj. 不合格的；不符合资格的
+---
 - <gdt>re-</gdt> 再、重新
     - recollect v. 回忆；记起；回想 <interval>“朝花夕拾”</interval>
     - recollection n. 回忆；记忆
+---
 - <gdt>neg-</gdt> 不、否定
     - neglect [v.][n.] 忽视；疏忽；忽略
     - negligible adj. 微不足道的；可以忽略的；不重要的
+---
 - <gdt>intel-</gdt> 中间、在……之间
     - intellect n. 智力；思维能力；知识分子 <interval>在一群人中选拔出来的→智力高的、聪明的</interval>
     - intellectual adj. 智力的；学术的；明智的 n. 知识分子
@@ -90,29 +95,38 @@ word: true
 - <gdt>dia-</gdt> 两者之间、穿过
     - dialogue/dialog n. 对话；对白 <interval>`dia-`+log=穿过+说→两人之间的谈话</interval>
     - dialect n. 方言；地方话 <interval>不同地区人的说话方式</interval>
+---
 - <gdt>apo-</gdt> 离开、远离
     - apology n. 道歉；辩解；辩护；认错 <interval>`apo-`+log+y=离开+说→离开时先道歉</interval>
     - apologize v. 道歉；认错；辩解
     - apologetic adj. 愧疚的；道歉的；谢罪的
     - apologue n. 寓言 <interval>“离开现实的故事”</interval>
+---
 - <gdt>eu-</gdt> 好、善
     - eulogy n. 颂词；悼词 <interval>`eu-`+log+y=好+说→说好话</interval>
     - eulogize v. 称赞；颂扬
     - eulogistic adj. 颂扬的；歌功颂德的
+---
 - <gdt>pro-</gdt> 向前、在前面
     - prologue n. 开场白；序言；序幕
+---
 - <gdt>mono-</gdt> 单一、独白
     - monologue n. 独白；独角戏；长篇大论
+---
 - <gdt>epi-</gdt> 在……之后
     - epilogue n. 后记；尾声；收场白
+---
 - <gdt>ana-</gdt> 向上、再、类似
     - analogy n. 类比；类推；相似 <interval>`ana-`+log+y=类似+说→按类似的道理说→类比</interval>
     - analogous adj. 类似的；相似的
     - analogize v. 类推；与……作类比
+---
 - <gdt>tri-</gdt> 三
     - trilogy n. 三部曲
+---
 - <gdt>cata-</gdt> 向下、完全
     - catalogue n. 目录；一系列 v. 记录 <interval>`cata-`+log+ue=完全+说→把所有条目说清楚→目录</interval>
+---
 - logic n. 逻辑；逻辑学；逻辑性
 - logical adj. 必然的；合乎逻辑的；逻辑上的
 - illogical adj. 不合逻辑的；不合理的
@@ -154,23 +168,31 @@ word: true
     - eloquent adj. 有说服力的；雄辩的；传神的；口才流利的 & `e-`+loqu+`-ent`=外+说+adj.→把话说出来、说得好的
     - eloquence n. 雄辩；口才
     - elocution n. 演说术；演讲技巧
+---
 - <gdt>circum-</gdt> 环绕、round
     - circumlocution n. 遁词；冗长 & circum+locu+`-tion`=环绕+说+n.→绕着圈子说话
     - circumlocutory adj. 委婉曲折的；拐弯抹角的
+---
 - <gdt>grand-</gdt> 大、伟大的
     - grandiloquent adj. 堆砌辞藻的；夸大的；做作的
     - grandiloquence n. 豪言壮语；夸口
+---
 - <gdt>magn-</gdt> 大
     - magniloquent adj. 夸大的；言过其实的 & magni+loqu+`-ent`=大+说+adj.→说大话
     - magniloqentce n. 夸夸其谈；大言；自负
+---
 - <gdt>col-</gdt> 共同
     - colloquy n. 谈话；会话 & `col-`+loqu+y=共同+说+n.→一起说话→对话
     - colloquium n. 学术研讨会；学术会议 & “一起讨论的场合”
     - colloquial adj. 口语的；会话的；通俗的 & “大家日常说话的样子”
+---
 - <gdt>inter-</gdt> 在……之间
     - interlocution n. 对话，交谈 & `inter-`+locu+`-tion`=在……之间+说+n.→两人之间的对话
     - interlocutor n. 对话者；参加谈话的人
-- loquacity n. 多嘴；健谈；多话 & loqu+`-acity`=说+表性质→爱说话的性质
+---
+- <gdt>loqu-</gdt> 多嘴；健谈；多话
+    - loquacity n. 多嘴；健谈；多话 & loqu+`-acity`=说+表性质→爱说话的性质
+---
 - loquacious adj. 健谈的；喋喋不休的；话多的 
 - locution n. 语言风格；惯用语
 - obloquy n. 谩骂；毁谤；相对着 & `ob-`+loqu+y=反对+说+n.→说反对的话
@@ -189,6 +211,7 @@ word: true
 - ligature n. 带子；绳索；绷带；连体字
 - liable adj. 有义务的；有责任的；有……倾向的 & 被动被捆绑：有义务的；主动被捆绑：有倾向的
 - lien n. 留置权；扣押权
+---
 - <gdt>re-</gdt> 回、再
     - rely v. 依靠；依赖；信赖 & `re-`+ly=再+绑→因为信任而抱大腿🦵
     - reliable adj. 可靠的；可信赖的
@@ -196,6 +219,7 @@ word: true
     - reliance n. 依赖；信任；依靠
     - religion n. 宗教；信仰；信念 & `re-`+lig+ion=再、重复+捆绑+n.→通过共同的信念牢固的捆绑在一起
     - religious adj. 宗教的；虔诚的 n. 修道士；尼姑
+---
 - <gdt>ob-</gdt> 加强、朝向
     - oblige v. （以法律、义务）迫使，强迫；帮忙；效劳 & `ob-`+lig+e=加强+绑→被道德绑架而被迫去做
     - obliged adj. 感激的；感谢的 & “被帮助了很感激”
@@ -228,15 +252,18 @@ word: true
     - elevate v. 举起；提高；提升；振奋
     - elevator n. 电梯；升降机；粮仓
     - elevation n. 海拔；提升；高地；立面图
+---
 - <gdt>al-</gdt> 加强、去
     - alleviate v. 减轻；缓和；缓解
     - alleviation n. 减轻；缓和
+---
 - <gdt>re-</gdt> 再、回
     - relieve v. 减轻；缓解；救济
     - relief n. 救济；减轻；解脱
     - relevant adj. 相关的；有意义的；有价值的 & 抬回到同一层面的→相关的
     - irrelevant adj. 不相关的；无关紧要的
     - relevance n. 相关性；意义
+---
 - level n. 水平；等级；程度 v. 瞄准；对准 adj. 等高的；平坦的
 - levelheaded adj. 头脑冷静的；清醒的 & 头脑保持在平稳水平
 - lever n. 杠杆；手段；方法 v. 控制；撬动 & 用来抬升的工具→杠杆
@@ -292,16 +319,20 @@ word: true
 - limitless adj. 无限制的；无界限的
 - limitation n. 限制；局限性
 - liminal adj. 阀限的；两者之间的
+---
 - <gdt>e-</gdt> 超出、外
     - eliminate v. 淘汰；消除；排除；消灭 & `e-`+limin+`-ate`=超出+界限+v.→移出界限外→消除
     - elimination n. 消除；淘汰；排除
+---
 - <gdt>sub-</gdt> 在……上
     - sublime v. 升华；变高尚 adj. 极端的；崇高的；壮丽的 n. 顶点；崇高；庄严 & `sub-`+lime=在……上+界限→超出世俗界限的→崇高的
     - sublimate v. 升华；使净化 adj. 升华的；纯化的
     - sublimation n. 升华；纯化；高尚化
     - subliminal adj. 下意识的；潜意识的 & `sub-`+limin+`-al`=在……之下+界限+adj.→低于感知界限的→潜意识的
+---
 - <gdt>pre-</gdt> 在……之前
     - preliminary adj. 初步的；预备的 n. 预备活动 & `pre-`+limin+`-ary`=在……之前+界限+adj.→在正式界限之前的→初步的
+---
 - <gdt>de-</gdt> 加强
     - delimit v. 划界；划定界限；限定 & `de-`+limit=加强+界限→明确划定界限
     - delimitation n. 划界；区划；界限
@@ -356,6 +387,7 @@ word: true
 - lysis n. 溶解；消退
 - lytic adj. 溶解性的
 - lysosome n. 溶酶体 & lys+o+some=溶解+体→细胞中负责溶解的细胞器
+---
 - <gdt>ana-</gdt> 完全、向上
     - analysis n. 分析；分解；剖析 & `ana-`+lysis=彻底+分解→彻底分解→分析
     - analyse v. 分析；分解
@@ -363,18 +395,23 @@ word: true
     - analytic adj. 分析的；善于分析的
     - psychoanalysis n. 心理分析 & `psycho-`+`-`+analysis=心理+分析→心理分析
     - urinalysis n. 尿分析 & `urine-`+analysis=尿+分析→尿分析
+---
 - <gdt>cata-</gdt> 完全、向下
     - catalysis n. 催化作用；触媒作用 & `cata-`+lysis=完全+分解→完全促进分解→催化
     - catalyst n. 催化剂；接触剂
     - catalytic adj. 催化的；促进性的
+---
 - <gdt>electro-</gdt> 电
     - electrolysis n. 电解
     - electrolyte n. 电解质；电解液
+---
 - <gdt>dia-</gdt> 穿过
     - dialysis n. 透析；渗析 & `dia-`+lysis=穿透+分析→透析
+---
 - <gdt>para-</gdt> 旁边、偏离
     - paralysis n. 瘫痪；麻痹；停顿 & `para-`+lysis=旁边+分解→周围的神经都分解了→瘫痪
     - paralyse v. 使瘫痪；使麻痹；使无效
+---
 - spasmolytic adj. 解痉的 n. 解痉药
 - hydrolysis n. 水解 & `hydro-`+lysis=水+分解→水解
 - zymolysis n. 发酵；酵解（作用） & `zymo-`+lysis=酵+分解→发酵

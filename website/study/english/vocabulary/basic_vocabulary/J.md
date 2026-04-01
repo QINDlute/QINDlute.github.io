@@ -12,38 +12,48 @@ word: true
     - objection n. 反对；异议
     - objectionable adj. 讨厌的；令人反感的；令人不快的
     - objective adj. 客观的；真实的 n. 目的；目标
+---
 - <gdt>pro-</gdt> 向前
     - project n. 项目；计划；工程 v. 计划；投射；放映
     - projector n. 投影仪；放映机；设计者
     - projection n. 预测；体现；投射；投影
     - projectile n. 发射物；射弹 adj. 发射的；推进的
+---
 - <gdt>in-</gdt> 进入
     - inject v. 注射；注入；增加
     - injection n. 注射；注射剂；注入
     - interject v. 插话；突然插入
+---
 - <gdt>e-</gdt> 出
     - eject v. 驱逐；喷射；喷出
     - ejection n. 喷出；喷射；驱逐
     - ejector n. 喷射器；驱逐者
     - ejaculate v. 射精🐍；射出；突然说出
+---
 - <gdt>con-</gdt> 共同
     - conjecture [n.][v.] 猜测；臆测；揣摩
     - conjectural adj. 臆测的；猜测的
+---
 - <gdt>sub-</gdt> 在……下面
     - subject n. 主题；学科；对象；话题 adj. 受……支配的 v. 使遭受；提供；使屈从
     - subjective adj. 主观的；个人的；主题的
     - subjection n. 隶属；征服；服从
     - subjacent adj. 邻近的
+---
 - <gdt>ab-</gdt> 远离
     - abjection adj. 凄惨的；卑鄙的；下贱的
+---
 - <gdt>ad-</gdt> 朝向
     - adjective [n.][adj.] 形容词（的）
     - adjacent adj. 邻近的；相邻的；紧接着的
     - adjacence n. 邻近；毗邻
+---
 - <gdt>re-</gdt> 回
     - reject v. 拒绝；驳回；排斥 n. 残次品；被拒之人；被弃之物
+---
 - <gdt>de-</gdt> 向下
     - deject v. 使沮丧
+---
 - circumjacent adj. 周边的；周围的；邻接的；围绕的
 - trajectory n. 轨道；轨迹
 - jet n. 喷气式飞机；喷嘴 v. 喷射；喷出

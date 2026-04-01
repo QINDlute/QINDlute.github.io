@@ -11,10 +11,12 @@ word: true
 - position n. 职位；位置；地位；姿势；立场；态度；处境 v. 安置；定位
 - positive adj. 积极的；阳性的；肯定的；明确的；正面的
 - posit v. 假设；假定；安置
+---
 - <gdt>re-</gdt> 再
     - repose n. 休息；睡眠 v. 休息；安置于；将寄托于；静卧
     - reposition v. 重置；储藏；复位；调换位置 n. 贮藏；复位
     - repository n. 仓库；贮藏室；存放处；智囊
+---
 - <gdt>com-</gdt> 一起
     - compose v. 组成；构成；创作；作曲；使镇静
     - composition n. 作品；作文；作曲；成分；构成
@@ -25,11 +27,13 @@ word: true
     - decomposition n. 分解；腐烂
     - component adj. 组成的；构成的 n. 成分；部分；因素
     - compound n. 混合物；化合物 adj. 混合的；复合的 v. 加重；使复杂化
+---
 - <gdt>o(b)-</gdt> 反对
     - oppose v. 反对；反抗；抵制
     - opposite adj. 对面的；相反的 n. 对立面；反面 prep. 在……对面
     - opposition n. 反对；反对派；对立；在野党
     - opponent n. 对手；反对者；敌手 adj. 对立的
+---
 - <gdt>pro-</gdt> 向前
     - propose v. 求婚；提议；建议；计划
     - proposition n. 建议；命题；主张；观点
@@ -37,37 +41,44 @@ word: true
     - proponent n. 支持者；拥护者；辩护者
     - propound v. 提出；提议；提出……供考虑
     - purpose n. 目的；用途；意图；意志 v. 决心 & `pur-`(=pro) 向前+pose=放置在前面→提议
+---
 - <gdt>ex-</gdt> 向外
     - expose v. 揭露；暴露；使遭受；使暴露
     - exposition n. 阐述；博览会；展览会
     - exposure n. 暴露；揭露；遭受；接触；面临
     - exponent n. 指数；拥护者；代表者 adj. 指数；说明的
     - expound v. 阐述；详细说明
+---
 - <gdt>in-</gdt> 向内/上
     - impose v. 强加；利用；征收；施加影响
     - imposition n. 不合理要求；强加；累赘；强迫接受
     - imposing adj. 壮观的；使印象深刻的
     - impound v. 没收；扣押；蓄水；拘留 & “把你放在里面”
+---
 - <gdt>dis-</gdt> 分散
     - dispose v. 安排；处理；处置；有意于
     - disposition n. 性情；处置；倾向；性格
     - disposal n. 处理；处置；安排；清理
     - indisposed adj. 有病的；不愿意的；不舒服的 v. 使厌恶；使不适当
+---
 - <gdt>de-</gdt> 向下
     - deposit n. 存款；押金；沉积物；保证金 v. 付；存放；储蓄
     - deposition n. 沉积；革职；证词
     - depositor n. 存款人；存户；寄托者
     - depository n. 受托人；存储处；仓库
     - depose v. 罢免；废黜；宣誓证明
+---
 - <gdt>su(b)-</gdt> 分支
     - suppose v. 猜想；假设；认为；应该；被要求 & 思考的一个分支
     - supposition n. 假设；推测；猜想
     - supposedly ad. 据说；据推测；可能
     - presuppose v. 预料；假设；以……为前提
     - presupposition n. 预想；预先假定
+---
 - <gdt>a(d)-</gdt> 朝向
     - apposite adj. 适当的；恰切的；贴切的 & 放的刚刚好
     - apposition n. 并置；同位语
+---
 - postpone v. 延迟；延期 & post 后+pon 放置+e=往后放→将某事推迟到以后
 - postponement n. 推迟；延期
 - juxtapose v. 并列；并置 & `juxta-` 靠近+pose 放置
@@ -83,11 +94,13 @@ word: true
     - applicant n. 申请人；应聘者
     - applicable adj. 适用的；适当的；可应用的
     - appliance n. 应用；器具；适用；装置
+---
 - <gdt>im-</gdt> 向内
     - imply v. 暗示；表明；说明；意味 & 折叠在里面→隐含
     - implicit adj. 含蓄的；绝对的；暗示的；无疑的；固有的
     - implicate v. 使牵连其中；涉及；暗示；指明起因
     - implication n. 暗示；含意
+---
 - <gdt>ex-</gdt> 向外
     - explicit adj. 明确的；清楚的；直言的；详述的 & 把折叠的东西展开来讲
     - inexplicit adj. 不明确的
@@ -95,6 +108,7 @@ word: true
     - explicate v. 详细解释；详细说明
     - explicable adj. 可说明的；可解释的；清楚的
     - inexplicable adj. 无法解释的；费解的
+---
 - <gdt>em-</gdt> 向内
     - employ v. 使用；雇用；雇佣 n. 使用 & em 内+ploy 折叠=拉来干活
     - employee n. 雇员；员工
@@ -102,10 +116,12 @@ word: true
     - employment n. 职业；就业；工作；雇用
     - unemployment n. 失业；失业人数；失业率
     - unemployed adj. 失业的；下岗的；待业的
+---
 - <gdt>com-</gdt> 加强
     - complex adj. 复杂的；复合的 n. 建筑群；综合大楼；情结；复合体
     - complexity n. 复杂性；复杂；复杂的事物
     - complexion n. 肤色；面色；局面；情况
+---
 - <gdt>du-</gdt> 二
     - duplex adj. 双重的；双倍的 n. 双层公寓；联式房屋
     - duplicate v. 复制；复印 n. 复制品；副本 adj. 复制的；完全一样的 & 折叠两次→复制
@@ -113,17 +129,20 @@ word: true
     - duplicative adj. 重复的
     - duplicity n. 口是心非；欺骗；奸诈 & 内外两套
     - duplicitous adj. 奸诈的；骗人的；两面三刀的
+---
 - <gdt>re-</gdt> 再
     - reply [v.][n.] 回答；答复
     - replicate v. 复制；重复；印证
     - replication n. 复制；重复；复制研究
     - replicative adj. 复制的
     - replica n. 复制品；仿制品
+---
 - <gdt>sup-</gdt> 在……下
     - supplicate v. 恳求；乞求；哀求 & 在下面跪着乞求别人
     - supplication n. 恳求；祈祷
     - suppliant adj. 恳求者；哀求者 adj. 恳求的
     - supple adj. 柔软的；灵活的；思维敏捷的；顺从的 v. 使柔软
+---
 - pliable adj. 易受影响的；易弯曲的；柔韧的 & pli 折叠+`-able` adj.=易弯曲（折叠）的
 - pliant adj. 易弯的；顺从的；温顺的
 - plexus n. (血管、淋巴管、神经等的)[解剖]丛
@@ -171,6 +190,7 @@ word: true
     - supplement v. 补充；增补 n. 副刊；附录；补充物
     - supplementary n. 增补物 adj. 补充性的；增补性的
     - supplementation n. 补充；增补
+---
 - <gdt>com-</gdt> 完全、加强
     - comply v. 遵守；顺从；符合 & `com-` 完全+ply 充满=满足他人的意愿→服从
     - compliant adj. 顺从的；服从的；符合的
@@ -183,21 +203,26 @@ word: true
     - complementary adj. 互补的；补充的；辅助的
     - compliment v. 称赞；恭维 n. 称赞；恭维；问候 & 说一些让你满足的话
     - complimentary adj. 赞美的；称赞的；免费赠送的
+---
 - <gdt>de-</gdt> 移除
     - deplete v. 耗尽；使枯竭；使衰竭
     - depletion n. 损耗；减损；耗尽
     - depletive adj. 耗尽的
+---
 - <gdt>accom-(=ac-+com-)</gdt> 完全倾向于……
     - accomplish v. 完成；实现；达到
     - accomplishment n. 成就；完成；才艺；技能
     - accomplishable adj. 可达到的；可完成的
     - accomplished adj. 技艺高超的；熟练的；完成的
+---
 - <gdt>im-</gdt> 向内
     - implement v. 实施；执行 n. 工具；器具 & 进入填满的流程→开始实施
     - implementation n. 实施；履行；执行
+---
 - <gdt>re-</gdt> 再
     - replete adj. 充满的；饱满的
     - replenish v. 补充；添加；重新装满
+---
 - plenty n. 大量；丰富；富裕 adj. 足够的
 - plentiful adj. 丰富的；充足的；充裕的
 - plentitude/plenitude n. 充分；充足；大量
@@ -309,6 +334,7 @@ word: true
 - pair n. 一对；一双 v. 配对；成双
 - par n. 同等；票面价值；同价；同位
 - parity n. 平等；相等；同等
+---
 - <gdt>com-</gdt> 一起
     - compare v. 比较；对比；比喻
     - comparison n. 比较；对比；比喻
@@ -316,11 +342,13 @@ word: true
     - incomparable adj. 无与伦比的；不可比拟的
     - comparative adj. 比较的；相对的；相当的
     - comparatively ad. 相对地；比较地；对比地
+---
 - <gdt>dis-</gdt> 否定
     - disparage v. 轻视；蔑视；贬低 & `dis-` 否定+par 对等+age=认为对方不对等→轻视、贬低
     - disparagement n. 轻视；贬低
     - disparate adj. 完全不同的；异类的 & `dis-` 否定+par 相等+ate=不相等的状态→迥异、差异
     - disparity n. 差异；不同；悬殊
+---
 - peer v. 与……同等；凝视 n. 同辈；贵族
 - peerless adj. 出类拔萃的；无可匹敌的；盖世无双的
 - nonpareil adj. 无双的；无与伦比的
@@ -336,18 +364,21 @@ word: true
     - preparation n. 准备；预备；制剂
     - preparatory adj. 预备的；筹备的 n. 大学预科
     - preparative adj. 准备的 n. 准备
+---
 - <gdt>re-</gdt> 再
     - repair [v.][n.] 修理；修补；补救
     - reparable adj. 可补救的；可补偿的；可挽回的
     - irreparable adj. 不能修复的；无法弥补的
     - reparation n. 补偿；赔偿
     - repairman n. 修理工
+---
 - <gdt>se-</gdt> 分离
     - separate adj. 分开的；不同的；单独的；分离的 v. 分离；分开
     - separately ad. 分开地；分别地；单独地
     - separation n. 分离；分开；分歧；分裂
     - sever v. 切断；脱离；切成两段
     - several adj. 各自的；分别的 pron. 几个；数个
+---
 - parade [n.][v.] 游行；阅兵；炫耀
 - pare v. 削皮；削减；修剪
 - apparel n. 衣服 v. 给……穿衣服；装饰
@@ -365,6 +396,7 @@ word: true
     - apparition n. 幻影；鬼魂；幽灵
     - disappear v. 消失；不见；灭绝；失踪
     - disappearance n. 消失；灭绝；不见；丢失
+---
 - <gdt>trans-</gdt> 穿过
     - transparent adj. 透明的；明显的；显然的
     - transparency n. 透明度；幻灯片；透明性
@@ -401,6 +433,7 @@ word: true
 - press n. 新闻界；出版社；报刊；按；印刷机 v. 按；催促；压
 - pressure n. 压力；压强；压迫；呼吁 v. 强迫
 - acupressure n. 指压 & `ac-` 针、尖+u+press 压=用指头按压
+---
 - <gdt>de-</gdt> 向下
     - depress v. 使沮丧；使萧条；降低；减少
     - depressed adj. 沮丧的；萧条的；抑郁的
@@ -408,6 +441,7 @@ word: true
     - depression n. 沮丧；萧条；抑郁；洼地
     - depressant n. 镇定剂；抑制剂 adj. 抑制性的；有镇静作用的
     - depressor n. 压迫者；暴君
+---
 - <gdt>ex-</gdt> 向外
     - express v. 表达；表示 adj. 明确的；快速的 n. 特快列车；快递 & 把想法挤压出来→表达
     - expressly ad. 清楚地；专门地；特意地
@@ -415,23 +449,28 @@ word: true
     - inexpressible adj. 无法形容的；难以表述的
     - expression n. 表达；表情；措辞
     - expressway n. 高速公路
+---
 - <gdt>im-</gdt> 向内
     - impress n. 印记；压痕 v. 盖印；使钦佩；给……留下深刻印象 & 把形象压入脑海→印象
     - impressive adj. 印象深刻的；令人钦佩的；感人的
     - impression n. 印象；压痕；感想；盖印；印数
     - impressionable adj. 易受影响的；敏感的
     - impressionism n. 印象主义；印象派
+---
 - <gdt>com-</gdt> 一起
     - compress v. 压缩；精简；压榨 n. 敷布 & `com-` 一起+press 压=把东西压在一起→压缩
     - compression n. 压缩；浓缩；压紧
+---
 - <gdt>o(b)-</gdt> 相对
     - oppress v. 压迫；使烦恼；压抑
     - oppression n. 压迫；镇压；压制；苦恼
     - oppressive adj. 压迫的；难以忍受的；闷热的
+---
 - <gdt>re-</gdt> 回
     - repress v. 镇压；抑制；压抑 & 把情绪压回去→压抑/镇压
     - repression n. 镇压；抑制；压抑
     - irrepressible adj. 抑制不住的；十分强烈的；情绪高涨的
+---
 - print v. 印刷；打印；出版 n. 印刷品；印刷业；印记
 - printer n. 打印机；印刷厂；印刷工
 - printout n. 打印输出；打印件
@@ -489,7 +528,7 @@ word: true
     - competent adj. 有能力的；胜任的；合格的；称职的 & 追得上的→有能力的
     - incompetent n. 没有能力的人 adj. 无能力的
     - competence n. 能力；胜任；本领；权限
-    ---
+---
 - petition n. 请愿书；祈求 v.请求；祈求；请愿  & 向权威追求
 - petitioner n. 上述人；请愿人；离婚上诉方
 ---
@@ -498,20 +537,24 @@ word: true
     - appetizer n. 开胃品
     - appetizing adj. 开胃的；促进食欲的
     - appetence n. 癖好；欲望；亲和力
+---
 - <gdt>im-</gdt> 向内
     - impetus n. 冲力；推动力；刺激
     - impetuous adj. 冲动的；鲁莽的；猛烈的
     - impetigo n. 脓疱病 & 快速蔓延（追逐）的皮肤病
+---
 - <gdt>per-</gdt> 一直、贯穿
     - perpetual adj. 永恒的；持续的；永久的；长久的 & `per-` 一直+pet 追逐+`-ual` adj.=一直不停地追逐→永恒
     - perpetuity n. 永存；不朽；永远
     - perpetuate v. 使（坏情况）持续；使永存；使不朽
     - perpetuation n. 持续；不朽
+---
 - <gdt>re-</gdt> 再
     - repeat [v.][n.] 重复；重做；重说
     - repeatedly ad. 重复地；反复地；再三地
     - repetitive adj. 重复的；重复乏味的
     - repetition n. 重复；反复；副本
+---
 - petulant adj. 人性的；脾气坏的；暴躁的；爱耍性子的 & 任由情绪疯跑狂奔💨
 - petulance n. 小脾气；性急；急躁言行
 - centripetal adj. 向心的；利用向心力的 & centri 中心+pet 追逐=追向中心的→向心的
@@ -524,6 +567,7 @@ word: true
 - prize n. 奖品；奖金；奖赏 v. 珍视；估价
 - praise [v.][n.] 赞扬；赞美
 - precious adj. 珍贵的；宝贵的；矫揉造作的
+---
 - <gdt>a(d)-</gdt> 朝向
     - appreciate v. 欣赏；感激；增值；意识到；领会 & 觉得你有价值→欣赏
     - appreciation n. 欣赏；理解；感激；认识
@@ -534,9 +578,11 @@ word: true
     - appraise v. 评价；鉴定；估价 & 对某物给出价值判断→评估
     - appraisal n. 评价；鉴定；评估
     - reappraisal n. 重新检查；重新评价
+---
 - <gdt>de-</gdt> 向下
     - depreciate v. 贬低；贬值；轻视
     - depreciation n. 贬值；折旧；轻视
+---
 - <gdt>inter-</gdt> 之间
     - interpret v. 解释；口译；说明 & `inter-` 之间+pret 价格=在买卖双方之间协调价格→解释、口译
     - interpretation n. 解释；口译；演奏
@@ -585,6 +631,7 @@ word: true
     - suspense n. 悬念；焦虑；悬疑
     - suspension n. 悬浮；暂停；中止；停职
     - suspender n. 吊袜带；悬挂用的物体；悬挂物
+---
 - <gdt>de-</gdt> 强调
     - depend v. 依靠；取决于；依赖 & 挂在别人大腿上→依赖
     - dependable adj. 可靠的；可信赖的
@@ -593,27 +640,32 @@ word: true
     - dependence n. 依赖；信赖；依靠
     - independent adj. 独立的；自主的；私营的；无党派的
     - interdependent adj. 互相依赖的；相倚的
+---
 - <gdt>ex-</gdt> 向外
     - expend v. 花费；消耗；耗尽 & 把重量称出来→称量货币→花费
     - expense n. 费用；代价；花费；消费
     - expensive adj. 昂贵的；价格高的
     - inexpensive adj. 便宜的；不贵的
     - expenditure n. 开支；花费；消费
+---
 - <gdt>dis-</gdt> 分开
     - dispense v. 分配；分发；免除；实施
     - dispensary n. 药房；医务室
     - dispensable adj. 可有可无的；非必要的
     - indispensable adj. 必须的；不可缺少的
+---
 - <gdt>com-</gdt> 强调、加强
     - compensate v. 补偿；弥补；赔偿 & 强调重新称重→补偿
     - compensation n. 补偿；赔偿；薪酬
     - compensatory adj. 补偿的；赔偿的
     - recompense v. 赔偿；补偿；报酬 n. 赔偿
+---
 - <gdt>a(d)-</gdt> 朝向
     - append v. 添加；附加；悬挂
     - appendage n. 附属物；附加物；附属肢体
     - appendix n. 附录；附件；阑尾
     - appendicitis n. 阑尾炎；盲肠炎
+---
 - pension n. 养老金；退休金；抚恤金
 - pensive adj. 沉思的；愁眉苦脸的；忧虑的
 - propensity n. 倾向；习性；嗜好
@@ -644,6 +696,7 @@ word: true
 - portfolio n. 文件夹；投资组合；公事包；作品集
 - airport n. 机场；航空港
 - seaport n. 港口；海港
+---
 - <gdt>im-</gdt> 向内、否定
     - import n. 进口；输入 n. 进口；输入；进口商品；重要性
     - importer n. 进口商；进口国
@@ -653,29 +706,36 @@ word: true
     - unimportant adj. 不重要的；微不足道的
     - importune v. 不断请求；胡搅蛮缠 & `im-` 否定+port 港口+une=没有港口难以进港→请求进港→不断请求
     - importunate adj. 强求的；纠缠不清的
+---
 - <gdt>ex-</gdt> 向外
     - export [v.][n.] 出口；输出
     - exporter n. 出口商；出口国
     - exportation n. 出口；输出
     - reexport v. 转口 n. 转口贸易
+---
 - <gdt>trans-</gdt> 跨越、穿越
     - transport [v.][n.] 运输；运送；运输系统
     - transportation n. 运输；交通工具；运输系统
+---
 - <gdt>sup-</gdt> 在下
     - support v. 支持；支撑；供养 n. 支柱；支撑物；支持 & 从下方承载起→支持
     - supporter n. 支持者；拥护者
+---
 - <gdt>re-</gdt> 回
     - report [v.][n.] 报告；报道；汇报 & 把信息运回来→报告
     - reporter n. 记者；通讯员；报告人
     - reportage n. 新闻报道；报告文学
     - rapport n. 友好；和睦；友善 & 把感情运回给对方→融洽
+---
 - <gdt>o(b)-</gdt> 朝向
     - opportune adj. 恰当的；合时宜的；及时的
     - opportunity n. 机会；时机；可能性 & `op-` 朝向+port 港口+unity n.=将船吹向港口的风→回航的好时机/机会
+---
 - <gdt>de-</gdt> 离开
     - deport v. 驱逐出境；使举止得体
     - deportation n. 驱逐出境
     - deportment n. 举止；行为；风度；仪态
+---
 - sport n. 体育运动
 - sportsman n. 运动员；爱好运动的人 & similar=>athlete
 - sportsmanship n. 体育精神
@@ -694,12 +754,14 @@ word: true
 - disproof n. 反证；反驳
 - fireproof adj. 防火的；耐火的
 - foolproof adj. 万无一失的；傻瓜式的；易操作的
+---
 - <gdt>a(d)-</gdt> 朝向
     - apporve v. 批准；赞成；通过；同意
     - approval n. 批准；赞成；同意
     - disapprove v. 不赞成；反对；不同意
     - disapproval n. 不赞成；反对
     - approbation n. 认可；赞许 & 通过测试→官方认可
+---
 - probe [n.][v.] 探针；探究；探测器
 - probate n. 遗嘱检验；遗嘱认证 v. 核实遗嘱
 - probation n. 缓刑；试用期；察看 & 正在测试的期间→试用期
@@ -708,6 +770,7 @@ word: true
 - probably ad. 大概；很可能；或许
 - improbable adj. 不大可能的；荒谬的
 - probability n. 概率；可能性；几率
+---
 - <gdt>re-</gdt> 再
     - reprove v. 谴责；责骂；责备 & 反复测试后都不通过→责备
     - reproof n. 谴责；责骂
@@ -720,18 +783,22 @@ word: true
 - pulse n. 脉搏；脉冲；意向 v. 跳动；搏动；脉动 & 心脏**推动**血液→脉搏
 - pulsate v. 脉动；搏动
 - pulsation n. 搏动
+---
 - <gdt>com-</gdt> 完全
     - compel v. 强迫；胁迫 & 被**完全**推着走→强迫
     - compulsion n. 强迫；强制；欲望
     - compulsive adj. 强制的；禁不止的；强迫性的；无法控制行为的
     - compulsory adj. 强制的；义务的；必须做的
+---
 - <gdt>im-</gdt> 向内
     - impel v. 促进；推动；迫使 & 由内心驱使→驱使
     - impulse n. 冲动；脉冲；推动力 v. 推动；刺激
     - impulsive adj. 易冲动的；冲动的
+---
 - <gdt>ex-</gdt> 向外
     - expel v. 驱逐；排出；把……开除 & 把人推出去→驱逐
     - expulsion n. 开除；驱逐；排出
+---
 - <gdt>re-</gdt> 回
     - repel v. 排斥；击退；抵制；驱逐；相斥 & 往回推→排斥
     - repellent n. 驱虫剂；防水剂 adj. 令人厌恶的；防……的
@@ -739,15 +806,18 @@ word: true
     - repulsion n. 排斥；厌恶；斥力
     - repulsive adj. 排斥的；令人厌恶的
     - repeal [n.][v.] 撤销；废止
+---
 - <gdt>pro-</gdt> 向前
     - propel v. 推动；推进；驱使
     - propellent n. 推动者 adj. 有推动力的
     - propeller n. 螺旋桨；推进器
     - propulsion n. 推动力；推进
+---
 - <gdt>a(d)-</gdt> 朝向
     - appeal n. 呼吁；吸引；上诉 n. 呼吁；吸引力；上诉；恳求 & 被某种力量推着走向对方→吸引
     - appealing adj. 恳求的；有吸引力的
     - appellation n. 名称；称呼
+---
 - dispel v. 驱散；消除；打消 & `dis-` 分散+pel 推=把事物**推散**→驱散
 - pelt v. 投掷；剥皮；急跑 n. 动物的皮毛
 - catapult n. 弹弓；弹射器；石弩 v. 用弩炮发射；发射
@@ -820,17 +890,20 @@ word: true
 - imprisonment n. 监禁；关押；服刑；刑期
 - prisoner n. 囚犯；犯人
 - surprise n. 惊讶；惊喜；惊奇 v. 使惊讶；使感到意外
+---
 - <gdt>entre-(=inter)</gdt> 之间
     - entrepreneur n. 企业家；承包人；创业者
     - entrepreneurial adj. 企业性质的；创业的
     - enterprise n. 进取心；事业；事业心；企业 & 伸进中间去抓→一手抓事业
     - enterprising adj. 有进取心的；有事业心的；有魄力的
+---
 - <gdt>com-</gdt> 共同
     - comprise v. 包括；包含；构成
     - comprehension n. 理解；领悟；包含
     - comprehensive adj. 全面的；综合的；广泛的；详尽的
     - comprehensible adj. 可理解的
     - incomprehensible adj. 不能理解的；费解的
+---
 - <gdt>a(d)-</gdt> 朝向
     - apprehend v. 逮捕；理解；忧虑
     - apprehension n. 担忧；恐惧；逮捕
@@ -838,12 +911,14 @@ word: true
     - misapprehension n. 误解；错误的理解
     - apprise v. 通知；告知
     - apprentice n. 学徒；徒弟 v. 使当学徒
+---
 - <gdt>re-</gdt> 反
     - reprise v. 重演；重奏 n. 重复部分；再现
     - reprisal n. 报复；报仇；报复性劫掠
     - reprieve n. 暂缓；缓刑 v. 缓期执行；暂缓处刑
     - reprehend v. 指责；责难
     - reprehensible adj. 应受指责的
+---
 - prehension n. 理解；抓住；抓握
 - prehensile adj. 贪婪的；可抓住的；善于领会的
 
@@ -926,6 +1001,7 @@ word: true
 - patience n. 耐心；忍耐力；毅力
 - impatient adj. 不耐烦的；急躁的；热切期待的
 - impatience n. 不耐烦；急躁
+---
 - <gdt>com-</gdt> 一起
     - compatible adj. 兼容的；合得来的；可和谐共存的 & 能够一起忍受的→能共存→兼容
     - compatibility n. 兼容性；并存；和睦相处
@@ -941,6 +1017,7 @@ word: true
 - unimpassioned adj. 没有激情的；平静的
 - passionate adj. 热情的；狂热的；充满激情的
 - dispassionate adj. 不动感情的；冷静的；平心静气的
+---
 - <gdt>com-</gdt> 一起
     - compassion n. 同情；怜悯
     - compassionate adj. 有同情心的；表示怜悯的 v. 同情
@@ -955,6 +1032,7 @@ word: true
 - parlous ad. 非常地；极度地 adj. 危险的；难对付的
 - pirate n. 海盗；盗版者 v. 盗版；剽窃；抢劫
 - piracy n. 海盗行为；盗版行为
+---
 - <gdt>ex-</gdt> 向外
     - experience v. 经历；体验 n. 经历；经验 & 走出去尝试→经历、试验
     - experiment n. 实验；试验 v. 做实验
@@ -962,6 +1040,7 @@ word: true
     - experimentation n. 实验；试验
     - expert n. 专家；行家 adj. 熟练的；内行的；有经验的
     - expertise n. 专门知识；专门技能；专长
+---
 - <gdt>em-</gdt> 进入
     - empiric adj. 经验主义的 n. 经验主义者 & 在尝试之中的→经验主义的
     - empirical adj. 经验的；经验主义的
@@ -1011,11 +1090,13 @@ word: true
 - hypersonic adj. 高超音速的
 - sonorous adj. 深沉响亮的；洪亮的
 - sonogram n. 声波图
+---
 - <gdt>re-</gdt> 再
     - resonate v. 共振；共鸣；产生深远影响
     - resonant adj. 洪亮的；共振的；回响的
     - resonance n. 共振；共鸣；反响
     - resound v. 回响；被传颂；回荡着声音
+---
 - consonant n. 福音；辅音字母 adj. 一致的
 - consonance n. 协调；一致 & 共同的声音一致
 - dissonant adj. 不和谐的；嘈杂的
@@ -1060,6 +1141,7 @@ word: true
 - plainspoken adj. 直言不讳的；直截了当的
 - floodplain n. 漫滩；泛滥平原
 - placenta n. 胎盘；胎盘素
+---
 - <gdt>ex-</gdt> 向外
     - explain v. 解释；说明；阐明 & 把问题摊开让你看清楚
     - explanation n. 解释；说明；阐述；原因

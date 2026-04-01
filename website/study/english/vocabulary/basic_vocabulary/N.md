@@ -54,11 +54,13 @@ word: true
     - renewal n. 更新；恢复；复兴；续订
     - renovate v. 修复；更新；翻译；整修
     - renovation n. 修复；翻新；革新
+---
 - <gdt>in-</gdt> 进入
     - innovate v. 创新；改革；革新
     - innovator n. 创新者；革新者
     - innovation n. 创新；改革；新方法；新思想
     - innovative adj. 革新的；新颖的；创新的
+---
 - neolithic adj. 新石器时代的
 - neoclassical adj. 新古典主义的
 
@@ -70,16 +72,20 @@ word: true
     - announce v. 宣布；通告；发表
     - announcement n. 通告；宣布；宣告
     - announcer n. 广播员；播音员；报幕员
+---
 - <gdt>e-</gdt> 出
     - enunciate v. 阐明；发音；清楚地表明
 - <gdt>pro-</gdt> 公开
+---
     - pronounce v. 发音；宣布；宣告
     - pronounced adj. 显著的；明确的；断然的 v. 发音；宣告
     - pronunciation n. 发音；读音
+---
 - <gdt>re-</gdt> 回
     - renounce v. 放弃；抛弃；与……断绝关系
     - renunciate v. 放弃；抛弃；宣布中止
     - renunciation n. 放弃；克己；抛弃；正式放弃
+---
 - <gdt>de-</gdt> 向下
     - denounce v. 告发；揭发；谴责；公开指责
     - denunciate v. 告发；揭发；公开指责

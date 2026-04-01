@@ -422,17 +422,20 @@ word: true
 
 - merge v. 合并；融入；融合；混合
 - merger n. 合并；兼并；并购
+---
 - <gdt>sub-</gdt> 在……下面
     - submerge v. 掩盖；浸没；淹没；潜水🤿🫧
     - submerged adj. 淹没的；在水中的；水下的
     - submersed adj. 生长水中的 
     - submersion n. 淹没；浸没
     - submersible adj. 能潜水的；能沉入水中的
+---
 - <gdt>e-</gdt> 出
     - emerge v. 出现；暴露；显露；浮现
     - emergent adj. 新兴的；紧急的；浮现的
     - emergence n. 出现；浮现；兴起
     - emergency n. 经济情况；突发事件 adj. 紧急的；应急的🚨
+---
 - <gdt>im-</gdt> 进入
     - immerse v. 沉浸于；陷入；浸；专心于
     - immersion n. 沉浸；专心；浸没
@@ -449,14 +452,17 @@ word: true
 - mention v. 提及；说起 v. 提到；提及
 - unmentioned adj. 未提到的；未说起的
 - aforementioned adj. 上述的
+---
 - <gdt>com-</gdt> 共同
     - comment n. 评论；意见；批评 v. 评论；表达意见
     - commentary n. 评论；解说词；实况报导；注释
     - commentate v. 作现场解说；进行实况报导；评论
     - commentator n. 评论员；解说员
+---
 - <gdt>re-</gdt> 再
     - remind v. 提醒；使想起
     - reminder n. 暗示；通知单；催单；提示信
+---
 - <gdt>a-/de-</gdt> 否定/去掉
     - ament n. 智力缺陷的人
     - amentia n. 痴呆；精神错乱
@@ -475,9 +481,11 @@ word: true
 - memo n. 备忘录；简报
 - memorandum n. 备忘录；便笺
 - memoir n. 回忆录；自传；传说
+---
 - <gdt>com-</gdt> 共同
     - commemorate v. 纪念；庆祝
     - commemoration n. 纪念；庆祝
+---
 - <gdt>re-</gdt> 再
     - remember v. 记得；记住；代……问候；向……送礼
     - remembrance n. 记忆；回忆；纪念物
@@ -550,11 +558,13 @@ word: true
 - Mercury n. 水星；水银 & 商业之神——墨丘利，因为祂速度快，所以水银（活性极大）和水星（公转最快）以其命名
 - mercury n. 水银；汞；精神；元气
 - mercurial n. 水银剂；汞制剂 adj. 多汞的；含汞的；反复无常的；易变的
+---
 - <gdt>com-</gdt> 共同
     - commerce n. 商业；贸易；交往
     - commercial adj. 商业的；贸易的 n. 广告
     - commercialize v. 以……牟利；使商业化
     - commercialisation n. 商业化
+---
 - mercantile adj. 贸易的；商业的；商人的
 - merchant n. 商人；零售商 adj. 商人的
 - merchandise n. 商品；货物 v. 推销；销售

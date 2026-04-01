@@ -8,28 +8,35 @@ word: true
 *rupt*=断裂
 
 - rupture \[n.]\[v.] 断裂；破裂；疝气
+---
 - <gdt>co-(=com-)</gdt> 完全
   - corrupt adj. 腐败的；贪污的；堕落的 v. 使堕落；使腐败；贿赂 & 完全**打破**道德底线→腐败
   - corruption n. 腐败；贪污；堕落；受贿
   - corruptible adj. 易腐败的；可收买的
   - incorruptible adj. 廉洁的；不会腐蚀的
+---
 - <gdt>inter-</gdt> 之间
   - interrupt v. 打断；打扰；中断
   - interruption n. 中断；打断；干扰
+---
 - <gdt>dis-</gdt> 分散
   - disrupt v. 打扰；使中断；使混乱 & 把秩序**打散**→扰乱/颠覆
   - disruptive adj. 破坏性的；引起混乱的；颠覆性的
   - disruption n. 打扰；混乱；中断；破坏
+---
 - <gdt>ab-</gdt> 离开
   - abrupt adj. 突然的；陡峭的；不连贯的；唐突的 & 突然**断开**离去→突然
   - abruptly ad. 突然地；唐突地；出人意料地
+---
 - <gdt>e-(=ex-)</gdt> 向外
   - erupt v. 爆发；突然发生；喷发 & 向外喷发
   - eruption n. 爆发；喷发；突然发生
   - eruptive adj. 爆发的；喷出的；疹的
+---
 - <gdt>in-</gdt> 向内
   - irrupt v. 闯入；爆发
   - irruption n. 突然冲入；急速增加；爆发
+---
 - bankrupt adj. 破产的 n. 破产者；破产 v. 使破产 & bank 银行+rupt 断裂=银行资金链断裂→破产
 - bankruptcy n. 破产；倒闭；无偿付能力
 
@@ -39,15 +46,18 @@ word: true
 
 - range n. 范围；一系列；射程；领域 v. 排列；变化 & 一排延伸出去→范围/山脉
 - ranger n. 护林员；突击队员；公园看管人；游侠
+---
 - <gdt>a(d)-</gdt> 朝向
   - arrange v. 安排；整理；排列；筹备；布置 & 排成一行→整理
   - arrangement n. 安排；商定；协议；约定；解决办法
   - rearrange v. 重新安排；重新排列
   - rearrangement n. 重排；重新排列
   - disarrange v. 使紊乱；使混乱；弄乱
+---
 - <gdt>de-</gdt> 分离、离开
   - derange v. 扰乱；使发狂
   - derangement n. 紊乱；精神错乱
+---
 - rank n. 级别；军衔；等级；成员；队列 v. 排列；分等级 & 一行排列→等级/军衔
 - ranking n. 排名；名词；排列 adj. 高级的；最高层的
 - outrank v. 超过；居于上位的
@@ -83,6 +93,7 @@ word: true
   - correctly ad. 正确地；恰当地
   - incorrect adj. 不正确的；错误的
   - correction n. 改正；修正；惩罚；衰退
+---
 - <gdt>di-(=dis-)</gdt> 分开
   - direct adj. 直接的；亲自的；径直的 v. 指导；指示；管理；对准 & `di` 分开+rect 直=把别人从混乱里**分开、拉直**→指导
   - directly ad. 直接地；立即；坦率地；马上；正好地
@@ -93,9 +104,11 @@ word: true
   - direction n. 方向；指导；指示；趋势；命令
   - director n. 导演；主任；董事；指导者
   - directory n. 目录；指南；姓名地址录；董事会 adj. 指导的
+---
 - <gdt>e-(=ex-)</gdt> 向外
   - erect v. 建立；竖立；直立 adj. 直立的；竖立的
   - erection n. 建造；竖立；建筑物
+---
 - resurrect v. 使重新出现；使复活 & `re-` 再+`sur-` 向上+rect 直=再次**站直**起来→复活/复兴
 - resurrection n. 复活；复苏
 - insurrection n. 叛乱；起义；暴动 & `in-` 否定+`sur-` 在上+rect 直+`-ion` n.=**颠覆**（否定）上层建筑的**规则**（直→条框规定）→起义

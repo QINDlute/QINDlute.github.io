@@ -56,25 +56,22 @@ word: true
 ::: note 两个词根分支
 
 1. trad=传递、交付
-
 跨主体的”交付“→传递事物/传递货物
 
 - tradition n. 传统 <interval>“被传递下来的事物”</interval>
 - traditional adj. 传统的
 - trad \[n.]\[v.] 贸易；交易；做生意
 
-1. edit=编辑、出版
-
+2. edit=编辑、出版
 内容的”交付“→整理内容/出版结果
 
 - edit v. 编辑；校订；出版；剪辑（音视频）
 - editor n. 编辑；主编；剪辑师
 - edition n. 版次；版本 <interval>similar=>version</interval>
 - editorial \[n.]\[adj.] 编辑的；社论（的）；评论
-  :::
+:::
 
 ## duc=duct
-
 *duc=duct*=引导、带领、牵引（to lead, direct）
 
 - introduce v. 介绍；引入；提出
@@ -98,8 +95,8 @@ word: true
 - reduce v. 减少；降低
 - reduction n. 减少；降低
 
-## dict=dic
 
+## dict=dic
 *dict=dic*=说
 
 - addict v. 上瘾 <interval>”一直念叨一个事物“</interval>
@@ -116,8 +113,8 @@ word: true
 - index n. 索引；指数
 - dedication n. 奉献；献身
 
-## doub=dub
 
+## doub=dub
 *doub=dub*=二
 
 - dub v. 给……配音 n. 配音；替身 <interval>”影子“</interval>
@@ -130,8 +127,8 @@ word: true
 - indubitable adj. 确定的；不容置疑的（书面）
 - undoubtedly ad. 毫无疑问
 
-## dra
 
+## dra
 *dra*=做、行动
 
 - drama n. 戏剧；冲突
@@ -140,8 +137,8 @@ word: true
 - dramatize v. 使戏剧化
 - dramatist n. 剧作家；戏剧家
 
-## draw
 
+## draw
 *draw*=拉、拖、牵引
 
 - draw v. 画，描绘；拖，拉
@@ -150,8 +147,8 @@ word: true
 - drawback n. 缺点；弊端
 - drag v. 拖；拉；拖拽 n. 累赘；阻力
 
-## dyna
 
+## dyna
 *dyna*=力量、统治（power, rule）
 
 - dynasty n. 王朝；朝代
@@ -168,10 +165,10 @@ dyna-→dino：可怕的，saur=蜥蜴
 - saurian adj. 蜥蜴的；蜥蜴类的🦎
 - pterosaur n. 翼龙
 - ichthyosaur n. 鱼龙
-  :::
+:::
+
 
 ## decor
-
 *decor*=优美、体面、装饰
 
 - decor n. 室内陈设、装饰
@@ -187,10 +184,10 @@ dyna-→dino：可怕的，saur=蜥蜴
 - dignify v. 使尊贵、使有尊严
 - dignified adj. 有尊严的、庄重的
 - indignation n. 愤怒、愤概 <interval>`in-`+dign+`-ation`=否定+尊重+n.→没有受到尊重而感到羞怒</interval>
-  :::
+:::
+
 
 ## doc
-
 *doc*=（接受）教导
 
 - document n. 文件；文献 v. 记录
@@ -201,7 +198,6 @@ dyna-→dino：可怕的，saur=蜥蜴
 
 
 ## duty
-
 *duty*=欠
 
 - duty n. 责任、义务
@@ -210,8 +206,8 @@ dyna-→dino：可怕的，saur=蜥蜴
 - debt n. 债务；欠款
 - due adj. 到期的；应有的 n. 应付款；会费
 
-## digit
 
+## digit
 *digit*=手指、脚趾
 
 - digit n. 数字（0-9）；手指/脚趾
@@ -219,8 +215,8 @@ dyna-→dino：可怕的，saur=蜥蜴
 - digitize v. 使数字化
 - digitism n. 数字主义；数字化趋势
 
-## dec
 
+## dec
 *dec*=十
 
 - decade n. 十年；十年期
@@ -229,8 +225,8 @@ dyna-→dino：可怕的，saur=蜥蜴
 - decimate v. 大量消灭
 - December n. 十二月
 
-## vot
 
+## vot
 *vot*=誓言、承诺
 
 - vow v. 发誓；郑重承诺 n. 誓言
@@ -243,8 +239,8 @@ dyna-→dino：可怕的，saur=蜥蜴
 - devotion n. 奉献；忠诚；热爱
 - devotee n. 爱好者；献身者
 
-## rect
 
+## rect
 *rect*=直、引导
 
 - direct v. 引导；指挥；指向 adj. 直接的；径直的 <interval>`di-`+rect=加强+引导</interval>
@@ -258,8 +254,8 @@ dyna-→dino：可怕的，saur=蜥蜴
 - regulate v. 规范；调节；控制
 - regulation n. 规则；法规；调节
 
-## 其他
 
+## 其他
 - during prep. 在……期间；在……时候
 - damp \[n.]\[adj.] 潮湿（的） v. 使潮湿；抑制
 - deed n. 行为；事迹；契约
