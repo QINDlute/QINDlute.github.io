@@ -227,12 +227,16 @@ onUnmounted(() => {
 
 <template>
   <!-- 字体设置组件 -->
-  <div class="font-settings-container">
+  <div 
+    class="font-settings-container"
+    @mouseleave="isDropdownOpen = false"
+  >
     <!-- 字体设置按钮 -->
     <button 
       class="btn toggle-dropdown" 
       aria-label="Font Settings" 
       @click="toggleDropdown"
+      @mouseenter="isDropdownOpen = true"
     >
       <i class="fa fa-font"></i>
     </button>
@@ -241,6 +245,8 @@ onUnmounted(() => {
       v-if="isDropdownOpen" 
       ref="dropdownRef" 
       class="font-settings-dropdown"
+      @mouseenter="isDropdownOpen = true"
+      @mouseleave="isDropdownOpen = false"
     >
       <div class="dropdown-caret">
         <span class="caret-outer"></span>
@@ -311,7 +317,9 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px 11px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   line-height: 24px;
   font-size: 12px;
   font-weight: 500;
@@ -320,15 +328,46 @@ onUnmounted(() => {
   background: transparent;
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: visible;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  background: linear-gradient(120deg, #d48aff, #ff6666);
+  border-radius: 50%;
+  transition: 0.4s;
+  opacity: 0;
+}
+
+.btn:hover::before {
+  width: 36px;
+  height: 36px;
+  opacity: 1;
 }
 
 .btn:hover {
   color: var(--vp-c-text-1);
   transition: color 0.25s;
+  background: transparent;
 }
+
+.btn:hover i {
+  color: var(--vp-c-black);
+}
+
+.theme-night .btn:hover i {
+  color: var(--vp-c-white);
+}
+
 
 .btn i {
   font-size: 14px;
+  position: relative;
+  z-index: 1;
 }
 
 .font-settings-dropdown { /* 字体设置下拉菜单*/
@@ -342,13 +381,13 @@ onUnmounted(() => {
   min-width: 150px;
   width: 160px;
   padding: 4px;
-  margin-top: 4px;
+  margin-top: 0;
   display: block;
   opacity: 1;
   visibility: visible;
   left: auto;
   right: 0;
-  top: 120%; /* 下拉菜单与按钮底部的间距 */
+  top: 100%; /* 下拉菜单紧贴按钮底部 */
   max-height: calc(100vh - 80px);
   overflow-y: auto;
 }
@@ -359,6 +398,7 @@ onUnmounted(() => {
   right: 20px;
   width: 0;
   height: 0;
+  display: none; /* 隐藏三角箭头，因为菜单现在紧贴按钮 */
 }
 
 .caret-outer {
@@ -432,16 +472,16 @@ onUnmounted(() => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 2px 0;
+  padding: 2px 8px;
   margin: 0;
-  border-radius: 8px;
+  border-radius: 4px;
   transition: all 0.2s;
   position: relative;
   z-index: 9999; /* 确保容器层级高于其他元素 */
 }
 
 .font-settings-container:hover {
-  background-color: var(--vp-c-default-soft);
+  background-color: transparent;
 }
 
 .font-settings-container .btn.toggle-dropdown {
@@ -528,11 +568,11 @@ onUnmounted(() => {
     width: 120px; /* 调整宽度，适合更小的按钮 */
     min-width: 110px;
     padding: 4px;
-    margin-top: 4px;
+    margin-top: 0;
     left: 50%; /* 居中显示 */
     right: auto;
     transform: translateX(-50%); /* 水平居中 */
-    top: 127%; /* 调整与按钮的间距 */
+    top: 100%; /* 紧贴按钮底部 */
     background-color: rgba(var(--vp-c-bg-rgb), 0.8); /* 更高的背景透明度，提高可读性 */
     transition: all 0.2s ease; /* 增加过渡效果 */
   }
