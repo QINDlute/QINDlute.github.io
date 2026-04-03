@@ -9,7 +9,7 @@ const boxStyles = ref<Record<string, string | number>>({ display: "none" });
 const vpDocElement = ref<HTMLElement>();
 const highlightedElement = ref<HTMLElement>();
 
-const mousePosition = ref<{ x: number; y: number }>({ x: 0, y: 0 });
+const mousePosition = ref<{ x: number; y: number }>({ x: -1, y: -1 });
 const currentMode = ref(props.mode || 'aside');
 
 const computeBoxStyles = (bounding: { height: number; left: number; top: number; width: number }) => {
