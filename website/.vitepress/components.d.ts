@@ -32,6 +32,7 @@ declare module 'vue' {
     'Ph:planetFill': typeof import('~icons/ph/planet-fill')['default']
     PrevNextNav: typeof import('./theme/components/PrevNextNav.vue')['default']
     QindFooter: typeof import('./theme/components/QindFooter.vue')['default']
+    QindHero: typeof import('./theme/components/QindHero.vue')['default']
     ReaderText: typeof import('./theme/components/ReaderText.vue')['default']
     ReadingProgress: typeof import('./theme/components/ReadingProgress.vue')['default']
     SidebarTrigger: typeof import('./theme/components/SidebarTrigger.vue')['default']

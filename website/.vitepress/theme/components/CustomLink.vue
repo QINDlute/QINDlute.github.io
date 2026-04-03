@@ -31,10 +31,14 @@ const hrefSource = computed(() => {
     return 'zhihu'
   else if (/markdown\.cn/.test(href))
     return 'markdown'
-  else if (/qindlute\.github\.io/.test(href))
+  else if (/qindlute/.test(href))
     return 'qindlute'
   else if (/vitepress\.dev/.test(href))
     return 'vitepress'
+  else if (/etymonline\.com/.test(href))
+    return 'etymonline'
+  else if (/cigendanci\.cn/.test(href))
+    return 'cigendanci'
   else if (/chodocs\.cn/.test(href))
     return 'chodocs'
   else if (/fe-qianxun\.com/.test(href))
@@ -108,6 +112,8 @@ const component = computed(() => {
               <CustomIcon v-if="hrefSource === 'vitepress'" image="/img/customIcon/vitepress-icon.svg" class="w-7 h-7" />
               <CustomIcon v-if="hrefSource === 'chodocs'" image="/img/customIcon/chodocs-icon.svg" class="w-7 h-7" />
               <CustomIcon v-if="hrefSource === 'qianxun'" image="/img/customIcon/qianxun-icon.png" class="w-7 h-7" />
+              <CustomIcon v-if="hrefSource === 'etymonline'" image="/img/customIcon/etymonline.svg" class="w-7 h-7" />
+              <CustomIcon v-if="hrefSource === 'cigendanci'" image="/img/customIcon/cigendanci.png" class="w-7 h-7" />
               <CustomIcon v-if="hrefSource === 'web'" name="web" class="text-slate-600 dark:text-slate-300 w-7 h-7" />
               <span class="text-ellipsis w-full whitespace-nowrap overflow-hidden text-sm opacity-75 font-500">{{ href
               }}</span>

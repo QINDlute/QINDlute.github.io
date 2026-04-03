@@ -5,7 +5,8 @@ layout: home
 hero:
   name: "琴殿博客"
   text: "个人笔记网站"
-  tagline: 千里之行，始于足下
+  # tagline: 千里之行，始于足下
+  # tagline: 君子藏器于身，待时而动
   image:
     src: /img/index.png
     alt: index image

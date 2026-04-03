@@ -4,6 +4,7 @@
 
 参考：
 [etymonline](https://www.etymonline.com/)
-APP:词根单词
 
-本网页单词的词根词缀解读为作者个人理解，单纯用于记忆。
+[词根单词](https://cigendanci.cn/product/)
+
+本网页单词的词根词缀解读为作者个人理解，仅作记忆参考，并非单词的真实衍生逻辑。

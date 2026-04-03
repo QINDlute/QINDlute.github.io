@@ -4,45 +4,55 @@ word: true
 ---
 
 # 词根 M
-## mit=miss
+## mit=miss➡️
 *mit=miss*=发送、投掷（send, throw）
 
-1. 发送➡️
+1. 发送
 - <gdt>ad-</gdt> 向
     - admit v. 承认；接纳；允许进入 
     - admission n. 承认；允许进入；入场费；入场卷；录取
     - admittedly ad. 诚然；公认地；普遍承认地
+---
 - <gdt>e-/ex-</gdt> 出
     - emit v. 发出；发射；散发
     - emission n. 排放；散发；放射；排放物
     - emissary n. 特使；密使；使者 & `e-`+miss+`-ary`=出+发送+n.→送出密信的人
+---
 - <gdt>trans-</gdt> 跨越
     - transmit v. 传送；传播；传染；传递
     - transmission n. 传播；传染；传输；发射
     - transmitter n. 传播者；传播媒介；发射机
+---
 - <gdt>sub-</gdt> 在……下面
     - submit v. 提交；屈服；认为；呈递；建议 & `sub-`+mit=在……下面+发送→在下面跪着向上呈递→提交；屈服
     - submission n. 提交；投降；屈从；归顺；服从
     - submissive adj. 顺从的；服从的；恭顺的
+---
 - <gdt>re-</gdt> 回、再
     - remit v. 汇款；宽恕；免除；减缓；送呈 n. 职权范围 & `re-`+mit=回+发送→释放你回家→宽恕赦免，把钱财发送回家→汇款
     - unremitting adj. 不懈的；未减弱的；未停止的
     - remittance n. 汇款；汇寄之款
     - remiss adj. 疏忽的；不留心的；怠慢的 & “宽恕自己，想玩就玩→懒散的”
     - remission n. 宽恕；减轻；赦免；豁免
+---
 - <gdt>o(b)-</gdt> 朝向
     - omit v. 遗漏；省略；删除 & `o-`+mit=朝向+投掷→随便朝某个方向扔出去→省略
     - omission n. 遗漏；疏忽；省略
+---
 - <gdt>inter-</gdt> 在……之间
     - intermittent adj. 断断续续的；间歇的 & 在空隙中发送→间歇的
     - intermission n. 暂停；间歇；中间休息
+---
 - <gdt>de-</gdt> 剥离
     - demise n. 转让（财产）；死亡；消亡；让位 & `de-`+mit=剥离+发送→把财产剥离出来送给别人→转让→已经转让遗产了→死亡
+---
 - <gdt>manu-</gdt> 手
     - manumit v. 解放 & `manu-`+mit=手+发送→亲手释放奴隶→解放
     - manumission n. （奴隶的）解放 & related=>slave：n. 奴隶 v. 拼命干
+---
 - <gdt>sur-</gdt> 在……之上
     - surmise v. 猜想；推测 n. 猜度 & “在事实之上放一个猜测”
+---
 - mission n. 使命；任务；使团；代表团 v. 派遣 & “被派发出去的使命”
 - missionary n. 传教士 adj. 传教的
 - message n. 信息；消息；要旨；寓意 v. 给……发消息；给……留言
@@ -58,6 +68,7 @@ word: true
     - permission n. 许可；批准；许可证
     - permissive adj. 许可的；纵容的；放任的
     - permissible adj. 可承认的；可容许的；许可的
+---
 - <gdt>pro-</gdt> 向前
     - promise v. 承诺；答应；有希望；预示 n. 希望；承诺；诺言 & ”送出未来的承诺“
     - promising adj. 有希望的；有前途的 v. 承诺；答应
@@ -65,6 +76,7 @@ word: true
     - compromise n. 妥协；和解 v. 妥协；和解；损害；危及 & `com-`+promise=共同+承诺→相互承诺永不再犯→和解
     - uncompromising adj. 强硬的；不让步的；不妥协的
     - promissory adj. 约定支付的；表示允诺的；约定的
+---
 - <gdt>pre-</gdt> 在……之前，预先
     - premise n. 前提；假定；营业场所 v. 做出前提；假定 & ”放在前面的命题→前提、假定“
 
@@ -281,10 +293,10 @@ word: true
 - mediocrity n. 平庸；平凡；平均化
 
 
-## mark
-*mark*=标记（sign）💯
+## mark🔖
+*mark*=标记（sign）
 
-- mark n. 分数；记号；痕迹；符号；污点 v. 做标记；评分；留痕迹；表明
+- mark n. 分数；记号；痕迹；符号；污点 v. 做标记；评分💯；留痕迹；表明
 - remark v. 评论；谈论；注意到 n. 言论；评论 & `re-`+mark=再+标记→反复标记→注意到
 - remarkable adj. 非凡的；显著的；值得注意的；不寻常的 & “引人注意的→非凡的”
 - march/March n. 行军；行进；游行；三月 n. 行军；行程；游行
@@ -319,14 +331,17 @@ word: true
 - migration n. 迁移；迁徙；转移
 - migrant n. 候鸟；移居者 adj. 迁移的；迁徙的
 - migratory adj. 迁移的；迁徙的；移栖的
+---
 - <gdt>im-</gdt> 进入
     - immigrate v. 移民；移入
     - immigration n. 移民；移居
     - immigrant n. 移民 adj. 移民的；迁入的
+---
 - <gdt>e-</gdt> 出
     - emigrate v. 移居国外；移民
     - emigration n. 移民；移居外国
     - emigrant n. 移民 adj. 移民的
+---
 - <gdt>trans-</gdt> 跨越
     - transmogrify v. （使）彻底变形；（使）完全改变 & `trans-`（跨越）+mogr（=migr 移动）+`-ify`（使…）=跨越形态移动→彻底变形
 

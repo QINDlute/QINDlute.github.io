@@ -27,8 +27,8 @@ ad-：拉丁前缀，意为“向、朝”（to, towards）
 1. 共同，一起（together, with）
 2. 完全、彻底（completely, thoroughly）
 
-### contra-
-contra-：反对、拒绝、与……相反（against, opposite of）
+### contr(a)-=counter-
+contr(a)-=counter-：与……相反、反对、拒绝、对抗（opposite of, against）
 
 
 ## D
@@ -98,6 +98,8 @@ for-：古英语前缀，表“反对、禁止、远离” （away、against）
 
 表示方向或位置。主要加在**动词或名词**前。
 
+3. 使成为、进入某状态
+
 ### intro-
 intro-：向内部、深入进入某空间/领域/场景
 
@@ -118,9 +120,8 @@ ne-：否定（not），变体有`neg-`
 ## O
 ### ob- <badge type="green">assimilation</badge>
 1. 反对、对抗、相对（against, opposing）
-2. 朝向、面对（toward, facing）
-3. 阻碍（blocking）
-4. 加强语气
+2. 对着、面对、阻碍（toward, facing, blocking）
+3. 加强语气
 
 
 ## 

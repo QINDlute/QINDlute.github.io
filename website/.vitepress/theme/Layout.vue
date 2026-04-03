@@ -14,6 +14,7 @@ import SidebarTrigger from './components/SidebarTrigger.vue'
 
 // 导入你自定义的底部 Footer
 import QindFooter from './components/QindFooter.vue'
+import QindHero from './components/QindHero.vue'
 </script>
 
 <template>
@@ -22,6 +23,10 @@ import QindFooter from './components/QindFooter.vue'
 
     <template #nav-bar-content-after>
       <FontSettingsPlugin />
+    </template>
+
+    <template #home-hero-info-after>
+      <QindHero />
     </template>
 
     <template #layout-top>

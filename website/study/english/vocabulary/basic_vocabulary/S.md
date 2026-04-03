@@ -132,7 +132,7 @@ word: true
 6. st
 - solstice n. 夏至；冬至
 - armistice n. 停战；停战协议
-- post n. 职位；柱；邮件；邮政 v. 邮寄；张贴；发布；使驻守
+- post n. 职位；柱；邮件；邮政 v. 邮寄；张贴；发布；使驻守 & 站在那的柱子
 - cost v. 花费；价值为 n. 代价；成本；费用
 - costly adj. 昂贵的；代价大的；价格高的
 - forest n. 森林 v. 植树于；使成为森林
@@ -223,7 +223,7 @@ word: true
 - stave n. 五线谱；桶板；窄木条；棍 v. 避开；击穿
 
 
-## stitut🏗️
+## stitut🧱
 *stitut*=建立、放置（to set up, to place）
 
 - <gdt>con-</gdt> 共同、一起
@@ -248,94 +248,208 @@ word: true
 - prostitute v. 卖淫；滥用才能；糟蹋自己 n. 妓女；卖淫者 & `pro-` 公共+stitute 放置=为了招徕客户而公开**摆放**展示→卖淫、作践、妓女
 
 
-## spect=spex=spic👁️
-*spect=spex*=看、观察（to look）
+## stru=struct=str🏗️
+*stru=struct=str*=建造
 
-- spectacle
-- spectacular
-- bespectacled
-- spectator
-- spectrum
-- specter
-- spectral
-- aspect
+- structure n. 结构；建筑物；构造 v. 组织；建造；构造 & 东西的建造框架→结构
+- structural adj. 建筑的；结构的
+- superstructure n. 上层建筑；上层结构
+- restructure v. 重建；改组；重组
+- substructure n. 基础；信念；下部结构
+- infrastructure n. 基础设施；下部结构
+---
+- <gdt>con-</gdt> 一起
+    - construct v. 建造；构造；创立 n. 构想；概念；建造物 & 把材料堆在一起建造→建造/构建
+    - construction n. 建造；结构；建设；建造；建筑物；创立
+    - reconstruct v. 重建；修复；重造；重现
+    - reconstruction n. 重建；重现；重新修建
+    - construe v. 理解；做句法分析；把……逐字译出 & 把知识体系**建立**起来→理解
+    - misconstrue v. 误解；曲解
+---
+- <gdt>de-</gdt> 否定、反转
+    - destroy v. 破坏；摧毁；毁灭 & 把建造的东西拆除→破坏
+    - destruct [n.][v.] 毁灭；自毁
+    - destructive adj. 毁灭性的；破坏性的
+    - destructible adj. 可破坏的；易被摧毁的
+    - destruction n. 毁灭；破坏 & similar=>ruin, damage
+---
+- <gdt>ob-</gdt> 对着
+    - obstruct v. 阻塞；阻碍；妨碍；阻挡 & 对着目标**建造**建造一堵墙→妨碍
+    - obstruction n. 妨碍；障碍物；阻碍；障碍
 ---
 - <gdt>in-</gdt> 向内
-    - inspect
-    - inspection
-    - inspector
+    - instruct v. 命令；指示；教授；指导 & 把知识**建造**进学生脑中→指导
+    - instruction n. 命令；指示；教授；指令；说明
+    - instructive adj. 有益的；有启发的；教育性的
+    - instructor n. 教练；讲师；教师
+    - instrument n. 乐器；工具；仪器；手段；法律文件
+    - instrumental adj. 乐器的；仪器的；有帮助的；起作用的
+    - instrumentalist n. 演奏家；演奏乐器者
 ---
-- <gdt>per-</gdt> 穿透
-    - perspective  & `per-` 穿透+spect 看→透视、视角
-    - perspicacious
-    - perspicacity
-    - perspicuous
-    - perspicuity
+- <gdt>indu-</gdt> 向内
+    - industry n. 工业；产业；勤奋；行业 & 进入**建造生产**的工业→工业
+    - industrial adj. 工业的；产业的；勤奋的
+    - industrious adj. 刻苦的；勤勉的
+    - industrialize v. （使）工业化
+    - industrialization n. 工业化；产业化
+
+
+## stinct=stingu=stimul💉
+*stinct=stingu=stimul*=刺、刺激
+
+- stimulus n. 激励因素；刺激；刺激物 & 用针**扎**你驱使你前进→刺激 复数形式：stimuli
+- stimulate v. 刺激；激励；使兴奋；促进
+- stimulation n. 刺激；激励；鼓励
+- stimulant n. 兴奋剂；刺激物 adj. 激励的
 ---
-- <gdt>con-</gdt> 完全
-    - conspicuous
-    - conspectus
+- <gdt>in-</gdt> 在内
+    - instinct n. 本能；直觉；天性 & 由内部**刺激**的驱动力→本能
+    - instinctive adj. 本能的；直觉的
+    - instinctively ad. 本能地；下意识地
+---
+- <gdt>dis-</gdt> 分开
+    - distinct adj. 明显的；有区别的；清晰的；不同的 & 用刺挑开→明显的/区分 
+    - distinctly ad. 明显地；清楚地；无疑地
+    - distinctive adj. 独特的；与众不同的；特别的
+    - distinction n. 区分；区别；优秀；荣誉 & 与众不同→优秀
+    - distinguish v. 辨别；区分；使出众；使杰出
 ---
 - <gdt>ex-</gdt> 向外
-    - expect  & 翘首以盼→期待
-    - expectant
-    - expectation
-    - unexpected
-    - unexpectedly
+    - extinguish v. 熄灭；扑灭；使消亡 & 用棍子拨散柴火，使之熄灭→熄灭
+    - extinguisher n. 灭火器；灭火者
+    - extinct adj. 灭绝的；绝种的；熄灭的
+    - extinction n. 灭绝；消亡；熄灭
+
+
+## spect=spic👁️
+*spect=spic*=看、观察（to look）
+
+- spectacle n. 奇观；眼镜；景象；场面
+- bespectacled adj. 戴眼镜的
+- spectacular adj. 壮观的；惊人的；突如其来的；公开展示的
+- spectator n. 观众；旁观者
+- spectrum n. 光谱；范围；各层次
+- spectral adj. 光谱的；鬼怪的
+- specter n. 幽灵；鬼怪
+- aspect n. 方面；模样；朝向
+- circumspect adj. 细心的；慎重的 & `circum-` 周围+spect 看→向四周**看**→谨慎的
+---
+- <gdt>in-</gdt> 向内
+    - inspect v. 检查；视察；调查
+    - inspection n. 检查；视察；审查
+    - inspector n. 检查员；视察员；巡视员
+---
+- <gdt>per-</gdt> 穿透
+    - perspective n. 观点；看法；远景；透视；前景 adj. 透视的 & `per-` 穿透+spect 看→透视、视角
+    - perspicacious adj. 有洞察力的；敏锐的
+    - perspicacity n. 敏锐；洞察力；颖悟
+    - perspicuous adj. 明白易懂的；表达清楚的；清晰明白的
+    - perspicuity n. 明晰；简明
+---
+- <gdt>con-</gdt> 完全
+    - conspicuous adj. 显著的；显眼的；显而易见的 & 完全看见了→显著的
+    - conspectus n. 概论；大纲 & 一眼完全看完所有内容的东西→大纲
+---
+- <gdt>ex-</gdt> 向外
+    - expect v. 预期；期望；要求；期待；认为 & 翘首以盼→期待
+    - expectant adj. 期待的；未来的；期望的
+    - expectation n. 期望；预期；期待
+    - unexpected adj. 想不到的；意外的；意料之外的
+    - unexpectedly ad. 意外地；出乎意料地
 ---
 - <gdt>pro-</gdt> 向前
-    - prospect  & 向前**看**→前景
-    - prospectus
-    - prospecting
-    - prospector
-    - prospective
+    - prospect n. 前景；展望；希望；前途 v. 勘探；寻找 & 向前**看**→前景
+    - prospectus n. 简章；章程；说明书；招股书
+    - prospecting n. 采矿
+    - prospector n. 勘探者；探矿者
+    - prospective adj. 预期的；未来的；可能的；潜在的
 ---
 - <gdt>re-</gdt> 再
-    - respect  & 反复**回头**看→尊重🎩
-    - respectful
-    - respectfully
-    - respectable
-    - respective
-    - respectively
-    - irrespective
-    - disrespect
+    - respect n. 方面；尊敬；尊重 v. 尊敬；尊重；遵从🫡 & 反复**回头**看→尊重🎩
+    - respectful adj. 尊重人的；有礼貌的
+    - respectfully ad. 尊敬地；有礼貌地
+    - respectable adj. 体面的；值得尊敬的；可观的；可敬的
+    - disrespect n. 不尊敬；无礼 v. 不尊重
+    - respective adj. 各自的；各个的 & 按照尊敬程度关注每个人→各个的
+    - respectively ad. 分别地；各自地
+    - irrespective adj. 不顾的；不考虑的；不论……的 & `ir-` 否定+respective 关注的=不关注的、不考虑的
 ---
 - <gdt>sus-(=sub-)</gdt> 在下
-    - suspect  & 从下往上偷偷**看**→怀疑
-    - suspicious
-    - suspicion
-    - unsuspecting
+    - suspect v. 怀疑；猜想；认为 n. 嫌疑犯 adj. 令人怀疑的 & 从下往上偷偷**看**→怀疑
+    - unsuspecting adj. 无戒备心的；毫不怀疑的；无危险意识的
+    - suspicious adj. 怀疑的；可疑的；令人怀疑的
+    - suspicion n. 怀疑；猜疑；少量；一点儿
 ---
 - <gdt>retro-</gdt> 向后
-    - retrospect
-    - retrospective
+    - retrospect [n.][v.] 回想；回溯 & 回望过去→回想
+    - retrospective adj. 回顾的；回想的 n. 回顾展
 ---
 - <gdt>intro-</gdt> 向内
-    - introspect
-    - introspection
-    - introspective
+    - introspect v. 反省；内省 & 内视自身→反省
+    - introspection n. 反省；内省
+    - introspective adj. 内省的；好反省的
 ---
-- despite
-- despise
-- despicable
-- spite
-- spiteful
-- respite
+- despise v. 鄙视；蔑视；看不起 & `de-` 向下+spise 看=俯视→看不起
+- despicable adj. 可鄙的；卑劣的 & 被人看不起的→卑劣的
+- despite prep. 尽管；不管
+- spite n. 恶意；怨恨 v. 刁难；激怒；欺负
+- spiteful adj. 恶意的；怀恨的
+- respite n. 暂停；暂时缓解；暂缓 & `re-` 再+spite 看=需要再看两眼研究研究→暂缓
 ---
-- auspicious
-- auspex  & aus(=avis 鸟)+spex 看=通过**看鸟**占卜吉凶→吉祥
-- auspices
+- auspicious adj. 吉利的；有利的 & aus(=avis 鸟)+spic 看+ious adj.=通过**看鸟**占卜→吉祥的
+- auspices n. 赞助；主办；支持
 ---
-- circumspect  & `circum-` 周围+spect 看→向四周**看**→谨慎的
-- speculate  & spec 看+`-ulate` v.=通过**观察**推断→推测
-- speculation
-- speculative
-- speculator
-- speculum
+- speculate v. 推测；投机；思索 & spec 看+`-ulate` v.=通过**观察**推断→推测
+- speculation n. 推测；投机买卖；猜测
+- speculative adj. 推测的；投机的；推理的；思索的
+- speculator n. 投机商；投机者
+- speculum n. 反射镜；扩张器
 ---
-- specimen
-- specious
-- frontispiece  & fronti 前面+spece 看=在前面供人看的图→卷首插画
+- specimen n. 标本；样品；代表
+- specious adj. 似是而非的；貌似有理的
+- frontispiece n. 卷首插画；标题页 & fronti 前面+spece 看=在前面供人看的图→卷首插画
+
+
+## sign🏷️
+*sign*=标记
+
+- sign
+- signal
+- signature
+- signatory
+- signpost
+- undersign
+- countersign
+- countersignature
+---
+- signify  & **标记**一个重要的东西→重要、意味
+- significant
+- significantly
+- insignificant
+- significance
+- significative
+- signification
+---
+- <gdt>a(d)-</gdt> 朝向
+    - assign
+    - assignment
+---
+- <gdt>con-</gdt> 一起
+    - consign  & 两个人**签署**文件共同完成移交程序
+    - consignment
+---
+- <gdt>re-</gdt> 回、返
+    - resign  & 挂印封金、将印信退回去→辞职
+    - resignation
+---
+- <gdt>de-</gdt> 向下
+    - design  & 向下**标注**图案→设计
+    - designer
+    - designate
+    - designation
+---
+- insignia  & `in-` 在上面+sign=身上的标记→徽章
+- ensign  & `en-` 使+sign=使旗帜上上被标记→船旗、国旗
 
 
 

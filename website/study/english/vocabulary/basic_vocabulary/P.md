@@ -270,6 +270,7 @@ word: true
 ---
 - partake v. 参与；分享；分担 & park+take=取得一部分→参与/分享
 - impart v. 传授；给予；告知 & `im-` 向内+part 部分=把一部分“放入”对方→传授
+- counterpart n. 副本；职位相当的人；对应的事物 & `counter-` 相反+part 部分=相反、相对的部分→副本、对应的事物
 - partition n. 分割；划分；隔离物 v. 隔开
 ---
 - partner n. 配偶；合伙人；伙伴；搭档 v. 配对 & 共享同一部分的人→伙伴
@@ -316,7 +317,6 @@ word: true
 - <gdt>com-</gdt> 一起
     - compartment n. 隔间；车厢 v. 分隔 & 将整体分成若干部分→隔间/对应物
     - compartmentalize v. 划分；分隔
-    - counterpart n. 副本；职位相当的人；对应的事物
 ---
 - bipartite adj. 双边的；双方的
 - tripartite adj. 分为三部分的；涉及三方的
@@ -482,8 +482,8 @@ word: true
 - reprimand v. 斥责；训斥 n. 谴责 & 再次压制
 
 
-## pung=punct=point💉
-*pung=punct=point*=点、尖、刺🗡
+## pung=punct=point
+*pung=punct=point*=点、尖、刺
 
 1. 点
 - point n. 观点；分数；点；要点；条款 v. 指出；指向；瞄准
@@ -505,7 +505,7 @@ word: true
 - punctilio n. 细节；拘泥形式 & 细节是一个个细微点
 - punctilious adj. 谨小慎微的；一丝不苟的
 
-2. 刺、尖
+2. 刺、尖🗡
 - puncture v. 刺穿；削弱 n. 刺孔；刺穿；小孔
 - acupuncture v. 对……施行针灸 n. 针灸疗法 & `ac(u)-` 尖锐+puncture 刺穿=用尖锐东西（针）刺穿皮肤→针灸
 - acupuncturist n. 针灸大夫
