@@ -23,6 +23,7 @@ declare module 'vue' {
     'Fe:youtube': typeof import('~icons/fe/youtube')['default']
     FontSettingsPlugin: typeof import('./theme/components/FontSettingsPlugin.vue')['default']
     Gdt: typeof import('./theme/components/gdt.vue')['default']
+    HomeUnderline: typeof import('./theme/components/HomeUnderline.vue')['default']
     Interval: typeof import('./theme/components/interval.vue')['default']
     'Logos:reactQueryIcon': typeof import('~icons/logos/react-query-icon')['default']
     MarkerText: typeof import('./theme/components/MarkerText.vue')['default']

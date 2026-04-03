@@ -388,7 +388,7 @@ word: true
 - rampart n. 防御土墙；城墙；壁垒 & `r(e)-` 再+`am-`(=en- 进入)+part 准备=再次投入准备防御
 
 2. 显现
-- <gdt>a(b)-</gdt> 朝向
+- <gdt>a(d)-</gdt> 朝向
     - appear v. 出现；显得；似乎；出场；问世
     - appearance n. 出现；外表；外观；露面
     - apparent adj. 表面上的；显然的；明显的；貌似的
@@ -1075,59 +1075,6 @@ word: true
 - petroleum n. 石油🛢️
 - petrol n. 汽油 & similar=>gasoline【美】
 - petroliferous adj. 产石油的；含油的
-
-
-## son=sound
-*son=sound*=声音、发音
-
-1. 声音
-- sonic adj. 声波的；声音的
-- supersonic adj. 超音速的 n. 超声波
-- ultrasonic adj. 超声的 n. 超声波
-- ultrasound n. 超声波
-- infrasonic adj. 次声的
-- infrasound n. 次声
-- hypersonic adj. 高超音速的
-- sonorous adj. 深沉响亮的；洪亮的
-- sonogram n. 声波图
----
-- <gdt>re-</gdt> 再
-    - resonate v. 共振；共鸣；产生深远影响
-    - resonant adj. 洪亮的；共振的；回响的
-    - resonance n. 共振；共鸣；反响
-    - resound v. 回响；被传颂；回荡着声音
----
-- consonant n. 福音；辅音字母 adj. 一致的
-- consonance n. 协调；一致 & 共同的声音一致
-- dissonant adj. 不和谐的；嘈杂的
-- dissonance n. 不一致；不和谐；失调
-- assonance n. 半谐音；类韵
-- unison n. 一致；齐唱；调和
-- sonata n. 奏鸣曲
-- sonnet n. 十四行诗
-- sound n. 声音；声响 v. 响；听起来 adj. 健全的；完好的；合理的；可靠的
-- soundtrack n. 声道；电影配乐；声带
-- soundproof adj. 隔音的 v. 使隔音
-
-2. 人
-- person n. 人；人物；喜欢……的人 & per 穿过+son 声音=声音穿过面具传出→角色、人
-- personal adj. 个人的；私人的；亲自的
-- personally ad. 亲自地；就个人而言地
-- personality n. 个性；名人；人格；性格
-- personable adj. 有魅力的；英俊的；貌美的
-- personage n. 名人；人物；角色
-- personify v. 拟人化；体现；是……的典型
-- personification n. 典型；拟人化
-- impersonal adj. 客观的；没有人情味的；冷淡的
-- impersonate v. 假扮；模仿
-- impersonation n. 模仿；冒充；扮演
-- interpersonal adj. 人与人之间的；人际关系的
-- personnel n. 全体人员；人事部门；职员
-- layperson n. 外行人
-- chairperson n. 主席；董事长；议长
-- salesperson n. 售货员；推销员
-- spokesperson n. 发言人
-- persona n. 人物角色；人格面具；假面；伪装人格
 
 
 ## plan=plain

@@ -1,12 +1,12 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+layoutClass: "qind-home-layout"
 
 hero:
   name: "琴殿博客"
   text: "个人笔记网站"
   # tagline: 千里之行，始于足下
-  # tagline: 君子藏器于身，待时而动
   image:
     src: /img/index.png
     alt: index image
@@ -53,3 +53,5 @@ features:
 * [11月<ArchiveCount month="11" />](/others/archive#_11月) 
 
 </div>
+
+<HomeUnderline />

@@ -348,6 +348,7 @@ word: true
 ---
 - <gdt>con-</gdt> 完全
     - conspicuous adj. 显著的；显眼的；显而易见的 & 完全看见了→显著的
+    - inconspicuous adj. 不起眼的；不引人注目的
     - conspectus n. 概论；大纲 & 一眼完全看完所有内容的东西→大纲
 ---
 - <gdt>ex-</gdt> 向外
@@ -413,43 +414,313 @@ word: true
 ## sign🏷️
 *sign*=标记
 
-- sign
-- signal
-- signature
-- signatory
-- signpost
-- undersign
-- countersign
-- countersignature
+- sign n. 符号；迹象；征兆；标志；标记 v. 签名
+- signal n. 信号；标志；暗号 v. 表示；表明；用信号通知
+- signature n. 签名
+- signatory n. 签约国；签署方；签名人
+- signpost n. 路标；标志 adj. 标志性的
+- undersigned adj. 签字的；签过字的
+- countersign v. 会签；副署；对签 & 对照签名→会签
+- counter-signature n. 副署；副签名
 ---
-- signify  & **标记**一个重要的东西→重要、意味
-- significant
-- significantly
-- insignificant
-- significance
-- significative
-- signification
+- signify v. 表示；要紧；象征；预示；有重要性 & **标记**一个重要的东西→重要、意味
+- significant adj. 有意义的；显著的；重大的；重要的
+- significantly ad. 意味深长地；极大地；显著地
+- insignificant adj. 不重要的；无关紧要的；微不足道的
+- significance n. 重要性；意义；含义
+- significative adj. 有意义的；表示……的；为……提供证据的
+- signification n. 意义；含义
 ---
 - <gdt>a(d)-</gdt> 朝向
-    - assign
-    - assignment
+    - assign v. 分配；指派；指定；布置
+    - assignment n. 任务；分配；作业；指派
 ---
 - <gdt>con-</gdt> 一起
-    - consign  & 两个人**签署**文件共同完成移交程序
-    - consignment
+    - consign v. 交付；委托；托运；寄售 & 两个人**签署**文件共同完成移交程序
+    - consignment n. 委托；寄售；托付
 ---
 - <gdt>re-</gdt> 回、返
-    - resign  & 挂印封金、将印信退回去→辞职
-    - resignation
+    - resign v. 辞职；顺从；甘心于；放弃 & 挂印封金、将印信退回去→辞职
+    - resignation n. 辞职；顺从；辞呈；屈从
 ---
 - <gdt>de-</gdt> 向下
-    - design  & 向下**标注**图案→设计
-    - designer
-    - designate
-    - designation
+    - design v. 设计；构思；计划 n. 设计；图案；企图 & 向下**标注**图案→设计
+    - designer n. 构思者；设计者 adj. 名牌的
+    - designate v. 指定；标明；指派；指明
+    - designation n. 指定；称号；名称；指明
 ---
-- insignia  & `in-` 在上面+sign=身上的标记→徽章
-- ensign  & `en-` 使+sign=使旗帜上上被标记→船旗、国旗
+- insignia n. 徽章；标志；证章 & `in-` 在上面+sign=身上的标记→徽章
+- ensign n. 海军少尉；国旗；船旗🏳️‍🌈 & `en-` 使+sign=使旗帜上上被标记→船旗、国旗
+
+
+## sect=sec=seg🔪
+*sect=sec=seg*=切开
+
+
+## sent=sens✋🏻
+*sent=sens*=感觉
+
+1. 感觉、感官
+- sense n. 意义；感觉；理解力；知觉；感知 v. 意识到；感觉到；觉察出
+- senseless adj. 无意义的；不明智的；无目的的；失去知觉
+- nonsense n. 胡说；谬论；无意义的话
+- nonsensical adj. 荒谬的；无意义的
+- commonsense n. 常识 adj. 有常识的；符合常理的
+- insensate adj. 无情的；无知觉的；愚钝的；无感情的
+---
+- sensation n. 感觉；轰动；知觉；激动
+- sensational adj. 轰动的；耸人听闻的；极好的；使人感动的
+- sensor n. 传感器；敏感元件
+- sensory adj. 感觉的；感官的；知觉的
+- extrasensory adj. 超感官的
+- sensual adj. 感官的；肉欲的；愉悦感官的；性感的
+- sensuous adj. 性感的；感觉上的；感官的；美感的
+---
+- sentient adj. 有知觉的；有感觉力的
+- insentient adj. 无知觉的；一知半解的；无感觉的
+- sentinel/sentry n. 哨兵；卫兵；岗哨 & 负责**感觉**危险的人→哨兵
+---
+- scent n. 香味；香水；气息 v. 嗅出；觉察出；使充满气味
+- unscented adj. 无气味的
+---
+- sentence n. 句子；判决 v. 判决；判刑
+- sententious adj. 说教的；富于警句的
+
+2. 敏感
+- sensible adj. 明智的；合理的；可觉察的；有判断力的
+- insensible adj. 未察觉的；无感觉的；意识不到的
+- sensibility n. 敏感性；感情；感受力
+- sensitive adj. 敏感的；体贴的；善解人意的；灵敏的
+- sensitivity n. 敏感性；灵敏度；体贴；感受性
+- hypersensitive adj. 过敏的；过分敏感的；易受冒犯的
+- photosensitive adj. 光敏的；感光的
+- sensitize v. 使敏感；使意识到；使感光
+- sensitization n. 致敏；敏感化
+- desensitize v. 使不敏感；使麻木；脱敏
+
+3. 情感
+- sentiment n. 情感；观点；感情；看法 & 内心**感觉**到的情绪→情感/感伤
+- sentimental adj. 多愁善感的；感情的；感伤的
+- sentimentalize v. 多愁善感；使感伤
+- sentimentalism n. 感伤主义；感情用事
+- presentiment n. 预感；不祥之感
+---
+- resent v. 怨恨；厌恶；愤恨
+- resentful adj. 怨恨的；愤概的
+- resentment n. 怨恨；愤恨
+
+4. 同意
+- assent [v.][n.] 同意；赞成 & 大家的感受都是一样的→同意
+- consent [n.][v.] 同意；允许
+- consensus n. 共识；一致
+- dissent v. 不同意 n. 异议；不同意见
+- dissension n. 意见分歧；纠纷；争执
+
+
+## son=sound🔊
+*son=sound*=声音、发音
+
+1. 声音
+- sonic adj. 声波的；声音的
+- supersonic adj. 超音速的 n. 超声波
+- ultrasonic adj. 超声的 n. 超声波
+- ultrasound n. 超声波
+- infrasonic adj. 次声的
+- infrasound n. 次声
+- hypersonic adj. 高超音速的
+- sonorous adj. 深沉响亮的；洪亮的
+- sonogram n. 声波图
+---
+- <gdt>re-</gdt> 再
+    - resonate v. 共振；共鸣；产生深远影响
+    - resonant adj. 洪亮的；共振的；回响的
+    - resonance n. 共振；共鸣；反响
+    - resound v. 回响；被传颂；回荡着声音
+---
+- consonant n. 福音；辅音字母 adj. 一致的
+- consonance n. 协调；一致 & 共同的声音一致
+- dissonant adj. 不和谐的；嘈杂的
+- dissonance n. 不一致；不和谐；失调
+- assonance n. 半谐音；类韵
+- unison n. 一致；齐唱；调和
+- sonata n. 奏鸣曲
+- sonnet n. 十四行诗
+- sound n. 声音；声响 v. 响；听起来 adj. 健全的；完好的；合理的；可靠的
+- soundtrack n. 声道；电影配乐；声带
+- soundproof adj. 隔音的 v. 使隔音
+
+2. 人
+- person n. 人；人物；喜欢……的人 & per 穿过+son 声音=声音穿过面具传出→角色、人
+- personal adj. 个人的；私人的；亲自的
+- personally ad. 亲自地；就个人而言地
+- personality n. 个性；名人；人格；性格
+- personable adj. 有魅力的；英俊的；貌美的
+- personage n. 名人；人物；角色
+- personify v. 拟人化；体现；是……的典型
+- personification n. 典型；拟人化
+- impersonal adj. 客观的；没有人情味的；冷淡的
+- impersonate v. 假扮；模仿
+- impersonation n. 模仿；冒充；扮演
+- interpersonal adj. 人与人之间的；人际关系的
+- personnel n. 全体人员；人事部门；职员
+- layperson n. 外行人
+- chairperson n. 主席；董事长；议长
+- salesperson n. 售货员；推销员
+- spokesperson n. 发言人
+- persona n. 人物角色；人格面具；假面；伪装人格
+
+
+## serv🛎️
+*serv*=保护、服务
+
+1. 服务
+- serve v. 服务；服役；接待；供职；满足……需要；上菜
+- servant n. 仆人；用人；雇员
+- service n. 服务；帮助；公共设施；维修 v. 保养；维修
+- serviceable adj. 耐用的；能用的；有用的
+- servile adj. 奴隶的；逢迎的；屈从的 & 像奴隶一样服务→卑屈奉承
+- servitude n. 奴役；苦役；奴隶状态
+- subservient adj. 次要的；恭顺的；从属的
+- serf n. 农奴；奴隶
+- serfdom n. 农奴制；农奴身份；奴役
+- deserve v. 值得；应得；应受 & `de-` 加强+serve 服务=完全付出服务后→应得/值得
+---
+- <gdt>ob-</gdt> 面对
+    - observe v. 观察；注意到；评论；遵守；庆祝 & 面对**服务**对象→观察、遵从
+    - observer n. 观察员；观测者；遵守者
+    - observation n. 观察；监视；观测；评论；言论
+    - observatory n. 天文台；气象台
+    - observant adj. 观察力敏锐的；严格遵守的；警惕的
+    - observance n. 遵守；庆祝；奉行
+
+2. 保护、保存
+- <gdt>re-</gdt> 再
+    - reserve v. 保留；预订；储备 n. 储备；保护区；保留；候补 & `re-` 再+serve 保存=把东西**保存**起来→保留、储备
+    - unreserved adj. 未被预定的；无保留的；不隐瞒的
+    - reservation n. 保留；预定；保护区；预约
+    - reservoir n. 水库；蓄水池；储藏
+---
+- <gdt>pre-</gdt> 提前
+    - preserve v. 保持；保护；保存 n. （某群体）专门领域
+    - preservation n. 保护；维持；保存
+    - preservative n. 防腐剂；保护剂 adj. 有保护性的
+---
+- <gdt>con-</gdt> 完全
+    - conserve v. 保护；保存；节约 n. 果酱；蜜饯
+    - conservation n. 保护；保存；节约
+    - conservationist n. 环保主义者
+    - conservative adj. 保守的；守旧的 n. 保守主义者；守旧派
+    - conservatism n. 保存主义；守旧性
+    - conservatory n. 温室；音乐学院；艺术学院 & 保存音乐/植物的地位→音乐学院/温室
+
+
+## sed=sid=sess🪑
+*sed=sid=sess*=坐（to sit）
+
+- possess v. 拥有；控制；占有；具有
+- possessive adj. 占有欲强的；不愿分享的 n. 所有格
+- possession n. 拥有；财产；所有权；所有物；占有
+- prepossess v. 预先占有；使全神贯注；使……有偏见；预先灌输情感
+- prepossessing adj. 令人喜爱的
+- unprepossessing adj. 不起眼的；不吸引人的；不讨人喜欢的
+- session n. 会议；一段时间；开庭；学期；会期
+---
+- <gdt>a(d)-</gdt> 朝向
+    - assess v. 评估；评价；估算 & 坐在旁边→法官助手帮忙计算判罚金额→估价
+    - assessment n. 评估；评定；估计；评价
+    - assessable adj. 可估价的；可征收的；可评估的
+    - assessor n. 估价员；评估员
+    - reassess v. 重新考虑；再次估价
+---
+- <gdt>ob-</gdt> 对面
+    - obsess v. 使着迷；使困扰；使痴迷 & 坐在对面移不开脚步了→迷恋
+    - obsessed adj. 着迷的；困扰的
+    - obsession n. 困扰；痴迷；着魔；着迷
+    - obsessive adj. 着迷的；强迫性的；急迫的；过度的
+---
+- <gdt>re-</gdt> 回
+    - reside v. 居住；属于；存在 & 坐回去→居住
+    - resident adj. 居住的；常驻的 n. 居民；长期居民
+    - residence n. 居住；住所；定居；居住权
+    - residential adj. 住所的
+    - residue n. 残渣；剩余物；残留物
+    - residual adj. 剩余的；残留的 n. 残差
+---
+- <gdt>sub-</gdt> 下面
+    - subside v. 平息；消退；下陷 & 坐下！→平息
+    - subsidy n. 津贴；补贴金；补贴 & 给钱才能平息→补贴
+    - subsidize v. 资助；以津贴补助；助长
+    - subsidiary adj. 辅助的；附属的；次要的 n. 附属事物 & 坐在下面的→附属的
+---
+- <gdt>pre-</gdt> 在前面
+    - preside v. 主持；领导；指挥；担任会议主席 & 坐在前面→主持、领导
+    - presider n. 主席；主持人 v. 掌管
+    - president n. 总统；校长；总裁
+    - presidential adj. 总统的；总统制的
+    - presidency n. 总统职位；总统任期
+---
+- sedate v. 给……服镇静剂 adj. 安静的；安详的；镇静的
+- sedately ad. 安静地；慢悠悠地
+- sedative adj. 镇静的 n. 镇静剂；止痛药
+- sedan n. 轿车；轿子；人名
+---
+- sediment n. 沉淀物；沉积物
+- sedimentary adj. 沉积的；沉淀性的
+- sedentary adj. 需要久坐的；不爱活动的
+---
+- assiduous adj. 勤勉的；刻苦的；一丝不苟的
+- dissident n. 持不同政见者；意见不同的人 adj. 持不同意见的
+- insidious adj. 阴险的；暗中为害的；潜伏的
+- supersede v. 取代；代替 & `super-` 在上面+sede 坐=坐在别人身上→取代
+
+
+## sider=sir🌟
+*sider=sir*=星
+
+- <gdt>con-</gdt> 一起
+    - consider v. 认为；考虑；体谅；细想；把……看作 & `con-` 一起+sider 星=一起观星以测吉凶→考虑
+    - reconsider v. 重新考虑；重新审议
+    - considerable adj. 相当大的；重要的；可观的
+    - considerably ad. 相当地；大幅度地；很大地
+    - considerate adj. 体贴的；考虑周到的
+    - considering prep. 考虑到；鉴于；就……而言
+    - consideration n. 考虑；体贴；报酬
+---
+- desideratum n. 想要的东西；需要的东西
+- sidereal adj. 恒星的
+---
+- <gdt>de-</gdt> 向下
+    - desire v. 渴望 n. 欲望；愿望；渴望 & `de-` 向下+sire 星=看到星星低头许愿→愿望、渴望
+    - desirous adj. 渴望的；想要的
+    - desirable adj. 可取的；值得拥有的；令人渴望的；合意的
+    - undesirable adj. 不想要的；不良的；不合意的；令人讨厌的
+
+
+## sum=sumpt
+*sum=sumpt*=拿、获得
+
+- <gdt>a(d)-</gdt> 朝向
+    - assume v. 承担；呈现；假定；认为；假设
+    - assumption n. 承担；假定；假设；设想
+    - unassuming conj. 假定；假如 adj. 傲慢的
+---
+- <gdt>pre-</gdt> 提前
+    - presume v. 假设；冒昧；假定；推测；设想
+    - presumption n. 假定；冒昧；放肆；推定
+    - presumptuous adj. 放肆的；冒昧的；自以为是的；专横的
+    - presumable adj. 可能的；可推测的
+    - presumably ad. 大概；推测起来；可能
+---
+- <gdt>con-</gdt> 完全
+    - consume v. 消耗；消费；充满；毁掉；沉迷；耗尽 & 超市打折统统**拿走**→消费
+    - consumer n. 消费者；顾客
+    - consumable n. 消耗品；消费品 adj. 可消费的；可消耗的
+    - consumption n. 消费；消耗；肺结核；肺病
+---
+- resume v. 重新开始；继续；恢复 n. 简历 & `re-` 再+sume 拿=再次**取**回→重新开始
+- subsume v. 将……归入；将……纳入；包括 & `sub-` 下面+sume 拿=将手底下的东西**捞**起来→包括
+- sumptuous adj. 华丽的；奢侈的；豪华的 & 看上什么就**拿**什么→奢侈的
+- scrumptious adj. 美味的；可口的 & sumptuous=>scrumptious：**华丽的**食物→美味的
 
 
 
@@ -457,3 +728,8 @@ word: true
 - struggle [v.][n.] 斗争；奋斗
 - straightforward adj. 简单的；坦率的；正直的 ad. 坦率地
 - system n. 系统；体系；制度；体制
+- summary
+- solar
+- soldier
+- solo
+

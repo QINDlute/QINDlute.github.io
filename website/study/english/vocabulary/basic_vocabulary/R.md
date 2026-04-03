@@ -216,35 +216,6 @@ word: true
 - surreptitious adj. 秘密的；偷偷摸摸的；鬼鬼祟祟的 & `sur-` 在下+rept 抢夺+`-ious` adj.=在暗处悄悄抢夺→鬼鬼祟祟的
 
 
-## gard=guard=ward💂🏻
-*gard=guard=ward*=看管、守卫、注意
-
-1. 看管
-- ward n. 病房；行政区；选区 v. 监护；守护；挡住
-- warden n. 监狱长；看守人；督察员
-- warder n. 监狱看守；守卫
-- wardrobe n. 衣柜；衣橱；行头 & ward 看管+robe 衣服=看管衣物的地方→衣柜
-- award v. 授予；颁奖；裁定 n. 奖品；裁定；奖学金 & `a-` 朝向+ward 看管→看管任务完成后给予奖励
-- reward n. 报酬；奖励 v. 奖励；回报；奖赏
-- steward n. 乘务员；管家；守护者；保护者
-- stewardess n. 女乘务员；空姐
-- stewardship n. 管理工作；管理
-
-2. 注意
-- regard v. 注视；认为；看待；凝视 n. 尊敬；问候；关心 & `re-` 再+gard 注意=反复注意看→注视、尊重
-- regarding prep. 关于；至于 v. 认为；看待
-- regardless adj. 不注意的；不顾的 ad. 不顾；不加理会
-- disregard \[v.]\[n.] 忽视；漠视
-
-3. 守卫
-- guard n.警卫；保卫 v. 守卫；警戒；防范
-- guardian n. 监护人；捍卫者；保护者
-- unguarded adj. 无防卫的；不谨慎的；无人守护的
-- vanguard n. 前锋；先驱；先头部队
-- bodyguard n. 保镖
-- safeguard v. 保护；维护；捍卫 n. 保护措施
-
-
 ## 其他
 - eradicate v. 根除；消灭；灭绝
 - eradication n. 根除；消灭；连根拔除

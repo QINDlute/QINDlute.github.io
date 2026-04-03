@@ -8,7 +8,7 @@
 4. 动词强化（无实义）
 
 ### ad- <badge type="green">assimilation</badge>
-ad-：拉丁前缀，意为“向、朝”（to, towards）
+ad-：拉丁前缀，意为“向、朝、去（做）”（to, towards）
 
 其遵循**音位同化(assimilation)** 规则，`ad-`中的字母`d`会改变，以匹配词根的第一个字母。
 
@@ -120,7 +120,7 @@ ne-：否定（not），变体有`neg-`
 ## O
 ### ob- <badge type="green">assimilation</badge>
 1. 反对、对抗、相对（against, opposing）
-2. 对着、面对、阻碍（toward, facing, blocking）
+2. 对着、面对、对面、阻碍（toward, facing, blocking）
 3. 加强语气
 
 
