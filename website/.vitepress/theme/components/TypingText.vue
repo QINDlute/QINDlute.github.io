@@ -54,26 +54,32 @@ const props = defineProps({
 // 响应式数据
 const displayText = ref('');
 const isDeleting = ref(false);
-const index = ref(0);
+// 使用展开运算符正确处理包括表情在内的 Unicode 字符
+const chars = [...props.text];
+let index = 0;
 let timeoutId: number | null = null;
 
 // 打字动画函数
 function typeText() {
   if (isDeleting.value) {
-    displayText.value = props.text.substring(0, index.value);
-    index.value--;
+    // 使用 slice 正确处理字符数组
+    displayText.value = chars.slice(0, index).join('');
+    index--;
     
-    if (index.value < 0) {
+    if (index < 0) {
       isDeleting.value = false;
+      displayText.value = ''; // 重置为空，避免闪烁
+      index = 0;
       timeoutId = window.setTimeout(typeText, props.delayBeforeTypingAgain);
     } else {
       timeoutId = window.setTimeout(typeText, props.speed / 2); // 删除时更快
     }
   } else {
-    displayText.value = props.text.substring(0, index.value);
-    index.value++;
+    // 使用 slice 正确处理字符数组
+    displayText.value = chars.slice(0, index).join('');
+    index++;
     
-    if (index.value > props.text.length) {
+    if (index > chars.length) {
       isDeleting.value = true;
       timeoutId = window.setTimeout(typeText, props.delayBeforeDeleting);
     } else {
