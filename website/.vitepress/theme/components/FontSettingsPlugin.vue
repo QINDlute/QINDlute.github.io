@@ -4,6 +4,13 @@ import { ref, onMounted, onUnmounted, watch } from 'vue'
 // 字体大小等级映射（五个等级：0-4）
 const fontSizeLevels = [12, 14, 16, 18, 20] // 对应等级0-4的像素值
 
+// 判断是否为移动端
+const isMobile = ref(false)
+const checkIsMobile = () => {
+  if (typeof window === 'undefined') return false
+  return window.innerWidth <= 768
+}
+
 // 核心：在setup函数顶层直接读取localStorage，初始化响应式数据，避免默认值闪烁
 
 // 字体大小等级初始化
@@ -135,6 +142,20 @@ const closeDropdown = () => {
   isDropdownOpen.value = false
 }
 
+// 处理鼠标进入 - 仅在非移动端
+const handleMouseEnter = () => {
+  if (!isMobile.value) {
+    isDropdownOpen.value = true
+  }
+}
+
+// 处理鼠标离开 - 仅在非移动端
+const handleMouseLeave = () => {
+  if (!isMobile.value) {
+    isDropdownOpen.value = false
+  }
+}
+
 // 点击外部关闭下拉菜单
 const handleClickOutside = (event: MouseEvent) => {
   if (isDropdownOpen.value && dropdownRef.value) {
@@ -147,6 +168,15 @@ const handleClickOutside = (event: MouseEvent) => {
       }
     }
   }
+}
+
+// 窗口大小变化处理
+let resizeTimer: ReturnType<typeof setTimeout> | null = null
+const handleResize = () => {
+  if (resizeTimer) clearTimeout(resizeTimer)
+  resizeTimer = setTimeout(() => {
+    isMobile.value = checkIsMobile()
+  }, 100)
 }
 
 // 组件初始化时应用所有设置
@@ -178,11 +208,17 @@ onMounted(() => {
     document.head.appendChild(link)
   }
 
+  // 初始化移动端检测
+  isMobile.value = checkIsMobile()
+
   // 初始化设置
   initSettings()
 
   // 添加点击外部关闭下拉菜单的事件监听器
   document.addEventListener('click', handleClickOutside)
+
+  // 添加窗口大小变化监听
+  window.addEventListener('resize', handleResize)
 })
 
 // 监听字体大小变化，写入localStorage
@@ -222,6 +258,8 @@ watch(theme, (newValue) => {
 // 组件卸载时移除所有事件监听器
 onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside)
+  window.removeEventListener('resize', handleResize)
+  if (resizeTimer) clearTimeout(resizeTimer)
 })
 </script>
 
@@ -229,14 +267,14 @@ onUnmounted(() => {
   <!-- 字体设置组件 -->
   <div 
     class="font-settings-container"
-    @mouseleave="isDropdownOpen = false"
+    @mouseleave="handleMouseLeave"
   >
     <!-- 字体设置按钮 -->
     <button 
       class="btn toggle-dropdown" 
       aria-label="Font Settings" 
       @click="toggleDropdown"
-      @mouseenter="isDropdownOpen = true"
+      @mouseenter="handleMouseEnter"
     >
       <i class="fa fa-font"></i>
     </button>
@@ -245,8 +283,8 @@ onUnmounted(() => {
       v-if="isDropdownOpen" 
       ref="dropdownRef" 
       class="font-settings-dropdown"
-      @mouseenter="isDropdownOpen = true"
-      @mouseleave="isDropdownOpen = false"
+      @mouseenter="handleMouseEnter"
+      @mouseleave="handleMouseLeave"
     >
       <div class="dropdown-caret">
         <span class="caret-outer"></span>
@@ -563,22 +601,23 @@ onUnmounted(() => {
     font-size: 14px;
   }
   
-  /* 优化下拉菜单样式 */
+  /* 优化下拉菜单样式 - 参考 fsp.vue */
   .font-settings-dropdown {
-    width: 120px; /* 调整宽度，适合更小的按钮 */
+    width: 120px;
     min-width: 110px;
     padding: 4px;
-    margin-top: 0;
-    left: 50%; /* 居中显示 */
+    margin-top: 4px;
+    left: 50%;
     right: auto;
-    transform: translateX(-50%); /* 水平居中 */
-    top: 100%; /* 紧贴按钮底部 */
-    background-color: rgba(var(--vp-c-bg-rgb), 0.8); /* 更高的背景透明度，提高可读性 */
-    transition: all 0.2s ease; /* 增加过渡效果 */
+    transform: translateX(-50%);
+    top: 127%;
+    background-color: rgba(var(--vp-c-bg-rgb), 0.8);
+    transition: all 0.2s ease;
   }
   
   /* 调整下拉菜单箭头位置 */
   .dropdown-caret {
+    display: block;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
@@ -602,28 +641,26 @@ onUnmounted(() => {
   
   /* 调整按钮组样式：靠左排列 + 减小间距 */
   .buttons {
-    gap: 6px; /* 减小间距 */
-    justify-content: flex-start; /* 靠左排列 */
+    gap: 6px;
+    justify-content: flex-start;
   }
   
   /* 调整字体大小调整按钮样式，减小尺寸 */
   .dropdown-section:nth-child(1) .button {
-    font-size: 11px; /* 减小字体大小 */
-    padding: 6px 8px; /* 减小内边距 */
+    font-size: 11px;
+    padding: 6px 8px;
   }
   
   /* 优化字体类型按钮样式，减小尺寸 */
   .dropdown-section:nth-child(2) .button {
-    font-size: 11px; /* 减小字体大小 */
-    padding: 6px 8px; /* 减小内边距 */
+    font-size: 11px;
+    padding: 6px 8px;
   }
   
   /* 优化主题切换按钮样式，确保与其他按钮大小一致 */
   .dropdown-section:nth-child(3) .button {
-    font-size: 10px; /* 更小的字体 */
-    padding: 6px 6px; /* 更小的内边距 */
+    font-size: 10px;
+    padding: 6px 6px;
   }
-  
-
 }
 </style>
