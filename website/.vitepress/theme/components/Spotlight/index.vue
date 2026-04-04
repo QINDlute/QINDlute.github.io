@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, watch, computed } from "vue";
+import { ref, watch, computed, onMounted } from "vue";
 import { useData, useRoute } from "vitepress";
 import SpotlightHover from "./components/SpotlightHover.vue";
+import ClientOnly from "../ClientOnly.vue";
 
 const { frontmatter } = useData();
 const route = useRoute();
@@ -71,11 +72,16 @@ watch(
 );
 
 // 检查是否支持触摸设备
+const supportTouch = ref(false);
+
 const isTouchDevice = () => {
+  if (typeof window === 'undefined') return false;
   return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
 };
 
-const supportTouch = ref(isTouchDevice());
+onMounted(() => {
+  supportTouch.value = isTouchDevice();
+});
 
 // 计算最终是否启用 spotlight
 const isEnabled = computed(() => {
@@ -84,9 +90,11 @@ const isEnabled = computed(() => {
 </script>
 
 <template>
-  <SpotlightHover 
-    v-if="isEnabled" 
-    :enabled="isEnabled" 
-    :mode="spotlightMode"
-  />
+  <ClientOnly>
+    <SpotlightHover 
+      v-if="isEnabled" 
+      :enabled="isEnabled" 
+      :mode="spotlightMode"
+    />
+  </ClientOnly>
 </template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 import { useRoute } from "vitepress";
 
 const props = defineProps<{ enabled: boolean; mode?: 'aside' | 'under' }>();
@@ -11,6 +11,10 @@ const highlightedElement = ref<HTMLElement>();
 
 const mousePosition = ref<{ x: number; y: number }>({ x: -1, y: -1 });
 const currentMode = ref(props.mode || 'aside');
+
+// 事件监听器引用，用于 cleanup
+let mousemoveHandler: ((event: MouseEvent) => void) | null = null;
+let scrollHandler: (() => void) | null = null;
 
 const computeBoxStyles = (bounding: { height: number; left: number; top: number; width: number }) => {
   return {
@@ -117,18 +121,29 @@ const watchHandler = () => {
   }
 };
 
-// 监听鼠标移动
-if (typeof window !== 'undefined') {
-  window.addEventListener('mousemove', (event: MouseEvent) => {
-    mousePosition.value = { x: event.clientX, y: event.clientY };
-  });
-
-  window.addEventListener('scroll', watchHandler, true);
-}
-
 onMounted(() => {
-  if (typeof window !== 'undefined') {
-    vpDocElement.value = document.querySelector(".VPDoc main .vp-doc") as HTMLElement;
+  if (typeof window === 'undefined') return;
+
+  // 初始化 DOM 元素
+  vpDocElement.value = document.querySelector(".VPDoc main .vp-doc") as HTMLElement;
+
+  // 绑定事件监听器
+  mousemoveHandler = (event: MouseEvent) => {
+    mousePosition.value = { x: event.clientX, y: event.clientY };
+  };
+  window.addEventListener('mousemove', mousemoveHandler);
+
+  scrollHandler = watchHandler;
+  window.addEventListener('scroll', scrollHandler, true);
+});
+
+onUnmounted(() => {
+  // 清理事件监听器
+  if (mousemoveHandler) {
+    window.removeEventListener('mousemove', mousemoveHandler);
+  }
+  if (scrollHandler) {
+    window.removeEventListener('scroll', scrollHandler, true);
   }
 });
 
