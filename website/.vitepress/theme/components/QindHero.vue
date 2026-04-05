@@ -5,7 +5,7 @@ import TypingText from './TypingText.vue'
 const customTaglines = [
   '千里之行，始于足下',
   '君子藏器于身，待时而动',
-  '花道两别终有日，可笑草木攀新桕🌸',
+  '花道两别终有日，可笑草木攀新桕',
   '雪肤乌发红唇，鸿雁从此生',
 ]
 

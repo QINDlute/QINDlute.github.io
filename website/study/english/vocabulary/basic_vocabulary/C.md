@@ -544,3 +544,4 @@ crit=判断、评判
 - check [n.][v.] 核对；抑制
 - combine v. 使结合 <interval>`com-`+bine=共同+捆绑</interval>
 - quash v. 撤销；宣布无效；平息
+- calendar n. 日历；日程表；月历

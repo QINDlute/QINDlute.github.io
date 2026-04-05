@@ -321,7 +321,7 @@ word: true
     - extinction n. 灭绝；消亡；熄灭
 
 
-## spect=spic👁️
+## spect=spic👀
 *spect=spic*=看、观察（to look）
 
 - spectacle n. 奇观；眼镜；景象；场面
@@ -411,6 +411,44 @@ word: true
 - frontispiece n. 卷首插画；标题页 & fronti 前面+spece 看=在前面供人看的图→卷首插画
 
 
+## spec🐾
+*spec*=种类
+>: 看到的外观形态→种类
+
+- species n. 物种；种类
+- subspecies n. 亚种
+- spice n. 香料；调味品；趣味
+- spicy adj. 下流的；辛辣的；有刺激性的；有趣味的
+---
+- special adj. 特殊的；特别的；专门的 n. 特价；特色菜；特派员 & 某一种类中独特的→特别的
+- specialize v. 专门研究；专政；专门从事
+- speciality/specialty n. 专业；特产；专长；特性
+- specially ad. 专门地；特别地；尤其
+- specialist n. 专家；专科医生
+- nonspecialist n. 非专业人士
+- especial adj. 特别的；特殊的
+- especially ad. 尤其；特别；专门
+---
+- specific adj. 特定的；明确的；具体的 n. 特效药；细节 & 指向某一种类的具体特征→具体的
+- specifically ad. 明确地；具体地
+- specification n. 规格；规范；说明书；详述
+- specify v. 指定；详细说明；阐述
+
+
+## scop🔭
+*scop*=看、观察
+
+- scope n. 范围；机会余地；眼界
+---
+- microscope n. 显微镜
+- microscopic adj. 微观的；显微镜的；极小的
+- macroscopic adj. 宏观的；肉眼可见的
+- telescope n. 望远镜 v. 精简；缩短
+- periscope n. 潜望镜
+---
+- Episcopal adj. 主教的；新教圣公会的 & `epi` 附近，旁边+scop 看+`-al` adj.=在旁边监督的→主教的
+
+
 ## sign🏷️
 *sign*=标记
 
@@ -455,6 +493,33 @@ word: true
 
 ## sect=sec=seg🔪
 *sect=sec=seg*=切开
+
+- section n. 部分；部门；章节；地区；界面；阶层 & **切割**出来的一块→部分
+- sectional adj. 截面的；某群体的；区域的；可组合的；部分的
+- sector n. 部门；行业；扇形；领域；防区
+- segment n. 部分；片段；线段；弧形；行业 v. 切割
+- segmental adj. 部门的；片段的；零星的
+- segmentation n. 分割；划分；分段
+---
+- <gdt>inter-</gdt> 之间
+    - intersect v. 相交；交叉；横穿 & 在中间**切割**穿过→相交
+    - intersected adj. 分割的
+    - intersection n. 交叉；相交；十字路口
+---
+- <gdt>dis-</gdt> 分离
+    - dissect v. 解剖；仔细分析；剖析 & 把整体**切割**分离→解剖
+    - dissection n. 解剖；夹层；分割；切割
+    - vivisection n. 活体解剖 & `vivi-` 活的+sect 切割+`-ion` n.=将活物切割→活体解剖
+---
+- <gdt>in-</gdt> 向内
+    - insect n. 昆虫；卑鄙之人 & 身体像是被**切割**成段的动物→昆虫🐜
+    - insecticide n. 杀虫剂；杀虫药
+    - insectivore n. 食虫动物 & insecti 昆虫+vore 吃=食虫动物
+---
+- bisect v. 对半分；二等分
+- transect v. 横切；横向切割 n. 横断面
+- resect v. 切除
+- secant adj. 割的；交叉的 n. 正割；割线
 
 
 ## sent=sens✋🏻
@@ -674,6 +739,34 @@ word: true
 - supersede v. 取代；代替 & `super-` 在上面+sede 坐=坐在别人身上→取代
 
 
+## sit=set
+*sit=set*=坐、放置
+
+1. 坐
+- sit v. 坐；参加考试；就座
+- seat n. 座位；所在地；席位；中心 v. 使坐下；使就职
+
+2. 放置
+- set v. 设置；放置；树立；调整；使固定 n. 一套；一组；一副；集合 adj. 规定的
+- setting n. 环境；背景
+- preset v. 预调动；预置；预设
+- sunset n. 夕阳；落日；晚霞；日落 adj. 衰落的 & 太阳落下安放
+---
+- settle v. 定居；解决；安顿；决定；调停
+- unsettle v. 扰乱；使不安；使心神不宁
+- settler n. 移民者
+- settlement n. 解决；协议；定居点
+---
+- backset n. 倒退；涡流；逆流 & **回**
+- setback n. 挫折；倒退；退步
+- offset v. 抵消；补偿；偏移 n. 补偿；抵消 & **离开/反**
+- onset n. 开始；攻击；发病；进攻 & **上**
+- outset n. 开端；起始 & **出**
+- inset v. 嵌入；插入 n. 插图；插入物 & **内**
+- upset v. 推翻；打乱；打翻；使心烦 adj. 难过的；不安的；沮丧的 & **向上**
+
+
+
 ## sider=sir🌟
 *sider=sir*=星
 
@@ -723,13 +816,456 @@ word: true
 - scrumptious adj. 美味的；可口的 & sumptuous=>scrumptious：**华丽的**食物→美味的
 
 
+## scrib=script✍🏻
+*scrib=script*=书写
+
+- script n. 剧本；手稿；脚本 v. 为电影写剧本
+- unscripted adj. 脱稿的
+- scripture n. 经文；经典
+- manuscript n. 手稿；原稿；手抄本
+- scribe n. 抄写员 v. 抄写；写下；记下；划线
+- scribble v. 潦草地写字；乱涂乱画 n. 涂鸦；潦草的字迹
+---
+- <gdt>de-</gdt> 向下
+    - describe v. 描述；形容；作图 & 写下发生的事→描述
+    - description n. 描述；形容；种类；类型
+    - nondescript adj. 平凡的；无特征的；极普通的 n. 无以名状
+---
+- <gdt>sub-</gdt> 在下面
+    - subscribe v. 同意；订阅；预定；签署；捐助 & 在采购文件最后签名→订阅/预定
+    - subscript n. 下标；脚注 adj. 写在下方的
+    - subscription n. 订阅；捐赠；签署；订购；订阅费
+---
+- <gdt>pre-</gdt> 提前
+    - prescribe v. 规定；指定；开处方 & 提前出面文书→规定；医生发布规定→开处方
+    - prescription n. 处方；药方；秘诀；建议；规定
+    - prescriptive adj. 规定的；指定的；约定俗成的
+---
+- <gdt>pro-</gdt> 公开
+    - proscribe v. 禁止；使失去法律保护 & 公开写下禁令→禁止
+    - proscription n. 禁止；放逐
+---
+- <gdt>in-</gdt> 向内
+    - inscribe v. 雕刻；铭刻；题写 & 在石头上写字→题写、铭刻
+    - inscription n. 碑文；题字；铭刻
+---
+- <gdt>trans-</gdt> 跨越
+    - transcribe v. 抄写；改编；记录；转录 & 跨越纸张抄写→转录、抄写
+    - transcript n. 成绩单；副本；抄本
+---
+- <gdt>con-</gdt> 一起
+    - conscript n. 应征士兵 v. 征募；征召 & “军书十二卷📜，卷卷有爷名”
+    - conscription n. 征募；征兵
+---
+- ascribe v. 把……归因于；认为……具有…… & `a-` 加强+scribe=记在谁头上→把…归因于
+- ascription n. 归属；归因
+- circumscribe v. 限制；在……周围画线；画外接圆 & 在四周**画线**→限制范围
+- postscript n. 附言；补充说明；附录
+- rescript n. 法令；官方命令；诏书 & 反复斟酌写下的诏书→诏书、法令
+
+
+## simil=simul=sembl👯‍♀️
+*simil=simul=sembl*=相似、模拟
+
+1. 相似
+- similar adj. 类似的；相似的
+- similarly ad. 相似地；类似地；同样；换句话说
+- similarity n. 相像性；类似；相似点
+- dissimilar adj. 不同的；不相似的；不一样的
+- verisimilar adj. 逼真的
+- verisimilitude n. 貌似真实；逼真
+- simile n. 明喻；直喻
+- facsimile n. 传真；仿制品；复制品 & fac 做+simile 相似=制造一个相似的→复制品
+- assimilate v. 吸收；消化；使同化；同化 & `a(d)-` 朝向+simil 相似+ate v.=使方向**相似**=同化/吸收
+---
+- resemble v. 类似；相似 & `re-` 再次+semble 相似=怎么看都**像**→相似
+- resemblance n. 相似；相像；类似
+- semblance n. 外观；表象；相似；样子
+- dissemble v. 掩饰；假装；隐藏 & `dis-` 否定+semble 相似=看起来像其实不是真的→假装/掩饰
+- dissemblance n. 伪装
+- assemble v. 集合；装配；组装；收集 & 把相似的聚到一起→集合
+- assembly n. 装配；集会；会议；组装
+- assemblage n. 集合；一群人；组合
+- ensemble n. 剧团；全体；套装；合奏曲
+
+2. 模拟
+- simulate v. 模仿；假装；模拟；冒充
+- simulation n. 模拟；仿真；模仿
+- simulator n. 模拟程序；仿真器；模拟装置；模拟器
+- simultaneous adj. 同步的；同时的
+- simultaneously ad. 同时地
+- dissimulate v. 掩饰；隐瞒
+- simulacrum n. 幻影；假象
+
+
+## sim=singl
+*sim=singl*=一个、单一、简单
+
+- simple adj. 简单的；单纯的；朴素的；迟钝的
+- simply ad. 仅仅；简单地；简直；朴素地；确实
+- simplicity n. 简单；朴素；单纯
+- simplify v. 简化；使简单
+- simplistic adj. 过分简单化的
+- simpleton n. 笨蛋；头脑简单的人；傻瓜 & simple 简单的+`-ton` …的人/物=头脑简单的人；傻瓜
+- simplex adj. 单一的；简单的
+---
+- single adj. 单一的；单身的；单独的 n. 单曲 v. 挑选
+- singleton n. 一个；单独；独身；单身狗
+- singular adj. 单数的；非凡的；奇特的；异常的 & 独一无二的→非凡的
+- singulariry n. 奇特；非凡；卓越
+- singlet n. 背心；无袖汗衫
+---
+- sempiternal adj. 永久的；永恒的
+
+
+## strain=strict=stress=string💢
+*strain=strict=stress=string*=拉紧
+
+- strain n. 压力；紧张；品种；拉力；拉紧；拉伤 v. 拉紧；过度使用
+---
+- strict adj. 严格的；严厉的；精确的
+- strictly ad. 严格地；完全地；仅限于
+- stricture n. 限制；指责；约束；苛评
+- district n. 地区；行政区；区域
+---
+- <gdt>re-</gdt> 回
+    - restrain v. 抑制；约束；控制；阻止 & 往回**拉紧**→抑制/克制
+    - unrestrained adj. 无节制的；不受约束的
+    - restraint n. 抑制；克制；约束
+    - restrict v. 限制；约束；限定 & **紧紧地**往回**拉**→限制
+    - restrictive adj. 约束的；限制性的
+    - restriction n. 限制；约束；限定
+---
+- <gdt>con-</gdt> 完全
+    - constrain v. 约束；限制；迫使 & 完全**拉紧**→限制/强迫
+    - constraint n. 限制；约束；拘束；负担
+    - unconstrained adj. 无约束的
+    - constrict v. 限制；约束；紧缩；收缩
+---
+- stress n. 压力；强调；紧张；重音 v. 强调；着重
+- stressful adj. 紧张的；有压力的
+- distress n. 忧虑；危难；悲伤；不幸 v. 使烦乱；使贫困 & `dis-` 彻底+stress 压力=彻底被压力→痛苦
+- distressful adj. 不幸的；使苦恼的；令人苦恼的
+---
+- string n. 线；细绳；弦；一连串；一系列 & 被拉紧的细线
+- stringed adj. 有弦的
+- stringless adj. 无弦的
+- hamstring n. 腿筋；肌腱 v. 使无效 & ham 火腿、大腿+string 线=大腿上的筋
+- bowstring n. 弓弦
+- drawstring n. 拉绳；束带
+---
+- stringent adj. 短缺的；严格的；紧缩的
+- stringency n. 财政紧缩；严格
+- constringent adj. 压缩的
+- constringe v. 收缩；压缩
+- astringent adj. 涩的；收敛性的；严厉的；止血的；辛辣的 n. 收敛剂
+
+
+## solv=solut
+*solv=solut*=松开
+
+- solve v. 解决；解答 & **解开**绳结→解决、解答
+- solution n. 溶液；溶解；解决办法 & solut 松开+`-ion` n.=固体在液体中**松开**→溶解/溶液
+- soluble adj. 可解决的；可溶的
+- insoluble adj. 无法解决的；不能溶解的
+- solute n. 溶质；溶解物
+- solvent n. 溶剂；解决方法 adj. 有偿付能力的；有溶解力的 & 有**融**资能力的→有偿付能力的
+- insolvent adj. 破产的 n. 破产者；无力偿还者
+- solvency n. 偿付能力；溶解力
+- insolvency n. 无力偿还；破产
+- aerosol n. 气溶胶；气雾剂；悬浮微粒 & `aero-` 空气+sol 松开（溶液）=空气溶液→气溶胶
+---
+- <gdt>ab-</gdt> 离开
+    - absolve v. 赦免；解除；免罪 & 松开绳子放任你离开→赦免
+    - absolution n. 赦免；免除；责任解除；宽恕
+    - absolute adj. 绝对的；完全的；肯定的；确实的 & 赦免你并给予你自由→**完全**自由的→**绝对**地位的
+    - absolutely ad. 绝对地；完全地；当然
+---
+- <gdt>re-</gdt> 再
+    - resolve n. 决心 v. 解决；分解；决定；决心 
+    - resolute adj. 坚决的；果断的；有决心的
+    - resolutely ad. 毅然地；坚决地
+    - irresolute adj. 犹豫不决的；无决断的
+    - resolution n. 决心；决议；解决；分辨率
+    - irresolution n. 犹豫不决；优柔寡断
+---
+- <gdt>dis-</gdt> 分散
+    - dissolve v. 溶解；解散；解除；消失；消散 & 分散的样子松开→溶解、解散
+    - dissolute adj. 放荡的；风流的；无节制的 & 道德约束完全**松散**→放荡的
+
+
+## seq=sect=sue=suit🚶🏻‍♀️‍➡️
+*seq=sect=sue=suit*=跟随
+
+1. seq
+- sequence n. 顺序；次序；一系列；一连串 & 一个接一个**跟随**→顺序/序列
+- sequential adj. 顺序的；按次序的；序列的
+- consecutive adj. 连续的；连贯的
+- sequel n. 续集；结果；后续的事
+- sequela n. 后遗症；后患；后果
+- sequester v. 扣押；使隔离；没收
+- sequacious adj. 盲从的；无独立见解的
+- obsequious adj. 奉承的；谄媚的；逢迎的
+---
+- subsequence n. 后果；子序列；后继
+- subsequent adj. 随后的；后来的；在……之后
+- subsequently ad. 随后；后来
+---
+- consequence n. 结果；后果；影响；重要性 & 一起**跟随**而来的→后果
+- consequent adj. 随之发生的；作为结果的；随之而来的
+- consequential adj. 随之而来的；意义重大的；相应发生的；重要的
+- inconsequential adj. 不重要的；无关紧要的；不合逻辑的
+- consequently ad. 因此；结果；所以
+---
+2. sec
+- second n. 秒；片刻；第二 adj. 第二的 v. 赞成；支持 ad. 第二 & **跟随**第一的→第二
+- secondly ad. 其次；第二
+- secondary adj. 次要的；第二的；中等的；中学的
+- secondhand adj. 二手的；旧的 ad. 间接地
+---
+- <gdt>ex-</gdt> 向外
+    - execute v. 执行；实施；处死；处决 & 向外**跟随**指令→执行
+    - execution n. 执行；实施；处决；创作手法
+    - executive adj. 行政的；决策的；执行的 n. 决策人；行政官
+---
+- <gdt>per-</gdt> 一直
+    - persecute v. 迫害；骚扰；烦扰；残害 & 一直**跟随**不放→骚扰
+    - persecution n. 迫害；困扰
+---
+- <gdt>pro-</gdt> 向前
+    - prosecute v. 起诉；继续从事；控告；检举 & 向前**跟随**别人→告上法庭、起诉
+    - prosecution n. 起诉；检举；告发；实施；控方律师；执行
+    - prosecutor n. 检察官；原告；起诉人
+---
+- sect n. 党派；派别；宗派 & **跟随**某一思想的群体→派别
+- sectarian adj. 宗派的；帮派的 n. 宗派主义者
+
+3. sue \& suit
+- sue v. 控告；起诉；请求
+- lawsuit n. 诉讼；诉讼案件
+- ensue v. 接着发生；因而产生；接踵而至 & `en-` 进入+sue 跟随=跟随进来的→随之
+---
+- <gdt>pur-(=pro)</gdt> 向前
+    - pursue v. 追求；追赶；从事；继续 & 向前**跟随**追赶→追求
+    - pursuit n. 追求；职业；爱好；追赶；消遣
+    - pursuance n. 追求；履行；实行
+---
+- suit v. 适合 n. 诉讼；套装；西服；西装 & **跟随**身体的服装→合适的、西装
+- suitable adj. 合适的；适宜的
+- unsuitable adj. 不合适的；不适宜的
+- suite n. 随从；套房；组曲；随员；一套家具
+- suitor n. 求婚者；起诉者 & 穿西装的求婚人；起诉的人
+- swimsuit n. 泳衣
+- suitcase n. 手提箱；行李箱 & 装套装的箱子
+
+
+## soci⚒️
+*soci*=联合
+
+- social adj. 社会的；社交的；群居的 n. 联谊会 & 人**联合**在一起→社会/社交
+- socialize v. 交往；使社会化；交际
+- sociable adj. 合群的；好交际的；友善的 n. 联谊会
+- socialism n. 社会主义；社会主义制度
+- socialist n. 社会主义者；社会党党员 adj. 社会主义的
+- sociology n. 社会学
+- sociologist n. 社会学家；社会学者
+- society n. 社会；社团；协会；社交
+---
+- <gdt>a(d)-</gdt> 朝向
+    - associate n. 同事；伙伴 adj. 副的 v. 联系；联想；联合；结交
+    - association n. 协会；联系；联想；联合；交往
+    - associative adj. 联想的；结合的；有联系的
+---
+- <gdt>dis-</gdt> 分开
+    - dissociate v. 使分离；脱离；与……无关 & 打破联合→分离
+    - dissociation n. 分离；脱离
+
+
+## sper🌈
+*sper*=希望
+
+- <gdt>de-</gdt> 去除
+    - desperate adj. 绝望的；不顾一切的；极度渴望的；拼死的 & 把**希望**去掉→绝望
+    - desperation n. 绝望；极度渴望；铤而走险
+    - despair [n.][v.] 绝望
+    - desperado n. 亡命之徒；暴徒
+---
+- <gdt>pro-</gdt>
+    - prosper v. 繁荣；兴旺；成功 & 带着**希望**向前→繁荣
+    - prosperity n. 繁荣；兴旺；成功
+    - prosperous adj. 繁荣的；兴旺的；成功的
+---
+- spare adj. 多余的；备用的；空闲的；简陋的 v. 抽出；节省；节约；宽恕 & 保留**希望**→节省
+- sparing adj. 吝惜的；节俭的
+
+
+## spir🫁
+*spir*=呼吸
+
+- spirit n. 精神；灵魂；情绪；酒精；烈酒；心灵 v. 神秘地带走；鼓舞
+- spiritual adj. 心灵的；宗教的；精神的
+- dispirit v. 使气馁；使沮丧
+- dispirited adj. 气馁的；沮丧的
+---
+- <gdt>in-</gdt> 向内
+    - inspire v. 鼓舞；激励；启发；激起；促成 & 体内憋着一股气→鼓舞
+    - inspiration n. 灵感；鼓舞；启发
+---
+- <gdt>ex-</gdt> 向外
+    - expire v. 死亡；终止；断气；呼气；期满 & 有出气没进气→死亡、终止
+    - expiration n. 终止；截止；呼气
+    - expiry
+---
+- <gdt>a(d)-</gdt> 朝向
+    - aspire v. 渴望；立志；追求
+    - aspirant adj. 有抱负的；有野心的 n. 有抱负的人
+    - aspiration n. 志向；抱负；渴望
+---
+- <gdt>con-</gdt> 共同
+    - conspire v. 密谋；协力促进；共谋 & 一起呼吸，秘密交头接耳→共谋
+    - conspiracy n. 阴谋；共谋
+---
+- <gdt>per-</gdt> 穿透
+    - perspire v. 出汗；流汗；奋斗
+    - perspiration n. 出汗；汗；努力；汗珠
+---
+- <gdt>re-</gdt> 反复
+    - respire v. 呼吸
+    - respiration n. 呼吸；呼吸作用
+    - respiratory adj. 呼吸的；与呼吸有关的
+---
+- transpire v. 发生；蒸发；排出；为人所知 & 植物穿透组织的**呼吸**→蒸腾→蒸发、发生、为人所知
+
+
+## sci🎓
+*ssci*=知道
+
+- science n. 科学；学科；理科 & **知晓**自然规律→科学
+- scientific adj. 科学的；细致严谨的
+- scientist n. 科学家
+- prescient adj. 预知的；有先见之明的 & 提前**知道**的→预知的
+- prescience n. 先见；预知
+- nescient n. 不可知论者 adj. 无知的 & `ne-` 否定+sci 知道+`-ent` adj.=不知道的、无知的
+- nescience n. 无知；不可知论
+- omniscient adj. 全知的 n. 上帝 & omni 全部+sci 知道+`-ent` adj.=全部知道的→全知的
+- omniscience n. 全知；全知者；上帝；无限的知识
+---
+- <gdt>con-</gdt> 共同
+    - conscious adj. 有意识的；意识到的；刻意的；有知觉的；自觉的 & 全都能感受到的→有意识的
+    - unconscious adj. 无意识的；无知觉的；不知道的；未察觉的
+    - consciousness n. 意识；知觉；感觉；顿悟
+---
+- <gdt>con-</gdt> 共同
+    - conscience n. 良心；良知；内疚 & 有意识的→能意识到对错→良心
+    - conscientious adj. 认真的；本着良心的；负责的
+    - unconscionable adj. 过渡的；违背良心的；无节制的
+
+
+## spond=spons=spous🤝
+*spond=spons=spous*=承诺
+
+- sponsor n. 赞助；主办；发起 n. 赞助商；发起人；主办者 & 为某事**承诺担保**的人→赞助商
+- sponsorship n. 赞助；资助；倡议；主办
+- spontaneous adj. 自发的；无意识的；自然产生的 & 从内部**承诺**的→自发的
+- spontaneity n. 自发性；自然行为；即兴发挥
+---
+- <gdt>re-</gdt>
+    - respond v. 回答；响应；回应；承担责任；做出反应
+    - response n. 反应；响应；回答；答复
+    - respondent n. 回答者；调查对象；被告 adj. 回答的；有反应的
+    - responsible adj. 有责任的；可靠的；责任重大的；应负责的
+    - irresponsible adj. 不负责任的；无责任感的
+    - responsibility n. 责任；职责；任务；责任心
+    - responsive adj. 回答的；热情的；应答的
+    - responsiveness n. 敏感性；灵敏度；响应度
+    - correspond v. 通信；符合；相当于；一致 & `cor-` 共同+respond 响应=共同响应→一致；双方共同响应→通信
+    - corresponding adj. 相应的；符合的；一致的；通信的 v. 通信
+    - correspondent adj. 一致的 n. 通信者；通讯记者；记者
+    - correspondence n. 一致；符合；通信；信件
+---
+- <gdt>de-</gdt> 去除
+    - despond [v.]][n.] 失望；绝望
+    - despondent adj. 失望的；沮丧的
+---
+- spouse n. 配偶 & 婚姻让人**承诺**一生
+- spousal adj. 配偶的；婚姻的
+- espouse v. 支持；拥护；嫁娶 & e 无实意+spouse 承诺=承诺→结婚/迎娶：结婚就要拥护另一半→拥护/支持
+- espousal n. 信奉；拥护；订婚
+
+
+## sult=sul
+*sult=sul*=召集
+
+- consult v. 请教；咨询；查阅；商议 & 将元老**召集**在一起开会→商量、咨询
+- consultant n. 顾问；会诊医师；咨询专家
+- consultancy n. 咨询公司；顾问工作；咨询
+- consultation n. 咨询；磋商；会诊；讨论会
+- consul n. 领事 & **开会**推选出的仲裁人→领事
+- consulate n. 领事馆
+
 
 ## 其他
 - struggle [v.][n.] 斗争；奋斗
 - straightforward adj. 简单的；坦率的；正直的 ad. 坦率地
 - system n. 系统；体系；制度；体制
-- summary
-- solar
-- soldier
-- solo
-
+- summary n. 总结；概要；摘要 adj. 概括的
+- solar adj. 太阳的；太阳能的；日光的
+- soldier n. 士兵；军人 v. 坚持；硬挺着
+- solo n. 独奏；独唱；独舞 adj. 单独的 ad. 单独地
+- sight n. 视力；视野；景象；看见 v. 看见；观测；看到
+- eyesight n. 视力；视觉
+- intrinsic adj. 固有的；内在的；本质的
+- result n. 结果；成绩 v. 导致；由于；结果是；起因于
+- insurance n. 保险；保险费；保险业
+- desert n. 沙漠；荒漠 v. 抛弃；开小差；擅离职守
+- sculpture v. 雕刻 n. 雕刻品；雕塑品；雕刻
+- sort n. 种类；类别 v. 解决；整理；分类
+- assort v. 把……分类；交往；协调；交际
+- scene n. 现场；景色；场景；地点；舞台
+- spoil v. 溺爱；变质；破坏 n. 战利品；赃物
+- soil n. 土壤；国土；泥土；国家 v. 弄脏；玷污
+- scan v. 扫描；浏览；细看 n. 浏览；扫描
+- splendid adj. 壮观的；辉煌的；极好的；华丽的
+- scare v. 惊吓；使害怕 n. 惊恐；惊吓
+- seek v. 寻找；试图；请求；寻求
+- seize v. 抓住；夺取；占领；理解
+- seldom ad. 很少；不常 adj. 稀少的；不常的
+- selfish adj. 自私的；利己的
+- shame v. 使羞愧；使丢脸 n. 羞耻；羞愧；遗憾
+- sharp adj. 锋利的；灵敏的；骤变的；急剧的 ad. 准时地
+- shock n. 震动；震惊；电击；休克 v. 使震惊；使震动
+- shortcoming n. 缺点；短处
+- shoulder v. 承担；肩负 n. 肩膀
+- sink n. 水槽；洗涤槽 v. 下沉；沉没；下陷
+- smooth adj. 光滑的；顺利的；平坦的 v. 使平滑；使平坦；缓和
+- starve v. 挨饿；饿死；渴望
+- surround v. 环绕；包围；围绕 n. 周围
+- swallow n. 燕子；吞咽 v. 轻信；忍受；吞下
+- sweep v. 打扫；席卷；迅速传播；掠过
+- schedule v. 安排 n. 时间表；日程表；进度表
+- scheme n. 计划；阴谋；方案 v. 策划；计划；密谋
+- slice n. 薄片；部分；切片；片段 v. 切成片
+- scale n. 刻度；等级；规模；秤；鳞片 v. 改变……的大小
+- score n. 得分；分数；二十；刻痕 v. 得分；记分；划下痕迹
+- software n. 软件
+- stream n. 溪流；小河；流；一股 v. 流；流动
+---
+- satisfy v. 使满意；使满足；说服
+- satisfied adj. 满意的；满足的
+---
+- shade v. 遮蔽；隐瞒；掩饰；使阴暗 n. 阴影；遮光物；荫
+- shadow n. 影子；阴影；阴暗；暗处；虚幻的事物 v. 跟踪
+---
+- style n. 风格；文体；样式；方式 v. 把……设计成某样式；称呼
+- stylish adj. 时髦的；有格调的；流行的
+---
+- scholar n. 学者；奖学金获得者；勤奋的学生
+- scholarly adj. 学术性的；博学的；学者派头的
+- scholarship n. 奖学金；学问；学识；学术研究
+---
+- source n. 来源；出处；源头；源泉 v. 寻找货源
+- resource n. 资源；财力；智谋；办法
+---
+---
+- strength n. 力量；实力；强度；优势；优点
+- strengthen v. 加强；巩固；变强

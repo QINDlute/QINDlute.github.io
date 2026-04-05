@@ -4,7 +4,7 @@ word: true
 ---
 
 # 词根 Q
-## quest=quir=quisit❓
+## quest=quir=quisit🔦
 *quest=quir=quisit*=寻求
 
 - quest n. 追求；探求；搜寻之物 v. 寻找
@@ -49,6 +49,35 @@ word: true
 - questioning n. 提问；询问 adj. 询问的
 
 
+## qua=qui=quo❓
+*qua=qui=quo*=什么、多少
+
+1. 品质、性质
+- quality n. 质量；品质；素质；才能；特性 & 是……的属性、性质→人的品质、物质的性质
+- qualitative adj. 性质的；定性的
+- qualify v. 修饰；限定；使具备资格；限制
+- qualification n. 资格；学历；合格；合格证；条件
+- disqualify v. 使不合格；剥夺资格
+
+2. 数量
+- quantity n. 数量；大量；量 & 多少（什么数量）→数量
+- quantify v. 量化；确定……的数量；量度
+- quantitative adj. 数量的；定量的
+- quantum n. 量子 adj. 量子的；猛增的；突跃式的
+- quota n. 配额；定额；限额
+- quotient n. 【数】商；份额；系数；比例
+
+3. 什么、多少
+- quote [v.][n.] 引用；报价 & 给书籍第**多少**章节标注编号→引用（某某章节）
+- quotation n. 引用；报价；行情；引文
+- quotidian adj. 平常的；每日的；平凡的 & quoti 多少+di 日子+`-an` adj.=每天多少个→日常的
+- quiz n. 知识竞赛；小测验；测验 v. 询问 adj. 极聪明的 & 你是谁？（你是什么人？）→质问、考察
+- quizzical adj. 疑惑的；嘲弄的；诧异的 & 充满疑问（这是什么？）→疑惑的
+- quandary n. 困境；窘境；困惑之境；进退两难 & 不知现在何时→困境
+- quibble n. 遁词；狡辩；瑕疵 v. 吹毛求疵；含糊其辞 & 不断地提出问题（这是为什么？）→吹毛求疵
+- quip n. 妙语；讥讽语 v. 打趣；揶揄
+
+
 ## qui=quit🤫
 *qui=quit*=安宁、休息
 
@@ -79,32 +108,3 @@ word: true
 ---
 - requite v. 报答；酬劳 & `re-` 再+quit 偿清债务=再次偿还→回报
 - unrequited adj. 没有回报的；无报酬的；有仇未报的
-
-
-## qua=qui=quo
-*qua=qui=quo*=什么、多少
-
-1. 品质、性质
-- quality n. 质量；品质；素质；才能；特性 & 是……的属性、性质→人的品质、物质的性质
-- qualitative adj. 性质的；定性的
-- qualify v. 修饰；限定；使具备资格；限制
-- qualification n. 资格；学历；合格；合格证；条件
-- disqualify v. 使不合格；剥夺资格
-
-2. 数量
-- quantity n. 数量；大量；量 & 多少（什么数量）→数量
-- quantify v. 量化；确定……的数量；量度
-- quantitative adj. 数量的；定量的
-- quantum n. 量子 adj. 量子的；猛增的；突跃式的
-- quota n. 配额；定额；限额
-- quotient n. 【数】商；份额；系数；比例
-
-3. 什么、多少
-- quote [v.][n.] 引用；报价 & 给书籍第**多少**章节标注编号→引用（某某章节）
-- quotation n. 引用；报价；行情；引文
-- quotidian adj. 平常的；每日的；平凡的 & quoti 多少+di 日子+`-an` adj.=每天多少个→日常的
-- quiz n. 知识竞赛；小测验；测验 v. 询问 adj. 极聪明的 & 你是谁？（你是什么人？）→质问、考察
-- quizzical adj. 疑惑的；嘲弄的；诧异的 & 充满疑问（这是什么？）→疑惑的
-- quandary n. 困境；窘境；困惑之境；进退两难 & 不知现在何时→困境
-- quibble n. 遁词；狡辩；瑕疵 v. 吹毛求疵；含糊其辞 & 不断地提出问题（这是为什么？）→吹毛求疵
-- quip n. 妙语；讥讽语 v. 打趣；揶揄

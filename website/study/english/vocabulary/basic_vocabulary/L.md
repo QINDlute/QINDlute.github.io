@@ -273,8 +273,8 @@ word: true
 - levee n. 码头；防洪堤 & 抬升起来阻挡洪水的堤岸
 
 
-## liter
-*liter*=文字、文学✒️
+## liter✒️
+*liter*=文字、文学
 >: 原始义为”字母（letter）“，引申为“文字、书写、文学
 
 - literal adj. 逐字的；字面上的；文字的

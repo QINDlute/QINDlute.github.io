@@ -1129,6 +1129,7 @@ word: true
 ## 其他
 - parachute n. 🪂；保护伞 v. 跳伞；空投；用降落伞空投 & `para-` 防御+chute 坠落=防御坠落→降落伞
 - paradise n. 天堂 & `para-` 周围旁边+dise 建造=修建的花园→伊甸园、天堂
+- parliament n. 议会；国会
 - computer n. 计算机；电脑；计算员
 - pure adj. 纯的；纯粹的；纯洁的
 - pour v. 倒；倾倒；下倾盆大雨

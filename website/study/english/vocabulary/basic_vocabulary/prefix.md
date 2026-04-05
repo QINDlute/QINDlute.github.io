@@ -34,7 +34,7 @@ contr(a)-=counter-：与……相反、反对、拒绝、对抗（opposite of, a
 ## D
 ### de- <badge type="warning">active</badge>
 1. 反转、否定、做相反动作（reversal，undoing）
-2. 剥夺、移除、去掉（removal or deprivation）
+2. 剥夺、移除、去除（removal or deprivation）
 3. 离开、分离（away, apart）
 4. 向下、减少、降级（downward movement or reduction）
 
@@ -153,6 +153,7 @@ pre-：在……之前、预先（before）
 ### prim-/prin/pri
 prim-/prin/pri：第一、首要
 
+
 ## R
 ### re-
 1. 再次，重新（=again, back）
@@ -172,3 +173,12 @@ se-：分离，分开（apart, away），强调从**整体**中分离
 
 ### super-=supre-=sur-
 super-=supre-=sur-：在……之上；超过，超越，超级
+
+
+## U
+### un-
+un-：否定、不
+
+
+### uni-
+uni-：一

@@ -250,3 +250,4 @@ word: true
 - fondle v. 爱抚；抚弄
 - freezing adj. 极冷的；冰冻的 v. 冻结
 - frighten v. 使惊恐；使惊吓
+- conflict n. 冲突；矛盾；战争 v. 冲突；抵触

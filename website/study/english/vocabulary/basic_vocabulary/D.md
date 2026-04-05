@@ -1,13 +1,10 @@
-***
-
+---
 date: 2026-2-9
 word: true
-----------
+---
 
 # 词根 D
-
 ## dorm
-
 *dorm*=睡觉（to sleep）
 
 - dormitory n. 宿舍（书面语）
@@ -15,8 +12,8 @@ word: true
 - dormant adj. 休眠的；蛰伏的
 - dormancy n. 休眠；蛰伏
 
-## dom
 
+## dom
 *dom*=统治；支配；主宰（to rule over）
 
 - dominate v. 统治；支配；主宰；占主导地位
@@ -37,8 +34,8 @@ word: true
 - wisdom n. 智慧；知识；明智的决策
   :::
 
-## don
 
+## don
 *don*=给予（to give）
 
 - donate v. 捐赠；赠与
@@ -70,6 +67,7 @@ word: true
 - edition n. 版次；版本 <interval>similar=>version</interval>
 - editorial \[n.]\[adj.] 编辑的；社论（的）；评论
 :::
+
 
 ## duc=duct
 *duc=duct*=引导、带领、牵引（to lead, direct）
