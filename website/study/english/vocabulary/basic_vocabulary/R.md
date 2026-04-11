@@ -222,6 +222,8 @@ word: true
 - eraser n. 橡皮擦
 - razor n. 剃须刀；刮脸刀🪒
 - rare adj. 稀薄的；稀有的；珍奇的；稀少的
+- race n. 种族；赛跑；竞争 v. 比赛；疾走；赛跑
+- racial adj. 种族的；人种的🤷🏿
 - ruin n. 废墟；毁灭；崩溃 v. 毁灭；破坏；使破产
 - rule v. 统治；支配；裁定；裁决 n. 规则；统治
 - rude adj. 粗鲁的；无礼的；突然的；简陋的

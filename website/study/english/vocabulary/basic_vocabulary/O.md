@@ -4,7 +4,7 @@ word: true
 ---
 
 # 词根 O
-## oper=op=u(v)re
+## oper=op=u(v)re🕹️
 *oper=op=u(v)re*=操作、工作、财富
 
 1. 操作、工作
@@ -47,6 +47,30 @@ word: true
 - copious adj. 大量的；丰富的；多产的
 - cornucopia n. 聚宝盆；丰饶的山羊角；丰饶角 & cornu 角+copia(=copious) 丰富=丰饶的地方
 - copyright n. 版权；著作权 v. 获得版权©️
+
+
+## opt=opin
+*opt=opin*=选择
+
+- opt v. 选择；决定
+- option n. 选择；选项；选择权；选修课；期权
+- optional adj. 非强制的；可选择的；选修的
+- adopt v. 收养；采用；采纳；正式通过；批准 
+- adoptive adj. 收养的；过继的；采用的
+- adoptable adj. 可采用的；可收养的；能适应的
+- adoption n. 收养；采用；采纳
+---
+- opinion n. 看法；意见；观点
+- opinionated adj. 固执己见的；顽固的
+- opine v. 认为；发表意见；想
+---
+- optimal adj. 最佳的；最理想的
+- optimize v. 充分利用；使最优化
+- optimization n. 最佳化；优化
+- optimum adj. 最佳的；最适宜的 n. 最佳结果
+- optimism n. 乐观；乐观主义；乐观精神
+- optimist n. 乐观主义者
+- optimistic adj. 乐观的；乐观主义的
 
 
 ## ord

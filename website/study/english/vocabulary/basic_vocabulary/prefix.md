@@ -172,7 +172,7 @@ se-：分离，分开（apart, away），强调从**整体**中分离
 4. <Badge type="danger">向上、达到</Badge>（up to, up to the limit）
 
 ### super-=supre-=sur-
-super-=supre-=sur-：在……之上；超过，超越，超级
+super-=supre-=sur-：在……之上(above)；超过(over)，超越，超级
 
 
 ## U

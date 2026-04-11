@@ -393,7 +393,7 @@ word: true
     - appearance n. 出现；外表；外观；露面
     - apparent adj. 表面上的；显然的；明显的；貌似的
     - apparently ad. 似乎；显然地；表现上
-    - apparition n. 幻影；鬼魂；幽灵
+    - apparition n. 幻影；鬼魂；幽灵👻
     - disappear v. 消失；不见；灭绝；失踪
     - disappearance n. 消失；灭绝；不见；丢失
 ---
@@ -967,6 +967,27 @@ word: true
 - pacific adj. 和平的；和解的；求和的；平静的
 - Pacific n. 太平洋 adj. 太平洋的
 - pacifist n. 和平主义者 adj. 非战主义的
+
+
+## pag=pact
+*pag=pact*=系紧、固定
+
+- pact n. 条约；契约；协定
+- compact adj. 紧密的；紧凑的；简洁的 n. 协定；合约；契约；合同 v. 把……紧压在一起
+- impact n. 冲击；影响 v. 对……产生影响；冲击；撞击
+- impinge v. 冲击；撞击；侵犯
+---
+- pack n. 包裹；一群；一副 v. 塞满；打包；挤满；捆扎 & 把东西**系紧**→打包
+- packer n. 包装工人；打包机
+- backpack n. 背包；背囊 v. 背负
+---
+- page v. 呼叫；浏览；翻页 n. 记录；页码；大事件 & 固定下来的一面→页面
+- pageant n. 选美比赛；露天历史剧；盛装游行
+- pagan n. 异教徒 adj. 异教的；异教徒的；无宗教信仰的
+---
+- propagate v. 传播；繁殖；增殖 & 把信息**系紧**向前传播→宣传、繁衍
+- propagation n. 传播；繁殖；增殖
+- propaganda n. 宣传
 
 
 ## pass

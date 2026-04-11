@@ -173,8 +173,6 @@ word: true
 - discerning adj. 有洞察力的；有辨别力的
 - discriminate v. 区分；辨别；（贬义）歧视
 
-- critic n. 批判家；评论家
-
 ::: tip 引申义
 crit=判断、评判
 
@@ -545,3 +543,6 @@ crit=判断、评判
 - combine v. 使结合 <interval>`com-`+bine=共同+捆绑</interval>
 - quash v. 撤销；宣布无效；平息
 - calendar n. 日历；日程表；月历
+- cancer n. 癌症；癌；社会恶习
+- Cancer n. 巨蟹座；癌症
+- crab v. 抱怨；发牢骚 n. 螃蟹；蟹；脾气乖戾的人

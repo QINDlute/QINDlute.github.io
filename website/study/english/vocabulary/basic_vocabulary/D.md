@@ -224,35 +224,6 @@ dyna-→dino：可怕的，saur=蜥蜴
 - December n. 十二月
 
 
-## vot
-*vot*=誓言、承诺
-
-- vow v. 发誓；郑重承诺 n. 誓言
-- vote v. 投票；表决 n. 选票；投票权
-- voter n. 选民；投票者
-- devout adj. 虔诚的；忠实的
-- votary n. 信徒；爱好者
-- devote v. 奉献；致力于
-- devoted adj. 忠诚的；献身的；投入的
-- devotion n. 奉献；忠诚；热爱
-- devotee n. 爱好者；献身者
-
-
-## rect
-*rect*=直、引导
-
-- direct v. 引导；指挥；指向 adj. 直接的；径直的 <interval>`di-`+rect=加强+引导</interval>
-- indirect adj. 间接的；迂回的
-- directly ad. 直接地；立即
-- direction n. 方向；指导；说明书
-- director n. 导演；主任；董事
-- correct adj. 正确的 v. 纠正；改正
-- rectify v. 纠正；改正（书面）
-- rectangle n. 矩形；长方形
-- regulate v. 规范；调节；控制
-- regulation n. 规则；法规；调节
-
-
 ## 其他
 - during prep. 在……期间；在……时候
 - damp \[n.]\[adj.] 潮湿（的） v. 使潮湿；抑制

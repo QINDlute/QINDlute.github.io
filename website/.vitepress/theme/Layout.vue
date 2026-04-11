@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { useData } from 'vitepress'
+import { useData, useRouter } from 'vitepress'
+import { onMounted, onUnmounted, computed } from 'vue'
 
 import FontSettingsPlugin from './components/FontSettingsPlugin.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
@@ -14,6 +15,45 @@ import QindFooter from './components/QindFooter.vue'
 import QindHero from './components/QindHero.vue'
 
 const { frontmatter } = useData()
+const router = useRouter()
+
+// 键盘快捷键处理 - 上一页/下一页
+const handleKeydown = (event: KeyboardEvent) => {
+  // 忽略在输入框中的按键
+  if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) {
+    return;
+  }
+
+  // 获取页面的上下页链接
+  const prevLink = document.querySelector('.pager-link.prev')?.getAttribute('href');
+  const nextLink = document.querySelector('.pager-link.next')?.getAttribute('href');
+
+  // 左箭头 - 上一页
+  if (event.key === 'ArrowLeft') {
+    event.preventDefault();
+    if (prevLink) {
+      router.go(prevLink);
+    }
+  }
+
+  // 右箭头 - 下一页
+  if (event.key === 'ArrowRight') {
+    event.preventDefault();
+    if (nextLink) {
+      router.go(nextLink);
+    }
+  }
+};
+
+// 组件挂载时添加键盘监听
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown);
+});
+
+// 组件卸载时移除键盘监听
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown);
+});
 </script>
 
 <template>

@@ -12,24 +12,44 @@ word: true
 - basis n. 基础；底层（抽象层面）
 - basic adj. 基本的，基础的
 
-## bat
-*bat=but*=打斗，敲击
+## bat=bel=but
+*bat=bel=but*=打击
 
-直接派生词：
-- battle n. 战斗
+
 - bat n. 球棒；蝙蝠 v. 用棒击打
+- batter v. 殴打；严重破坏；猛击 n. 面糊；击球员
+- battalion n. 营；一大群；军营
+- battery n. 电池；炮台；炮兵连；一组
+---
+- battle n. 战斗；战役；争论 v. 战斗；斗争
+- battlefield n. 战场；争论主题
+- belligerent n. 交战国；交战团体 adj. 交战的；好战的
+- belligerence n. 交战；好战性；戾气
+- antebellum adj. 战争前的
+---
+- debut [v.][n.] 首次推出；初次登场
+- abut v. 邻接；毗连
+- debate [v.][n.] 辩论；争论
+- debatable adj. 有争议的；未定的；有疑问的
+- rebut v. 反驳；举反证；辩驳
+- rebuttal n. 辩驳；反证；反驳
+- abate v. 减少；减轻；消除
+---
+- rebate n. 退款；折扣 v. 减少
+- rebel v. 反抗；造反；反叛 n. 叛逆者
+- rebellion n. 叛乱；造反；反抗
+- rebellious adj. 叛逆的；反叛的；造反的
+---
+- halibut n. 大比目鱼 & 比目鱼的样子像被球拍拍扁了
 
-后缀派生：
-- battery n. 电池
 
-## ball
+## ball⚽
 *ball*=球 → *bal*=投掷；抛
 
 - ball n. 球；舞会
 - balloon n. 气球
 - baseball n. 棒球
 - volleyball n. 排球
-
 - symbol n. 符号；象征
 
 ## bid
@@ -62,13 +82,44 @@ word: true
 - benediction n. 祝福
 - benefactor n. 捐助者
 
-## bio
+## bio🌱
 *bio*=生命
 
+- biography n. 传记；个人简介
+- autobiography n. 自传；自传文学
+- biographer n. 传记作者
+---
 - biology n. 生物学
+- biologist n. 生物学家
+- biological adj. 生物的；生物学的
+- biodiversity n. 生物多样性；和平共处
+- biome n. 生物群系
+- biota n. 生物区；生物群
+- biosphere n. 生物圈；生物界
+- biogeography n. 生物地理学
+- astrobiology n. 天体生物学
+- neurobiology n. 神经生物学
+---
 - biochemistry n. 生物化学
-- embarrass v. 使窘迫；使尴尬
-- bargain v. 讨价还价 n. 便宜货
+- biofuel n. 生物燃料
+- biomimicry n. 仿生学；仿生；生物拟态
+- bionic adj. 仿生的；超人的
+- bionics n. 仿生学
+- biopsy n. 活组织检查；切片检查
+- biodegradable adj. 可生物降解的
+- biocide n. 生物灭杀剂
+---
+- biotic adj. 生物的；生命的
+- antibiotic n. 抗生素；抗菌素 adj. 抗菌的
+- abiosis n. 死亡
+- symbiosis n. 共生；互惠互利 & `sym-` 一起+bio 生命+sis=共生
+- symbiotic adj. 共生的；共栖的
+---
+- aerobic adj. 有氧的；需氧的；好氧的 & aero 空气+bic 生命=有氧气的生命活动→有氧的
+- aerobics n. 有氧运动；健美操
+- anaerobic adj. 厌氧的；无氧的
+---
+- amphibian n. 两栖动物；水陆两用飞机 & `amphi-` 两边+bi 生命+an=水陆两生
 
 
 ## botan

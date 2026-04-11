@@ -7,7 +7,7 @@ word: true
 # 词根 A
 
 ## act
-词根 *act* 源于拉丁语 agree，意为“做、驱动、<marker-text color="red">行动</marker-text>“。
+*act*=做、驱动、<marker-text color="red">行动</marker-text>“。
 
 直接派生词：
 - action n. 行动
@@ -23,17 +23,53 @@ word: true
 - exactly ad. 精确地
 - interact v. 互动
 
-## apt
-词根 *apt* 源于拉丁语 aptus，核心含义围绕”<marker-text color="red">适应</marker-text>，适合、能力“展开。
+## apt=ept
+*apt=ept*=适合
 
-- adapt v. 适应；通过改变适应
-- adaptation n. 适应
+- apt adj. 恰当的；聪明的；有……倾向的；易于
+- aptitude n. 天赋；才能；天资 & **适应**世界的能力→天赋
+- adept adj. 熟练的；擅长的；内行的 n. 内行
+- inapt adj. 不适当的；无能的；不合适的；不熟练
+- inept adj. 无能的；笨拙的；不适当的
+- ineptitude n. 无能；笨拙；不合适；不擅长
+---
+- adapt v. 适应；通过改变适应；改编
+- adaption n. 适应；改编
+- adaptation n. 适应；改编的作品；改写本
+- adaptable adj. 能适应的；可适用的；可改编的
+- adaptability n. 适应性；适应能力
+---
+- attitude n. 态度；看法；姿势 & 合适的姿势→态度
+---
+- couple v. 结合；连接 n. 对；夫妻；几个
+- couplet n. 对联；对句
+- decouple v. 分离；脱离
 
-## art
-*art*=技巧、工艺
 
-- article n. 文章
-- artist n. 艺术家
+
+
+
+
+## art=ert🎨
+*art=ert*=技能
+
+- art n。 艺术；技术；文科；人文科学；美术
+- artful adj. 狡猾的；巧妙的；有技巧的
+- artless adj. 单纯的；自然的；不做作的；天真的
+---
+- artisan n. 工匠；技工
+- artistic adj. 艺术的；有艺术天赋的；艺术家的
+- artist n. 艺术家；能手；美术家
+- article n. 文章；条款；物品；冠词；项目
+---
+- artifact n. 人工制品；手工艺品；加工品
+- artifice n. 诡计；技巧；欺骗
+- artificial adj. 人造的；人工的；假的；虚伪的
+- artillery n. 火炮；炮兵部队
+---
+- inert adj. 惰性的；无生气的；呆滞的；无行动的 & 无技能的→惰性的（气体性质懒惰的）
+- inertia n. 惯性；惰性；不活动；迟钝
+
 
 ## auto
 *auto*=自动的，自我的
@@ -69,8 +105,8 @@ word: true
 - unable adj. 不能的
 - disability n. 无能力；残疾
 
-## aster=astr
-*aster=astr*=星星⭐⭐
+## aster=astr⭐⭐
+*aster=astr*=星星
 
 1. 星星
 - aster n. 紫苑；星状体
@@ -88,17 +124,17 @@ word: true
 - astrology n. 占星术；占星学🔮
 
 
-## anxi
-*anxi*=苦恼
+## ang=anx
+*ang=anx*=勒紧
 
+- anger n. 愤怒；怒气 v. 激怒；使发怒
+- angry adj. 生气的；愤怒的；恶劣的
+- anguish n. 极度痛苦；苦恼 v. 使痛苦；苦恼
 - anxiety n. 焦虑、渴望
 - anxious adj. 焦虑的，忧虑的
+- angst n. 担心；焦虑
+- angina n. 心绞痛；咽峡炎
 
-## archi
-*archi*=拱形（统治）
-
-- architect n. 建筑师
-- architecture n. 建筑学；建筑风格；结构 <interval>-ure 跟……相关的一系列抽象事物 n.</interval>
 
 ## alcohol
 alcohol=酒精
@@ -155,7 +191,6 @@ alcohol=酒精
 - anniversary n. 周年纪念日
 - august adj. 威严的
 - author n. 作者；创始人
-- attitude n. 态度
 - altitude n. 海拔
 - arctic adj. 北极的
 - company n. 公司；陪伴

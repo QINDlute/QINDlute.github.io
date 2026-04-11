@@ -1,5 +1,6 @@
 import type { DefaultTheme } from "vitepress";
 import { getLiCountForVocabulary } from "../scripts/calculateLiCount";
+import { text } from "stream/consumers";
 
 const vocabLiCount = getLiCountForVocabulary();
 
@@ -52,6 +53,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '词汇', 
                             items: [
                                 { text: `基础词汇（${vocabLiCount}）`,
+                                    link: '/study/english/vocabulary/basic_vocabulary/',
                                     collapsed: false,
                                     items: [
                                         { text: '前缀', link: '/study/english/vocabulary/basic_vocabulary/prefix' },
@@ -75,6 +77,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                                         { text: '词根 S', link: '/study/english/vocabulary/basic_vocabulary/S' },
                                         { text: '词根 T', link: '/study/english/vocabulary/basic_vocabulary/T' },
                                         { text: '词根 U', link: '/study/english/vocabulary/basic_vocabulary/U' },
+                                        { text: '词根 V', link: '/study/english/vocabulary/basic_vocabulary/V' },
+                                        { text: '词根 W', link: '/study/english/vocabulary/basic_vocabulary/W' },
                                     ],
                                 },
                                 { text: 'Oxford 3000', link: '/study/english/vocabulary/oxford_3000' },

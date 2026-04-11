@@ -128,19 +128,6 @@ word: true
 - extraneous adj. 无关的
 
 
-## thus
-*thus=theo*=神
-
-- enthusiasm n. 热情
-- enthusiastic adj. 热情的；狂热的
-- enthusiast n. 爱好者
-- theology n. 神学
-- theism n. 有神论
-- theist n. 有神论者
-- monotheism n. 一神论
-- polytheism n. 多神论
-
-
 ## 其他
 - equipment n. 设备、工具
 - example n. 例子；实例

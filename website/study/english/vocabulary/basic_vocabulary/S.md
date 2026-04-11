@@ -260,6 +260,7 @@ word: true
 ---
 - <gdt>con-</gdt> 一起
     - construct v. 建造；构造；创立 n. 构想；概念；建造物 & 把材料堆在一起建造→建造/构建
+    - deconstruct v. 结构；拆析
     - construction n. 建造；结构；建设；建造；建筑物；创立
     - reconstruct v. 重建；修复；重造；重现
     - reconstruction n. 重建；重现；重新修建
