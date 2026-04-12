@@ -2,6 +2,10 @@ import type { Plugin } from 'vite'
 import { processSpecialQuotes } from './functions'
 import MarkdownIt from 'markdown-it'
 
+// 渲染顺序：原始Markdown → Vite pre 阶段 → markdownTransform.ts → 生成 HTML 结构 → Markdown 解析 
+// → markdown-it 插件 → config.mts 注册插件中标题内容 →最终 HTML 页面
+
+
 // 创建 markdown-it 实例
 const md = new MarkdownIt()
 
@@ -34,12 +38,18 @@ export function MarkdownTransform(): Plugin {
       code = processSpecialQuotes(code);
 
       // 处理 "& " 转换为 <interval></interval> 标签
+      // 处理 faq-math 容器
       const lines = code.split('\n'); // 按行分割代码
       let inCodeBlock = false;
+      let inFaqMathContainer = false;
+      let inFaqMathTitle = false;
+      let faqMathTitle = '';
+      let faqMathContent = '';
+      let faqMathActive = false;
       let resultLines: string[] = [];
       
       for (const line of lines) {
-        if (line.startsWith('```')) { // 检查是否进入或退出代码块
+        if (line.startsWith('```')) {
           inCodeBlock = !inCodeBlock;
           resultLines.push(line);
           continue;
@@ -49,12 +59,82 @@ export function MarkdownTransform(): Plugin {
           continue;
         }
         
+        // 处理 faq-math 容器开始
+        if (line.startsWith('::: faq-math')) {
+          inFaqMathContainer = true;
+          inFaqMathTitle = true;
+          const fullLine = line.trim();
+          const contentAfterFaqMath = fullLine.replace('::: faq-math', '').trim();
+          const hasActive = contentAfterFaqMath.includes('active');
+          let titleContent = hasActive ? contentAfterFaqMath.replace('active', '').trim() : contentAfterFaqMath;
+          const hashIndex = titleContent.indexOf('#');
+          if (hashIndex !== -1) {
+            titleContent = titleContent.substring(0, hashIndex).trim();
+            inFaqMathTitle = false;
+          }
+          faqMathActive = hasActive;
+          faqMathTitle = titleContent;
+          faqMathContent = '';
+          continue;
+        }
+        
+        // 处理 faq-math 标题（多行）
+        if (inFaqMathContainer && inFaqMathTitle) {
+          const lineContent = line.trim();
+          const hashIndex = lineContent.indexOf('#');
+          if (hashIndex !== -1) {
+            const titlePart = lineContent.substring(0, hashIndex).trim();
+            if (titlePart) {
+              faqMathTitle += ' ' + titlePart;
+            }
+            inFaqMathTitle = false;
+          } else {
+            if (lineContent) {
+              faqMathTitle += ' ' + lineContent;
+            }
+          }
+          continue;
+        }
+        
+        // 处理 faq-math 容器结束
+        if (inFaqMathContainer && line.startsWith(':::')) {
+          inFaqMathContainer = false;
+          inFaqMathTitle = false;
+          const activeClass = faqMathActive ? 'active' : '';
+          resultLines.push(`<div class="faq ${activeClass}">`);
+          resultLines.push(`<h3 class="faq-title">`);
+          resultLines.push(``);
+          // 处理标题，支持多行（按句号分割）
+          const titleLines = faqMathTitle.split('。');
+          for (const titleLine of titleLines) {
+            if (titleLine.trim()) {
+              resultLines.push(`$${titleLine.trim()}$`);
+            }
+          }
+          resultLines.push(`</h3>`);
+          resultLines.push(`<div class="faq-text">`);
+          resultLines.push(``);
+          resultLines.push(faqMathContent);
+          resultLines.push(`</div>`);
+          resultLines.push(`<button class="faq-toggle">`);
+          resultLines.push(`<i class="fas fa-chevron-down"></i>`);
+          resultLines.push(`<i class="fas fa-times"></i>`);
+          resultLines.push(`</button>`);
+          resultLines.push(`</div>`);
+          continue;
+        }
+        
+        // 收集 faq-math 容器内容
+        if (inFaqMathContainer) {
+          faqMathContent += line + '\n';
+          continue;
+        }
+        
         const match = line.match(/(^|\s)(&\s)(.+)/);
         if (match) {
           const before = line.slice(0, match.index + match[1].length);
           const after = match[3];
           const renderedAfter = md.renderInline(after);
-          
           resultLines.push(`${before}<interval>${renderedAfter}</interval>`);
         } else {
           resultLines.push(line);
