@@ -199,15 +199,6 @@ const initSettings = () => {
 
 // 组件挂载后执行的逻辑
 onMounted(() => {
-  // 确保Font Awesome图标库可用
-  if (!document.querySelector('link[href*="fontawesome"]')) {
-    // 动态加载Font Awesome CSS
-    const link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-    document.head.appendChild(link)
-  }
-
   // 初始化移动端检测
   isMobile.value = checkIsMobile()
 
@@ -276,7 +267,7 @@ onUnmounted(() => {
       @click="toggleDropdown"
       @mouseenter="handleMouseEnter"
     >
-      <i class="fa fa-font"></i>
+      <svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640"><path fill="currentColor" d="M349.5 115.7C344.6 103.8 332.9 96 320 96s-24.6 7.8-29.5 19.7c-93.3 224-146.7 352-160 384c-6.8 16.3.9 35 17.2 41.8s35-.9 41.8-17.2l31.8-76.3h197.3l31.8 76.3c6.8 16.3 25.5 24 41.8 17.2s24-25.5 17.2-41.8c-13.3-32-66.7-160-160-384zM392 384H248l72-172.8z"/></svg>
     </button>
     
     <div 
@@ -393,17 +384,18 @@ onUnmounted(() => {
   background: transparent;
 }
 
-.btn:hover i {
+.btn:hover svg {
   color: var(--vp-c-black);
 }
 
-.theme-night .btn:hover i {
+.theme-night .btn:hover svg {
   color: var(--vp-c-white);
 }
 
 
-.btn i {
-  font-size: 14px;
+.btn svg {
+  width: 24px;
+  height: 24px;
   position: relative;
   z-index: 1;
 }
