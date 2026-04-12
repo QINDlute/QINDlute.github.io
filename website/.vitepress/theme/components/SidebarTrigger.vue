@@ -13,6 +13,8 @@ const isActive = ref(false);
 const isMobile = ref(false);
 // 是否屏幕宽度小于1280px
 const isSmallScreen = ref(false);
+// 旋转角度（用于实现每次都是逆时针 180 度旋转）
+const rotateAngle = ref(0);
 // resize 节流定时器
 let resizeTimer: ReturnType<typeof setTimeout> | null = null;
 // 记录触发折叠时的鼠标位置
@@ -68,6 +70,9 @@ const toggleAside = () => {
   layoutDom.classList.toggle("has-aside-collapse");
   asideDom.classList.toggle("is-collapsed");
   isAsideCollapsed.value = !isAsideCollapsed.value;
+  
+  // 每次切换时逆时针旋转 180 度
+  rotateAngle.value -= 180;
   
   // 添加激活状态以触发动画
   isActive.value = true;
@@ -271,7 +276,7 @@ const iconTransform = computed(() => ({
 
 // 计算 aside 图标旋转角度
 const asideIconTransform = computed(() => ({
-  transform: isAsideCollapsed.value ? "rotate(180deg)" : "rotate(0deg)",
+  transform: `rotate(${rotateAngle.value}deg)`,
 }));
 
 let cleanupObserver: (() => void) | null = null;
