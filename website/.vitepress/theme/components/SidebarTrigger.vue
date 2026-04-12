@@ -465,9 +465,7 @@ onUnmounted(() => {
 .aside-trigger {
   position: fixed;
   top: calc(var(--vp-nav-height) + var(--sidebar-trigger-top-offset, 10px));
-  right: calc(
-    (100% - (var(--vp-layout-max-width) - 64px)) / 2 - 5px
-  );
+  right: 13%; /* 按钮的初始位置-设置右边距 */
   z-index: 20;
   cursor: pointer;
   background-color: transparent;
@@ -483,7 +481,7 @@ onUnmounted(() => {
 
 /* aside 折叠时，触发器移动到最右边 */
 .Layout.has-aside-collapse .aside-trigger {
-  right: 10px;
+  right: 7px;
 }
 
 .aside-trigger:hover {

@@ -119,6 +119,8 @@ body:not(:has(.aside)) .aside-trigger {
   /* aside 折叠时，文档内容也调整位置，类似侧边栏的实现 */
   .VPContent.has-sidebar {
     padding-right: 0 !important;
+    transition: padding-left .45s cubic-bezier(0.4, 0, 0.2, 1),
+                padding-right .45s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
@@ -159,10 +161,8 @@ body:not(:has(.aside)) .aside-trigger {
 /* 确保内容容器也有适当的宽度 */
 .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar .content-container {
   max-width: 950px; /* 根据需要调整最大宽度，通常比.content稍小 */
-  margin: 0 auto; /* 居中显示 */
-  transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: none; /* 立即应用宽度变化，避免与.content的过渡动画冲突导致晃动 */
 }
-
 
 /* sidebar, aside(has no item) collapsed,doc content 左右边距 15% */
 body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-collapse .VPContent.has-sidebar {
@@ -171,7 +171,6 @@ body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-colla
   width: 100%;
   transition: padding 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* 设置内容区域的最大宽度 */
 body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content {
   max-width: 1000px; /* 根据需要调整最大宽度 */
@@ -179,14 +178,12 @@ body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-colla
   width: 100%; /* 确保内容宽度为100% */
   transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* 确保内容容器也有适当的宽度 */
 body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
   max-width: 950px; /* 根据需要调整最大宽度，通常比.content稍小 */
   margin: 0 auto; /* 居中显示 */
-  transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: none; /* 立即应用宽度变化，避免与.content的过渡动画冲突导致晃动 */
 }
-
 /* sidebar, no aside collapsed,doc content 左右边距 15% */
 body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar {
   padding-left: 15% !important;
@@ -194,7 +191,6 @@ body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar {
   width: 100%;
   transition: padding 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* 设置内容区域的最大宽度 */
 body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content {
   max-width: 1000px; /* 根据需要调整最大宽度 */
@@ -202,10 +198,9 @@ body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar .conte
   width: 100%; /* 确保内容宽度为100% */
   transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* 确保内容容器也有适当的宽度 */
 body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
   max-width: 950px; /* 根据需要调整最大宽度，通常比.content稍小 */
   margin: 0 auto; /* 居中显示 */
-  transition: max-width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: none; /* 立即应用宽度变化，避免与.content的过渡动画冲突导致晃动 */
 }
