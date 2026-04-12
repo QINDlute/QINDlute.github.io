@@ -11,6 +11,8 @@ const hasAside = ref(false);
 const isActive = ref(false);
 // 是否小屏幕（< 960px）
 const isMobile = ref(false);
+// 是否屏幕宽度小于1280px
+const isSmallScreen = ref(false);
 // resize 节流定时器
 let resizeTimer: ReturnType<typeof setTimeout> | null = null;
 // 记录触发折叠时的鼠标位置
@@ -21,6 +23,7 @@ let lastMousePosition = { x: window.innerWidth / 2, y: 200 };
  */
 const checkMobile = () => {
   isMobile.value = window.matchMedia("(max-width: 960px)").matches;
+  isSmallScreen.value = window.matchMedia("(max-width: 1280px)").matches;
 };
 
 /**
@@ -102,8 +105,8 @@ const handleKeyboardShortcut = (event: KeyboardEvent) => {
       hasAsideContent = outlineList !== null && outlineList.children.length > 0;
     }
     
-    // 非移动端且有目录详情页内容时才触发
-    if (!isMobile.value && hasAsideContent) {
+    // 非移动端、非小屏幕且有目录详情页内容时才触发
+    if (!isMobile.value && !isSmallScreen.value && hasAsideContent) {
       event.preventDefault(); // 阻止浏览器默认行为
       toggleAside();
     }
@@ -359,7 +362,7 @@ onUnmounted(() => {
 
     <!-- 目录详情页触发器 -->
     <button
-      v-if="hasAside"
+      v-if="hasAside && !isSmallScreen"
       type="button"
       :class="['aside-trigger', { 'is-active': isActive, 'is-collapsed': isAsideCollapsed }]"
       @click="toggleAside"

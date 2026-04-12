@@ -204,3 +204,126 @@ body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar .conte
   margin: 0 auto; /* 居中显示 */
   transition: none; /* 立即应用宽度变化，避免与.content的过渡动画冲突导致晃动 */
 }
+
+/* 媒体查询：根据视口宽度动态调整内容宽度和边距 */
+
+/* 当视口宽度小于 1440px 时，按比例调整内容宽度 */
+@media (max-width: 1440px) {
+  .Layout.is-sidebar-collapse .VPContent.has-sidebar .content {
+    max-width: calc(70vw - 60px) !important;
+  }
+  
+  .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar .content {
+    max-width: calc(70vw - 60px) !important;
+  }
+  
+  /* 调整内容容器宽度 */
+  .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(70vw - 80px) !important;
+    transition: none !important;
+  }
+  
+  .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(70vw - 80px) !important;
+    transition: none !important;
+  }
+  
+  /* 调整其他情况的内容容器宽度 */
+  body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(70vw - 80px) !important;
+  }
+  
+  body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(70vw - 80px) !important;
+  }
+}
+
+/* 当视口宽度小于 1200px 时，进一步调整 */
+@media (max-width: 1200px) {
+  /* 调整边距 */
+  .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+  }
+  
+  body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-collapse .VPContent.has-sidebar {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+  }
+  
+  body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+  }
+  
+  /* 调整内容宽度 */
+  .Layout.is-sidebar-collapse .VPContent.has-sidebar .content {
+    max-width: calc(75vw - 40px) !important;
+  }
+  
+  .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar .content {
+    max-width: calc(75vw - 40px) !important;
+  }
+  
+  /* 调整内容容器宽度 */
+  .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(75vw - 60px) !important;
+  }
+  
+  .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(75vw - 60px) !important;
+  }
+  
+  body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(75vw - 60px) !important;
+  }
+  
+  body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(75vw - 60px) !important;
+  }
+}
+
+/* 当视口宽度小于 960px 时，使用更宽松的比例 */
+@media (max-width: 960px) {
+  /* 进一步减小边距 */
+  .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+  
+  body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-collapse .VPContent.has-sidebar {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+  
+  body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+  
+  /* 调整内容宽度 */
+  .Layout.is-sidebar-collapse .VPContent.has-sidebar .content {
+    max-width: calc(85vw - 20px) !important;
+  }
+  
+  .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar .content {
+    max-width: calc(85vw - 20px) !important;
+  }
+  
+  /* 调整内容容器宽度 */
+  .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(85vw - 40px) !important;
+  }
+  
+  .Layout.is-sidebar-collapse.has-aside-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(85vw - 40px) !important;
+  }
+  
+  body:has(.aside:not(:has(.VPDocOutlineItem.root > li))) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(85vw - 40px) !important;
+  }
+  
+  body:not(:has(.aside)) .Layout.is-sidebar-collapse .VPContent.has-sidebar .content-container {
+    max-width: calc(85vw - 40px) !important;
+  }
+}
