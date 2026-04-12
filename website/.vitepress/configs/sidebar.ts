@@ -47,6 +47,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     '/study/': [
         { text: '学习',
             items: [
+                { text: '数学', link: '/study/math/test' },
                 { text: '英语', 
                     items: [
                         { text: '写作', link: '/study/english/writing/ChangeYourLife' },

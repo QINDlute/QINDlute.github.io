@@ -1215,6 +1215,7 @@ word: true
 - solo n. 独奏；独唱；独舞 adj. 单独的 ad. 单独地
 - sight n. 视力；视野；景象；看见 v. 看见；观测；看到
 - eyesight n. 视力；视觉
+- insight n. 洞察力；见识；理解
 - intrinsic adj. 固有的；内在的；本质的
 - result n. 结果；成绩 v. 导致；由于；结果是；起因于
 - insurance n. 保险；保险费；保险业

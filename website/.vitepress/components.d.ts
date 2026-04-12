@@ -23,7 +23,6 @@ declare module 'vue' {
     CustomLink: typeof import('./theme/components/CustomLink.vue')['default']
     'Fe:youtube': typeof import('~icons/fe/youtube')['default']
     FontSettingsPlugin: typeof import('./theme/components/FontSettingsPlugin.vue')['default']
-    Fsp: typeof import('./theme/components/fsp.vue')['default']
     Gdt: typeof import('./theme/components/gdt.vue')['default']
     HomeUnderline: typeof import('./theme/components/HomeUnderline.vue')['default']
     Interval: typeof import('./theme/components/interval.vue')['default']

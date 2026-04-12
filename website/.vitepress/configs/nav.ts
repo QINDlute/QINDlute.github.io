@@ -11,7 +11,7 @@ export const nav: DefaultTheme.Config["nav"] = [
                               { text: '长难句', link: '/study/english/sentence/2-3'},                       
                         ]
                   },
-                  { text: '数学', link: '#' },
+                  { text: '数学', link: '/study/math/test' },
             ]
        },
       { text: '随笔',

@@ -201,10 +201,17 @@
 }
 
 
+// type: green, note, info, tip, warning, danger
 .VPBadge.green {
     border-color: transparent;
     background-color: var(--custom-block-tip-bg);
     color: var(--custom-block-tip-left);
+}
+
+.VPBadge.note {
+    border-color: transparent;
+    background-color: var(--custom-block-note-bg);
+    color: var(--custom-block-note-left);
 }
 
 
