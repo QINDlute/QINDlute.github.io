@@ -46,6 +46,7 @@ declare module 'vue' {
     'SkillIcons:vercelDark': typeof import('~icons/skill-icons/vercel-dark')['default']
     SmoothDetails: typeof import('./theme/components/SmoothDetails.vue')['default']
     SnowEffect: typeof import('./theme/components/SnowEffect.vue')['default']
+    SnowTrigger: typeof import('./theme/components/SnowTrigger.vue')['default']
     Spotlight: typeof import('./theme/components/Spotlight/index.vue')['default']
     SpotlightHover: typeof import('./theme/components/Spotlight/components/SpotlightHover.vue')['default']
     'Tabler:brandBilibili': typeof import('~icons/tabler/brand-bilibili')['default']

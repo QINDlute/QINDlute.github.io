@@ -13,6 +13,7 @@ import Spotlight from './components/Spotlight/index.vue'
 import SidebarTrigger from './components/SidebarTrigger.vue'
 import QindFooter from './components/QindFooter.vue'
 import QindHero from './components/QindHero.vue'
+import SnowTrigger from './components/SnowTrigger.vue'
 
 const { frontmatter } = useData()
 const router = useRouter()
@@ -59,6 +60,10 @@ onUnmounted(() => {
 <template>
   <!-- 继承默认主题布局 -->
   <DefaultTheme.Layout class="has-sidebar-trigger" :class="frontmatter.layoutClass" v-bind="$attrs">
+
+    <template #nav-bar-content-before>
+      <SnowTrigger />
+    </template>
 
     <template #nav-bar-content-after>
       <FontSettingsPlugin />
