@@ -18,10 +18,12 @@
 
 /* 当有 aside 时，文档内容需要有右边距 */
 /* 文档内容位移过渡样式 */
-.Layout.has-sidebar-trigger .VPContent.has-sidebar {
-  padding-right: 15% !important;
-  transition: padding-left .45s cubic-bezier(0.4, 0, 0.2, 1),
-              padding-right .45s cubic-bezier(0.4, 0, 0.2, 1);
+@media (min-width: 1280px) {
+  .Layout.has-sidebar-trigger .VPContent.has-sidebar {
+    padding-right: 15% !important;
+    transition: padding-left .45s cubic-bezier(0.4, 0, 0.2, 1),
+                padding-right .45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 
 /* 没有侧边栏时，隐藏侧边栏触发器 */

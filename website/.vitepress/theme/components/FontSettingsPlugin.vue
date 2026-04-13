@@ -394,8 +394,8 @@ onUnmounted(() => {
 
 
 .btn svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   position: relative;
   z-index: 1;
 }
@@ -584,13 +584,9 @@ onUnmounted(() => {
 /* 移动端响应式样式 */
 @media (max-width: 768px) {
   /* 调整字体设置按钮大小，确保足够的触摸目标 */
-  .btn.toggle-dropdown {
-    padding: 10px 18px 9px;
-    font-size: 11px;
-  }
-  
-  .btn i {
-    font-size: 14px;
+  .btn svg {
+    width: 22px;
+    height: 22px;
   }
   
   /* 优化下拉菜单样式 - 参考 fsp.vue */
