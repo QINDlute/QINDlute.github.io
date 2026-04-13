@@ -14,6 +14,7 @@ import SidebarTrigger from './components/SidebarTrigger.vue'
 import QindFooter from './components/QindFooter.vue'
 import QindHero from './components/QindHero.vue'
 import SnowTrigger from './components/SnowTrigger.vue'
+import AppleIcon from './components/AppleIcon.vue'
 
 const { frontmatter } = useData()
 const router = useRouter()
@@ -71,6 +72,7 @@ onUnmounted(() => {
 
     <template #home-hero-info-after>
       <QindHero />
+      <AppleIcon />
     </template>
 
     <template #layout-top>
