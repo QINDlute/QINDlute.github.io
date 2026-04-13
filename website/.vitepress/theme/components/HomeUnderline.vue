@@ -9,8 +9,8 @@ onMounted(() => {
   const target = document.querySelector(".VPHero .text");
   sourceElement = document.querySelector("#hero-text");
 
-  console.log("target", target);
-  console.log("sourceElement", sourceElement);
+  // console.log("target", target);
+  // console.log("sourceElement", sourceElement);
   if (target && sourceElement) {
     placeholder = document.createComment("hero-text-placeholder");
     sourceElement.before(placeholder);
@@ -25,7 +25,7 @@ onUnmounted(() => {
 });
 const { frontmatter: fm } = useData();
 
-console.log("fm", fm);
+// console.log("fm", fm);
 </script>
 
 <template>
