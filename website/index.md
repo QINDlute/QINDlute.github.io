@@ -55,3 +55,4 @@ features:
 </div>
 
 <HomeUnderline />
+<Confetti />
