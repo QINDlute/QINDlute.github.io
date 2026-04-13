@@ -1,0 +1,88 @@
+/* 自定义光标皮肤 - purpleglass */
+
+/* 默认光标 */
+body {
+  cursor: url('/cursor/purpleglass/default.cur'), default !important;
+}
+
+
+/* 帮助 */
+.help {
+  cursor: url('/cursor/purpleglass/help.cur'), help !important;
+}
+/* 链接悬停 */
+a, button, img, svg, section, h3.text, p.text, pre.shiki, article, label,
+.caret,
+.link,
+.link-text-value {
+  cursor: url('/cursor/purpleglass/pointer.cur'), pointer !important;
+}
+/* 后台繁忙，仍可交互 */
+.progress {
+  cursor: url('/cursor/purpleglass/working.cur'), progress !important;
+}
+/* 后台繁忙，不可交互 */
+.loading,
+.wait {
+  cursor: url('/cursor/purpleglass/busy.cur'), wait !important;
+}
+
+
+/* 交叉指针 */
+.crosshair {
+  cursor: url('/cursor/purpleglass/precision.cur'), crosshair !important;
+}
+
+/* 文本选择 */
+input,
+code,
+.faq,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  cursor: url('/cursor/purpleglass/text.cur'), text !important;
+}
+
+
+/* 可移动 */
+[draggable="true"],
+.draggable,
+.move,
+/* 拖拽句柄 */
+.drag-handle,
+/* 排序元素 */
+.sortable,
+/* 可调整大小的元素 */
+.resizable {
+  cursor: url('/cursor/purpleglass/move.cur'), move !important;
+}
+/* 不能执行 */
+button:disabled,
+.is-disabled,
+.readonly {
+  cursor: url('/cursor/purpleglass/unavailable.cur'), not-allowed !important;
+}
+
+
+/* 水平调整大小 */
+[resize="horizontal"],
+.resize-horizontal {
+  cursor: url('/cursor/purpleglass/horizontal.cur'), ew-resize !important;
+}
+/* 垂直调整大小 */
+[resize="vertical"],
+.resize-vertical {
+  cursor: url('/cursor/purpleglass/vertical.cur'), ns-resize !important;
+}
+/* 对角线调整大小（右下） */
+.resize-diagonal-1 {
+  cursor: url('/cursor/purpleglass/diagonal1.cur'), nwse-resize !important;
+}
+/* 对角线调整大小（右上） */
+.resize-diagonal-2 {
+  cursor: url('/cursor/purpleglass/diagonal2.cur'), nesw-resize !important;
+}
