@@ -1,8 +1,42 @@
 <!-- .vitepress/theme/components/MyFooter.vue -->
 <script setup lang="ts">
 import { useSidebar } from 'vitepress/theme'
+import { onMounted, ref } from 'vue'
 
 const { hasSidebar } = useSidebar()
+
+/**
+ * 存储不蒜子统计数据
+ */
+const siteUv = ref<string>('--')
+const pagePv = ref<string>('--')
+
+/**
+ * 从不蒜子 API 获取统计数据
+ */
+const fetchBusuanziData = async () => {
+  try {
+    const response = await fetch('https://cdn.busuanzi.cc/api.php')
+    const data = await response.json()
+    siteUv.value = data.busuanzi_site_uv || '0'
+    pagePv.value = data.busuanzi_page_pv || '0'
+  } catch (error) {
+    console.error('获取不蒜子数据失败:', error)
+    siteUv.value = '0'
+    pagePv.value = '0'
+  }
+}
+
+/**
+ * 生成 shields.io 静态徽章 URL
+ */
+const getBadgeUrl = (label: string, value: string) => {
+  return `https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(value)}-pink`
+}
+
+onMounted(() => {
+  fetchBusuanziData()
+})
 </script>
 
 <template>
@@ -14,6 +48,24 @@ const { hasSidebar } = useSidebar()
         </div>
         <img src="/img/footer/image.gif" alt="Footer Image" />
       </div>
+      
+      <!-- 统计徽章区域 -->
+      <div class="stats-badges">
+        <!-- 访问量徽章 - shields.io 静态徽章 -->
+        <img
+          :src="getBadgeUrl('clicks', pagePv)"
+          alt="clicks badge"
+          class="badge-img"
+        />
+
+        <!-- 访客数徽章 - shields.io 静态徽章 -->
+        <img
+          :src="getBadgeUrl('visits', siteUv)"
+          alt="visits badge"
+          class="badge-img"
+        />
+      </div>
+      
       <p class="message">qindlute's notes</p>
       <p class="copyright">Copyright © 2025-2026 qindlute</p>
     </div>
@@ -119,6 +171,12 @@ const { hasSidebar } = useSidebar()
       drop-shadow(0 0 8.01px rgba(255, 255, 255, 0.7)) 
       drop-shadow(0 0 16.01px rgba(255, 255, 255, 0.5));
   }
+}
+
+.stats-badges {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .message,
