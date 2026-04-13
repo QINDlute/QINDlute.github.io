@@ -8,6 +8,6 @@ export const head: HeadConfig[] = [
     ['script', { src: '/js/image-protection.js' }],
 
     ['meta', { name: 'description', content: '这是琴殿的个人笔记网站' }],
-    ['meta', { name: 'keywords', content: '琴殿, qindlute, qind, 博客, Vitepress, 学习笔记, 个人网站' }],
+    ['meta', { name: 'keywords', content: 'qindlute, 个人网站, 琴殿, 博客, 琴殿博客' }],
     ['meta', { name: 'author', content: 'qindlute' }],
 ]
