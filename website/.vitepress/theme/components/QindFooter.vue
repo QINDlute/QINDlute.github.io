@@ -16,7 +16,16 @@ const pagePv = ref<string>('--')
  */
 const fetchBusuanziData = async () => {
   try {
-    const response = await fetch('https://cdn.busuanzi.cc/api.php')
+    const response = await fetch('https://cdn.busuanzi.cc/api.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        url: window.location.href,
+        referrer: document.referrer
+      })
+    })
     const data = await response.json()
     siteUv.value = data.busuanzi_site_uv || '0'
     pagePv.value = data.busuanzi_page_pv || '0'
