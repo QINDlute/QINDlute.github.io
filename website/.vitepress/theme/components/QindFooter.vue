@@ -13,6 +13,18 @@ const pagePv = ref<string>('--')
 const isLoading = ref<boolean>(true)
 
 /**
+ * 预加载徽章图片
+ */
+const preloadBadgeImage = (url: string): Promise<void> => {
+  return new Promise((resolve) => {
+    const img = new Image()
+    img.onload = () => resolve()
+    img.onerror = () => resolve()
+    img.src = url
+  })
+}
+
+/**
  * 从不蒜子 API 获取统计数据
  */
 const fetchBusuanziData = async () => {
@@ -30,6 +42,11 @@ const fetchBusuanziData = async () => {
     const data = await response.json()
     siteUv.value = data.busuanzi_site_uv || '0'
     pagePv.value = data.busuanzi_site_pv || '0'
+
+    await Promise.all([
+      preloadBadgeImage(getBadgeUrl('clicks', pagePv.value, 'blue')),
+      preloadBadgeImage(getBadgeUrl('visits', siteUv.value))
+    ])
   } catch (error) {
     console.error('获取不蒜子数据失败:', error)
     siteUv.value = '0'
@@ -42,8 +59,8 @@ const fetchBusuanziData = async () => {
 /**
  * 生成 shields.io 静态徽章 URL
  */
-const getBadgeUrl = (label: string, value: string) => {
-  return `https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(value)}-pink`
+const getBadgeUrl = (label: string, value: string, color: string = 'pink') => {
+  return `https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(value)}-${color}`
 }
 
 onMounted(() => {
@@ -64,12 +81,12 @@ onMounted(() => {
       <!-- 统计徽章区域 -->
       <div class="stats-badges">
         <!-- 访问量徽章 -->
-        <div v-if="isLoading" class="badge-loading">
-          <span class="loading-spinner"></span>
+        <div v-if="isLoading" class="badge-loading badge-loading-blue">
+          <span class="loading-spinner loading-spinner-blue"></span>
         </div>
         <img
           v-else
-          :src="getBadgeUrl('clicks', pagePv)"
+          :src="getBadgeUrl('clicks', pagePv, 'blue')"
           alt="clicks badge"
           class="badge-img"
         />
@@ -215,6 +232,11 @@ onMounted(() => {
   border-top-color: #ff69b4;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
+}
+
+.loading-spinner-blue {
+  border: 2px solid #ddd;
+  border-top-color: #007ec6;
 }
 
 @keyframes spin {
