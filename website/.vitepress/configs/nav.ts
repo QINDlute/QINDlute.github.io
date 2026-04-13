@@ -4,6 +4,7 @@ export const nav: DefaultTheme.Config["nav"] = [
       { text: '首页', link: '/' },
       { text: '学习', 
             items: [
+                  { text: '数学', link: '/study/math/test' },
                   { text: '英语', 
                         items: [
                               { text: '写作', link: '/study/english/writing/ChangeYourLife' },
@@ -11,7 +12,6 @@ export const nav: DefaultTheme.Config["nav"] = [
                               { text: '长难句', link: '/study/english/sentence/2-3'},                       
                         ]
                   },
-                  { text: '数学', link: '/study/math/test' },
             ]
        },
       { text: '随笔',

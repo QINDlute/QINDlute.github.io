@@ -12,6 +12,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AnnotationRenderer: typeof import('./theme/components/AnnotationRenderer.vue')['default']
+    AppleIcon: typeof import('./theme/components/AppleIcon.vue')['default']
     ArchiveCount: typeof import('./theme/components/ArchiveCount.vue')['default']
     ArticleMetadata: typeof import('./theme/components/ArticleMetadata.vue')['default']
     'Bi:github': typeof import('~icons/bi/github')['default']
@@ -30,6 +31,7 @@ declare module 'vue' {
     MarkerText: typeof import('./theme/components/MarkerText.vue')['default']
     NavCard: typeof import('./theme/components/NavCard.vue')['default']
     NavMenu: typeof import('./theme/components/NavMenu.vue')['default']
+    NavVisitor: typeof import('./theme/components/NavVisitor.vue')['default']
     PdfViewer: typeof import('./theme/components/PdfViewer.vue')['default']
     'Ph:planetFill': typeof import('~icons/ph/planet-fill')['default']
     PrevNextNav: typeof import('./theme/components/PrevNextNav.vue')['default']

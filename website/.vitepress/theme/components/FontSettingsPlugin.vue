@@ -394,8 +394,8 @@ onUnmounted(() => {
 
 
 .btn svg {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   position: relative;
   z-index: 1;
 }
@@ -585,8 +585,8 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   /* 调整字体设置按钮大小，确保足够的触摸目标 */
   .btn svg {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   .font-settings-container {
