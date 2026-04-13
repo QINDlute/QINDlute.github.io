@@ -10,6 +10,7 @@ const { hasSidebar } = useSidebar()
  */
 const siteUv = ref<string>('--')
 const pagePv = ref<string>('--')
+const isLoading = ref<boolean>(true)
 
 /**
  * 从不蒜子 API 获取统计数据
@@ -33,6 +34,8 @@ const fetchBusuanziData = async () => {
     console.error('获取不蒜子数据失败:', error)
     siteUv.value = '0'
     pagePv.value = '0'
+  } finally {
+    isLoading.value = false
   }
 }
 
@@ -60,15 +63,23 @@ onMounted(() => {
       
       <!-- 统计徽章区域 -->
       <div class="stats-badges">
-        <!-- 访问量徽章 - shields.io 静态徽章 -->
+        <!-- 访问量徽章 -->
+        <div v-if="isLoading" class="badge-loading">
+          <span class="loading-spinner"></span>
+        </div>
         <img
+          v-else
           :src="getBadgeUrl('clicks', pagePv)"
           alt="clicks badge"
           class="badge-img"
         />
 
-        <!-- 访客数徽章 - shields.io 静态徽章 -->
+        <!-- 访客数徽章 -->
+        <div v-if="isLoading" class="badge-loading">
+          <span class="loading-spinner"></span>
+        </div>
         <img
+          v-else
           :src="getBadgeUrl('visits', siteUv)"
           alt="visits badge"
           class="badge-img"
@@ -186,6 +197,30 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.badge-loading {
+  width: 85px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ddd;
+  border-top-color: #ff69b4;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .message,
