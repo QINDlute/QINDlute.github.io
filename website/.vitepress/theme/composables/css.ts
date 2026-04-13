@@ -50,7 +50,7 @@ const css: navItem[] = [
   {
     id: 8,
     text: 'Qindlute Advertise Html',
-    link: 'https://docs.qindlute.cloud/advertise.html/',
+    link: 'https://docs.qindlute.cloud/advertise',
     desc: 'qindlute advertise',
   },
 ]
