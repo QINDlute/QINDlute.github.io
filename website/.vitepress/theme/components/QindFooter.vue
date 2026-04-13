@@ -29,7 +29,7 @@ const fetchBusuanziData = async () => {
     })
     const data = await response.json()
     siteUv.value = data.busuanzi_site_uv || '0'
-    pagePv.value = data.busuanzi_page_pv || '0'
+    pagePv.value = data.busuanzi_site_pv || '0'
   } catch (error) {
     console.error('获取不蒜子数据失败:', error)
     siteUv.value = '0'
@@ -85,7 +85,7 @@ onMounted(() => {
           class="badge-img"
         />
       </div>
-      
+
       <p class="message">qindlute's notes</p>
       <p class="copyright">Copyright © 2025-2026 qindlute</p>
     </div>
