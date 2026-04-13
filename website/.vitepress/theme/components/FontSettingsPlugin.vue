@@ -588,6 +588,10 @@ onUnmounted(() => {
     width: 22px;
     height: 22px;
   }
+
+  .font-settings-container {
+    padding: 0;
+  }
   
   /* 优化下拉菜单样式 - 参考 fsp.vue */
   .font-settings-dropdown {
