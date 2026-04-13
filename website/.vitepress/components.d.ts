@@ -19,6 +19,7 @@ declare module 'vue' {
     CarouselComponent: typeof import('./theme/components/CarouselComponent.vue')['default']
     ClickHearts: typeof import('./theme/components/ClickHearts.vue')['default']
     ClientOnly: typeof import('./theme/components/ClientOnly.vue')['default']
+    Confetti: typeof import('./theme/components/Confetti.vue')['default']
     CustomButton: typeof import('./theme/components/CustomButton.vue')['default']
     CustomIcon: typeof import('./theme/components/CustomIcon.vue')['default']
     CustomLink: typeof import('./theme/components/CustomLink.vue')['default']
