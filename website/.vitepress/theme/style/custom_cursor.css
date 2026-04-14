@@ -5,6 +5,30 @@ body {
   cursor: url('/cursor/purpleglass/default.cur'), default !important;
 }
 
+/* 滚动条滑块 */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: url('/cursor/purpleglass/pointer.cur'), pointer !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  cursor: url('/cursor/purpleglass/pointer.cur'), pointer !important;
+}
+
+::-webkit-scrollbar-track {
+  cursor: url('/cursor/purpleglass/default.cur'), default !important;
+}
+
+/* Firefox 滚动条 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
 
 /* 帮助 */
 .help {

@@ -9,7 +9,6 @@
     @click="scrollToTop"
     aria-label="返回顶部"
   >
-    <i class="fa fa-arrow-up"></i>
   </button>
 </template>
 
