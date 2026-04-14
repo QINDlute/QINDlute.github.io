@@ -344,7 +344,7 @@ var lastUpdateTime = Date.now()
   , colorUpdateTimer = 0
   , changeColor = function() {
     document.querySelector(".content-inner").style.background = "unset",
-    document.querySelector(".shape").style.fill = "#1e1f21"
+    document.querySelector(".shape").style.fill = "#000"
 }
   , initBackground = function e() {
     e.loaded || (e.loaded = !0,
@@ -356,6 +356,84 @@ var lastUpdateTime = Date.now()
 };
 window.addEventListener(visibilityChangeEvent, initBackground),
 window.addEventListener("DOMContentLoaded", initBackground);
+
+// 切换文字显示/隐藏的公共函数
+function toggleText() {
+    textVisible = !textVisible;
+    var content = document.querySelector(".wrap");
+    var signature = document.querySelector("#signature");
+
+    if (content) {
+        if (textVisible) {
+            content.style.visibility = "visible";
+            content.style.opacity = "1";
+            content.style.pointerEvents = "auto";
+        } else {
+            content.style.opacity = "0";
+            content.style.pointerEvents = "none";
+            setTimeout(function() {
+                if (!textVisible) content.style.visibility = "hidden";
+            }, 400);
+        }
+    }
+    if (signature) {
+        if (textVisible) {
+            signature.style.visibility = "visible";
+            signature.style.opacity = "1";
+        } else {
+            signature.style.opacity = "0";
+            setTimeout(function() {
+                if (!textVisible) signature.style.visibility = "hidden";
+            }, 400);
+        }
+    }
+}
+
+// 页面加载时触发文字浮现动画
+function addFadeIn() {
+    var wrap = document.querySelector(".wrap");
+    if (wrap) {
+        wrap.classList.add("in");
+    }
+}
+
+// 移动端三击切换文字显示/隐藏
+var textVisible = true;
+var tapCount = 0;
+var tapTimer = null;
+document.addEventListener("touchstart", function(e) {
+    tapCount++;
+    if (tapTimer) clearTimeout(tapTimer);
+    tapTimer = setTimeout(function() {
+        tapCount = 0;
+    }, 500);
+
+    if (tapCount >= 3) {
+        tapCount = 0;
+        toggleText();
+    }
+});
+
+// 按 N 键暂停/恢复渲染
+document.addEventListener("keydown", function(e) {
+    if (e.key === "p") {
+        if (animationID) {
+            cancelAnimationFrame(animationID);
+            animationID = null;
+        } else {
+            animationID = requestAnimationFrame(update);
+        }
+    }
+});
+
+// 按 Esc 键切换字体显示/隐藏
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+        toggleText();
+    }
+});
+
+
 var animationID = null;
 function update(e) {
     var r = calcDeltaTime();
@@ -721,7 +799,7 @@ window.addEventListener("touchend", function(e) {
         r(n)
 }),
 window.addEventListener("keydown", function(e) {
-    "KeyP" === e.code && (config.PAUSED = !config.PAUSED),
+    // "KeyP" === e.code && (config.PAUSED = !config.PAUSED),
     " " === e.key && splatStack.push(parseInt(20 * Math.random()) + 5)
 }),
 document.addEventListener("mousedown", function(e) {

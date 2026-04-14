@@ -251,9 +251,9 @@ window[_0x5b51('51', 'QD%Q')] = {
     'COLOR_UPDATE_SPEED': 0xa,
     'PAUSED': ![],
     'BACK_COLOR': {
-        'r': 0x1e,
-        'g': 0x1f,
-        'b': 0x21
+        'r': 0x0,
+        'g': 0x0,
+        'b': 0x0
     },
     'TRANSPARENT': ![],
     'BLOOM': !![],
