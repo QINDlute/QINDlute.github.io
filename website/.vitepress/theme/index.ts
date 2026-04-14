@@ -19,6 +19,8 @@ import 'vidstack/player';
 import 'vidstack/player/layouts/default';
 import 'vidstack/player/ui';
 
+import PerfectScrollbar from 'perfect-scrollbar';
+import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 let homePageStyle: HTMLStyleElement | undefined
 export default {
@@ -50,6 +52,65 @@ export default {
   setup() {
     // 监听路由变化
     const route = useRoute();
+    
+    // 存储 perfect-scrollbar 实例数组
+    let psInstances: PerfectScrollbar[] = [];
+    
+    /**
+     * 检测是否为移动设备
+     */
+    const isMobileDevice = () => {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    };
+
+    /**
+     * 初始化 perfect-scrollbar 自定义滚动条
+     */
+    const initPerfectScrollbar = () => {
+      // 清理旧的实例
+      psInstances.forEach(instance => instance.destroy());
+      psInstances = [];
+      
+      // 在移动设备上不应用 perfect scrollbar
+      if (isMobileDevice()) {
+        return;
+      }
+      
+      // 定义需要添加自定义滚动条的容器选择器
+      const containerSelectors = [
+        // '.has-sidebar-trigger',
+        '.VPSidebar',
+      ];
+      
+      containerSelectors.forEach(selector => {
+        const container = document.querySelector(selector) as HTMLElement;
+        
+        if (container) {
+          // 确保容器有必要的样式
+          const styles = window.getComputedStyle(container);
+          if (!['fixed', 'absolute', 'relative', 'sticky'].includes(styles.position)) {
+            container.style.position = 'relative';
+          }
+          
+          // 初始化 perfect-scrollbar
+          const instance = new PerfectScrollbar(container, {
+            wheelSpeed: 1,
+            wheelPropagation: false,
+            swipeEasing: true,
+            suppressScrollX: true
+          });
+          
+          psInstances.push(instance);
+        }
+      });
+    };
+    
+    /**
+     * 更新所有 perfect-scrollbar 实例
+     */
+    const updatePerfectScrollbar = () => {
+      psInstances.forEach(instance => instance.update());
+    };
     
     // 初始化图片缩放
     const initZoom = () => {
@@ -199,6 +260,8 @@ export default {
       // 初始化FAQ折叠面板
       nextTick(() => {
         initFaqToggle();
+        // 初始化自定义滚动条
+        initPerfectScrollbar();
       });
       
       // 滚动位置记忆 - 只在浏览器环境中执行
@@ -220,6 +283,10 @@ export default {
         window.removeEventListener('scroll', recordScrollPos);
         window.removeEventListener('beforeunload', recordScrollPos);
       }
+      
+      // 销毁所有 perfect-scrollbar 实例
+      psInstances.forEach(instance => instance.destroy());
+      psInstances = [];
     });
     
     watch(
@@ -230,6 +297,8 @@ export default {
           restoreScrollPos();
           // 路由变化时重新初始化FAQ折叠面板
           initFaqToggle();
+          // 路由变化时重新初始化自定义滚动条
+          initPerfectScrollbar();
         });
       }
     );

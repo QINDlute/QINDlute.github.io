@@ -1,0 +1,24 @@
+/* 仅在非移动设备上应用 perfect scrollbar 样式 */
+@media (min-width: 768px) {
+  .VPSidebar {
+    overflow: hidden !important;
+  }
+
+  /* body {
+      overflow: hidden !important;
+  }
+
+  .has-sidebar-trigger {
+    position: relative !important;
+    height: 100px;
+  } */
+
+}
+
+.ps__rail-y, .ps__rail-x {
+    z-index: 10;
+}
+
+.ps__thumb-y, .ps__thumb-x {
+    background-color: var(--vp-c-brand-3) !important;
+}
