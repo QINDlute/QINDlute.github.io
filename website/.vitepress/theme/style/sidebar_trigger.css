@@ -5,6 +5,29 @@
   --sidebar-trigger-collapse-doc-offset: 160px;
 }
 
+/* 侧边栏折叠/展开过渡效果 */
+@media (min-width: 960px) {
+  /* 为 VPContent 添加过渡效果 */
+  .VPContent.has-sidebar {
+    transition: padding-left .45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* 为 VPSidebar 添加过渡效果 */
+  .VPSidebar {
+    transition: width .45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* 为 has-sidebar-trigger 容器添加过渡效果（当 aside 从右侧到顶部时） */
+  .has-sidebar-trigger {
+    transition: all .45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* 为文档内容区域添加过渡效果 */
+  .VPContent {
+    transition: all .45s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
 /* 侧边栏和 aside 过渡样式 */
 .Layout.has-sidebar-trigger .VPSidebar,
 .Layout.has-sidebar-trigger .aside {
