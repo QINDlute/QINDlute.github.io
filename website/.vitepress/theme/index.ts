@@ -71,14 +71,13 @@ export default {
       psInstances.forEach(instance => instance.destroy());
       psInstances = [];
       
-      // 在移动设备上不应用 perfect scrollbar
       if (isMobileDevice()) {
         return;
       }
       
       // 定义需要添加自定义滚动条的容器选择器
       const containerSelectors = [
-        // '.has-sidebar-trigger',
+        '.has-sidebar-trigger',
         '.VPSidebar',
       ];
       
@@ -262,6 +261,9 @@ export default {
         initFaqToggle();
         // 初始化自定义滚动条
         initPerfectScrollbar();
+
+        // 将 perfect-scrollbar 实例暴露到 window，方便其他组件调用
+        (window as any).vitepressPsInstances = psInstances;
       });
       
       // 滚动位置记忆 - 只在浏览器环境中执行

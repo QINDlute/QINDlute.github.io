@@ -15,9 +15,16 @@ import QindFooter from './components/QindFooter.vue'
 import QindHero from './components/QindHero.vue'
 import SnowTrigger from './components/SnowTrigger.vue'
 import AppleIcon from './components/AppleIcon.vue'
+import ReadingProgress_mobile from './components/ReadingProgress_mobile.vue'
 
 const { frontmatter } = useData()
 const router = useRouter()
+
+// 检测是否为移动设备
+const isMobile = computed(() => {
+  if (typeof window === 'undefined') return false
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+})
 
 // 键盘快捷键处理 - 上一页/下一页
 const handleKeydown = (event: KeyboardEvent) => {
@@ -80,7 +87,8 @@ onUnmounted(() => {
     </template>
 
     <template #layout-bottom>
-      <ReadingProgress />
+      <ReadingProgress v-if="!isMobile" />
+      <ReadingProgress_mobile v-else />
       <TextSelectionMenu />
       <AnnotationRenderer />
       <SnowEffect />
