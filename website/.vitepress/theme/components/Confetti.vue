@@ -16,7 +16,7 @@ var duration = 8 * 1000;
 var animationEnd = Date.now() + duration;
 var skew = 1;
 
-function randomInRange(min, max) {
+function randomInRange(min: number, max: number) {
     return Math.random() * (max - min) + min;
 }
 
@@ -34,11 +34,14 @@ function randomInRange(min, max) {
             // since particles fall down, skew start toward the top
             y: (Math.random() * skew) - 0.2
         },
-        colors: [document.documentElement.classList.contains('dark') ? '#ffffff' : '#ff69b4'],
+        colors: [document.documentElement.classList.contains('dark') 
+            ? '#ffd700'  // 金色 - 暗黑模式
+            : '#ff69b4', // 热粉色 - 亮色模式
+        ],
         shapes: ['circle'],
         gravity: randomInRange(0.4, 0.6),
         scalar: randomInRange(0.4, 1),
-        drift: randomInRange(-0.4, 0.4)
+        drift: randomInRange(-0.4, 0.4),
     });
 
     if (timeLeft > 0) {
