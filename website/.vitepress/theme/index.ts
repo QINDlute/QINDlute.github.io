@@ -77,7 +77,7 @@ export default {
       
       // 定义需要添加自定义滚动条的容器选择器
       const containerSelectors = [
-        '.has-sidebar-trigger',
+        // '.has-sidebar-trigger',
         '.VPSidebar',
       ];
       
@@ -180,15 +180,7 @@ export default {
       
       try {
         if (typeof window !== 'undefined' && localStorage) {
-          // 移动端使用window.scrollY逻辑，桌面端使用scrollContainer.scrollTop逻辑
-          let scrollTop;
-          if (isMobileDevice()) {
-            scrollTop = window.scrollY;
-          } else {
-            // 获取滚动容器的滚动位置
-            const scrollContainer = document.querySelector('.has-sidebar-trigger') as HTMLElement;
-            scrollTop = scrollContainer ? scrollContainer.scrollTop : window.scrollY;
-          }
+          const scrollTop = window.scrollY;
           const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
           scrollPosMap[currentPath] = scrollTop;
           window.localStorage.setItem(scrollPosKey, JSON.stringify(scrollPosMap));
@@ -220,24 +212,10 @@ export default {
       }
       
       nextTick(() => {
-        // 移动端使用window.scrollY逻辑，桌面端使用scrollContainer.scrollTop逻辑
-        if (isMobileDevice()) {
-          window.scrollTo({
-            top: targetScrollTop,
-            behavior: 'instant'
-          });
-        } else {
-          // 恢复滚动容器的滚动位置
-          const scrollContainer = document.querySelector('.has-sidebar-trigger') as HTMLElement;
-          if (scrollContainer) {
-            scrollContainer.scrollTop = targetScrollTop;
-          } else {
-            window.scrollTo({
-              top: targetScrollTop,
-              behavior: 'instant'
-            });
-          }
-        }
+        window.scrollTo({
+          top: targetScrollTop,
+          behavior: 'instant'
+        });
         // 触发scroll事件，更新进度条
         window.dispatchEvent(new Event('scroll'));
       });
@@ -285,7 +263,7 @@ export default {
         initPerfectScrollbar();
 
         // 将 perfect-scrollbar 实例暴露到 window，方便其他组件调用
-        (window as any).vitepressPsInstances = psInstances;
+        // (window as any).vitepressPsInstances = psInstances;
       });
       
       // 滚动位置记忆 - 只在浏览器环境中执行

@@ -10,7 +10,7 @@ import QindFooter from './components/Layout/QindFooter.vue'
 import AppleIcon from './components/Layout/AppleIcon.vue'
 import FontSettingsPlugin from './components/Layout/FontSettingsPlugin.vue'
 import ClickHearts from './components/Layout/ClickHearts.vue'
-import ReadingProgress from './components/Layout/ReadingProgress.vue'
+// import ReadingProgress from './components/Layout/ReadingProgress.vue'
 import ReadingProgress_mobile from './components/Layout/ReadingProgress_mobile.vue'
 import TextSelectionMenu from './components/Layout/TextSelectionMenu.vue'
 import AnnotationRenderer from './components/Layout/AnnotationRenderer.vue'
@@ -87,8 +87,8 @@ onUnmounted(() => {
     </template>
 
     <template #layout-bottom>
-      <ReadingProgress v-if="!isMobile" />
-      <ReadingProgress_mobile v-else />
+      <!-- <ReadingProgress v-if="!isMobile" /> -->
+      <ReadingProgress_mobile />
       <TextSelectionMenu />
       <AnnotationRenderer />
       <SnowEffect />

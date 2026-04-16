@@ -3,13 +3,13 @@
     overflow: hidden !important;
   }
 
-  body {
+  /* body {
       overflow: hidden !important;
   }
   .has-sidebar-trigger {
     position: relative !important;
     height: 100vh !important;
-  }
+  } */
 }
 
 .VPNavBar{
