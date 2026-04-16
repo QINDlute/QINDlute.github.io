@@ -196,7 +196,7 @@ watch(
 .spotlight-hover {
   pointer-events: none;
   position: fixed;
-  z-index: 6;
+  z-index: 9; /* 刚好在codeblocks-fold（代码块折叠插件）之上 */
   box-shadow: 0 0 15px var(--vp-c-brand);
 }
 

@@ -2,7 +2,7 @@
 import { h } from 'vue'
 import { onMounted, onUnmounted, watch, nextTick } from 'vue'
 
-import { useRoute } from 'vitepress'
+import { useRoute, useData } from 'vitepress'
 import type { Theme } from 'vitepress'
 
 import DefaultTheme from 'vitepress/theme'
@@ -21,6 +21,9 @@ import 'vidstack/player/ui';
 
 import PerfectScrollbar from 'perfect-scrollbar';
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+
+import codeblocksFold from 'vitepress-plugin-codeblocks-fold';
+import 'vitepress-plugin-codeblocks-fold/style/index.css';
 
 let homePageStyle: HTMLStyleElement | undefined
 export default {
@@ -52,6 +55,10 @@ export default {
   setup() {
     // 监听路由变化
     const route = useRoute();
+    const { frontmatter } = useData();
+    
+    // 初始化代码块折叠功能，作用于所有代码块
+    codeblocksFold({ route, frontmatter }, true, 500);
     
     // 存储 perfect-scrollbar 实例数组
     let psInstances: PerfectScrollbar[] = [];

@@ -14,7 +14,8 @@ html, body {
 a, button, img, svg, section, h3.text, p.text, pre.shiki, article, label,
 .caret,
 .link,
-.link-text-value
+.link-text-value,
+.fold-btn,
 .ps__rail-x, .ps__rail-y {
   cursor: url('/cursor/purpleglass/pointer.cur'), pointer !important;
 }
