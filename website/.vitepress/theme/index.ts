@@ -180,7 +180,15 @@ export default {
       
       try {
         if (typeof window !== 'undefined' && localStorage) {
-          const scrollTop = window.scrollY;
+          // 移动端使用window.scrollY逻辑，桌面端使用scrollContainer.scrollTop逻辑
+          let scrollTop;
+          if (isMobileDevice()) {
+            scrollTop = window.scrollY;
+          } else {
+            // 获取滚动容器的滚动位置
+            const scrollContainer = document.querySelector('.has-sidebar-trigger') as HTMLElement;
+            scrollTop = scrollContainer ? scrollContainer.scrollTop : window.scrollY;
+          }
           const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
           scrollPosMap[currentPath] = scrollTop;
           window.localStorage.setItem(scrollPosKey, JSON.stringify(scrollPosMap));
@@ -212,10 +220,24 @@ export default {
       }
       
       nextTick(() => {
-        window.scrollTo({
-          top: targetScrollTop,
-          behavior: 'instant'
-        });
+        // 移动端使用window.scrollY逻辑，桌面端使用scrollContainer.scrollTop逻辑
+        if (isMobileDevice()) {
+          window.scrollTo({
+            top: targetScrollTop,
+            behavior: 'instant'
+          });
+        } else {
+          // 恢复滚动容器的滚动位置
+          const scrollContainer = document.querySelector('.has-sidebar-trigger') as HTMLElement;
+          if (scrollContainer) {
+            scrollContainer.scrollTop = targetScrollTop;
+          } else {
+            window.scrollTo({
+              top: targetScrollTop,
+              behavior: 'instant'
+            });
+          }
+        }
         // 触发scroll事件，更新进度条
         window.dispatchEvent(new Event('scroll'));
       });
