@@ -36,9 +36,13 @@ const updateProgress = () => {
 /**
  * 滚动到顶部
  */
-const scrollToTop = () => {
+const scrollToTop = (e: Event) => {
+  e.preventDefault()
+  e.stopPropagation()
   if (!scrollContainer) return
 
+  updatePerfectScrollbar()
+  
   const startPosition = scrollContainer.scrollTop
   const startTime = performance.now()
   const duration = 500
@@ -53,11 +57,10 @@ const scrollToTop = () => {
     const easeProgress = easeOutCubic(progress)
 
     scrollContainer!.scrollTop = startPosition * (1 - easeProgress)
+    updatePerfectScrollbar()
 
     if (progress < 1) {
       requestAnimationFrame(animateScroll)
-    } else {
-      updatePerfectScrollbar()
     }
   }
 
