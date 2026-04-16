@@ -414,7 +414,7 @@ document.addEventListener("touchstart", function(e) {
     }
 });
 
-// 按 N 键暂停/恢复渲染
+// 按 P 键暂停/恢复渲染
 document.addEventListener("keydown", function(e) {
     if (e.key === "p") {
         if (animationID) {

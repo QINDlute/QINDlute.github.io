@@ -1,4 +1,4 @@
-<!-- components/SnowEffect.vue -->
+<!-- components/Layout/SnowEffect.vue -->
 <!-- 取自 https://www.hajidong.cn/ -->
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch, onBeforeUnmount } from 'vue'

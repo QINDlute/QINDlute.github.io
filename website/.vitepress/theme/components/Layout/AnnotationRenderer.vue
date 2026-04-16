@@ -1,4 +1,4 @@
-<!-- .vitepress/theme/components/AnnotationRenderer.vue -->
+<!-- .vitepress/theme/components/Layout/AnnotationRenderer.vue -->
 <template>
   <div class="annotation-renderer">
     <!-- 标注会在挂载时自动渲染到页面 -->
@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, watch } from 'vue'
-import { useAnnotations } from '../composables/useAnnotations'
+import { useAnnotations } from '../../composables/useAnnotations'
 
 const { getCurrentPageAnnotations, colorOptions } = useAnnotations()
 

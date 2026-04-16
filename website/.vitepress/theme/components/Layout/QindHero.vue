@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import TypingText from './TypingText.vue'
+import TypingText from './../TypingText.vue'
 
 const customTaglines = [
   '千里之行，始于足下',
