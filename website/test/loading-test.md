@@ -1,5 +1,5 @@
 <script setup>
-import LoadingAnimation from './.vitepress/theme/components/LoadingAnimation.vue'
+import LoadingAnimation from '../.vitepress/theme/components/LoadingAnimation.vue'
 
 </script>
 
