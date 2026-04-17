@@ -106,7 +106,7 @@ git reset --soft HEAD~1  # 撤回最近一次提交
 git add -f 地址 # 强制添加文件
 ```
 
-<div class="test-scroll">
+<!-- <div class="test-scroll">
   <ul class="list">
       <li>巴拉巴拉</li>
       <li>炫光舞法</li>
@@ -116,7 +116,7 @@ git add -f 地址 # 强制添加文件
       <li>天舞台</li>
       <li>天舞台</li>
   </ul>
-</div>
+</div> -->
 
 <style>
 .list{

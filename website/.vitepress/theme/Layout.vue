@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
 import { useData, useRouter } from 'vitepress'
-import { onMounted, onUnmounted, computed } from 'vue'
+import { onMounted, onUnmounted, computed, ref, watch } from 'vue'
 
 import SnowEffect from './components/Layout/SnowEffect.vue'
 import SnowTrigger from './components/Layout/SnowTrigger.vue'
@@ -16,15 +16,36 @@ import TextSelectionMenu from './components/Layout/TextSelectionMenu.vue'
 import AnnotationRenderer from './components/Layout/AnnotationRenderer.vue'
 import Spotlight from './components/Spotlight/index.vue'
 import SidebarTrigger from './components/SidebarTrigger.vue'
+import LoadingAnimation from './components/LoadingAnimation.vue'
 
 const { frontmatter } = useData()
 const router = useRouter()
+
+// 加载动画组件的ref引用
+const loadingAnimationRef = ref<InstanceType<typeof LoadingAnimation>>()
+// 用于控制页面内容显示的状态
+const showContent = ref(false)
 
 // 检测是否为移动设备
 const isMobile = computed(() => {
   if (typeof window === 'undefined') return false
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
 })
+
+// 监听加载动画状态变化
+watch(
+  () => loadingAnimationRef.value?.isLoading,
+  (isLoading) => {
+    // 当加载状态变为false时，显示页面内容
+    if (isLoading === false) {
+      showContent.value = true
+    } else {
+      // 当加载状态变为true时，隐藏页面内容
+      showContent.value = false
+    }
+  },
+  { immediate: true }
+)
 
 // 键盘快捷键处理 - 上一页/下一页
 const handleKeydown = (event: KeyboardEvent) => {
@@ -66,36 +87,41 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <!-- 继承默认主题布局 -->
-  <DefaultTheme.Layout class="has-sidebar-trigger" :class="frontmatter.layoutClass" v-bind="$attrs">
+  <!-- 加载动画 -->
+  <LoadingAnimation ref="loadingAnimationRef" />
+  
+  <!-- 继承默认主题布局，只有在showContent为true时才显示 -->
+  <div v-if="showContent">
+    <DefaultTheme.Layout class="has-sidebar-trigger" :class="frontmatter.layoutClass" v-bind="$attrs">
 
-    <template #nav-bar-content-before>
-      <SnowTrigger />
-    </template>
+      <template #nav-bar-content-before>
+        <SnowTrigger />
+      </template>
 
-    <template #nav-bar-content-after>
-      <FontSettingsPlugin />
-    </template>
+      <template #nav-bar-content-after>
+        <FontSettingsPlugin />
+      </template>
 
-    <template #home-hero-info-after>
-      <QindHero />
-      <AppleIcon />
-    </template>
+      <template #home-hero-info-after>
+        <QindHero />
+        <AppleIcon />
+      </template>
 
-    <template #layout-top>
-      <ClickHearts />
-    </template>
+      <template #layout-top>
+        <ClickHearts />
+        <SnowEffect />
+        <Spotlight />
+        <SidebarTrigger />
+        <!-- <ReadingProgress v-if="!isMobile" /> -->
+        <ReadingProgress_mobile />
+      </template>
 
-    <template #layout-bottom>
-      <!-- <ReadingProgress v-if="!isMobile" /> -->
-      <ReadingProgress_mobile />
-      <TextSelectionMenu />
-      <AnnotationRenderer />
-      <SnowEffect />
-      <Spotlight />
-      <SidebarTrigger />
-      <QindFooter />
-    </template>
+      <template #layout-bottom>
+        <TextSelectionMenu />
+        <AnnotationRenderer />
+        <QindFooter />
+      </template>
 
-  </DefaultTheme.Layout>
+    </DefaultTheme.Layout>
+  </div>
 </template>

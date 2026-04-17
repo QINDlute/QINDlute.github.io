@@ -29,6 +29,7 @@ declare module 'vue' {
     Gdt: typeof import('./theme/components/gdt.vue')['default']
     HomeUnderline: typeof import('./theme/components/HomeUnderline.vue')['default']
     Interval: typeof import('./theme/components/interval.vue')['default']
+    LoadingAnimation: typeof import('./theme/components/LoadingAnimation.vue')['default']
     'Logos:reactQueryIcon': typeof import('~icons/logos/react-query-icon')['default']
     MarkerText: typeof import('./theme/components/MarkerText.vue')['default']
     NavCard: typeof import('./theme/components/NavCard.vue')['default']
