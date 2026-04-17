@@ -1,8 +1,8 @@
 // .vitepress/theme/index.ts
-import { h } from 'vue'
-import { onMounted, onUnmounted, watch, nextTick } from 'vue'
+import { h, ref, provide, inject, type Ref } from 'vue'
+import { onMounted, onUnmounted, watch, nextTick, onBeforeMount } from 'vue'
 
-import { useRoute, useData } from 'vitepress'
+import { useRoute, useData, onContentUpdated } from 'vitepress'
 import type { Theme } from 'vitepress'
 
 import DefaultTheme from 'vitepress/theme'
@@ -22,12 +22,75 @@ import 'vidstack/player/ui';
 import codeblocksFold from 'vitepress-plugin-codeblocks-fold';
 import 'vitepress-plugin-codeblocks-fold/style/index.css';
 
+// 加载状态 key，用于 provide/inject
+export const LoadingStateKey = Symbol('loading-state')
+
 let homePageStyle: HTMLStyleElement | undefined
 export default {
   extends: DefaultTheme,
   Layout: Layout,
   // 注册全局组件
   enhanceApp({ app, router}) {
+    // 加载状态，初始为 true（显示加载动画）
+    const isLoading = ref(true);
+    // 提供加载状态给子组件
+    app.provide(LoadingStateKey, isLoading);
+    
+    /**
+     * 路由变化开始，立即显示加载动画
+     */
+    const handleRouteStart = () => {
+      if (!isLoading.value) {
+        isLoading.value = true;
+      }
+    };
+    
+    /**
+     * 路由变化完成，延迟隐藏加载动画
+     */
+    const handleRouteComplete = () => {
+      // 随机延迟 460-500ms 后隐藏加载动画（参考 teek）
+      const delay = Math.floor(Math.random() * (500 - 460 + 1)) + 460;
+      setTimeout(() => {
+        if (isLoading.value) {
+          isLoading.value = false;
+        }
+      }, delay);
+    };
+    
+    // 保存原始的路由钩子
+    const originalOnBeforeRouteChange = router.onBeforeRouteChange;
+    const originalOnAfterRouteChange = router.onAfterRouteChange;
+    
+    // 路由变化前：显示加载动画
+    router.onBeforeRouteChange = async (href: string) => {
+      // 先调用原始的钩子
+      if (originalOnBeforeRouteChange) {
+        const result = await originalOnBeforeRouteChange(href);
+        if (result === false) return false;
+      }
+      // 立即显示加载动画
+      handleRouteStart();
+      return true;
+    };
+    
+    // 路由变化后：隐藏加载动画
+    router.onAfterRouteChange = async (href: string) => {
+      // 先调用原始的钩子
+      if (originalOnAfterRouteChange) {
+        await originalOnAfterRouteChange(href);
+      }
+      // 延迟隐藏加载动画
+      handleRouteComplete();
+    };
+    
+    // 初始加载时，0.5秒后隐藏加载动画
+    if (typeof window !== 'undefined') {
+      setTimeout(() => {
+        isLoading.value = false;
+      }, 500);
+    }
+    
     // 彩虹背景动画样式
     if (typeof window !== 'undefined') {
       watch(
@@ -53,6 +116,22 @@ export default {
     // 监听路由变化
     const route = useRoute();
     const { frontmatter } = useData();
+    
+    // 注入加载状态
+    const isLoading = inject<Ref<boolean>>(LoadingStateKey);
+    
+    // 内容更新后隐藏加载动画（关键！）
+    onContentUpdated(() => {
+      if (isLoading && isLoading.value) {
+        // 随机延迟 460-500ms 后隐藏加载动画
+        const delay = Math.floor(Math.random() * (500 - 460 + 1)) + 460;
+        setTimeout(() => {
+          if (isLoading.value) {
+            isLoading.value = false;
+          }
+        }, delay);
+      }
+    });
     
     // 初始化代码块折叠功能，作用于所有代码块
     codeblocksFold({ route, frontmatter }, true, 500);

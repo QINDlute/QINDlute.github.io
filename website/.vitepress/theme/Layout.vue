@@ -40,8 +40,8 @@
 
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { useData, useRouter, useRoute } from 'vitepress'
-import { onMounted, onUnmounted, computed, ref, watch, nextTick } from 'vue'
+import { useData, useRouter } from 'vitepress'
+import { onMounted, onUnmounted, computed, ref, watch, nextTick, inject, type Ref } from 'vue'
 import PerfectScrollbar from 'perfect-scrollbar';
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 
@@ -59,18 +59,16 @@ import AnnotationRenderer from './components/Layout/AnnotationRenderer.vue'
 import Spotlight from './components/Spotlight/index.vue'
 import SidebarTrigger from './components/SidebarTrigger.vue'
 import LoadingAnimation from './components/LoadingAnimation.vue'
+import { LoadingStateKey } from './index'
 
 const { frontmatter } = useData()
 const router = useRouter()
-const route = useRoute()
 
-// 直接控制加载状态
-const isLoading = ref(true)
+// 从 index.ts 注入加载状态
+const isLoading = inject<Ref<boolean>>(LoadingStateKey, ref(false))
+
 // 存储 perfect-scrollbar 实例数组
 let psInstances: PerfectScrollbar[] = [];
-// 存储定时器
-let loadTimeout: number | null = null;
-let timeout404: number | null = null;
 
 // 检测是否为移动设备
 const isMobile = computed(() => {
@@ -125,71 +123,6 @@ const initPerfectScrollbar = () => {
   });
 };
 
-/**
- * 跳转到404页面
- */
-const goTo404 = () => {
-  isLoading.value = false;
-  router.push('/404');
-};
-
-/**
- * 路由变化开始，立即显示加载动画
- */
-const handleRouteStart = () => {
-  if (!isLoading.value) {
-    isLoading.value = true;
-  }
-  // 清除之前的超时
-  if (loadTimeout) {
-    clearTimeout(loadTimeout);
-  }
-  if (timeout404) {
-    clearTimeout(timeout404);
-  }
-  // 设置5秒超时跳转到404
-  timeout404 = window.setTimeout(() => {
-    goTo404();
-  }, 5000);
-};
-
-/**
- * 路由变化完成，延迟隐藏加载动画
- */
-const handleRouteComplete = () => {
-  // 延迟 0.5 秒后隐藏加载动画
-  loadTimeout = window.setTimeout(() => {
-    if (isLoading.value) {
-      isLoading.value = false;
-      // 页面内容显示后，初始化 perfect-scrollbar
-      nextTick(() => {
-        initPerfectScrollbar();
-      });
-      // 清除404超时
-      if (timeout404) {
-        clearTimeout(timeout404);
-        timeout404 = null;
-      }
-    }
-  }, 500);
-};
-
-/**
- * 处理路由变化
- */
-const handleRouteChange = () => {
-  handleRouteStart();
-  handleRouteComplete();
-};
-
-// 直接监听路由变化，立即响应
-watch(
-  () => route.path,
-  () => {
-    handleRouteChange();
-  }
-);
-
 // 键盘快捷键处理 - 上一页/下一页
 const handleKeydown = (event: KeyboardEvent) => {
   // 忽略在输入框中的按键
@@ -218,44 +151,27 @@ const handleKeydown = (event: KeyboardEvent) => {
   }
 };
 
+// 监听加载状态变化，页面内容显示后初始化 perfect-scrollbar
+watch(
+  () => isLoading.value,
+  (newValue) => {
+    if (newValue === false) {
+      // 页面内容显示后，初始化 perfect-scrollbar
+      nextTick(() => {
+        initPerfectScrollbar();
+      });
+    }
+  }
+);
+
 // 组件挂载时初始化
 onMounted(() => {
   window.addEventListener('keydown', handleKeydown);
-  
-  // 初始加载时显示加载动画
-  isLoading.value = true;
-  
-  // 0.5秒后结束加载动画，显示页面内容
-  loadTimeout = window.setTimeout(() => {
-    isLoading.value = false;
-    // 页面内容显示后，初始化 perfect-scrollbar
-    nextTick(() => {
-      initPerfectScrollbar();
-    });
-    // 清除404超时
-    if (timeout404) {
-      clearTimeout(timeout404);
-      timeout404 = null;
-    }
-  }, 500);
-  
-  // 设置5秒超时跳转到404
-  timeout404 = window.setTimeout(() => {
-    goTo404();
-  }, 5000);
 });
 
 // 组件卸载时清理
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeydown);
-  
-  // 清除定时器
-  if (loadTimeout) {
-    clearTimeout(loadTimeout);
-  }
-  if (timeout404) {
-    clearTimeout(timeout404);
-  }
   
   // 销毁所有 perfect-scrollbar 实例
   psInstances.forEach(instance => instance.destroy());
