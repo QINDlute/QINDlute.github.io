@@ -27,97 +27,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch, defineProps, defineExpose } from 'vue';
-import { useRoute, useRouter } from 'vitepress';
+import { defineProps } from 'vue';
 
 const props = defineProps({
-  // 是否一直显示加载动画
-  persistent: {
+  // 控制加载动画是否显示
+  isLoading: {
     type: Boolean,
     default: false
   }
 });
-
-const isLoading = ref(false);
-const route = useRoute();
-const router = useRouter();
-let loadTimeout: number | null = null;
-let timeout404: number | null = null;
-
-// 暴露loading状态给父组件
-defineExpose({
-  isLoading
-});
-
-// 跳转到404页面
-const goTo404 = () => {
-  isLoading.value = false;
-  router.push('/404');
-};
-
-// 监听路由变化
-const handleRouteChange = () => {
-  isLoading.value = true;
-  
-  // 清除之前的超时
-  if (loadTimeout) {
-    clearTimeout(loadTimeout);
-  }
-  if (timeout404) {
-    clearTimeout(timeout404);
-  }
-  
-  // 单页应用中，使用短暂延迟来模拟页面加载完成
-  loadTimeout = window.setTimeout(() => {
-    isLoading.value = false;
-    // 页面加载完成后，清除404超时
-    if (timeout404) {
-      clearTimeout(timeout404);
-      timeout404 = null;
-    }
-  }, 500);
-  
-  // 设置5秒超时跳转到404
-  timeout404 = window.setTimeout(() => {
-    goTo404();
-  }, 5000);
-};
-
-onMounted(() => {
-  // 初始加载时显示
-  isLoading.value = true;
-  
-  // 清除之前的超时
-  if (loadTimeout) {
-    clearTimeout(loadTimeout);
-  }
-  if (timeout404) {
-    clearTimeout(timeout404);
-  }
-  
-  // 初始加载完成后，保持加载动画，然后再隐藏
-  loadTimeout = window.setTimeout(() => {
-    isLoading.value = false;
-    // 页面加载完成后，清除404超时
-    if (timeout404) {
-      clearTimeout(timeout404);
-      timeout404 = null;
-    }
-  }, 500);
-  
-  // 设置5秒超时跳转到404
-  timeout404 = window.setTimeout(() => {
-    goTo404();
-  }, 5000);
-});
-
-// 监听路由变化
-watch(
-  () => route.path,
-  () => {
-    handleRouteChange();
-  }
-);
 </script>
 
 <style scoped>
