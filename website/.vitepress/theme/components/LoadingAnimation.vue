@@ -19,6 +19,15 @@
 
       <!-- 绘制圆形光圈 -->
         <div class="lil-circle"></div>
+        <!-- 黑夜模式使用 div 模糊效果 -->
+        <div v-if="isNightTheme" class="blur-circle"></div>
+        <!-- 其他模式使用 SVG 模糊效果 -->
+        <svg v-else class="blur-circle">
+          <filter id="blur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="13"></feGaussianBlur>
+          </filter>
+          <circle cx="70" cy="70" r="66" fill="transparent" stroke="var(--vp-c-bg)" stroke-width="40" filter="url(#blur)"></circle>
+        </svg>
     </div>
 
     <!-- 文字 -->
@@ -27,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue';
+import { defineProps, ref, onMounted, onUnmounted, watch } from 'vue';
 
 const props = defineProps({
   // 控制加载动画是否显示
@@ -35,6 +44,41 @@ const props = defineProps({
     type: Boolean,
     default: false
   }
+});
+
+// 检测当前主题
+const isNightTheme = ref(false);
+
+const checkTheme = () => {
+  try {
+    const storedTheme = localStorage.getItem('vitepress-theme');
+    isNightTheme.value = storedTheme === 'night';
+  } catch (e) {
+    console.warn('读取主题存储失败，默认使用非黑夜模式', e);
+    isNightTheme.value = false;
+  }
+};
+
+// 主动检查主题变化（用于同一窗口内的主题切换）
+const checkThemeOnInterval = setInterval(() => {
+  checkTheme();
+}, 1000);
+
+// 组件挂载时检测主题
+onMounted(() => {
+  checkTheme();
+  // 监听主题变化
+  window.addEventListener('storage', checkTheme);
+  
+  // 监听主题切换事件（如果主题切换时会触发自定义事件）
+  window.addEventListener('themeChange', checkTheme);
+});
+
+// 组件卸载时移除监听器和清除定时器
+onUnmounted(() => {
+  window.removeEventListener('storage', checkTheme);
+  window.removeEventListener('themeChange', checkTheme);
+  clearInterval(checkThemeOnInterval);
 });
 </script>
 
@@ -113,6 +157,23 @@ const props = defineProps({
   position: absolute;
   top: -19px;
   left: -19px;
+  z-index: -1;
+}
+
+/* 黑夜模式的 div 模糊效果 */
+div.blur-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--blur-bg);
+  filter: blur(20px);
+  opacity: 0.2;
+}
+
+/* SVG 模糊效果 */
+svg.blur-circle {
+  width: 140px;
+  height: 140px;
 }
 
 .loading-text {
