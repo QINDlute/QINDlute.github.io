@@ -7,7 +7,7 @@ word: true
 # 词根 A
 
 ## act
-*act*=做、驱动、<marker-text color="red">行动</marker-text>“。
+*act*=做、驱动、<marker-text color="red">行动</marker-text>“
 
 直接派生词：
 - action n. 行动
@@ -53,7 +53,7 @@ word: true
 ## art=ert🎨
 *art=ert*=技能
 
-- art n。 艺术；技术；文科；人文科学；美术
+- art n. 艺术；技术；文科；人文科学；美术
 - artful adj. 狡猾的；巧妙的；有技巧的
 - artless adj. 单纯的；自然的；不做作的；天真的
 ---

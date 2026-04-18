@@ -20,6 +20,8 @@ word: true
 - disciple n. 弟子；门徒
 - discipline n. 纪律；管教；学科
 - occupation n. 占有；职业 <interval>similar=>profession</interval>
+- capable adj. 有能力的；能胜任的
+- capacity n. 能力；容量；生产力
 
 
 ## cap
@@ -51,38 +53,74 @@ word: true
 :::
 
 
-## cre
-*cre*=产生、创造、带来（to generate, make, bring forth）
+## cre=cret=creas
+*cre=cret=creas*=生长、产生、创造（to grow, to generate, make）
 
-- create v. 创造；生产
-- creation n. 创造；生产
-- creative adj. 有创造性的
-- creature n. 创造物；生物；人
-- recreation n. 消遣 <interval>similar=>entertainment, pleasure, amusement</interval>
+- create v. 创造；创作；引起；造成；产生
+- creator n. 创造者；造物主；创作者
+- creation n. 创造；；创造物；作品
+- creature n. 生物；动物；人；产物
+- creative adj. 有创造性的；创造性的
+- creativity n. 创造力；创造
+- procreate v. 生育；繁育；生殖
+- procreation n. 生育；生殖；生产
+---
+- increase v. 增加；增多
+- increasingly ad. 日益；愈加；越来越多的
+- increment n. 增加；增量；定期的加薪
+- decrease v. 减少；降低 n. 减少
+---
+- recreate v. 再创造；娱乐；消遣；再现
+- recreation n. 娱乐；消遣；重建 & 再次**创造**活力→娱乐 similar=>entertainment, pleasure, amusement 
+- recreational adj. 娱乐的；消遣的
+- recruit n. 新兵；新成员 v. 招收；征募；招聘 & 再次**补充**人员→招募
+- recruitment n. 招聘；补充；征募
+---
+- concrete adj. 具体的；有形的 n. 混凝土 & **生长**凝结在一起的→具体的/混凝土
+---
+- accrue v. 积累；自然增加 & 去**生长积累**→积累、增长
+- accrued adj. （会计）应计的
+- accrete v. 共生；附着；增加 adj. 合声的
+- accretion n. 增值；增加之物；自然增长
+---
+- crescendo n. 高潮；顶峰；声音渐增
+- crescent n. 新月；弯月 adj. 月牙形的
+- excrescence n. 瘤；赘生物；累赘；多余物
 
 
-## creas
-*creas*=生长（to grow）
+## cur🫂
+*cur*=关心、照料
 
-- increase v. 增加
-- decrease v. 减少
-- creascent n. 新月；月牙形的
+1. 关心
+- care n. 关心；介意；在乎 n. 小心；关心；照料 & **cura**的英语变体
+- careful adj. 小心的；仔细的；精心的；细致的
+- careless adj. 粗心的；不在乎；无所谓
+- carelessness n. 粗心大意
+- careworn adj. 饱经忧患的；忧心忡忡的
+---
+- curious adj. 好奇的；古怪的 & 对事物过分**关心**→好奇
+- curiosity n. 好奇心；奇物；求知欲
+---
+- accurate adj. 准确的；精确的 & **关心地**去做某事→精确的
+- accurately ad. 准确地；精确地
+- accuracy n. 准确度；精确性
+---
+- secure adj. 安全的；可靠的 & `se-`+cure=分开+担心=无忧无虑→安全的
+- security n. 安全；抵押品；证券；保障；担保
 
-
-## cur
-1. 治疗（healing）
+2. 治疗（healing）
 - cure [n.][v.] 治愈；疗法
 - curable adj. 可治愈的
 - incurable adj. 不可治愈的
-- curative adj. 有疗效的，治疗的
- 
-2. 关心（care）
-- curious adj. 好奇的
-- curiosity n. 好奇心；奇物
-- accurate adj. 准确的；精确的
-- secure adj. 安全的；可靠的 <interval>`se-`+cure=没有+担心=无忧无虑的安全场景</interval>
+- curative adj. 有疗效的，治疗的 n. 药品
 
 3. 照料（attention）
+- procure v. 采购；获得；拉皮条 & `pro-` 代替+cure 照料=代替某人**照料**→采购/代理
+- procurement n. 采购；购买
+- procurator n. 检察官
+- proctor v. 监督 n. 学监；监考人
+- proxy n. 代理人；代表；代理权；代理服务器 & similar=>agent
+---
 - curator n. 馆长；管理者
 - manicure n. 美甲
 - pedicure n. 足部护理
@@ -202,6 +240,15 @@ crit=判断、评判
 - ascertain v. 查明；确定 
 
 
+## crim=crimin
+*crim=crimin*=罪（evil）
+
+- crime n. 犯罪；罪行
+- criminal n. 罪犯 adj. 犯罪的；刑事的
+- incriminate v. 控告，归罪于；证明有罪 <interval>`in-`加强义+crimin+`-ate`v.</interval>
+- criminology n. 犯罪学；刑事学
+
+
 ## cit
 1. 、唤起、激发（to arouse, to stimulate）
 - excite v. 使兴奋；激发；刺激
@@ -314,12 +361,12 @@ crit=判断、评判
 - discourage v. 使气馁；劝阻
 
 2. 用心、和谐（with heart, harmonious）
-- accord [n.][v.] 一致；符合；协议
+- accord [n.][v.] 一致；符合；协议 & 心心相印→符合
 - accordance n. 一致；依据
 - according ad. 根据；按照
 - concord n. 一致；和谐
 - discord n. 不一致；不和；【音乐】不和谐
-- record [n.][v.] 记录；录制；唱片
+- record [n.][v.] 记录；录制；唱片 & 再次涌上心头→记录
 
 
 ## cult
@@ -332,15 +379,6 @@ crit=判断、评判
 - culture n. 文化；教养；栽培
 - cultural adj. 文化的
 - cult n. 祭祀；邪教
-
-
-## crim=crimin
-*crim=crimin*=罪（evil）
-
-- crime n. 犯罪；罪行
-- criminal n. 罪犯 adj. 犯罪的；刑事的
-- incriminate v. 控告，归罪于；证明有罪 <interval>`in-`加强义+crimin+`-ate`v.</interval>
-- criminology n. 犯罪学；刑事学
 
 
 ## centr=cent
@@ -391,11 +429,6 @@ crit=判断、评判
 - accent n. 口音；重读 v.重读；强调
 - incentive n. 激励；刺激因素 adj. 激励的 <interval>`in-`进入+cent=响应号召→激励、刺激</interval>
 
-3. 能、能够
-- can v. 能；能够
-- capable adj. 有能力的；能胜任的
-- capacity n. 能力；容量；生产力
-
 
 ## cast
 *cast*=投掷、发送（to throw）
@@ -430,14 +463,6 @@ crit=判断、评判
 - carry v. 运送；携带；支撑 n. 搬运
 - carrier n. 携带者；运输者；载体
 - career n. 职业；生涯
-
-
-## chart
-*chart*=图表；海图；绘制（纸/纸质载体）
-
-- chart n. 图表；海图 v. 绘制；记录；规划
-- card n. 卡片；纸牌；名片
-- cartoon n. 卡通；动画片 v. 画漫画
 
 
 ## custom
@@ -526,8 +551,8 @@ crit=判断、评判
 - discutable adj. 可讨论的；可争论的
 - concussion n. 震动、脑震荡
 - percussion n. 敲击；打击乐器
-
-
+- repercussion n. 反响；后果；反射；弹回
+- percussionist n. 打击乐器演奏者
 
 ## 其他
 
@@ -546,3 +571,7 @@ crit=判断、评判
 - cancer n. 癌症；癌；社会恶习
 - Cancer n. 巨蟹座；癌症
 - crab v. 抱怨；发牢骚 n. 螃蟹；蟹；脾气乖戾的人
+- can v. 能；能够
+- chart n. 图表；海图 v. 绘制；记录；规划
+- card n. 卡片；纸牌；名片
+- cartoon n. 卡通；动画片 v. 画漫画

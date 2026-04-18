@@ -74,6 +74,17 @@
   --vp-c-text-1: #dfdfd6;
 }
 
+:root {
+  --blur-bg: var(--vp-c-bg);
+}
+:root.theme-sepia {
+  --blur-bg: var(--vp-c-bg);
+}
+:root.theme-night {
+  --blur-bg: var(--vp-c-text-1);
+}
+
+
 /**
  * Colors
  *

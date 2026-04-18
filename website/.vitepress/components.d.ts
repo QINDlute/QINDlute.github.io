@@ -34,6 +34,7 @@ declare module 'vue' {
     NavCard: typeof import('./theme/components/NavCard.vue')['default']
     NavMenu: typeof import('./theme/components/NavMenu.vue')['default']
     PdfViewer: typeof import('./theme/components/PdfViewer.vue')['default']
+    PetalEffect: typeof import('./theme/components/Layout/PetalEffect.vue')['default']
     'Ph:planetFill': typeof import('~icons/ph/planet-fill')['default']
     PrevNextNav: typeof import('./theme/components/PrevNextNav.vue')['default']
     QindFooter: typeof import('./theme/components/Layout/QindFooter.vue')['default']
