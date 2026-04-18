@@ -51,8 +51,14 @@ const isNightTheme = ref(false);
 
 const checkTheme = () => {
   try {
-    const storedTheme = localStorage.getItem('vitepress-theme');
-    isNightTheme.value = storedTheme === 'night';
+    // 检查 localStorage 是否存在（避免服务器端渲染错误）
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedTheme = localStorage.getItem('vitepress-theme');
+      isNightTheme.value = storedTheme === 'night';
+    } else {
+      // 服务器端渲染时默认使用非黑夜模式
+      isNightTheme.value = false;
+    }
   } catch (e) {
     console.warn('读取主题存储失败，默认使用非黑夜模式', e);
     isNightTheme.value = false;
@@ -67,17 +73,21 @@ const checkThemeOnInterval = setInterval(() => {
 // 组件挂载时检测主题
 onMounted(() => {
   checkTheme();
-  // 监听主题变化
-  window.addEventListener('storage', checkTheme);
-  
-  // 监听主题切换事件（如果主题切换时会触发自定义事件）
-  window.addEventListener('themeChange', checkTheme);
+  // 监听主题变化（仅在浏览器环境中）
+  if (typeof window !== 'undefined') {
+    window.addEventListener('storage', checkTheme);
+    
+    // 监听主题切换事件（如果主题切换时会触发自定义事件）
+    window.addEventListener('themeChange', checkTheme);
+  }
 });
 
 // 组件卸载时移除监听器和清除定时器
 onUnmounted(() => {
-  window.removeEventListener('storage', checkTheme);
-  window.removeEventListener('themeChange', checkTheme);
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('storage', checkTheme);
+    window.removeEventListener('themeChange', checkTheme);
+  }
   clearInterval(checkThemeOnInterval);
 });
 </script>
