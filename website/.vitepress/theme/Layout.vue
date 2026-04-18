@@ -2,8 +2,8 @@
   <!-- 加载动画 -->
   <LoadingAnimation :isLoading="isLoading" />
   
-  <!-- 继承默认主题布局，使用 v-if 控制显示，确保回到主页时纸屑动画从头加载 -->
-  <div v-if="!isLoading">
+  <!-- 继承默认主题布局，使用 v-show 控制显示，避免路由状态丢失 -->
+  <div v-show="!isLoading">
     <DefaultTheme.Layout class="has-sidebar-trigger" :class="frontmatter.layoutClass" v-bind="$attrs">
 
       <template #nav-bar-content-before>
