@@ -17,15 +17,28 @@ const fetchArchiveCount = async () => {
     const mdResponse = await fetch(archiveUrl.href)
     
     console.log(`【${props.month}月】响应状态:`, mdResponse.status)
+    console.log(`【${props.month}月】响应 ok:`, mdResponse.ok)
     if (mdResponse.ok) {
       content = await mdResponse.text()
       console.log(`【${props.month}月】获取 archive.md 成功，内容长度:`, content.length)
+      console.log(`【${props.month}月】内容前 50 字符:`, content.substring(0, 50))
     } else {
       console.log('archive.md not found, trying archive.html')
       const htmlUrl = new URL('/others/archive.html', window.location.origin)
+      console.log(`【${props.month}月】请求 archive.html URL:`, htmlUrl.href)
       const htmlResponse = await fetch(htmlUrl.href)
-      content = await htmlResponse.text()
-      console.log('Using archive.html file, 内容长度:', content.length)
+      console.log(`【${props.month}月】archive.html 响应状态:`, htmlResponse.status)
+      console.log(`【${props.month}月】archive.html 响应 ok:`, htmlResponse.ok)
+      if (htmlResponse.ok) {
+        content = await htmlResponse.text()
+        console.log('Using archive.html file, 内容长度:', content.length)
+        console.log('内容前 50 字符:', content.substring(0, 50))
+      } else {
+        console.log('archive.html also not found')
+        // 两个文件都不存在，设置为0
+        count.value = 0
+        return
+      }
     }
   } catch (error) {
     console.error('获取归档文件失败:', error)
