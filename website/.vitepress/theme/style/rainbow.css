@@ -425,3 +425,19 @@
     --custom-h1-color: transparent;
     --custom-h1-background: -webkit-linear-gradient(120deg, #41d1ff 50%, #bd34fe);
 }
+
+/* 手机端禁用彩虹效果 */
+@media (max-width: 768px) {
+    :root {
+        /* 禁用彩虹动画 */
+        animation: none !important;
+        
+        /* 重置彩虹颜色变量为固定值 */
+        --rainbow-prev: #009ff7;
+        --rainbow-next: #c76dd1;
+        
+        /* 重置hero logo背景为纯色 */
+        --vp-home-hero-image-background-image: none;
+        --vp-home-hero-image-filter: none;
+    }
+}
