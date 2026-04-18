@@ -9,18 +9,25 @@ const count = ref(0)
 
 const fetchArchiveCount = async () => {
   let content: string    
-  // md 请求逻辑
-  const mdResponse = await fetch('/others/archive.md');
-  if (mdResponse.ok) {
-    content = await mdResponse.text();
-  } else {
-    // console.log('archive.md not found, trying archive.html');
-    const htmlResponse = await fetch('/others/archive.html');
-    // if (!htmlResponse.ok) {
-    //   throw new Error('archive.html not found');
-    // }
-    content = await htmlResponse.text();
-    // console.log('Using archive.html file');
+  try {
+    // 使用 window.location.origin 确保在所有环境下都能正确访问
+    const archiveUrl = new URL('/others/archive.md', window.location.origin)
+    const mdResponse = await fetch(archiveUrl.href)
+    
+    if (mdResponse.ok) {
+      content = await mdResponse.text()
+    } else {
+      console.log('archive.md not found, trying archive.html')
+      const htmlUrl = new URL('/others/archive.html', window.location.origin)
+      const htmlResponse = await fetch(htmlUrl.href)
+      content = await htmlResponse.text()
+      console.log('Using archive.html file')
+    }
+  } catch (error) {
+    console.error('获取归档文件失败:', error)
+    // 错误时设置为0，避免显示异常
+    count.value = 0
+    return
   }
     
   // ========== 月份匹配正则，添加 _? 兼容下划线 ==========
