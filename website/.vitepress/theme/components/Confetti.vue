@@ -6,10 +6,14 @@ import { LoadingStateKey } from '../index';
 
 // 注入加载状态
 const isLoading = inject<Ref<boolean>>(LoadingStateKey, ref(false));
+// 标记是否已经播放过纸屑动画
+const hasPlayed = ref(false);
 
 // 播放纸屑动画
 const playConfetti = () => {
-  if (!inBrowser) return;
+  if (!inBrowser || hasPlayed.value) return;
+  
+  hasPlayed.value = true;
   
   /* 纸屑 */
   confetti({
@@ -68,10 +72,8 @@ watch(
   }
 );
 
-// 组件挂载时，如果已经加载完成，直接播放
+// 组件挂载时，不直接播放，只等待加载状态变化
 onMounted(() => {
-  if (!isLoading.value) {
-    playConfetti();
-  }
+  // 不再直接播放，只通过 watch 监听加载状态变化
 });
 </script>
