@@ -220,30 +220,86 @@ export default {
       if (typeof window === 'undefined') return;
       
       const currentPath = window.location.pathname;
+      const hash = window.location.hash;
       
       // 如果当前路径在排除列表中，不恢复滚动位置
       if (shouldExcludeScrollMemory(currentPath)) {
         return;
       }
       
-      let targetScrollTop = 0;
-      try {
-        if (typeof window !== 'undefined' && localStorage) {
-          const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
-          targetScrollTop = scrollPosMap[currentPath] || 0;
-        }
-      } catch (e) {
-        console.warn('恢复滚动位置失败', e);
-      }
+      console.log('恢复滚动位置:', { currentPath, hash });
       
-      nextTick(() => {
-        window.scrollTo({
-          top: targetScrollTop,
-          behavior: 'instant'
+      // 延迟执行，确保页面内容已经显示
+      setTimeout(() => {
+        console.log('执行滚动操作，当前URL:', window.location.href);
+        
+        nextTick(() => {
+          // 如果URL包含锚点，优先滚动到锚点
+          if (hash) {
+            console.log('检测到锚点:', hash);
+            try {
+              // 对URL编码的锚点进行解码
+              const decodedHash = decodeURIComponent(hash);
+              console.log('解码后的锚点:', decodedHash);
+              
+              // 尝试使用解码后的锚点
+              let element = document.querySelector(decodedHash);
+              console.log('找到锚点元素:', element);
+              
+              if (element) {
+                console.log('滚动到锚点元素');
+                element.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              } else {
+                console.log('未找到锚点元素');
+                // 尝试使用更宽松的选择器
+                const normalizedHash = hash.replace(/^#/, '').replace(/[^a-zA-Z0-9_-]/g, '');
+                const fallbackElement = document.querySelector(`[id*="${normalizedHash}"]`);
+                console.log('尝试宽松匹配:', normalizedHash, '结果:', fallbackElement);
+                if (fallbackElement) {
+                  fallbackElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }
+            } catch (error) {
+              console.error('锚点滚动失败:', error);
+              // 尝试使用更宽松的选择器
+              const normalizedHash = hash.replace(/^#/, '').replace(/[^a-zA-Z0-9_-]/g, '');
+              const fallbackElement = document.querySelector(`[id*="${normalizedHash}"]`);
+              console.log('尝试宽松匹配:', normalizedHash, '结果:', fallbackElement);
+              if (fallbackElement) {
+                fallbackElement.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'start'
+                });
+              }
+            }
+          } else {
+            // 否则恢复之前的滚动位置
+            let targetScrollTop = 0;
+            try {
+              if (typeof window !== 'undefined' && localStorage) {
+                const scrollPosMap = JSON.parse(window.localStorage.getItem(scrollPosKey) || '{}');
+                targetScrollTop = scrollPosMap[currentPath] || 0;
+              }
+            } catch (e) {
+              console.warn('恢复滚动位置失败', e);
+            }
+            
+            console.log('恢复滚动位置:', targetScrollTop);
+            window.scrollTo({
+              top: targetScrollTop,
+              behavior: 'instant'
+            });
+          }
+          // 触发scroll事件，更新进度条
+          window.dispatchEvent(new Event('scroll'));
         });
-        // 触发scroll事件，更新进度条
-        window.dispatchEvent(new Event('scroll'));
-      });
+      }, 500); // 增加延迟到 500ms，确保页面内容完全显示
     };
     
     // 初始化FAQ折叠面板
