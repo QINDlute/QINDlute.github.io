@@ -66,6 +66,20 @@ export default {
         const result = await originalOnBeforeRouteChange(href);
         if (result === false) return false;
       }
+      
+      // 检查是否是锚点跳转（路径相同，只是锚点不同）
+      if (typeof window !== 'undefined') {
+        const currentPath = window.location.pathname;
+        const targetUrl = new URL(href, window.location.origin);
+        const targetPath = targetUrl.pathname;
+        
+        // 如果路径相同，只是锚点不同，不显示加载动画
+        if (currentPath === targetPath) {
+          console.log('[路由] 锚点跳转，不显示加载动画');
+          return true;
+        }
+      }
+      
       // 立即显示加载动画
       handleRouteStart();
       return true;
@@ -77,6 +91,20 @@ export default {
       if (originalOnAfterRouteChange) {
         await originalOnAfterRouteChange(href);
       }
+      
+      // 检查是否是锚点跳转（路径相同，只是锚点不同）
+      if (typeof window !== 'undefined') {
+        const currentPath = window.location.pathname;
+        const targetUrl = new URL(href, window.location.origin);
+        const targetPath = targetUrl.pathname;
+        
+        // 如果路径相同，只是锚点不同，不隐藏加载动画（因为根本没显示）
+        if (currentPath === targetPath) {
+          console.log('[路由] 锚点跳转，不隐藏加载动画');
+          return;
+        }
+      }
+      
       // 延迟隐藏加载动画
       handleRouteComplete();
     };
@@ -221,27 +249,27 @@ export default {
         return;
       }
       
-      console.log('恢复滚动位置:', { currentPath, hash });
+      // console.log('恢复滚动位置:', { currentPath, hash });
       
       // 延迟执行，确保页面内容已经显示
       setTimeout(() => {
-        console.log('执行滚动操作，当前URL:', window.location.href);
+        // console.log('执行滚动操作，当前URL:', window.location.href);
         
         nextTick(() => {
           // 如果URL包含锚点，优先滚动到锚点
           if (hash) {
-            console.log('检测到锚点:', hash);
+            // console.log('检测到锚点:', hash);
             try {
               // 对URL编码的锚点进行解码
               const decodedHash = decodeURIComponent(hash);
-              console.log('解码后的锚点:', decodedHash);
+              // console.log('解码后的锚点:', decodedHash);
               
               // 尝试使用解码后的锚点
               let element = document.querySelector(decodedHash);
-              console.log('找到锚点元素:', element);
+              // console.log('找到锚点元素:', element);
               
               if (element) {
-                console.log('滚动到锚点元素');
+                // console.log('滚动到锚点元素');
                 element.scrollIntoView({
                   behavior: 'smooth',
                   block: 'start'
@@ -284,7 +312,7 @@ export default {
               console.warn('恢复滚动位置失败', e);
             }
             
-            console.log('恢复滚动位置:', targetScrollTop);
+            // console.log('恢复滚动位置:', targetScrollTop);
             window.scrollTo({
               top: targetScrollTop,
               behavior: 'instant'
