@@ -65,6 +65,9 @@ const checkTheme = () => {
   }
 };
 
+// 主动检查主题变化（用于同一窗口内的主题切换）
+let checkThemeOnInterval: number | undefined;
+
 // 组件挂载时检测主题
 onMounted(() => {
   checkTheme();
@@ -74,14 +77,22 @@ onMounted(() => {
     
     // 监听主题切换事件（如果主题切换时会触发自定义事件）
     window.addEventListener('themeChange', checkTheme);
+    
+    // 主动检查主题变化（仅在浏览器环境中）
+    checkThemeOnInterval = window.setInterval(() => {
+      checkTheme();
+    }, 1000);
   }
 });
 
-// 组件卸载时移除监听器
+// 组件卸载时移除监听器和清除定时器
 onUnmounted(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('storage', checkTheme);
     window.removeEventListener('themeChange', checkTheme);
+    if (checkThemeOnInterval) {
+      clearInterval(checkThemeOnInterval);
+    }
   }
 });
 </script>
