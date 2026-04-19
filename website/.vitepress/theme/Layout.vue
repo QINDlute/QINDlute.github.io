@@ -2,6 +2,9 @@
   <!-- 加载动画 -->
   <LoadingAnimation :isLoading="isLoading" />
   
+  <!-- 代码块折叠功能组件 -->
+  <CodeblocksFold />
+  
   <!-- 继承默认主题布局，使用 v-show 控制显示，避免路由状态丢失 -->
   <div v-show="!isLoading">
     <DefaultTheme.Layout class="has-sidebar-trigger" :class="frontmatter.layoutClass" v-bind="$attrs">
@@ -59,6 +62,7 @@ import AnnotationRenderer from './components/Layout/AnnotationRenderer.vue'
 import Spotlight from './components/Spotlight/index.vue'
 import SidebarTrigger from './components/SidebarTrigger.vue'
 import LoadingAnimation from './components/LoadingAnimation.vue'
+import CodeblocksFold from './components/CodeblocksFold.vue'
 import { LoadingStateKey } from './index'
 
 const { frontmatter } = useData()

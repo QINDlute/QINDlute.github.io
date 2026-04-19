@@ -44,8 +44,3 @@
 .vp-doc div[class*="language-"].line-numbers-mode {
   margin-bottom: 20px;
 }
-
-/* 将折叠按钮突出部位隐去 */
-.fold-btn {
-  margin-bottom: 20px;
-}

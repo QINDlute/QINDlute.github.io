@@ -13,14 +13,11 @@ import Layout from './Layout.vue'
 import mediumZoom from 'medium-zoom'
 
 import 'virtual:group-icons.css'
-import "virtual:uno.css";
+import "virtual:uno.css"
 
 import 'vidstack/player';
 import 'vidstack/player/layouts/default';
 import 'vidstack/player/ui';
-
-import codeblocksFold from 'vitepress-plugin-codeblocks-fold';
-import 'vitepress-plugin-codeblocks-fold/style/index.css';
 
 // 加载状态 key，用于 provide/inject
 export const LoadingStateKey = Symbol('loading-state')
@@ -132,9 +129,6 @@ export default {
         }, delay);
       }
     });
-    
-    // 初始化代码块折叠功能，作用于所有代码块
-    codeblocksFold({ route, frontmatter }, true, 500);
     
     // 初始化图片缩放
     const initZoom = () => {
@@ -354,7 +348,7 @@ export default {
         window.addEventListener('beforeunload', recordScrollPos);
       }
     });
-    
+
     onUnmounted(() => {
       // 清理事件监听器
       if (typeof window !== 'undefined') {
@@ -362,7 +356,7 @@ export default {
         window.removeEventListener('beforeunload', recordScrollPos);
       }
     });
-    
+
     watch(
       () => route.path,
       () => {
