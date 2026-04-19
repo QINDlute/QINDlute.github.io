@@ -34,22 +34,103 @@ word: true
 - cabbage n. 卷心菜
 
 
-## cess=ceed=cede
-*cess=ceed=cede*=走，移动（to go, to move）
+## ced=cess🦶
+*ced=cess*=走，让步
 
-- access n. 通道；使用权 v. 访问
-- accessible n. 易接近的；可访问的 <interval>`ac-`+cess+ible=to+走+……的能力</interval>
-- process n. 进程 v. 处理；加工
-- success n. 成功
-- succeed v. 成功
-- successful adj. 成功的
+- <gdt>suc-(=sub)</gdt> 在下
+    - succeed v. 成功
+    - success n. 成功
+    - successful adj. 成功的
+    - successfully
+    - successive
+    - successor
+    - succession
+---
+- <gdt>pro-</gdt> 向前
+    - process n. 进程 v. 处理；加工
+    - proceeds
+    - proceeding
+    - procedure
+    - process
+    - procession
+    - processor
+    - microprocessor
+---
+- <gdt>pre-</gdt> 提前
+    - precede
+    - preceding
+    - precedent
+    - unprecedented
+    - unprecedentedly
+    - precedence
+    - predecessor
+---
+- <gdt>ex-</gdt>
+    - exceed
+    - exceedingly
+    - excess
+    - excessive
+    - excessively
+---
+- <gdt>ac-</gdt>
+    - access n. 通道；使用权 v. 访问
+    - accessible n. 易接近的；可访问的 & `ac-`+cess+ible=to+走+……的能力=可进入的→可访问的
+    - inaccessible
+    - accessory
+    - accede & 走向→同意
+    - accession
+---
+- <gdt>re-</gdt> 回、向后
+    - recede
+    - recession
+    - recessive
+    - recess
+---
+- <gdt>inter-</gdt>
+    - intercede
+    - intercession
+    - intercessor
+---
+- <gdt>se-</gdt>
+    - secede
+    - seceesion
+---
+- <gdt>ne-</gdt> 否定
+    - necessary adj. 必要的 & `ne-`+cess+ary=否定+走+adj.=太重要的、不让你走的→必要的
+    - necessarily
+    - unnecessary
+    - necessity n. 必要性
+    - necessitate
+    - necessitous
+---
+- <gdt>an-/ante-</gdt> 之前
+    - ancestor
+    - ancestral
+    - ancestry
+    - antecede
+    - antecedent
+    - antecedence
+---
+- cease  & 走到头了→停止
+- unceasing
+- ceaseless
+- cessation
+- incessant
+- decease  & `de-` 离开+cease 走=走了→死了
+- deceased
+- abscess  & `abs-` 离开+cess 走=组织液离开身体→脓肿
+
 
 ::: tip 引申义
-*cess=cede*=让步、撤退、放弃（to yield, to withdraw, to give away）
-- necessary adj. 必要的 <interval>`ne-`+cess+ary=否定+让步+adj.</interval>
-- necessity n. 必要性
+*cess=cede*=让步（to yield）
+- cede
 - cession n. （领土的）割让；（权力的）放弃
-- concede v. 承让；让步；授予
+- <gdt>con-</gdt> 完全
+    - concede v. 承让；让步；授予
+    - concession
+    - concessive
+
+
 :::
 
 
@@ -249,14 +330,58 @@ crit=判断、评判
 - criminology n. 犯罪学；刑事学
 
 
-## cit
-1. 、唤起、激发（to arouse, to stimulate）
-- excite v. 使兴奋；激发；刺激
-- incite v. 煽动；激励
+## cit⏰
+*cit*=召唤、搅动
 
-2. 呼唤、召唤（to call, to summon）
-- recite v. 背诵；重复
-- resuscitate v. 使复活；使苏醒 <interval>`re-`+sus+cit+ate=再+下+唤醒=从下界地狱唤醒你的灵魂=复活</interval>
+- cite v. 引用；举例；传讯；表彰；传唤
+- citation n. 表彰；传票；引文；自述
+---
+- excite v. 使兴奋；激发；刺激
+- excited adj. 激动的；兴奋的
+- exciting adj. 令人激动的；刺激的
+- excitement n. 激动；兴奋；刺激
+- excitable adj. 易激动的；易兴奋的
+- excitability n. 兴奋性；可激发性；应激性
+---
+- recite v. 背诵；列举；叙述
+- recital n. 朗诵；述说；背诵
+- recitation n. 背诵；朗诵；逐个叙述
+---
+- incite v. 煽动；激励
+---
+- resuscitate v. 使复活；使苏醒 & `re-`+sus+cit+ate=再+下+唤醒=从下界地狱唤醒你的灵魂=复活
+- resuscitation n. 复活；复苏
+---
+- solicit v. 征求；恳求；拉客 & soli 完整的+cit 唤起=整个唤起→请求
+- solicitor n. 事务律师；初级律师；法官
+- solicitous adj. 关怀的；惦记的；切望的
+- solicitude n. 关怀；牵挂；关切
+- insouciant adj. 漠不关心的；无忧无虑的 & in 否定+souci 打扰（被请求）+`-ant` adj.=没有打扰的→无忧无虑的
+- insoucience n. 漫不经心；漠不关心；无忧无虑
+
+
+## cant=cent=chant🎤
+*cant=cent=chant*=唱
+
+- chant n. 圣歌；赞美诗；喊叫 v. 吟唱；诵扬
+- chanter n. 吟唱者；笛管
+- descant v. 详论；大谈 adj. 最高音的 n. 评论
+---
+- enchant v. 使着迷；使陶醉；对……施魔法 & 把魔法**唱进**某人心里→迷住
+- enchantment n. 魔法；魅力；痴迷；陶醉
+- disenchant v. 使不再着迷；使醒悟
+- charm n. 魅力；魔力；护身符 v. 对……施魔力；使……迷住；迷住 & 用歌声吸引人→魅力/咒语
+- charming adj. 迷人的
+---
+- recant v. 放弃（信仰/主张）；收回（言论） & 把之前**唱**的东西收回→公开撤回
+- recantation n. 改变论调
+---
+- accent n. 口音；腔调；重音 v. 强调；突出
+- accentuate v. 强调；重读；突出
+---
+- incentive n. 激励；诱因；动机 adj. 激励的 & `in-`进入+cent=响应号召→激励、刺激
+- incantation n. 咒语；念咒
+- cant n. 行话，黑话
 
 
 ## cid=cis
@@ -416,20 +541,6 @@ crit=判断、评判
 - discount n. 折扣 v. 打折；低估
 
 
-## chant=cant=cent
-
-1. 吟唱、呼喊；圣歌
-- chant [n.][v.] 吟唱；反复呼喊；圣歌；口号
-- chanter n. 吟唱者；呼喊者
-- canticle n. 圣歌；颂歌
-
-2. 言说；行话
-- cant n. 行话，黑话 v. 随口念叨；说行话
-- recant v. 放弃（信仰/主张）；收回（言论）
-- accent n. 口音；重读 v.重读；强调
-- incentive n. 激励；刺激因素 adj. 激励的 <interval>`in-`进入+cent=响应号召→激励、刺激</interval>
-
-
 ## cast
 *cast*=投掷、发送（to throw）
 
@@ -457,12 +568,83 @@ crit=判断、评判
 - champagne n. 香槟
 
 
-## carry
-*carry*=运送、搬运；携带
+## car=char🛻
+*car=char*=车、运载
 
-- carry v. 运送；携带；支撑 n. 搬运
-- carrier n. 携带者；运输者；载体
-- career n. 职业；生涯
+- car n. 车厢；汽车；小汽车
+- carsick adj. 晕车的
+- motorcar n. 汽车
+- flatcar n. 平板车
+- streetcar n. 有轨电车
+- carousel n. 行李传送带；旋转木马🎠
+---
+- carry v. 运送；携带；承担；销售；刊载
+- carrier n. 运输公司；载体；运输工具；病毒携带者
+- carriage n. 运输；举止；仪态；运费；四轮马车
+- miscarry n. 流产；失败；销售
+- miscarriage n. 流产；失败；早产
+- cargo n. 货物
+---
+- carpenter n. 木匠；木工
+- carpentry n. 木工；木匠活
+- career n. 职业；生涯 v. 猛冲；极速前进
+---
+- charge v. 收费；充电；指控；负责；批评 n. 指控；收费 & 把货物**装上**车→负荷/收费/指控
+- overcharge n. 要价过高 v. 超载；装填过量；对……要价过高
+- surcharge n. 额外费用；附加费 v. 附加罚款
+- discharge v. 履行；开除；偿还债务；释放；放电；卸货；排出 n. 排放 & 不装载→卸货、开除→排出
+- undercharge n. 充电不足 v. 少要价钱；填充不足
+---
+- chariot v. 乘战车；驾驭战车
+- caricature n. 讽刺画；漫画；滑稽模仿 v. 画成漫画讽刺
+
+
+## cur=curr=curs=cours
+*cur=curr=curs=cours*=跑；流动（run, flow）
+
+- current adj. 当前的；流通的；流行的 n. 趋势；流；潮流
+- currently adj. 当前；目前；普遍的
+- currency n. 流通；货币；通用
+- curriculum n. 课程；全部课程
+- curricular adj. 课程的
+- extracurricular adj. 课外的；业余的
+- cursory adj. 粗略的；仓促的；匆匆的
+- cursive adj. 草书的；草写的 n. 草书
+- cursor n. 光标；游标
+- precursor n. 先驱；前身；先兆；先锋
+---
+- concur v. 同意；意见一致；同时发生
+- concurrent adj. 同时发生的；并发的
+- concurrence n. 同时发生；同意；一致；赞同
+---
+- recur v. 重现；复发；再发生
+- recurrent adj. 反复出现的；再发生的；周期性的
+- recurrence n. 复发；重现；循环
+---
+- occur v. 发生；出现；存在；被想到
+- occurrence n. 发生；事件；出现；事故
+---
+- incur v. 招致；遭受；引起
+- incursion n. 入侵；侵犯
+---
+- course n. 课程；过程；路线；一道菜 v. 追赶；奔流 & **跑过**的路线→路线/课程
+- discourse n. 论文；演讲；交谈 v. 交谈；演讲；谈论
+- discursive adj. 不着边际的；散漫的；离题的 & 随便聊聊的→散漫的；离题的
+- intercourse n. 性交；交往；交流 & 相互之间来回跑→社会交流、身体交流
+- watercourse n. 河道 & 河水跑动的地方
+- recourse n. 依靠；求援；诉诸；求助
+- concourse n. 集合；中央大厅；群众；合流
+- curse [v.][n.] 诅咒；咒骂 & 每天一次祷告→一套诅咒→诅咒
+---
+- excursion n. 短途旅行 v. 涉猎；短途旅行；涉足 & 向外**跑**出去→短途旅行
+- excursive adj. 散漫的；离题的
+---
+- corridor n. 走廊；通道；过道
+- courier n. 快递员；信使；导游
+- corral n. 畜栏；车阵 v. 关进畜栏；把人关起来
+---
+- coarse adj. 粗糙的；粗鲁的；粗俗的 & 按部就班的→粗糙的
+- coarsen v. 变粗糙；变粗鲁
 
 
 ## custom
@@ -530,18 +712,6 @@ crit=判断、评判
 - reconciliation n. 重新和解；恢复和睦
 - counsel n. 劝告；建议；法律顾问/律师 v. 劝告；忠告
 - counsellor n. 顾问；心理咨询师；律师
-
-
-## curr
-*curr*=跑；流动（run, flow）
-
-- currency n. 货币
-- current adj. 当前的；流通的；流行的
-- course n. 路线；课程；进程 v. 奔流
-- cursor n. 光标；指针
-- precursor n. 先驱；前身；先兆
-- concur v. 同意；同时发生
-- concurrent adj. 同时发生的；并发的
 
 
 ## cuss

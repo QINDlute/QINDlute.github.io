@@ -53,13 +53,25 @@
       @for $i from 1 through 2 {
         @keyframes float#{$i} {
           0% {
-            transform: translateY(0px) if($i == 2, rotate(180deg), null);
+            @if $i == 2 {
+              transform: translateY(0px) rotate(180deg);
+            } @else {
+              transform: translateY(0px);
+            }
           }
           50% {
-            transform: translateY(-5px) if($i == 2, rotate(180deg), null);
+            @if $i == 2 {
+              transform: translateY(-5px) rotate(180deg);
+            } @else {
+              transform: translateY(-5px);
+            }
           }
           100% {
-            transform: translateY(0px) if($i == 2, rotate(180deg), null);
+            @if $i == 2 {
+              transform: translateY(0px) rotate(180deg);
+            } @else {
+              transform: translateY(0px);
+            }
           }
         }
       }

@@ -228,6 +228,7 @@ word: true
 
 
 ## 其他
+- flat adj. 平坦的；扁平的；断然的 ad. 直接地 n. 公寓；平坦地方；平面
 - flexible adj. 灵活的；柔韧的
 - profession n. 职业 <interval>similar=>career, occupation</interval>
 - famous adj. 著名的

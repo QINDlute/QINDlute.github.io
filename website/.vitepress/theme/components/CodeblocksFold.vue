@@ -27,7 +27,6 @@ const isLoading = inject<Ref<boolean>>(LoadingStateKey, ref(false))
  * @param height 限制高度
  */
 const observer = (el: HTMLElement, height: number) => {
-  console.log(`[CodeblocksFold] 为代码块组添加监听器:`, el)
   
   // 完全按照原始插件的实现，只添加阈值功能
   new MutationObserver((mutations) => {
@@ -38,7 +37,6 @@ const observer = (el: HTMLElement, height: number) => {
       const foldThreshold = props.height + props.threshold
       
       if (mutation.attributeName === 'class' && _el.classList.contains('active') && _el.offsetHeight > foldThreshold) {
-        console.log(`[CodeblocksFold] 代码块变为 active 且高度超过阈值:`, _el)
         fold(_el, height)
       }
     })
@@ -156,8 +154,6 @@ const rebindListener = (height: number) => {
 const initCodeblocksFold = () => {
   if (typeof window === 'undefined') return
   
-  console.log('[CodeblocksFold] 初始化代码块折叠功能')
-  
   nextTick(() => {
     // 获取前言值
     let fm: number[] | boolean = true
@@ -167,7 +163,6 @@ const initCodeblocksFold = () => {
     
     // 获取文章里的所有代码块
     const codeblocks = document.querySelectorAll('.vp-doc [class*="language-"]')
-    console.log(`[CodeblocksFold] 找到 ${codeblocks.length} 个代码块`)
     
     // 遍历给代码块添加折叠
     codeblocks.forEach((el: Element, index: number) => {
@@ -185,15 +180,6 @@ const initCodeblocksFold = () => {
       // 计算折叠阈值
       const foldThreshold = props.height + props.threshold
       
-      // 调试信息
-      console.log(`[CodeblocksFold] 代码块 ${index + 1}:`, {
-        elementHeight: element.offsetHeight,
-        preScrollHeight: preElement?.scrollHeight,
-        actualHeight: actualHeight,
-        foldThreshold: foldThreshold,
-        shouldFold: actualHeight > foldThreshold
-      })
-      
       // 检查代码块是否被隐藏（代码块组中的代码块）
       const displayStatus: string = window.getComputedStyle(element, null).getPropertyValue('display')
       const isDetailBlock: boolean = element.parentElement!.classList.contains('details')
@@ -201,12 +187,9 @@ const initCodeblocksFold = () => {
       
       // 如果代码块被隐藏（代码块组中的代码块），即使高度为 0 也要继续处理
       if (!isHidden && actualHeight <= foldThreshold) {
-        console.log(`[CodeblocksFold] 代码块 ${index + 1} 高度不足，不折叠`)
         return
       }
-      
-      console.log(`[CodeblocksFold] 代码块 ${index + 1} 高度超过阈值，需要折叠`)
-      
+
       // 处理代码块
       if (Array.isArray(fm)) {
         if (props.defaultAllFold) {
@@ -234,7 +217,6 @@ const initCodeblocksFold = () => {
 const initializeCodeblocks = () => {
   // 延迟一小段时间，确保页面完全渲染
   setTimeout(() => {
-    console.log('[CodeblocksFold] 初始化代码块折叠功能（加载动画已结束）')
     initCodeblocksFold()
   }, 100)
 }
