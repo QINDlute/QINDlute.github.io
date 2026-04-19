@@ -65,11 +65,6 @@ const checkTheme = () => {
   }
 };
 
-// 主动检查主题变化（用于同一窗口内的主题切换）
-const checkThemeOnInterval = setInterval(() => {
-  checkTheme();
-}, 1000);
-
 // 组件挂载时检测主题
 onMounted(() => {
   checkTheme();
@@ -82,13 +77,12 @@ onMounted(() => {
   }
 });
 
-// 组件卸载时移除监听器和清除定时器
+// 组件卸载时移除监听器
 onUnmounted(() => {
   if (typeof window !== 'undefined') {
     window.removeEventListener('storage', checkTheme);
     window.removeEventListener('themeChange', checkTheme);
   }
-  clearInterval(checkThemeOnInterval);
 });
 </script>
 
