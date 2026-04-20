@@ -127,34 +127,6 @@ const initPerfectScrollbar = () => {
   });
 };
 
-// 键盘快捷键处理 - 上一页/下一页
-const handleKeydown = (event: KeyboardEvent) => {
-  // 忽略在输入框中的按键
-  if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) {
-    return;
-  }
-
-  // 获取页面的上下页链接
-  const prevLink = document.querySelector('.pager-link.prev')?.getAttribute('href');
-  const nextLink = document.querySelector('.pager-link.next')?.getAttribute('href');
-
-  // 左箭头 - 上一页
-  if (event.key === 'ArrowLeft') {
-    event.preventDefault();
-    if (prevLink) {
-      router.go(prevLink);
-    }
-  }
-
-  // 右箭头 - 下一页
-  if (event.key === 'ArrowRight') {
-    event.preventDefault();
-    if (nextLink) {
-      router.go(nextLink);
-    }
-  }
-};
-
 // 监听加载状态变化，页面内容显示后初始化 perfect-scrollbar
 watch(
   () => isLoading.value,
@@ -170,13 +142,11 @@ watch(
 
 // 组件挂载时初始化
 onMounted(() => {
-  window.addEventListener('keydown', handleKeydown);
+  // perfect-scrollbar 初始化在 watch 中处理
 });
 
 // 组件卸载时清理
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown);
-  
   // 销毁所有 perfect-scrollbar 实例
   psInstances.forEach(instance => instance.destroy());
   psInstances = [];
