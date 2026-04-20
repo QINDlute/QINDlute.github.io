@@ -4,24 +4,134 @@ word: true
 ---
 
 # 词根 C
-## cept=ceive=cip🫳🏻
-*cept=ceive=cip*=拿、取、抓住（to take, to seize）
+## cap(t)=cept=cip=ceive🫳🏻
+*cap(t)=cept=cip=ceive*=拿、取、抓住（to take, to seize）
 
-- accept v. 接受
-- except v. 免除 prep. 除了……外
-- receive v. 收到；接收
-- reception n. 接待
-- receptionist n. 接待员
-- perceive v. 感知
-- perception n. 感知；理解
-- recipe n. 食谱；方法 <interval>`re-`+cipe=取回食材的方法</interval>
-- capture v. 捕获
-- participate v. 参与
-- disciple n. 弟子；门徒
-- discipline n. 纪律；管教；学科
-- occupation n. 占有；职业 <interval>similar=>profession</interval>
-- capable adj. 有能力的；能胜任的
-- capacity n. 能力；容量；生产力
+- capture v. 捕获；夺取；占领；拍摄；吸引 n. 战利品；捕获
+- recapture v. 夺回；收复；重获；回想
+- captive n. 俘虏；囚徒 adj. 被监禁的；被俘的；被垄断的
+- captivity n. 监禁；关押；困住
+- captivate v. 迷住；迷惑
+- captious adj. 挑剔的；吹毛求疵的
+- captor n. 捕获者；捕捉者
+- caption n. 字幕；标题；插图说明 v. 加上说明
+---
+- capable adj. 有能力的；能胜任的；能干的 & 能抓住的能力→能力
+- capability n. 能力；才能；性能；容量
+- incapable adj. 无能力的；不能的
+- capacity n. 能力；容量；职位；地位；身份 & 能抓住并容纳的能力→能力、容量
+- incapacity n. 无能力；卧病；缺乏技能；孱弱
+- capacitate v. 使具备资格；使（精子）获能
+- incapacitate v. 使无能力；使不能；无能力
+- capacitor n. 电容，电容器
+- capacitance n. 电容，电容量
+- capacious adj. 宽敞的；容量大的；广阔的
+---
+- <gdt>o(b)-</gdt> 朝向
+    - occupy v. 占据；占用；占有；使从事；使忙于 & 抓向某个东西，紧紧攥住→占据
+    - occupant n. 占据者；占有者；使用者
+    - occupation n. 职业；占领；消遣；占有 & similar=>profession
+    - occupational adj. 职业的；占领的
+    - preoccupation n. 全神贯注；关注；当务之急 & 提前**占据**注意力的东西→全神贯注
+    - occupancy n. 占用；居住；入住率
+---
+- <gdt>e(x)-</gdt> 向外
+    - except v. 把……除外；不计；反对 prep. 除了……外
+    - exception n. 例外；除外；反对
+    - exceptional adj. 杰出的；特别的；例外的；罕见的
+    - unexceptional adj. 平常的；非例外的；普通的
+    - exceptionally ad. 例外地；特殊地；异常地
+    - exceptionable adj. 引起反对的；可反对的 & exception 异议（反对）+`-able` 能够的=能让人持有异议的→可反对的
+    - unexceptionable adj. 无懈可击的；无可指责的；完美无缺的
+    <br><br>
+    - emancipate v. 解放；释放 & `e-` 出+man 手+cip 抓=脱离他人的魔爪→解放
+    - emancipation n. 解放；释放
+    - escape [n.][v.] 逃脱；逃避；避免
+    - escapist adj. 逃避现实的 n. 逃避现实者
+---
+- <gdt>con-</gdt> 完全
+    - conceive n. 怀孕；设想；构思；怀有 & 在脑海中完全**抓住**一个设想→构想/概念
+    - concept n. 概念；观念；思想
+    - conceptual adj. 概念的；观念的
+    - conception n. 概念；观念；怀孕；构想；设想
+    - preconcetion n. 成见；先入之见；事先形成的看法
+    - misconceive v. 误解；报错误看法
+    - misconception n. 误解；错误想法；错误认识
+    - conceivable adj. 可能的；可信的；可想象得出的
+    - conceivably ad. 可以想象地；令人信服地；可能
+    - inconceivable adj. 难以想象的；难以想象的
+---
+- <gdt>re-</gdt> 回
+    - receive v. 收到；接收；接待；接纳
+    - receiver n. 听筒；接收器；接收者；接管人
+    - receipt n. 收据；收条；收到 v. 收到
+    - recipient n. 接受者；容器 adj. 容易接受的；感受性强的
+    - receptor n. 受体；感受器；接收器
+    - receptive adj. 善于接受的；能接纳的
+    - receptacle n. 容器；插座；花托
+    - reception n. 接待；招待会；接收；反应
+    - receptionist n. 接待员；传达员
+    - recipe n. 食谱；秘诀；处方 & `re-`+cipe=取回食材的清单→食谱
+---
+- <gdt>a(d)-</gdt>
+    - accept v. 接受；同意；认可；相信
+    - acceptable adj. 令人满意的；可接受的；可以接受的
+    - unacceptable adj. 不受欢迎的；无法接受的
+    - acceptance n. 接受；认可；容忍；忍受
+---
+- <gdt>anti-(=ante)</gdt> 提前
+    - anticipate v. 预料；期望；预期；抢先；提前使用 & 提前**抓住**→预期
+    - anticipation n. 预期；预料；期望
+    - anticipatory adj. 预期的；抢先的
+---
+- <gdt>de-</gdt> 向下
+    - deceive v. 欺骗；蒙骗 & 向下**抓住**后操控对方→欺骗
+    - deceit n. 欺骗；欺诈
+    - deceitful adj. 欺骗的；不诚实的
+    - deceptive adj. 欺骗性的；不实的
+    - deception n. 欺骗；骗局
+---
+- <gdt>per-</gdt> 完全、贯穿
+    - perceive v. 察觉；理解；认为；意识到；发觉 & 完全**抓住**感官→感知、察觉
+    - misperceive v. 误解；感知错误
+    - perception n. 洞察力；看法；感知；认识
+    - perceptive adj. 有洞察力的；观察敏锐的；敏锐的
+    - perceptible adj. 可感知的；可察觉到的；看得出来的
+    - imperceptible adj. 感觉不到的；极细微的
+---    
+- <gdt>sus-</gdt> 在下
+    - susceptible adj. 易受影响的；易受感染的；易动感情的；敏感的 & 地位低微的人容易抓住情感→敏感的
+    - susceptive adj. 敏感的；易受影响的
+    - susceptibility n. 敏感性；感受性
+---
+- inception n. 开始；初期；开端
+- incipient adj. 初期的；起初的
+- intercept v. 拦截；窃听 n. 截距；拦截 & 飞到中间抓下来→拦截
+- precept n. 准则；戒律；格言
+- contraceptive n. 避孕药；避孕用具；避孕方法 adj. 避孕的
+---
+- participate v. 参与；参与；分享 & parti 部分
+- participation n. 参与；参加；分享
+- participative adj. 参与的
+- participant n. 参与者；参加者 adj. 参与的
+---
+- principal n. 校长；负责人；本金；首长 adj. 主要的；最重要的
+- principally ad. 主要地
+- principality n. 公国；侯国；封邑
+- principle n. 原则；原理；法则；定律
+- unprincipled adj. 无原则的；无道德的；无特权的
+---
+- disciple n. 信徒；弟子；门徒
+- discipline n. 纪律；管教；学科 v. 训练；惩罚
+- disciplinary adj. 纪律的；训练的；学科的；训诫的
+- interdisciplinary adj. 跨学科的；各学科间的
+- subdiscipline n. 分支学科
+---
+- municipal adj. 市政的；市的；地方性的
+- municipality n. 自治市；市当局；自治区
+---
+- recuperate v. 恢复；复原
+- forceps n. 镊子；钳子
 
 
 ## cap
@@ -30,7 +140,6 @@ word: true
 - capital n. 首都；资本；大写字母
 - captain n. 首领；船长
 - chapter n. 章节 <interval>lenovo=>书的一个“头”或主要部分</interval>
-- escape [n.][v.] 逃跑
 - cabbage n. 卷心菜
 
 
@@ -38,99 +147,96 @@ word: true
 *ced=cess*=走，让步
 
 - <gdt>suc-(=sub)</gdt> 在下
-    - succeed v. 成功
-    - success n. 成功
-    - successful adj. 成功的
-    - successfully
-    - successive
-    - successor
-    - succession
+    - succeed v. 成功；继承；接替 & 从下面走上来→成功、接替
+    - success n. 成功；胜利；成功的人
+    - successful adj. 成功的；有成就的；有成效的
+    - successfully ad. 成功地；顺利地
+    - successive adj. 连续的；继承的；接替的
+    - successor n. 继承人；接班人；后继的事物
+    - succession n. 继承；连续；更迭；一连串
 ---
 - <gdt>pro-</gdt> 向前
-    - process n. 进程 v. 处理；加工
-    - proceeds
-    - proceeding
-    - procedure
-    - process
-    - procession
-    - processor
-    - microprocessor
+    - proceed v. 继续进行；进行；继续
+    - proceeds n. 收益；收入
+    - proceeding n. 诉讼程序；进程；事件；会议记录
+    - procedure n. 程序；步骤；手续；手术
+    - process v. 处理；加工 n. 过程；进程；工序 & 向前流水线般地**走**→进程
+    - procession n. 队伍；游行 v. 排队前进；列队而行
+    - processor n. 处理器；加工机
+    - microprocessor n. 微处理器；微处理机
 ---
 - <gdt>pre-</gdt> 提前
-    - precede
-    - preceding
-    - precedent
-    - unprecedented
-    - unprecedentedly
-    - precedence
-    - predecessor
+    - precede v. 先于；领先；优于 & 提前发生的→先例
+    - preceding adj. 先前的；在先的
+    - precedent n. 先例；前例 adj. 在前的；在先的
+    - unprecedented adj. 空前的；前所未有的
+    - unprecedentedly ad. 前所未有地；史无前例地
+    - precedence n. 优先权；先后次序；优先级
+    - predecessor n. 前任；前辈；原有事物 & `pre-` 前+`de-` 离开+cess 走+or …人=之前的离任官员→前辈
 ---
 - <gdt>ex-</gdt>
-    - exceed
-    - exceedingly
-    - excess
-    - excessive
-    - excessively
+    - exceed v. 超过；超出；超越 & **走**出界限之外→超过
+    - exceedingly ad. 非常地；极度地
+    - excess adj. 额外的；过量的 n. 过量；过渡；超过；过多
+    - excessive adj. 过度的；过分的；过多的
+    - excessively ad. 过度地；过分地；太；非常
 ---
 - <gdt>ac-</gdt>
-    - access n. 通道；使用权 v. 访问
-    - accessible n. 易接近的；可访问的 & `ac-`+cess+ible=to+走+……的能力=可进入的→可访问的
-    - inaccessible
-    - accessory
-    - accede & 走向→同意
-    - accession
+    - access n. 通道；进入；使用权 v. 使用；获取；访问
+    - accessible n. 易接近的；可访问的；可使用的 & `ac-`+cess+ible=to+走+……的能力=可进入的→可访问的
+    - inaccessible adj. 难以达到的；无法接近的；无法实现的
+    - accessory adj. 附属的；同谋的 n. 附件；配件；从犯 & 主动接近的人→随从、从犯；主动接近的物→配件
+    - accede v. 同意；加入；即位 & 走向→同意
+    - accession n. 就职；正式加入；即位；继位
 ---
 - <gdt>re-</gdt> 回、向后
-    - recede
-    - recession
-    - recessive
-    - recess
+    - recede v. 退后；退出；减弱；逐渐模糊
+    - recession n. 后退；不景气；衰退
+    - recessive adj. 隐性的；后退的；逆行的
+    - recess n. 休息；休会；壁龛 v. 休息；休会；放入壁龛
 ---
 - <gdt>inter-</gdt>
-    - intercede
-    - intercession
-    - intercessor
+    - intercede v. 调解；说情；求情
+    - intercession n. 求情；调解；仲裁
+    - intercessor n. 仲裁者；调解人；调停者
 ---
 - <gdt>se-</gdt>
-    - secede
-    - seceesion
+    - secede v. 退出组织；脱离团体
+    - seceesion n. 退出；脱离；分裂
 ---
 - <gdt>ne-</gdt> 否定
-    - necessary adj. 必要的 & `ne-`+cess+ary=否定+走+adj.=太重要的、不让你走的→必要的
-    - necessarily
-    - unnecessary
-    - necessity n. 必要性
-    - necessitate
-    - necessitous
+    - necessary adj. 必要的；必然的 n. 必需品 & `ne-`+cess+ary=否定+走+adj.=太重要的、不让你走的→必要的
+    - necessarily ad. 必然地；不可避免地
+    - unnecessary adj. 不必要的；多余的；不需要的
+    - necessity n. 必需品；必要；必要性；迫不得已
+    - necessitate v. 需要；迫使；使成为必要
+    - necessitous adj. 贫困的；紧急的；急需的
 ---
 - <gdt>an-/ante-</gdt> 之前
-    - ancestor
-    - ancestral
-    - ancestry
-    - antecede
-    - antecedent
-    - antecedence
+    - ancestor n. 祖先；祖宗；原型
+    - ancestral adj. 祖先的；祖传的
+    - ancestry n. 祖先；血统；世系
+    - antecede v. 在……之前；居……之先
+    - antecedent n. 祖先；前情；先行词 adj. 先前的；之前的；先行的
+    - antecedence n. 前提；先行
 ---
-- cease  & 走到头了→停止
-- unceasing
-- ceaseless
-- cessation
-- incessant
-- decease  & `de-` 离开+cease 走=走了→死了
-- deceased
-- abscess  & `abs-` 离开+cess 走=组织液离开身体→脓肿
-
+- cease v. 停止；结束；终止 & 走到头了→停止
+- unceasing adj. 不断的；不停的
+- ceaseless adj. 连续不断的；不停的
+- cessation n. 终止；中断
+- incessant adj. 不断的；不停的；连续的
+- decease n. 死亡 v. 死亡；死 & `de-` 离开+cease 走=走了→死了
+- deceased adj. 已经死亡的
+- abscess n. 脓肿  & `abs-` 离开+cess 走=组织液离开身体→脓肿
 
 ::: tip 引申义
 *cess=cede*=让步（to yield）
-- cede
-- cession n. （领土的）割让；（权力的）放弃
+- cede v. 割让；放弃
+- cession n. （领土的）割让；（权力的）放弃，转让
 - <gdt>con-</gdt> 完全
-    - concede v. 承让；让步；授予
-    - concession
-    - concessive
-
-
+    - concede v. 承认；让步；退让；授予
+    - concession n. 让步；特许权；承认；摊位
+    - concessive adj. 让步的；妥协的
 :::
 
 
@@ -230,7 +336,7 @@ word: true
 - accident n. 事故；意外
 - accidental adj. 偶然的；意外的
 - incident n. 事件；事变
-- deciduous adj. 落叶的 <interval>`de-`+cid+`-ous`=down+落下+adj.</interval>
+- deciduous adj. 落叶的 & `de-` 向下+cid 落下+`-ous` adj.=像落叶向下掉落一样的
 - coincide v. 同时发生；一致；重叠
 - coincidence n. 巧合
 
@@ -283,51 +389,94 @@ word: true
 - disclosure n. 披露；公开
 
 
-## cern=cer=cret=cre
-词根`cern`来自拉丁语`cernere`，其过去分词形式为`cretus`，得到变体`cret-`。
+## cern=cert=cret=crim🧐
+*cern=cert=cret=crim*=筛选、判断
 
-1. 区分、辨别（to distinguish, to see clearly）
-- concern [n.][v.] 关心；担忧；涉及
-- discern v. 识别；辨别
-- discerning adj. 有洞察力的；有辨别力的
-- discriminate v. 区分；辨别；（贬义）歧视
+- certain adj. 确定的；一定程度上的；一定的 pron. 某些；某几个 & **筛选**后确定下来的→确定
+- certainly ad. 确定地；当然；毫无疑问地；肯定地
+- certainty n. 确定；必然的事；无疑；必然
+- certify v. 证明；证实；保证
+- certificate n. 证书；执照 v. 用证书证明；发给证明书
+- certification n. 证明；证书；合格证
+- certitude n. 无疑；确认
+- incertitude n. 无常；不确定；犹豫
+- ascertain v. 查明；确定；弄清
+- uncertain adj. 不确定的；易变的；不稳定的
+- uncertainty n. 不确定；怀疑；拿不准
+---
+- <gdt>con-</gdt> 一起
+    - concern [n.][v.] 关心；担忧；涉及
+    - concerned adj. 担心的；关注的
+    - unconcerned adj. 不关心的；无关的；漠视的
+    - concerning conj. 关于；涉及
+---
+- <gdt>con-</gdt> 一起
+    - concert n. 音乐会；一致；和谐；演奏会 v. 协调一致行动
+    - concerted adj. 协定的；一致的；共同的
+    - concerto n. 协奏曲
+    - disconcert v. 使不安；使困惑；使慌张 & 打破和谐的心态→慌张
+---
+- <gdt>dis-</gdt> 分开
+    - discern v. 识别；辨别；认出；发现 & 把不同的东西**筛选**分开→辨别
+    - discernible adj. 可辩别的；明显的
+    - indiscernible adj. 难识别的
+    - discerning adj. 有洞察力的；有辨别力的
+---
+- <gdt>dis-</gdt> 完全、彻底
+    - discreet adj. 谨慎的；朴素的；不显眼的 & 说的话是经过彻底**筛选**的→谨慎的
+    - discreetly ad. 谨慎地；小心地
+    - discretion n. 谨慎；慎重；自行决定；判断力
+    - discretionary adj. 酌情行事的；自由决定的
+    - discrete adj. 离散的；不连续的；不相干的
+---
+- <gdt>se-</gdt>
+    - secret [n.][adj.] 秘密；秘诀；秘密的；机密的 <interval>`se-`+cret=分开+分离=分开隔离的秘密</interval>
+    - secretary n. 秘书；大臣；部长
+    - secretariat n. 秘书处；书记处
+    - secrecy n. 保密；秘密；隐蔽
+    - secrete v. 【生理】分泌；隐藏
+    - secretion n. 分泌
+    - secretive adj. 守口如瓶的；遮遮掩掩的；秘密的
+---
+- hypercritical adj. 过度挑剔的；吹毛求疵的 & hyper 过度，超过+crit 筛选+ical adj.=过度挑剔
+---
+- decree [n.][v.] 法令；判决；颁布 & `de-` 向下+cree 筛选判定=拍案定策生效
+- excrete v. 排泄；分泌 & 身体经过**筛选**后排出产物的过程
+- excrement n. 排泄物；粪便
+---
+::: danger *crim=crimin*=罪（evil）
+因与正常行为有异，而被**筛选**出来的恶意行为→罪
 
-::: tip 引申义
-crit=判断、评判
+- crime n. 罪行；犯罪活动；严重错误
+- criminal adj. 犯罪的；刑事的 n. 罪犯；刑事犯
+- incriminate v. 牵连；控告……有罪，使负罪 & `in-`加强义+crimin+`-ate`v.=让某人有罪→使…负罪
+- recriminate v. 反责；反控诉
+- cybercrime n. 网络犯罪
+- criminology n. 犯罪学；刑事学
+---
+- discriminate v. 歧视；辨别；区分（含贬义）
+- discriminatory adj. 歧视的；差别待遇的；挑剔的
+- discrimination n. 歧视；辨别；区别
+- indiscriminate adj. 不加区别的；不加选择的；恣意妄为的
+- antidiscrimination n. 反歧视
+:::
+---
+::: tip *crit*=判断、评判
+有对事物做出**筛选**的能力→判断优劣→批评、评判
 
 - critic n. 批评家，评论家；挑剔的人
+- critical adj. 批评性的；关键的；危急的
+- uncritically ad. 不加辨别地；不加批评地
+- criticism n. 批评，指责；评论
 - criticize v. 批评，指责；评论
-- criticism n. 批评，指责；评论，评论文 <interval>学术领域：critique</interval>
-- critical adj. 批评的；重要的
-- accredit v. 授权，认可；把……归于 <interval>`ac-`表加强+cred+it=经过严格评判后给予认可</interval>
-- criterion n. 标准 <interval>标准复数形式：**criteria**</interval>
-- criterial adj. 标准的；作为判断依据的
-- criterionless adj. 无标准的；无依据的
-
+- critique n. 评论；批评 v. 发表评论
+- crisis n. 危机；危急关头；紧要关头
+- criterion n. 标准；准则；规范 <interval>标准复数形式：**criteria**</interval>
+---
+- hypocrite n. 伪君子；伪善者 & hypo 在下、不足+crite 评判=不足以评判的→伪君子
+- hypocrisy n. 虚伪；伪善；造作
+- hypocritical adj. 虚伪的；伪善的；伪君子的
 :::
-
-2. 分离；分开（to separate）
-- secret [n.][adj.] 秘密；秘密的 <interval>`se-`+cret=分开+分离=分开隔离的秘密</interval>
-- secretary n. 秘书；助手
-- secrete v. 【生理】分泌；隐藏
-- discrete adj. 离散的；不连续的；个别的
-- discreet adj. 谨慎的；慎重的
-
-3. 决定、确定（to decide, to be sure）
-- decree [n.][v.] 法令；判决；颁布
-- certify v. 证明；保证
-- certificate n. 证书；证明文件
-- certain adj. 确定的；肯定的
-- ascertain v. 查明；确定 
-
-
-## crim=crimin
-*crim=crimin*=罪（evil）
-
-- crime n. 犯罪；罪行
-- criminal n. 罪犯 adj. 犯罪的；刑事的
-- incriminate v. 控告，归罪于；证明有罪 <interval>`in-`加强义+crimin+`-ate`v.</interval>
-- criminology n. 犯罪学；刑事学
 
 
 ## cit⏰
@@ -481,7 +630,7 @@ crit=判断、评判
 ## cord=cor
 1. 心脏、核心（heart, core）
 - core n. 核心；精髓
-- courage n. 勇气；胆量 <interval>“心之所向”</interval>
+- courage n. 勇气；胆量 & “心之所向”
 - encourage v. 鼓励；激励
 - discourage v. 使气馁；劝阻
 
@@ -494,11 +643,36 @@ crit=判断、评判
 - record [n.][v.] 记录；录制；唱片 & 再次涌上心头→记录
 
 
-## cult
+## cred🩵
+*cred*=相信、信任
+
+- credit n. 信用；学分；赞扬；荣誉；贷款 v. 相信；信任；把……归于 & 信任：把心放在肚子里
+- creditor n. 债权人；债主
+- creditworthy adj. 有信誉的；信誉卓越的
+- creditworthiness n. 商誉；信用可靠度
+- accredit v. 授权；信任；委托；归于
+- discredit n. 名誉丧失；不信任 v. 败坏名声；使丢脸
+---
+- credible adj. 可信的；可靠的；有望成功的
+- credibility n. 可靠性；可信性；可信度
+- incredible adj. 难以置信的；惊人的；极好的
+- incredibly ad. 难以置信地；及其；不可思议地
+- credence n. 信任；真实性；可信性
+- credential n. 资格证书；证件；资格；资历
+---
+- credulous adj. 轻信的；易受骗的 & 容易信任别人的→轻信的
+- incredulous adj. 怀疑的；不轻信的
+- credulity n. 轻信；易信
+- incredulity n. 不信任；怀疑；不相信
+---
+- creed n. 信条；宗教；教义
+
+
+## cult🌽
 1. 耕种、培养（to till, to cultivate）
 - cultivate v. 耕种；培养
 - cultivation n. 栽培；培养
-- agriculture n. 农业 <interval>agri+culture=田地+耕种=</interval>
+- agriculture n. 农业 <interval>agri+culture=田地+耕种=农业</interval>
 
 2. 文化、信仰（culture, to worship）
 - culture n. 文化；教养；栽培
@@ -738,10 +912,12 @@ crit=判断、评判
 - combine v. 使结合 <interval>`com-`+bine=共同+捆绑</interval>
 - quash v. 撤销；宣布无效；平息
 - calendar n. 日历；日程表；月历
+- can v. 能，能够；装罐头 n. 罐头
+---
 - cancer n. 癌症；癌；社会恶习
 - Cancer n. 巨蟹座；癌症
 - crab v. 抱怨；发牢骚 n. 螃蟹；蟹；脾气乖戾的人
-- can v. 能；能够
+---
 - chart n. 图表；海图 v. 绘制；记录；规划
 - card n. 卡片；纸牌；名片
 - cartoon n. 卡通；动画片 v. 画漫画

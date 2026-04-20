@@ -158,6 +158,7 @@ prim-/prin/pri：第一、首要
 ### re-
 1. 再次，重新（=again, back）
 2. 回，向后（=back, backward）
+3. 反复
 
 
 ## S

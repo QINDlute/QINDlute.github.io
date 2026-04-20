@@ -1205,6 +1205,17 @@ word: true
 - consulate n. 领事馆
 
 
+## sal=salt🧂
+- salt n. 盐；食盐 v. 用盐腌；加盐于
+- salty adj. 咸的；含盐的；有趣的
+- saline adj. 盐水 adj. 含盐的；盐的；咸的
+- salinity n. 盐分；含盐量
+- desalinize v. 除去盐分；淡化海水
+- salary n. 薪水；薪金
+- salad n. 沙拉；青少年时期
+- salami n. 意大利腊肠
+
+
 ## 其他
 - struggle [v.][n.] 斗争；奋斗
 - straightforward adj. 简单的；坦率的；正直的 ad. 坦率地

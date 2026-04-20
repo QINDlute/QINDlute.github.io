@@ -108,8 +108,8 @@ word: true
 - aberrant adj. 异常的
 
 
-## eco
-*eco*=家🏠
+## eco🏠
+*eco*=家
 
 - economy n. 经济；节约 <interval>eco+`-nomy`=家庭+管理→“勤俭持家”</interval>
 - economic adj. 经济的；经济学的

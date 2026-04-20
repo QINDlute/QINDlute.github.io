@@ -16,6 +16,7 @@ a, button, img, svg, section, h3.text, p.text, pre.shiki, article, label,
 .link,
 .link-text-value,
 .fold-btn,
+.color-option,
 .ps__rail-x, .ps__rail-y {
   cursor: url('/cursor/purpleglass/pointer.cur'), pointer !important;
 }
