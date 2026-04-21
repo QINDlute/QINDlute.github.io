@@ -187,7 +187,7 @@ word: true
 ## gymno
 gymno=裸露的，赤裸的 :muscle:
 
-- gymnasium n. 健身房；体育馆 <interval>复数形式：gymnasia "光膀子💦健身"</interval>
+- gymnasium n. 健身房；体育馆 & 【复】gymnasia "光膀子💦健身"
 - gymnastic adj. 体操的；体操训练的
 - gymnastics n. 体操；体操训练
 - gymnast n. 体操运动员

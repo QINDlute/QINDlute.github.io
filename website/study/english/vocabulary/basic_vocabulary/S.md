@@ -298,7 +298,7 @@ word: true
 ## stinct=stingu=stimul💉
 *stinct=stingu=stimul*=刺、刺激
 
-- stimulus n. 激励因素；刺激；刺激物 & 用针**扎**你驱使你前进→刺激 复数形式：stimuli
+- stimulus n. 激励因素；刺激；刺激物 & 用针**扎**你驱使你前进→刺激 【复】stimuli
 - stimulate v. 刺激；激励；使兴奋；促进
 - stimulation n. 刺激；激励；鼓励
 - stimulant n. 兴奋剂；刺激物 adj. 激励的

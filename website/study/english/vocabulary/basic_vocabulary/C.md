@@ -471,7 +471,7 @@ word: true
 - criticize v. 批评，指责；评论
 - critique n. 评论；批评 v. 发表评论
 - crisis n. 危机；危急关头；紧要关头
-- criterion n. 标准；准则；规范 <interval>标准复数形式：**criteria**</interval>
+- criterion n. 标准；准则；规范 & 【复】criteria
 ---
 - hypocrite n. 伪君子；伪善者 & hypo 在下、不足+crite 评判=不足以评判的→伪君子
 - hypocrisy n. 虚伪；伪善；造作
@@ -591,18 +591,20 @@ word: true
 - recover v. 恢复；痊愈；重新获得
 
 
-## civ=civil
+## civ=civil🏙️
 
-1. 城市、公民（city, citizen）
-- city n. 城市
-- civic adj. 城市的；市民的；公民的
-- civil adj. 文明的；国内的
-
-2. 文明（civilization）
-- civilian [n.][adj.] 平民（的）；文职（的）
-- civility n. 礼貌；恭谦
+- civil adj. 文明的；国内的；公民的；有礼貌的
+- civility n. 礼貌；恭谦；客气
+- incivility n. 不文明；未开化
+- civilian n. 平民 adj. 民用的；平民的
 - civilize v. 使文明化；使开化
-- civilization n. 文明；文明社会
+- civilization n. 文明；文明社会；文化
+---
+- city n. 城市；都市
+- citizen n. 公民；市民；居民
+- citizenship n. 公民身份；公民权；国籍
+- civic adj. 城市的；市民的；公民的
+- citadel n. 堡垒；要塞
 
 
 ## clin
@@ -646,7 +648,7 @@ word: true
 ## cred🩵
 *cred*=相信、信任
 
-- credit n. 信用；学分；赞扬；荣誉；贷款 v. 相信；信任；把……归于 & 信任：把心放在肚子里
+- credit n. 信用💳；学分；赞扬；荣誉；贷款 v. 相信；信任；把……归于 & 信任：把心放在肚子里
 - creditor n. 债权人；债主
 - creditworthy adj. 有信誉的；信誉卓越的
 - creditworthiness n. 商誉；信用可靠度
@@ -724,7 +726,7 @@ word: true
 
 
 ## cumul
-*cumul*=堆、堆积、聚集（to stack）
+*cumul*=堆积（to stack）
 
 - accumulate v. 积累；堆积
 - accumulation n. 积累；聚积；堆积物

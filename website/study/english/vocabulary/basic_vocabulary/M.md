@@ -229,7 +229,7 @@ word: true
 
 4. 微小，细节
 - minute n. 分钟；会议记录；一会儿 adj. 微小的；详细的
-- minutia n. 细节；琐事；细枝末节 & 复数形式：minutiae
+- minutia n. 细节；琐事；细枝末节 & 【复】minutiae
 - miniature adj. 微型的；小型的 n. 微缩模型 v. 使成小型
 
 5. 使变小、减少
@@ -288,7 +288,7 @@ word: true
 - immediately ad. 立即；马上；直接地 conj. 即刻
 - intermediate adj. 中间的；中级的；居中的 n. 媒介；媒介物
 - intermediary adj. 中间人；调解人 adj. 中间的；媒介的
-- medium n. 媒介；方法；媒体；中间 adj. 中等的；适中的 & 复数形式：media：媒体；媒介
+- medium n. 媒介；方法；媒体；中间 adj. 中等的；适中的 & 【复】media：媒体；媒介
 - mediocre adj. 平庸的；普通的；平凡的
 - mediocrity n. 平庸；平凡；平均化
 
@@ -704,7 +704,7 @@ word: true
 - musical adj. 音乐的；悦耳的；喜欢音乐的 n. 音乐剧
 - amuse v. 逗乐；消遣；娱乐
 - amusement n. 娱乐；消遣；乐趣
-- math n. 数学 v. 运算 & 书面语：mathematics
+- math n. 数学 v. 运算 & 【书】mathematics
 - mouse n. 鼠标；老鼠；胆小如鼠之人
 - moustache n. 髭；上唇的小胡子🥸
 - million n. 百万 & milli 千+on n.=一千千
