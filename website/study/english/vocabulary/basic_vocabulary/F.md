@@ -11,23 +11,30 @@ word: true
 - fact n. 事实
 - factor n. 因素；要素
 - factory n. 工厂
+---
 - fashion n. 时尚；方式 v. 制作 <interval>“大家都在做的活动”→时尚</interval>
 - fashionable adj. 时尚的
+---
 - affect v. 影响；使感动
 - affection n. 感情；情感
+---
 - effect n. 效果；影响 v. 引起
 - efficient adj. 高效的
 - efficiency n. 效率
+---
 - defect n. 缺陷
 - deficient adj. 不足的，缺乏的
 - defeat v. 击败；战胜 n. 失败；战胜；击败 
+---
 - infect v. 感染，传染
 - perfect adj. 完美的
 - prefect n. 行政长官；学长
 - difficulty n. 困难
+---
 - facile adj. 易做到的
 - facilitate v. 促进；使便利
 - facility n. 设施；便利；功能
+---
 - profit n. 利润；收益
 - proficient adj. 娴熟的 n. 专家
 - suffice v. 足够，足以

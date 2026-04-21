@@ -433,7 +433,7 @@ word: true
 
 
 ## merg=mers
-*merg=mers*=沉、没（to dip, to sink）
+*merg=mers*=沉、没
 
 - merge v. 合并；融入；融合；混合
 - merger n. 合并；兼并；并购

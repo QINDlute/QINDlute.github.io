@@ -17,7 +17,7 @@ word: true
     - selection n. 选择；精选物；选集
 ---
 - <gdt>e(x)-</gdt> 向外、出来
-    - elect v. 选举；选择；决定 adj. 当选的 <interval>选出来</interval>
+    - elect v. 选举；选择；决定 adj. 当选的 <intefrval>选出来</interval>
     - election n. 选举；当选；选择权
     - eligible adj. 有资格的；合格的；符合条件的 <interval>能被选出来的→有资格的</interval>
     - ineligible adj. 不合格的；不符合资格的
@@ -132,7 +132,7 @@ word: true
 - illogical adj. 不合逻辑的；不合理的
 - ideologue n. 空想家；理论家；提倡者 <interval>`ideo-`+log+ue=思想+说→阐述思想的人</interval>
 - logarithm n. 对数 <interval>log+arithm=逻辑+数字→有逻辑的数字→对数</interval>
-- homologous <interval>`homo-`+log+`-ous`=相同+说+adj.→逻辑一致的</interval>
+- homologous adj. 同源的；一致的 <interval>`homo-`+log+`-ous`=相同+说+adj.→逻辑一致的</interval>
 - eclogue n. 牧歌；田园诗 <interval>`e-`+log+ue=向外+说→在野外说的内容</interval>
 - philology n. 语言学；文献学；语文学 <interval>`phil-`+o+logy=爱+说→热爱语言的学问→语言学</interval>
 - neologism n. 新词；词语的新义 <interval>`neo-`+log+ism=新+说+n.→新的说法</interval>
