@@ -5,8 +5,8 @@
 ② $f(x)在(a,b)内可导$  
 ③ $f(a)=f(b)$
 
-$then{\color{Red}\exists \zeta \in (a,b)，使f'(\zeta) =0}$
-
+<Badge type="green">then</Badge>$\exists \zeta \in (a,b)，使f'(\zeta) =0$
+---
 <Badge type="note">证:</Badge>
 
 $f(x)\in c[a,b]\Rightarrow \exists m，M.$  
@@ -40,8 +40,8 @@ $\therefore \exists \zeta \in (0,c) \subset (0,2),使f'(\zeta) = 0$
 ① $f(x)\in c[a,b]；$  
 ② $f(x)在(a,b)内可导$
 
-$then{\color{Red}\exists \zeta \in (a,b),使f'(\zeta) = \frac{f(b)-f(a)}{b-a}}$
-
+<Badge type="green">then</Badge>$\exists \zeta \in (a,b),使f'(\zeta) = \frac{f(b)-f(a)}{b-a}$
+---
 <Badge type="note">分析:</Badge>
 
 $L_{曲}:y=f(x)$  
@@ -78,8 +78,8 @@ $2^{0}. 原式=2\lim_{x \to \infty} f'(\zeta)=2\lim_{\zeta \to \infty} f'(\zeta)
 ② $f(x),g(x)在(a,b)内可导;$  
 ③ $g'(x) \ne 0 (a<x<b);$
 
-$then{\color{Red}\exists \zeta \in (a,b)，使\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\zeta)}{g'(\zeta)}}$
-
+<Badge type="green">then</Badge>$\exists \zeta \in (a,b)，使\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\zeta)}{g'(\zeta)}$
+---
 <Badge type="danger">Notes:</Badge>
 
 ① If $g(x)=x,则C \Rightarrow L;(Lagrange定理 \subset Cauchy定理)$  
@@ -111,6 +111,27 @@ $\therefore \frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\zeta)}{g'(\zeta)}$
 
 $f(x)在x=x_0领域内n+1阶可导$
 
-$then{\color{Red} f(x)=P_n(x)+R_n(x)}$
+<Badge type="green">then</Badge>$f(x)=P_n(x)+R_n(x)$  
+$P_n(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!} (x-x_0)^2+…+\frac{f^{(n)}(x_0)}{n!} (x-x_0)^n$  
+$R_n(x)=\left\{\begin{matrix} 
+  \frac{f^{(n+1)}(\zeta)}{(n+1)!}(x-x_0)^{(n+1)}——Lagrange型(\zeta介于x_0与x之间) \\  
+  o((x-x_0)^n)——皮亚诺型
+\end{matrix}\right.$  
+If $x_0=0:$  
+$f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+…+\frac{f^{(n)}(0)}{n!}x^n+R_n(x)$(麦克劳林公式)  
+$R_n(x)=\left\{\begin{matrix} 
+  \frac{f^{(n+1)}(\zeta)}{(n+1)!}(x)^{(n+1)}——Lagrange型(\zeta介于0与x之间) \\  
+  o((x)^n)——皮亚诺型
+\end{matrix}\right.$
+
+<Badge type="danger">记:</Badge>
+
+① $e^x=1+x+\frac{x^2}{2!}+…+\frac{x^n}{n!}+o(x^n);$  
+② $\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+…+\frac{(-1)^n}{(2n+1)!}x^{2n+1}+o(x^{2n+1});$  
+③ $\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+…+\frac{(-1)^n}{(2n)!}x^{2n}+o(x^{2n});$  
+④ $\frac{1}{1-x}=1+x+x^2+…+x^n+o(x^n);$  
+⑤ $\frac{1}{1+x}=1-x+x^2+…+(-1)^nx^n+o(x^n);$  
+⑥ $\ln (1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-…+\frac{(-1)^{(n-1)}}{n!}x^n+o(x^n);$  
+⑦ $(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+…+\frac{a(a-1)…(a-n+1)}{n!}x^n+o(x^n).$
 
 :::
