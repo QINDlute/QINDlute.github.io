@@ -1,6 +1,6 @@
 /* 数学公式样式 */
 .MathJax {
-  /* 基础样式：确保元素可交互 */
+  /* 基础样式：确保元素可交互并自动生成滚动条 */
   display: inline-block !important;
   /* 核心修复：设置垂直对齐方式，使公式与汉字文本正确对齐 */
   vertical-align: middle;

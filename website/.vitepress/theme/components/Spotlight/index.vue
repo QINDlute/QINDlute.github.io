@@ -11,6 +11,7 @@ const route = useRoute();
 const disabledPaths = [
   '/others/archive',
   '/others/tags',
+  '/study/math/',
 ];
 
 /**

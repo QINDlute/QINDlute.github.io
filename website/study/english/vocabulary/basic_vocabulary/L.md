@@ -17,7 +17,7 @@ word: true
     - selection n. 选择；精选物；选集
 ---
 - <gdt>e(x)-</gdt> 向外、出来
-    - elect v. 选举；选择；决定 adj. 当选的 <intefrval>选出来</interval>
+    - elect v. 选举；选择；决定 adj. 当选的 <interval>选出来</interval>
     - election n. 选举；当选；选择权
     - eligible adj. 有资格的；合格的；符合条件的 <interval>能被选出来的→有资格的</interval>
     - ineligible adj. 不合格的；不符合资格的

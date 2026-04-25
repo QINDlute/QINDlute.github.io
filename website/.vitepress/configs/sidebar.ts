@@ -47,7 +47,13 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     '/study/': [
         { text: '学习',
             items: [
-                { text: '数学', link: '/study/math/test' },
+                { text: '数学', 
+                    items: [
+                        { text: '中值定理', link: '/study/math/一元函数微分学/1-中值定理' },
+                        { text: '极值', link: '/study/math/一元函数微分学/2-极值' },
+                        { text: '几个小问题', link: '/study/math/一元函数微分学/3-几个小问题' },
+                    ]
+                },
                 { text: '英语', 
                     items: [
                         { text: '写作', link: '/study/english/writing/ChangeYourLife' },
