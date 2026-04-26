@@ -16,3 +16,15 @@ $右=\lim_{x \to \infty} {[(1+\frac{2a}{x-a})^{\frac{x-a}{2a}}]^{x \frac{2a}{x-a
 $\Rightarrow e^{2a} = 2e \Rightarrow 2a = 1 + \ln 2 \Rightarrow a = \frac{1+\ln 2}{2}.$
 
 :::
+
+::: faq-math 例2.\;求\;\lim_{x \to \infty} {x^2(e^{\frac{1}{2x-1}}-e^{\frac{1}{2x+1}})}.#
+解:  
+$令f(x)=e^{\frac{1}{2x}},f'(x)=-{\frac{e^{\frac{1}{2x}}}{2x^2}}$  
+$e^{\frac{1}{2x-1}}-e^{\frac{1}{2x+1}} = -(f(x+\frac{1}{2})-f(x-\frac{1}{2})) = -f'(\zeta),\zeta \in (x-\frac{1}{2},x+\frac{1}{2})$  
+$得f'(\zeta) = \frac{e^{\frac{1}{2\zeta}}}{2\zeta^2}$  
+$原式 = \lim_{x \to \infty} {x^2 \frac{e^{\frac{1}{2\zeta}}}{2\zeta^2}}$  
+$\because \zeta \in (x-\frac{1}{2},x+\frac{1}{2})$  
+$\therefore \;当\;x \to \infty \Rightarrow \zeta \to \infty 且 \zeta \sim x$  
+$\Rightarrow 原式 = \frac{1}{2} \lim_{x \to \infty} {e^{\frac{1}{2\zeta}}} = \frac{1}{2}.$
+
+:::

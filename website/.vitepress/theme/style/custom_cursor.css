@@ -11,7 +11,7 @@ html, body {
   cursor: url('/cursor/purpleglass/help.cur'), help !important;
 }
 /* 链接悬停 */
-a, button, img, svg, section, h3.text, p.text, pre.shiki, article, label,
+a, button, img, svg, section, h3.text, p.text, pre.shiki, article, label, summary,
 .caret,
 .link,
 .link-text-value,
