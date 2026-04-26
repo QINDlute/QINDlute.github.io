@@ -52,6 +52,11 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '中值定理', link: '/study/math/一元函数微分学/1-中值定理' },
                         { text: '极值', link: '/study/math/一元函数微分学/2-极值' },
                         { text: '几个小问题', link: '/study/math/一元函数微分学/3-几个小问题' },
+                        { text: '错题集', 
+                            items: [
+                                { text: 'L', link: '/study/math/一元函数微分学/错题集/L' },
+                            ]
+                        },
                     ]
                 },
                 { text: '英语', 
