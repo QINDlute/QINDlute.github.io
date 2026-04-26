@@ -1,5 +1,10 @@
 /* .vitepress\theme\style\blur.css */
 :root {
+  /* 放止折叠sidebar时导航栏透明时无模糊效果 */
+  .VPNavBar{
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(10px);
+  }
   /* 首页下滑后导航透明 */
   .VPNavBar:not(.has-sidebar):not(.home.top) {
     background-color: rgba(255, 255, 255, 0);

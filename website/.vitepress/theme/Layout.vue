@@ -45,8 +45,6 @@
 import DefaultTheme from 'vitepress/theme'
 import { useData, useRouter } from 'vitepress'
 import { onMounted, onUnmounted, computed, ref, watch, nextTick, inject, type Ref } from 'vue'
-import PerfectScrollbar from 'perfect-scrollbar';
-import "perfect-scrollbar/css/perfect-scrollbar.css";
 
 import SnowEffect from './components/Layout/SnowEffect.vue'
 import SnowTrigger from './components/Layout/SnowTrigger.vue'
@@ -71,9 +69,6 @@ const router = useRouter()
 // 从 index.ts 注入加载状态
 const isLoading = inject<Ref<boolean>>(LoadingStateKey, ref(false))
 
-// 存储 perfect-scrollbar 实例数组
-let psInstances: PerfectScrollbar[] = [];
-
 // 检测是否为移动设备
 const isMobile = computed(() => {
   if (typeof window === 'undefined') return false
@@ -86,69 +81,4 @@ const isMobile = computed(() => {
 const isMobileDevice = () => {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 };
-
-/**
- * 初始化 perfect-scrollbar 自定义滚动条
- */
-const initPerfectScrollbar = () => {
-  // 清理旧的实例
-  psInstances.forEach(instance => instance.destroy());
-  psInstances = [];
-  
-  if (isMobileDevice()) {
-    return;
-  }
-  
-  // 定义需要添加自定义滚动条的容器选择器
-  const containerSelectors = [
-    '.VPSidebar',
-  ];
-  
-  containerSelectors.forEach(selector => {
-    const container = document.querySelector(selector) as HTMLElement;
-    
-    if (container) {
-      // 确保容器有必要的样式
-      const styles = window.getComputedStyle(container);
-      if (!['fixed', 'absolute', 'relative', 'sticky'].includes(styles.position)) {
-        container.style.position = 'relative';
-      }
-      
-      // 初始化 perfect-scrollbar
-      const instance = new PerfectScrollbar(container, {
-        wheelSpeed: 1,
-        wheelPropagation: false,
-        swipeEasing: true,
-        suppressScrollX: true
-      });
-      
-      psInstances.push(instance);
-    }
-  });
-};
-
-// 监听加载状态变化，页面内容显示后初始化 perfect-scrollbar
-watch(
-  () => isLoading.value,
-  (newValue) => {
-    if (newValue === false) {
-      // 页面内容显示后，初始化 perfect-scrollbar
-      nextTick(() => {
-        initPerfectScrollbar();
-      });
-    }
-  }
-);
-
-// 组件挂载时初始化
-onMounted(() => {
-  // perfect-scrollbar 初始化在 watch 中处理
-});
-
-// 组件卸载时清理
-onUnmounted(() => {
-  // 销毁所有 perfect-scrollbar 实例
-  psInstances.forEach(instance => instance.destroy());
-  psInstances = [];
-});
 </script>
