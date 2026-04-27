@@ -4,7 +4,7 @@ export const nav: DefaultTheme.Config["nav"] = [
       { text: '首页', link: '/' },
       { text: '学习', 
             items: [
-                  { text: '数学', link: '/study/math/一元函数微分学/1-中值定理' },
+                  { text: '数学', link: '/study/math/3_一元函数微分学/1-中值定理' },
                   { text: '英语', 
                         items: [
                               { text: '写作', link: '/study/english/writing/ChangeYourLife' },
