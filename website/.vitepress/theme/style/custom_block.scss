@@ -14,6 +14,7 @@
 
     --custom-block-tip-left: #009400;
     --custom-block-tip-bg: #e6f6e6;
+    --custom-badge-tip-bg: rgba(0, 148, 0, 0.14);
 
     --custom-block-warning-left: #e6a700;
     --custom-block-warning-bg: #fff8e6;
@@ -23,6 +24,7 @@
 
     --custom-block-note-left: #4cb3d4;
     --custom-block-note-bg: #eef9fd;
+    --custom-badge-note-bg: rgba(76, 179, 212, 0.14);
 
     --custom-block-important-left: #a371f7;
     --custom-block-important-bg: #f4eefe;
@@ -204,13 +206,13 @@
 // type: green 绿, note 蓝, info 灰, tip 紫, warning 黄, danger 红
 .VPBadge.green {
     border-color: transparent;
-    background-color: var(--custom-block-tip-bg);
+    background-color: var(--custom-badge-tip-bg);
     color: var(--custom-block-tip-left);
 }
 
 .VPBadge.note {
     border-color: transparent;
-    background-color: var(--custom-block-note-bg);
+    background-color: var(--custom-badge-note-bg);
     color: var(--custom-block-note-left);
 }
 

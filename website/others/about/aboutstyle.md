@@ -124,12 +124,16 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 * VitePress <Badge type="tip" text="^1.9.0" />
 * VitePress <Badge type="warning" text="beta" />
 * VitePress <Badge type="danger" text="caution" />
+* VitePress <Badge type="note" text="blue" />
+* VitePress <Badge type="green" text="green" />
 
 ```html
 * VitePress <Badge type="info" text="default" />
 * VitePress <Badge type="tip" text="^1.9.0" />
 * VitePress <Badge type="warning" text="beta" />
 * VitePress <Badge type="danger" text="caution" />
+* VitePress <Badge type="note" text="blue" />
+* VitePress <Badge type="green" text="green" />
 ```
 <br>
 :::
