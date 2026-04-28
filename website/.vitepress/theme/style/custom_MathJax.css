@@ -2,14 +2,13 @@
 .MathJax {
   /* 基础样式：确保元素可交互并自动生成滚动条 */
   display: inline-block !important;
-  /* 核心修复：设置垂直对齐方式，使公式与汉字文本正确对齐 */
+  /* 设置垂直对齐方式，使公式与汉字文本正确对齐 */
   vertical-align: middle;
   max-width: 100%;
   /* 初始位置 */
   transform: translateY(0);
-  /* 添加初始内边距和圆角，避免悬停时的布局变化 */
-  /* padding: 2px 6px; */
-  padding: 0.4rem 0;
+  /* 添加初始内边距，降低滚动条生成频率 */
+  padding: 0.6rem 0.4rem;
   border-radius: 4px;
   /* 初始透明背景 */
   background-color: transparent;

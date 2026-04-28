@@ -6,6 +6,7 @@ const customTaglines = [
   '千里之行，始于足下',
   '君子藏器于身，待时而动',
   '只要你愿意，任何时间都不晚',
+  '现在就是最好的时间',
 ]
 
 const currentTagline = ref('')
