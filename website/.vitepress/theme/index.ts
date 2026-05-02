@@ -10,7 +10,9 @@ import './style.css'
 import './style/index.scss'
 import Layout from './Layout.vue'
 
-import mediumZoom from 'medium-zoom'
+import imageViewer from "vitepress-plugin-image-viewer"
+import "viewerjs/dist/viewer.min.css"
+import vImageViewer from 'vitepress-plugin-image-viewer/lib/vImageViewer.vue';
 
 import 'virtual:group-icons.css'
 import "virtual:uno.css"
@@ -32,6 +34,8 @@ export default {
     const isLoading = ref(true);
     // 提供加载状态给子组件
     app.provide(LoadingStateKey, isLoading);
+
+    app.component("vImageViewer", vImageViewer);
     
     /**
      * 路由变化开始，立即显示加载动画
@@ -142,6 +146,23 @@ export default {
     const route = useRoute();
     const { frontmatter } = useData();
     
+    imageViewer(route, '.vp-doc', {
+      url: (img: HTMLImageElement) => {
+        if (img.hasAttribute('data-no-zoom')) {
+          return null;
+        }
+        if (!img.src || img.src.trim() === '') {
+          return null;
+        }
+        const isSvgIcon = img.src.includes('customIcon') || img.src.endsWith('.svg');
+        const isHtmlFile = img.src.endsWith('.html');
+        if (isSvgIcon || isHtmlFile) {
+          return null;
+        }
+        return img.src;
+      }
+    });
+
     // 注入加载状态
     const isLoading = inject<Ref<boolean>>(LoadingStateKey);
     
@@ -157,12 +178,6 @@ export default {
         }, delay);
       }
     });
-    
-    // 初始化图片缩放
-    const initZoom = () => {
-      // mediumZoom('[data-zoomable]', { background: 'var(--vp-c-bg)' }); // 默认
-      mediumZoom('.main img', { background: 'var(--vp-c-bg)' }); // 不显式添加{data-zoomable}的情况下为所有图像启用此功能
-    };
     
     // 滚动位置记忆功能
     const scrollPosKey = 'vitepress_page_scroll_pos';
@@ -356,9 +371,6 @@ export default {
     };
     
     onMounted(() => {
-      // 初始化图片缩放
-      initZoom();
-      
       // 初始化FAQ折叠面板
       nextTick(() => {
         initFaqToggle();
@@ -389,7 +401,6 @@ export default {
       () => route.path,
       () => {
         nextTick(() => {
-          initZoom();
           restoreScrollPos();
           // 路由变化时重新初始化FAQ折叠面板
           initFaqToggle();

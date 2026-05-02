@@ -226,14 +226,19 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 
 ## 图片的全屏查看
 
-在 VitePress 中，图片默认是不支持全屏查看的，但可以导入插件实现。本站已实现全屏查看图片，该拓展功能取自**千浔物语**中的图片缩放。
-[千浔物语](https://docs.fe-qianxun.com/efficiency/software/vitepress#图片缩放)
+在 VitePress 中，图片默认是不支持全屏查看的，但可以导入插件实现。本站通过导入`vitepress-plugin-image-viewer`插件，已实现全屏查看图片。
 
-```md
-![主页图片展示](/img/index_show.png){.center}
-
-图一&emsp;主页图片展示(增加放大全屏功能){.figure-caption}
+::: code-group
+```sh [npm]
+npm install vitepress-plugin-image-viewer
 ```
+:::
+
+<CustomLink
+  href="https://github.com/T-miracle/vitepress-plugin-image-viewer/blob/main/README_zh.md"
+  title="vitepress-plugin-image-viewer 说明文档"
+  desc="vitepress 插件"
+/>
 
 ![主页图片展示](/img/index_show.png){.center}
 

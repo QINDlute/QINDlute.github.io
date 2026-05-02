@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<{
               <img 
                 :src="item.image" 
                 :alt="item.name" 
-                class="lists-img medium-zoom-image"
+                class="lists-img"
               />
             </div>
           </div>
@@ -129,7 +129,4 @@ const props = withDefaults(defineProps<{
   color: var(--custom-text) 
 } 
 
-.medium-zoom-overlay,.medium-zoom-image { 
-  z-index: 0!important
-} 
 </style>
