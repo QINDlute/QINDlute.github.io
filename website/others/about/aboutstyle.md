@@ -502,6 +502,7 @@ VitePress 中支持使用 ***LaTeX*** 语法来书写数学公式，本站的 wh
 
 原来的 LaTeX 语法生成的公式不会自动换行，会造成超出屏幕从而影响阅读体验，尤其是移动端，因此添加了内部横向滚动条。对于生成的公式，增添了鼠标悬停的外观，方便查看。如果想了解 LaTeX 的更多语法，可参考：
 * [LaTeX 公式编辑器](https://www.latexlive.com/)
+* [Markdown/LaTeX 数学公式和符号表](https://zhuanlan.zhihu.com/p/450465546)
 * [LaTeX 公式语法](https://zhuanlan.zhihu.com/p/110756681)
 
 ::: whiteboard LaTeX Demo
