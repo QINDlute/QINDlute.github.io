@@ -19,7 +19,7 @@
   pointer-events: none;
   /* 过渡效果 */
   transition: opacity 0.3s ease, visibility 0s ease 0.3s, transform 0.3s ease, box-shadow 0.3s ease, width 0.3s ease, height 0.3s ease, font-size 0.3s ease;
-  z-index: 9998;
+  z-index: 11;
   font-size: 20px;
   box-shadow: var(--vp-shadow-2);
   /* 提示浏览器优化渲染 */
