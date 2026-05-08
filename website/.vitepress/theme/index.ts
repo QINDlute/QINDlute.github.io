@@ -146,7 +146,45 @@ export default {
     const route = useRoute();
     const { frontmatter } = useData();
     
+    /**
+     * 检测是否为 Apple 设备（iOS/macOS）
+     */
+    const isAppleDevice = () => {
+      if (typeof window === 'undefined') return false;
+      return /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
+    };
+    
+    /**
+     * 修复 Safari 浏览器中图片懒加载导致 viewerjs 无法显示图片的问题
+     * 仅在 Apple 设备上移除 loading="lazy" 属性，其他设备继续享受懒加载性能优势
+     */
+    const fixSafariImageLoading = () => {
+      if (!isAppleDevice()) {
+        // 非 Apple 设备，保留懒加载以获得更好的性能
+        return;
+      }
+      
+      nextTick(() => {
+        const container = document.querySelector('.vp-doc');
+        if (container) {
+          const images = container.querySelectorAll('img');
+          images.forEach((img) => {
+            // 仅在 Apple 设备上移除 loading="lazy" 属性
+            img.removeAttribute('loading');
+          });
+        }
+      });
+    };
+    
     imageViewer(route, '.vp-doc', {
+      // 基础配置
+      navbar: true,
+      /**
+       * Viewer 准备就绪时修复图片加载问题
+       */
+      ready: () => {
+        fixSafariImageLoading();
+      },
       url: (img: HTMLImageElement) => {
         if (img.hasAttribute('data-no-zoom')) {
           return null;
@@ -161,6 +199,16 @@ export default {
         }
         return img.src;
       }
+    });
+    
+    // 在页面挂载和路由变化时也确保修复图片加载问题
+    onMounted(() => {
+      fixSafariImageLoading();
+    });
+    
+    // 监听路由变化，确保每次页面切换后都修复图片加载问题
+    watch(() => route.path, () => {
+      fixSafariImageLoading();
     });
 
     // 注入加载状态
