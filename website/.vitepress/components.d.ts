@@ -27,6 +27,8 @@ declare module 'vue' {
     'Fe:youtube': typeof import('~icons/fe/youtube')['default']
     FontSettingsPlugin: typeof import('./theme/components/Layout/FontSettingsPlugin.vue')['default']
     Gdt: typeof import('./theme/components/gdt.vue')['default']
+    GeoGebraSimple: typeof import('./theme/components/GeoGebraSimple.vue')['default']
+    GeoGebraViewer: typeof import('./theme/components/GeoGebraViewer.vue')['default']
     HomeUnderline: typeof import('./theme/components/HomeUnderline.vue')['default']
     Interval: typeof import('./theme/components/interval.vue')['default']
     LoadingAnimation: typeof import('./theme/components/LoadingAnimation.vue')['default']

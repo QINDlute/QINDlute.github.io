@@ -72,6 +72,11 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '指数函数导数证明', link: '/study/math/4_不定积分/指数函数导数证明' },
                     ]
                 },
+                { text: '扩展-三角函数', 
+                    items: [
+                        { text: '定义', link: '/study/math/扩展_三角函数/1-定义' },
+                    ]
+                },
             ]
         },
     ],
