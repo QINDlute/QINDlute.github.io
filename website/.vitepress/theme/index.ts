@@ -1,5 +1,5 @@
 // .vitepress/theme/index.ts
-import { h, ref, provide, inject, type Ref } from 'vue'
+import { h, ref, provide, inject, type Ref, defineAsyncComponent } from 'vue'
 import { onMounted, onUnmounted, watch, nextTick, onBeforeMount } from 'vue'
 
 import { useRoute, useData, onContentUpdated } from 'vitepress'
@@ -36,6 +36,9 @@ export default {
     app.provide(LoadingStateKey, isLoading);
 
     app.component("vImageViewer", vImageViewer);
+    // 注册 GeoGebra 组件
+    const GeoGebraViewer = defineAsyncComponent(() => import('./components/GeoGebraViewer.vue'));
+    app.component("GeoGebraViewer", GeoGebraViewer);
     
     /**
      * 路由变化开始，立即显示加载动画
