@@ -75,6 +75,8 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                 { text: '扩展-三角函数', 
                     items: [
                         { text: '定义', link: '/study/math/扩展_三角函数/1-定义' },
+                        { text: '诱导公式', link: '/study/math/扩展_三角函数/2-诱导公式' },
+                        { text: '余弦差角公式及其推广', link: '/study/math/扩展_三角函数/3-余弦差角公式及其推广' },
                     ]
                 },
             ]
