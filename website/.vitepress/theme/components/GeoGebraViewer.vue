@@ -1,15 +1,20 @@
 <template>
-  <div class="geogebra-container">
+  <div class="geogebra-container" ref="containerRef">
     <div 
+      v-if="shouldLoad"
       ref="ggbElement" 
       class="geogebra-applet"
       :style="containerStyle"
     ></div>
+    <div v-else class="geogebra-placeholder" :style="placeholderStyle" @click="handlePlaceholderClick">
+      <div class="placeholder-icon">📐</div>
+      <div class="placeholder-text">点击加载 GeoGebra</div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch, nextTick, onActivated, onDeactivated } from 'vue';
+import { ref, computed, onMounted, watch, nextTick, onActivated, onDeactivated, onUnmounted } from 'vue';
 
 interface Props {
   /**
@@ -18,7 +23,7 @@ interface Props {
    */
   url: string;
   /**
-   * 宽度（默认 800px）
+   * 宽度（默认 688px）
    */
   width?: number | string;
   /**
@@ -26,7 +31,7 @@ interface Props {
    */
   height?: number;
   /**
-   * 是否显示工具栏（默认 true）
+   * 是否显示工具栏（默认 false）
    */
   showToolBar?: boolean;
   /**
@@ -34,7 +39,7 @@ interface Props {
    */
   showMenuBar?: boolean;
   /**
-   * 是否显示重置按钮（默认 false）
+   * 是否显示重置按钮（默认 true）
    */
   showResetIcon?: boolean;
   /**
@@ -91,7 +96,7 @@ interface Props {
    */
   scale?: number;
   /**
-   * 是否显示动画按钮（默认 false）
+   * 是否显示动画按钮（默认 true）
    */
   showAnimationButton?: boolean;
   /**
@@ -107,17 +112,26 @@ interface Props {
    */
   centerPoint?: [number, number];
   /**
-   * 是否隐藏侧边栏（代数视图等，只显示图形视图（默认 false）
+   * 是否隐藏侧边栏（代数视图等，只显示图形视图（默认 true）
    */
   hideSidebar?: boolean;
   /**
    * 是否自动开始播放动画（默认 false，初始状态停止）
    */
   autoStart?: boolean;
+  /**
+   * 是否懒加载（默认 true）
+   */
+  lazy?: boolean;
+  /**
+   * 预加载距离（默认 200px）
+   */
+  preloadMargin?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   width: 688,
+  height: 600,
   showToolBar: false,
   showMenuBar: false,
   showResetIcon: true,
@@ -139,10 +153,37 @@ const props = withDefaults(defineProps<Props>(), {
   centerAtOrigin: true,
   hideSidebar: true,
   autoStart: false,
+  lazy: undefined,
+  preloadMargin: '200px',
 });
 
+// 计算实际是否启用懒加载
+const shouldUseLazy = computed(() => {
+  if (props.lazy !== undefined) {
+    return props.lazy;
+  }
+  // 默认：移动端懒加载，桌面端直接加载
+  return typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+});
+
+const containerRef = ref<HTMLElement | null>(null);
 const ggbElement = ref<HTMLElement | null>(null);
 const isInited = ref(false);
+const shouldLoad = ref(false);
+const isVisible = ref(false);
+let observer: IntersectionObserver | null = null;
+let appletInstance: any = null;
+
+// 检测是否是移动设备
+const isMobile = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+// 全局队列和状态管理
+const globalState = {
+  isScriptLoading: false,
+  initQueue: [] as Array<() => void>,
+  activeInstances: 0,
+  maxConcurrentInstances: isMobile ? 2 : 3, // 移动端最多同时加载2个，桌面端3个
+};
 
 /**
  * 容器样式
@@ -160,24 +201,107 @@ const containerStyle = computed(() => {
 });
 
 /**
+ * 占位符样式
+ */
+const placeholderStyle = computed(() => {
+  const style: Record<string, any> = {};
+  
+  if (typeof props.width === 'number') {
+    style.width = `${props.width}px`;
+  } else {
+    style.width = props.width;
+  }
+  
+  if (props.height) {
+    style.height = `${props.height}px`;
+  }
+  
+  return style;
+});
+
+/**
+ * 从队列中处理初始化
+ */
+const processQueue = () => {
+  if (globalState.initQueue.length === 0) return;
+  if (globalState.activeInstances >= globalState.maxConcurrentInstances) return;
+  
+  const nextInit = globalState.initQueue.shift();
+  if (nextInit) {
+    globalState.activeInstances++;
+    nextInit();
+  }
+};
+
+/**
+ * 完成初始化，释放队列位置
+ */
+const completeInit = () => {
+  globalState.activeInstances = Math.max(0, globalState.activeInstances - 1);
+  processQueue();
+};
+
+/**
  * 加载 GeoGebra API
  */
 const loadGeoGebraAPI = async () => {
   if (typeof window === 'undefined') return;
   
-  // 确保DOM元素存在
-  await nextTick();
-  if (!ggbElement.value) return;
+  // 如果脚本正在加载，加入队列等待
+  if (globalState.isScriptLoading) {
+    return new Promise<void>((resolve) => {
+      globalState.initQueue.push(() => {
+        initGeoGebra().finally(() => {
+          completeInit();
+          resolve();
+        });
+      });
+    });
+  }
   
   // 检查是否已加载 API
   if (!(window as any).GGBApplet) {
-    const script = document.createElement('script');
-    script.src = 'https://www.geogebra.org/apps/deployggb.js';
-    script.async = true;
-    script.onload = initGeoGebra;
-    document.head.appendChild(script);
+    globalState.isScriptLoading = true;
+    
+    return new Promise<void>((resolve) => {
+      const script = document.createElement('script');
+      script.src = 'https://www.geogebra.org/apps/deployggb.js';
+      script.async = true;
+      
+      script.onload = () => {
+        globalState.isScriptLoading = false;
+        initGeoGebra().finally(() => {
+          completeInit();
+          resolve();
+        });
+        // 处理队列中等待的其他组件
+        processQueue();
+      };
+      
+      script.onerror = () => {
+        globalState.isScriptLoading = false;
+        console.error('Failed to load GeoGebra script');
+        completeInit();
+        resolve();
+      };
+      
+      document.head.appendChild(script);
+    });
   } else {
-    initGeoGebra();
+    // 检查并发限制
+    if (globalState.activeInstances >= globalState.maxConcurrentInstances) {
+      return new Promise<void>((resolve) => {
+        globalState.initQueue.push(() => {
+          initGeoGebra().finally(() => {
+            completeInit();
+            resolve();
+          });
+        });
+      });
+    }
+    
+    globalState.activeInstances++;
+    return initGeoGebra().finally(completeInit);
   }
 };
 
@@ -185,7 +309,6 @@ const loadGeoGebraAPI = async () => {
  * 初始化 GeoGebra
  */
 const initGeoGebra = async () => {
-  // 确保DOM元素存在
   await nextTick();
   if (!ggbElement.value || typeof window === 'undefined') return;
   
@@ -198,9 +321,8 @@ const initGeoGebra = async () => {
   }
 
   // 给容器添加一个唯一 ID
-  if (!ggbElement.value.id) {
-    ggbElement.value.id = `geogebra-${Date.now()}`;
-  }
+  const elementId = `geogebra-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  ggbElement.value.id = elementId;
 
   const parameters = {
     appName: props.appName,
@@ -226,6 +348,8 @@ const initGeoGebra = async () => {
     scale: props.scale,
     showAnimationButton: props.showAnimationButton,
     appletOnLoad: (api: any) => {
+      appletInstance = api;
+      
       if (props.hideSidebar) {
         api.evalCommand('SetPerspective("G")');
       }
@@ -248,35 +372,111 @@ const initGeoGebra = async () => {
     }
   };
 
-  const applet = new GGBApplet(parameters, true);
-  applet.inject(ggbElement.value.id);
+  appletInstance = new GGBApplet(parameters, true);
+  appletInstance.inject(elementId);
   isInited.value = true;
 };
 
+/**
+ * 开始加载（懒加载触发时调用）
+ */
+const startLoading = () => {
+  if (shouldLoad.value) return;
+  shouldLoad.value = true;
+  
+  // 延迟一下确保DOM更新
+  nextTick(() => {
+    loadGeoGebraAPI();
+  });
+};
+
+/**
+ * 设置Intersection Observer实现懒加载
+ */
+const setupLazyLoad = () => {
+  if (typeof window === 'undefined' || !containerRef.value) return;
+  if (!shouldUseLazy.value) {
+    startLoading();
+    return;
+  }
+  
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        isVisible.value = true;
+        startLoading();
+        // 加载后停止观察
+        if (observer && containerRef.value) {
+          observer.unobserve(containerRef.value);
+        }
+      }
+    });
+  }, {
+    rootMargin: props.preloadMargin,
+    threshold: 0.01,
+  });
+  
+  observer.observe(containerRef.value);
+};
+
+/**
+ * 点击占位符手动加载
+ */
+const handlePlaceholderClick = () => {
+  startLoading();
+};
+
 onMounted(() => {
-  loadGeoGebraAPI();
+  setupLazyLoad();
 });
 
 onActivated(() => {
-  // 页面重新激活时重新初始化
-  isInited.value = false;
-  if (ggbElement.value) {
-    ggbElement.value.innerHTML = '';
+  // 页面重新激活时，如果已经可见则重新加载
+  if (shouldLoad.value && isVisible.value) {
+    isInited.value = false;
+    if (ggbElement.value) {
+      ggbElement.value.innerHTML = '';
+    }
+    loadGeoGebraAPI();
   }
-  loadGeoGebraAPI();
 });
 
 onDeactivated(() => {
-  // 页面失活时清理内容
+  // 页面失活时清理
   isInited.value = false;
+  if (appletInstance) {
+    try {
+      appletInstance.remove();
+    } catch (e) {
+      // 忽略错误
+    }
+    appletInstance = null;
+  }
+});
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect();
+    observer = null;
+  }
+  if (appletInstance) {
+    try {
+      appletInstance.remove();
+    } catch (e) {
+      // 忽略错误
+    }
+    appletInstance = null;
+  }
 });
 
 watch(() => props.url, () => {
-  isInited.value = false;
-  if (ggbElement.value) {
-    ggbElement.value.innerHTML = '';
+  if (shouldLoad.value) {
+    isInited.value = false;
+    if (ggbElement.value) {
+      ggbElement.value.innerHTML = '';
+    }
+    loadGeoGebraAPI();
   }
-  loadGeoGebraAPI();
 });
 </script>
 
@@ -289,5 +489,35 @@ watch(() => props.url, () => {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.geogebra-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+}
+
+.geogebra-placeholder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #e4e8ec 0%, #b3c4d2 100%);
+}
+
+.placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.placeholder-text {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
 }
 </style>
