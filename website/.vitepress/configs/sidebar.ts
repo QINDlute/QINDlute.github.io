@@ -77,6 +77,12 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '定义', link: '/study/math/扩展_三角函数/1-定义' },
                         { text: '诱导公式', link: '/study/math/扩展_三角函数/2-诱导公式' },
                         { text: '余弦差角公式及其推广', link: '/study/math/扩展_三角函数/3-余弦差角公式及其推广' },
+                        { text: '其他重要的公式定理',
+                            items: [
+                                { text: '余弦定理', link: '/study/math/扩展_三角函数/4-其他重要的公式定理/1-余弦定理' },
+                            ]
+                        },
+                        { text: '导数推导', link: '/study/math/扩展_三角函数/5-导数推导' },
                     ]
                 },
             ]
