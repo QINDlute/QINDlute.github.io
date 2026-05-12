@@ -78,8 +78,13 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '诱导公式', link: '/study/math/扩展_三角函数/2-诱导公式' },
                         { text: '余弦差角公式及其推广', link: '/study/math/扩展_三角函数/3-余弦差角公式及其推广' },
                         { text: '其他重要的公式定理',
+                            collapsed: false,
                             items: [
                                 { text: '余弦定理', link: '/study/math/扩展_三角函数/4-其他重要的公式定理/1-余弦定理' },
+                                { text: '正弦定理', link: '/study/math/扩展_三角函数/4-其他重要的公式定理/2-正弦定理' },
+                                { text: '投影定理', link: '/study/math/扩展_三角函数/4-其他重要的公式定理/3-投影定理' },
+                                { text: '面积公式', link: '/study/math/扩展_三角函数/4-其他重要的公式定理/4-面积公式' },
+                                { text: '海伦公式', link: '/study/math/扩展_三角函数/4-其他重要的公式定理/5-海伦公式' },
                             ]
                         },
                         { text: '导数推导', link: '/study/math/扩展_三角函数/5-导数推导' },

@@ -146,8 +146,11 @@
   text-align: center;
 }
 
-.small  {
+.small {
   width: 12.5rem;
+}
+.medium {
+  width: 25rem;
 }
 
 .text-gradient {
