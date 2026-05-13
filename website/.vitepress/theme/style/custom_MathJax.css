@@ -1,18 +1,18 @@
 /* 数学公式样式 - 针对mjx-container标签 */
 mjx-container.MathJax {
-  /* 基础样式：确保元素可交互并自动生成滚动条 */
-  display: inline-block !important;
+  display: inline-block !important; /* 基础样式：确保元素可交互并自动生成滚动条 */
   /* 设置垂直对齐方式，使公式与汉字文本正确对齐 */
   vertical-align: middle;
+  min-width: auto !important; /* 防止标签公式超出页面宽度 */
   max-width: 100%;
-  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box; /* 考虑到border和padding，限制元素的最大宽度为容器的100% */
   /* 初始位置 */
   transform: translateY(0);
-  /* 添加初始内边距，降低滚动条生成频率 */
-  padding: 0.7rem 0.4rem;
+  padding: 0.4rem 0.4rem; /* 添加初始内边距，降低滚动条生成频率 */
   border-radius: 4px;
-  /* 初始透明背景 */
-  background-color: transparent;
+  background-color: transparent; /* 初始透明背景 */
   /* 优化过渡效果：只过渡必要属性 */
   transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
   /* 提示浏览器优化渲染 */
