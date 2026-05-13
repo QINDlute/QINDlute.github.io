@@ -199,6 +199,8 @@ console.log('计算结果:', result);
 ```bash
 git reset --soft HEAD~1  # 撤回最近一次提交
 git add -f 地址 # 强制添加文件
+remotedebug_ios_webkit_adapter --port=9111 # 开启ios网页远程调试
+edge://inspect/#devices 或 chrome://inspect/#devices # 打开调试工具
 ```
 
 <!-- <div class="test-scroll">
