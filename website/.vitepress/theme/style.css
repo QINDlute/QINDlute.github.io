@@ -257,3 +257,17 @@
 .VPSidebarItem.level-1 .text {
     transition: all .3s ease;
 }
+
+:root {
+  --vp-custom-selection-bg: rgba(142, 92, 217, 0.5);
+}
+
+/* 自定义选中文本背景 */
+::selection {
+  background-color: var(--vp-custom-selection-bg);
+  color: #1a2e05;
+}
+.dark ::selection {
+  background-color: var(--vp-c-brand-3);
+  color: #1a2e05;
+}
