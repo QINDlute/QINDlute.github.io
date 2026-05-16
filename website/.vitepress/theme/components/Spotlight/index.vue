@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref, watch, computed, onMounted } from "vue";
 import { useData, useRoute } from "vitepress";
-import SpotlightHover from "./components/SpotlightHover.vue";
-import ClientOnly from "../ClientOnly.vue";
+import SpotlightHover from "@components/Spotlight/components/SpotlightHover.vue";
+import ClientOnly from "@components/ClientOnly.vue";
 
 const { frontmatter } = useData();
 const route = useRoute();

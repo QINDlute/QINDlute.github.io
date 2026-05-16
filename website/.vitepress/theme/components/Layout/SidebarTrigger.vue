@@ -1,5 +1,6 @@
 <script setup lang="ts" name="SidebarTrigger">
 import { nextTick, onMounted, ref, onUnmounted, computed } from "vue";
+import { isMobileWidth } from "@utils/functions";
 
 // 侧边栏折叠状态
 const isCollapsed = ref(false);
@@ -24,8 +25,8 @@ let lastMousePosition = { x: window.innerWidth / 2, y: 200 };
  * 检测是否为移动设备
  */
 const checkMobile = () => {
-  isMobile.value = window.matchMedia("(max-width: 960px)").matches;
-  isSmallScreen.value = window.matchMedia("(max-width: 1280px)").matches;
+  isMobile.value = isMobileWidth(960);
+  isSmallScreen.value = window.innerWidth < 1280;
 };
 
 /**

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+import { isMobileWidth } from '@utils/functions'
 
 const clickCount = ref(0)
 const randomEmojis = [
@@ -79,7 +80,7 @@ const removeElement = (el: HTMLElement, delay: number) => {
 // 创建特效（PC端和移动端统一调用）
 const createEffects = (x: number, y: number) => {
   clickCount.value++
-  const isMobile = window.innerWidth <= 768
+  const isMobile = isMobileWidth()
   const emoji = getEmojiByCount(clickCount.value)
 
   const heartSize = emoji === "❤\uFE0E"

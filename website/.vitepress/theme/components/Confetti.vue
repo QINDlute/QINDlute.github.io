@@ -2,7 +2,7 @@
 import confetti from 'canvas-confetti'
 import { inBrowser } from 'vitepress';
 import { inject, watch, ref, onMounted, type Ref } from 'vue';
-import { LoadingStateKey } from '../index';
+import { LoadingStateKey } from '@theme/index';
 
 // 注入加载状态
 const isLoading = inject<Ref<boolean>>(LoadingStateKey, ref(false));

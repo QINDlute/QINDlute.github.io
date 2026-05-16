@@ -5,7 +5,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useData } from 'vitepress';
-import CarouselComponent from './CarouselComponent.vue';
+import CarouselComponent from '@components/CarouselComponent.vue';
 
 // 使用VitePress的useData钩子获取页面数据
 const { frontmatter } = useData();

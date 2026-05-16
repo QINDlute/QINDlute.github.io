@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, watch, nextTick, inject, ref, type Ref } from 'vue'
 import { useRoute, useData, onContentUpdated } from 'vitepress'
-import { LoadingStateKey } from '../index'
+import { LoadingStateKey } from '@theme/index'
 
 interface Props {
   defaultAllFold?: boolean

@@ -1,11 +1,11 @@
 <template>
   <!-- 阅读进度条 -->
   <div id="reading-progress" ref="progressBar"></div>
-
+  
   <!-- 返回顶部按钮 -->
-  <button
-    id="back-to-top"
-    ref="backToTopBtn"
+  <button 
+    id="back-to-top" 
+    ref="backToTopBtn" 
     @click="scrollToTop"
     aria-label="返回顶部"
   >
@@ -15,124 +15,99 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
+// 进度条元素引用
 const progressBar = ref<HTMLElement | null>(null)
+// 返回顶部按钮引用
 const backToTopBtn = ref<HTMLButtonElement | null>(null)
-let scrollContainer: HTMLElement | null = null
 
-/**
- * 更新阅读进度条
- */
+// RAF ID 用于取消动画帧
+let rafId: number | null = null
+// 上次滚动位置
+let lastScrollTop = 0
+
+// 使用 requestAnimationFrame 优化滚动事件处理
+const handleScroll = () => {
+  // 如果已经有待执行的动画帧，则取消
+  if (rafId !== null) {
+    cancelAnimationFrame(rafId)
+  }
+  
+  // 使用 requestAnimationFrame 确保在浏览器渲染周期内执行
+  rafId = requestAnimationFrame(() => {
+    // 获取当前滚动位置
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    
+    // 如果滚动位置没有变化，不更新
+    if (scrollTop === lastScrollTop) {
+      return
+    }
+    lastScrollTop = scrollTop
+    
+    // 更新进度条
+    updateProgress()
+    
+    // 更新返回顶部按钮
+    updateBackToTopBtn()
+    
+    // 重置 RAF ID
+    rafId = null
+  })
+}
+
+// 更新阅读进度条
 const updateProgress = () => {
-  if (!progressBar.value || !scrollContainer) return
-
-  const scrollTop = scrollContainer.scrollTop
-  const scrollHeight = scrollContainer.scrollHeight
-  const clientHeight = scrollContainer.clientHeight
-  const scrollPercent = (scrollTop / (scrollHeight - clientHeight)) * 100
-
+  if (!progressBar.value) return
+  
+  // 获取文档总高度
+  const docHeight = document.documentElement.scrollHeight
+  // 获取窗口高度
+  const windowHeight = window.innerHeight
+  // 获取滚动距离
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  // 计算滚动百分比
+  const scrollPercent = (scrollTop / (docHeight - windowHeight)) * 100
+  
+  // 更新进度条宽度
   progressBar.value.style.width = `${scrollPercent}%`
 }
 
-/**
- * 滚动到顶部
- */
-const scrollToTop = (e: Event) => {
-  e.preventDefault()
-  e.stopPropagation()
-  if (!scrollContainer) return
-
-  updatePerfectScrollbar()
-  
-  const startPosition = scrollContainer.scrollTop
-  const startTime = performance.now()
-  const duration = 500
-
-  const easeOutCubic = (t: number): number => {
-    return 1 - Math.pow(1 - t, 3)
-  }
-
-  const animateScroll = (currentTime: number) => {
-    const elapsed = currentTime - startTime
-    const progress = Math.min(elapsed / duration, 1)
-    const easeProgress = easeOutCubic(progress)
-
-    scrollContainer!.scrollTop = startPosition * (1 - easeProgress)
-    updatePerfectScrollbar()
-
-    if (progress < 1) {
-      requestAnimationFrame(animateScroll)
-    }
-  }
-
-  requestAnimationFrame(animateScroll)
+// 滚动到顶部
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
 }
 
-/**
- * 更新 perfect-scrollbar 实例（使滑块位置与 scrollTop 同步）
- */
-const updatePerfectScrollbar = () => {
-  if (typeof window !== 'undefined') {
-    const psInstances = (window as any).vitepressPsInstances
-    if (psInstances && psInstances.length > 0) {
-      psInstances.forEach((ps: any) => ps.update())
-    }
-  }
-}
-
-/**
- * 更新返回顶部按钮显示状态
- */
+// 更新返回顶部按钮显示状态
 const updateBackToTopBtn = () => {
-  if (!backToTopBtn.value || !scrollContainer) return
-
-  if (scrollContainer.scrollTop > 500) {
+  if (!backToTopBtn.value) return
+  
+  // 滚动超过500px时显示按钮
+  if (window.scrollY > 500) {
     backToTopBtn.value.classList.add('visible')
   } else {
     backToTopBtn.value.classList.remove('visible')
   }
 }
 
-/**
- * 滚动事件处理
- */
-const handleScroll = () => {
+// 组件挂载时添加事件监听器
+onMounted(() => {
+  // 初始更新
   updateProgress()
   updateBackToTopBtn()
   
-  // 触发 window 的 scroll 事件，让 VitePress 的大纲高亮逻辑生效
-  window.dispatchEvent(new Event('scroll'))
-}
-
-/**
- * 初始化滚动容器
- */
-const initScrollContainer = () => {
-  scrollContainer = document.querySelector('.has-sidebar-trigger') as HTMLElement
-  if (scrollContainer) {
-    scrollContainer.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-  }
-}
-
-onMounted(() => {
-  initScrollContainer()
-  
-  // 覆盖 window.scrollY，让 VitePress 的大纲高亮逻辑能获取到正确的滚动位置
-  if (typeof window !== 'undefined') {
-    Object.defineProperty(window, 'scrollY', {
-      get: () => {
-        if (scrollContainer) {
-          return scrollContainer.scrollTop
-        }
-        return 0
-      }
-    })
-  }
+  // 添加滚动事件监听器，使用 passive 提高滚动性能
+  window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
+// 组件卸载时移除事件监听器
 onUnmounted(() => {
-  if (scrollContainer) {
-    scrollContainer.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('scroll', handleScroll)
+  // 取消任何待执行的动画帧
+  if (rafId !== null) {
+    cancelAnimationFrame(rafId)
+    rafId = null
   }
 })
 </script>

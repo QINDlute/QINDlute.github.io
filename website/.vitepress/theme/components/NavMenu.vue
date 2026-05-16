@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { menuItem } from '../composables/types'
+import type { menuItem } from '@composables/types'
 
 // 定义 props
 const props = withDefaults(defineProps<{

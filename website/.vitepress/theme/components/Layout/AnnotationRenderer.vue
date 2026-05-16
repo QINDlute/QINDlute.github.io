@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, watch } from 'vue'
-import { useAnnotations } from '../../composables/useAnnotations'
+import { useAnnotations } from '@composables/useAnnotations'
 
 const { getCurrentPageAnnotations, colorOptions } = useAnnotations()
 

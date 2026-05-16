@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
+import { isAppleDevice } from '@utils/functions'
 
 const isApple = ref(false)
 
@@ -35,7 +36,7 @@ const addAppleIcon = () => {
 }
 
 onMounted(async () => {
-  isApple.value = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent)
+  isApple.value = isAppleDevice()
   
   if (isApple.value) {
     // 等待 DOM 完全更新

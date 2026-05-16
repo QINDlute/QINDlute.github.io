@@ -1,6 +1,6 @@
 <!-- .vitepress/theme/components/NavCard.vue -->
 <script setup lang="ts">
-import type { navItem } from '../composables/types'
+import type { navItem } from '@composables/types'
 
 defineProps<{
   navData: navItem[]

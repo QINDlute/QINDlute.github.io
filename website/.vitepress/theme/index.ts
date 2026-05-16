@@ -16,6 +16,7 @@ import vImageViewer from 'vitepress-plugin-image-viewer/lib/vImageViewer.vue';
 
 import 'virtual:group-icons.css'
 import "virtual:uno.css"
+import { isAppleDevice } from '@utils/functions'
 
 import 'vidstack/player';
 import 'vidstack/player/layouts/default';
@@ -149,13 +150,7 @@ export default {
     const route = useRoute();
     const { frontmatter } = useData();
     
-    /**
-     * 检测是否为 Apple 设备（iOS/macOS）
-     */
-    const isAppleDevice = () => {
-      if (typeof window === 'undefined') return false;
-      return /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
-    };
+
     
     /**
      * 修复 Safari 浏览器中图片懒加载导致 viewerjs 无法显示图片的问题

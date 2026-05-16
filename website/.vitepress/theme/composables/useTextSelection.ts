@@ -1,5 +1,6 @@
 // .vitepress/theme/composables/useTextSelection.ts
 import { ref, onMounted, onUnmounted } from 'vue'
+import { isMobileUA } from '@utils/functions'
 
 export interface TextSelection {
   text: string
@@ -493,7 +494,7 @@ export function useTextSelection() {
     // 更准确的移动端检测
     isTouchDevice.value = 'ontouchstart' in window || 
       navigator.maxTouchPoints > 0 ||
-      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+      isMobileUA()
     
     // 事件监听适配
     if (isTouchDevice.value) {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { EXTERNAL_URL_RE } from '../composables/md'
-import CustomIcon from './CustomIcon.vue'
+import { EXTERNAL_URL_RE } from '@composables/md'
+import CustomIcon from '@components/CustomIcon.vue'
 
 interface ILink {
   href: string

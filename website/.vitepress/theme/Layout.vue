@@ -27,8 +27,7 @@
         <SnowEffect />
         <Spotlight />
         <SidebarTrigger />
-        <!-- <ReadingProgress v-if="!isMobile" /> -->
-        <ReadingProgress_mobile />
+        <ReadingProgress />
       </template>
 
       <template #layout-bottom>
@@ -43,42 +42,28 @@
 
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { useData, useRouter } from 'vitepress'
-import { onMounted, onUnmounted, computed, ref, watch, nextTick, inject, type Ref } from 'vue'
+import { useData } from 'vitepress'
+import { ref, inject, type Ref } from 'vue'
 
-import SnowEffect from './components/Layout/SnowEffect.vue'
-import SnowTrigger from './components/Layout/SnowTrigger.vue'
-import QindHero from './components/Layout/QindHero.vue'
-import QindFooter from './components/Layout/QindFooter.vue'
-import AppleIcon from './components/Layout/AppleIcon.vue'
-import FontSettingsPlugin from './components/Layout/FontSettingsPlugin.vue'
-import ClickHearts from './components/Layout/ClickHearts.vue'
-// import ReadingProgress from './components/Layout/ReadingProgress.vue'
-import ReadingProgress_mobile from './components/Layout/ReadingProgress_mobile.vue'
-import TextSelectionMenu from './components/Layout/TextSelectionMenu.vue'
-import AnnotationRenderer from './components/Layout/AnnotationRenderer.vue'
-import Spotlight from './components/Spotlight/index.vue'
-import SidebarTrigger from './components/SidebarTrigger.vue'
-import LoadingAnimation from './components/LoadingAnimation.vue'
-import CodeblocksFold from './components/CodeblocksFold.vue'
-import { LoadingStateKey } from './index'
+import SnowEffect from '@components/Layout/SnowEffect.vue'
+import SnowTrigger from '@components/Layout/SnowTrigger.vue'
+import QindHero from '@components/Layout/QindHero.vue'
+import QindFooter from '@components/Layout/QindFooter.vue'
+import AppleIcon from '@components/Layout/AppleIcon.vue'
+import FontSettingsPlugin from '@components/Layout/FontSettingsPlugin.vue'
+import ClickHearts from '@components/Layout/ClickHearts.vue'
+import ReadingProgress from '@components/Layout/ReadingProgress.vue'
+import TextSelectionMenu from '@components/Layout/TextSelectionMenu.vue'
+import AnnotationRenderer from '@components/Layout/AnnotationRenderer.vue'
+import Spotlight from '@components/Spotlight/index.vue'
+import SidebarTrigger from '@components/Layout/SidebarTrigger.vue'
+import LoadingAnimation from '@components/Layout/LoadingAnimation.vue'
+import CodeblocksFold from '@components/Layout/CodeblocksFold.vue'
+import { LoadingStateKey } from '@theme/index'
 
 const { frontmatter } = useData()
-const router = useRouter()
 
 // 从 index.ts 注入加载状态
 const isLoading = inject<Ref<boolean>>(LoadingStateKey, ref(false))
 
-// 检测是否为移动设备
-const isMobile = computed(() => {
-  if (typeof window === 'undefined') return false
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-})
-
-/**
- * 检测是否为移动设备
- */
-const isMobileDevice = () => {
-  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-};
 </script>

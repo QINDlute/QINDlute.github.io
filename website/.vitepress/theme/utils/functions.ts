@@ -40,3 +40,30 @@ export function getAllText(element: Element): string {
   }
   return text;
 }
+
+/**
+ * 通过 User Agent 检测是否为移动设备
+ * @returns 布尔值，表示是否为移动设备
+ */
+export function isMobileUA(): boolean {
+  if (typeof window === 'undefined') return false
+  return /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i.test(navigator.userAgent);
+}
+
+/**
+ * 通过 User Agent 检测是否为 Apple 设备（Mac、iPhone、iPad、iPod）
+ * @returns 布尔值，表示是否为 Apple 设备
+ */
+export function isAppleDevice(): boolean {
+  if (typeof window === 'undefined') return false
+  return /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
+}
+
+/**
+ * 通过视口宽度检测是否为移动设备（<= 768px）
+ * @returns 布尔值，表示是否为移动设备
+ */
+export function isMobileWidth(width = 768): boolean {
+  if (typeof window === 'undefined') return false
+  return window.innerWidth <= width;
+}

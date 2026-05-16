@@ -143,9 +143,10 @@ export default defineConfig({
     ],
     resolve: {
       alias: {
-        '@': resolve(__dirname, '..'), // 项目根目录
-        '@components': resolve(__dirname, 'components'), // 组件目录
-        '@composables': resolve(__dirname, 'composables') // 可组合函数目录
+        '@theme': resolve(__dirname, 'theme'), // 主题目录
+        '@components': resolve(__dirname, 'theme/components'), // 组件目录
+        '@composables': resolve(__dirname, 'theme/composables'), // 可组合函数目录
+        '@utils': resolve(__dirname, 'theme/utils') // 工具函数目录
       }
     },
     ssr: {

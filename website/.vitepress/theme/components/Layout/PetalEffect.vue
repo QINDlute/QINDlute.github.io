@@ -2,6 +2,7 @@
 <!-- 桃花纷飞特效组件 -->
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch } from 'vue'
+import { isMobileUA } from '@utils/functions'
 
 const isMobile = ref(false)
 const canvas = ref<HTMLCanvasElement | null>(null)
@@ -17,13 +18,6 @@ const config = ref({
   minScale: 0.03,
   maxScale: 0.08
 })
-
-// 检测是否为移动端
-const checkMobile = (): boolean => {
-  const userAgent = navigator.userAgent
-  const mobileRegex = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-  return mobileRegex.test(userAgent)
-}
 
 // 桃花类
 class Petal {
@@ -181,7 +175,7 @@ onMounted(() => {
   if (typeof window === 'undefined') return
   
   // 检测是否为移动端
-  isMobile.value = checkMobile()
+  isMobile.value = isMobileUA()
   
   // 初始化画布尺寸
   if (canvas.value) {

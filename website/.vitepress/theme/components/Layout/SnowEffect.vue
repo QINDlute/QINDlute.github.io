@@ -2,6 +2,7 @@
 <!-- 取自 https://www.hajidong.cn/ -->
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, watch, onBeforeUnmount } from 'vue'
+import { isMobileUA } from '@utils/functions'
 
 const isMobile = ref(false)
 const canvas = ref<HTMLCanvasElement | null>(null)
@@ -39,13 +40,6 @@ watch(config, (newConfig) => {
   cachedMinDist = newConfig.minDist
   cachedColor = newConfig.color
 }, { deep: true })
-
-// 检测是否为移动端
-const checkMobile = (): boolean => {
-  const userAgent = navigator.userAgent
-  const mobileRegex = /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
-  return mobileRegex.test(userAgent)
-}
 
 // 检测当前主题并设置雪花颜色
 const updateSnowColor = () => {
@@ -301,7 +295,7 @@ onMounted(() => {
   if (typeof window === 'undefined') return
   
   // 检测是否为移动端
-  isMobile.value = checkMobile()
+  isMobile.value = isMobileUA()
   
   // 初始化画布尺寸
   if (canvas.value) {

@@ -1,6 +1,5 @@
 import type { DefaultTheme } from "vitepress";
 import { getLiCountForVocabulary } from "../scripts/calculateLiCount";
-import { text } from "stream/consumers";
 
 const vocabLiCount = getLiCountForVocabulary();
 

@@ -66,8 +66,8 @@
 
 <script setup lang="ts">
 import { ref, computed, nextTick, onMounted, onUnmounted, watch } from 'vue'
-import { useTextSelection } from '../../composables/useTextSelection'
-import { useAnnotations, type Annotation } from '../../composables/useAnnotations'
+import { useTextSelection } from '@composables/useTextSelection'
+import { useAnnotations, type Annotation } from '@composables/useAnnotations'
 
 // 组合式函数
 const { selection, isVisible, clearSelection, handleCopy } = useTextSelection()

@@ -15,6 +15,7 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch, nextTick, onActivated, onDeactivated, onUnmounted } from 'vue';
+import { isMobileUA } from '@utils/functions';
 
 interface Props {
   /**
@@ -163,7 +164,7 @@ const shouldUseLazy = computed(() => {
     return props.lazy;
   }
   // 默认：移动端懒加载，桌面端直接加载
-  return typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  return isMobileUA();
 });
 
 const containerRef = ref<HTMLElement | null>(null);
@@ -175,7 +176,7 @@ let observer: IntersectionObserver | null = null;
 let appletInstance: any = null;
 
 // 检测是否是移动设备
-const isMobile = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+const isMobile = isMobileUA();
 
 // 全局队列和状态管理
 const globalState = {

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useData } from "vitepress";
 import { computed, ref, onMounted } from "vue";
-import { countWord, getAllText } from "../utils/functions";
+import { countWord, getAllText } from "@utils/functions";
 
 const { page, frontmatter } = useData();
 

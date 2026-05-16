@@ -1,15 +1,12 @@
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { isMobileWidth } from '@utils/functions'
 
 // 字体大小等级映射（五个等级：0-4）
 const fontSizeLevels = [12, 14, 16, 18, 20] // 对应等级0-4的像素值
 
 // 判断是否为移动端
 const isMobile = ref(false)
-const checkIsMobile = () => {
-  if (typeof window === 'undefined') return false
-  return window.innerWidth <= 768
-}
 
 // 核心：在setup函数顶层直接读取localStorage，初始化响应式数据，避免默认值闪烁
 
@@ -175,7 +172,7 @@ let resizeTimer: ReturnType<typeof setTimeout> | null = null
 const handleResize = () => {
   if (resizeTimer) clearTimeout(resizeTimer)
   resizeTimer = setTimeout(() => {
-    isMobile.value = checkIsMobile()
+    isMobile.value = isMobileWidth()
   }, 100)
 }
 
@@ -200,7 +197,7 @@ const initSettings = () => {
 // 组件挂载后执行的逻辑
 onMounted(() => {
   // 初始化移动端检测
-  isMobile.value = checkIsMobile()
+  isMobile.value = isMobileWidth()
 
   // 初始化设置
   initSettings()
