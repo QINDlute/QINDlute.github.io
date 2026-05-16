@@ -92,6 +92,7 @@ const throttle = (func: Function, limit: number) => {
 
 const createEffects = (x: number, y: number) => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+  const positionType = isMobile ? 'absolute' : 'fixed'
   clickCount.value++
 
   // 1. 爱心/表情文字效果 (向上飘散)
@@ -108,7 +109,7 @@ const createEffects = (x: number, y: number) => {
   const heart = document.createElement('span')
   heart.textContent = emoji
   heart.style.cssText = `
-    position: fixed; z-index: 99999; color: #E94F06; font-weight: bold;
+    position: ${positionType}; z-index: 99999; color: #E94F06; font-weight: bold;
     font-size: ${heartSize}px;
     left: ${x}px; top: ${y}px; pointer-events: none; user-select: none;
     will-change: transform, opacity; transform: translate(-50%, -50%);
@@ -127,7 +128,7 @@ const createEffects = (x: number, y: number) => {
   const yOffset = Math.random() * offsetRange - offsetRange / 2
   randomEmoji.textContent = randomEmojis[Math.floor(Math.random() * randomEmojis.length)]
   randomEmoji.style.cssText = `
-    position: fixed; z-index: 99998;
+    position: ${positionType}; z-index: 99998;
     font-size: ${isMobile ? '18px' : '26px'};
     left: ${x}px; top: ${y}px; pointer-events: none; user-select: none;
     will-change: transform, opacity; transform: translate(-50%, -50%);
@@ -158,9 +159,14 @@ const throttledCreateEffects = throttle((x: number, y: number) => {
 }, THROTTLE_DELAY)
 
 const handleClick = (e: MouseEvent | TouchEvent) => {
-  // 获取正确的坐标
-  const x = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX
-  const y = 'touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY
+  // 根据设备类型获取正确的坐标
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768
+  const x = isMobile
+    ? ('touches' in e ? e.touches[0].pageX : (e as MouseEvent).pageX)
+    : ('touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX)
+  const y = isMobile
+    ? ('touches' in e ? e.touches[0].pageY : (e as MouseEvent).pageY)
+    : ('touches' in e ? e.touches[0].clientY : (e as MouseEvent).clientY)
   
   // 节流处理
   const now = Date.now()
