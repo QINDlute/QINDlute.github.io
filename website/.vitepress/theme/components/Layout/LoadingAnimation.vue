@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoading" class="loading-overlay">
+  <div v-if="showAnimation" class="loading-overlay">
     <div class="load">
       <div class="gear first">
         <svg id="purple" viewBox="0 0 100 100" fill="#afb4db">
@@ -39,11 +39,28 @@
 import { defineProps, ref, onMounted, onUnmounted, watch } from 'vue';
 
 const props = defineProps({
-  // 控制加载动画是否显示
+  // 控制加载动画是否显示（优先级高于 persistent）
   isLoading: {
     type: Boolean,
     default: false
+  },
+  // 是否持续显示（不会自动隐藏）
+  persistent: {
+    type: Boolean,
+    default: false
   }
+});
+
+// 内部状态：如果有 isLoading，优先用它；否则用 persistent
+const showAnimation = ref(props.isLoading || props.persistent);
+
+// 监听 props 变化
+watch(() => props.isLoading, (newVal) => {
+  showAnimation.value = newVal || props.persistent;
+});
+
+watch(() => props.persistent, (newVal) => {
+  showAnimation.value = props.isLoading || newVal;
 });
 
 // 检测当前主题
