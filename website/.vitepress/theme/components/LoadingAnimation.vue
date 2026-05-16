@@ -111,7 +111,7 @@ onUnmounted(() => {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 99999;
   transition: opacity 0.3s ease;
   overflow: hidden;
   /* 确保加载动画能够完全覆盖页面内容 */
