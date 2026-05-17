@@ -1,4 +1,5 @@
 /* 自定义光标皮肤 - purpleglass */
+/* 来自 https://zhutix.com/ico/bolizi-cus/ */
 
 /* 默认光标 */
 html, body {
@@ -12,6 +13,8 @@ html, body {
 }
 /* 链接悬停 */
 a, button, img, svg, section, h3.text, p.text, pre.shiki, article, label, summary,
+input[type="checkbox"], input[type="radio"], input[type="file"], input[type="submit"], input[type="button"], input[type="range"],
+select,
 .caret,
 .link,
 .link-text-value,
@@ -39,15 +42,31 @@ a, button, img, svg, section, h3.text, p.text, pre.shiki, article, label, summar
 /* 文本选择 */
 input,
 code,
+pre,
+ul,
+ol,
+textarea,
 .faq,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 p {
   cursor: url('/cursor/purpleglass/text.cur'), text !important;
+}
+
+/* 特殊光标区域内的文字不显示文本光标（继承父元素光标） */
+.help *,
+.crosshair *,
+.move *,
+.drag-handle *,
+.draggable *,
+.sortable *,
+.resizable *,
+.resize-horizontal *,
+.resize-vertical *,
+.resize-diagonal-1 *,
+.resize-diagonal-2 *,
+.loading *,
+.wait *,
+.progress * {
+  cursor: inherit !important;
 }
 
 
