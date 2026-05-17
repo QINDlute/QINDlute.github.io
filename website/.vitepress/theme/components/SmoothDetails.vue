@@ -149,3 +149,10 @@ onUpdated(() => {
   });
 });
 </script>
+
+<style scoped>
+.smooth-details-summary {
+  /* 移动端点击高亮效果 - 取消黑色闪烁 */
+  -webkit-tap-highlight-color: transparent;
+}
+</style>
