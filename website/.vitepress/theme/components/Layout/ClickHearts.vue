@@ -97,6 +97,7 @@ const createEffects = (x: number, y: number) => {
     font-size: ${heartSize}px; left: ${x}px; top: ${y}px; 
     pointer-events: none; user-select: none; transform: translate(-50%, -50%);
     transition: transform 1.5s cubic-bezier(0.45,0,0.55,1), opacity 1.5s cubic-bezier(0.45,0,0.55,1);
+    white-space: nowrap; overflow: visible;
   `
   heart.style.textShadow = '0 0 5px rgba(255,255,255,0.5), 0 0 10px rgba(233,79,6,0.3)'
   safeAppend(heart)

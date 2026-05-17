@@ -46,12 +46,12 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     '/study/math/': [
         { text: '数学', 
             items: [
-                { text: '极限与连续', 
+                { text: '1 极限与连续', 
                     items: [
                         { text: '定义', link: '/study/math/1_极限与连续/1-定义' },
                     ]
                 },
-                { text: '一元函数微分学', 
+                { text: '3 一元函数微分学', 
                     items: [
                         { text: '中值定理', link: '/study/math/3_一元函数微分学/1-中值定理' },
                         { text: '极值', link: '/study/math/3_一元函数微分学/2-极值' },
@@ -64,7 +64,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         },
                     ]
                 },
-                { text: '不定积分', 
+                { text: '4 不定积分', 
                     items: [
                         { text: '定义', link: '/study/math/4_不定积分/1-定义' },
                         { text: '工具', link: '/study/math/4_不定积分/2-不定积分工具' },
