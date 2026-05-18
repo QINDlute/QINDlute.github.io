@@ -46,12 +46,12 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
     '/study/math/': [
         { text: '数学', 
             items: [
-                { text: '1 极限与连续', 
+                { text: '一 极限与连续', 
                     items: [
                         { text: '定义', link: '/study/math/1_极限与连续/1-定义' },
                     ]
                 },
-                { text: '3 一元函数微分学', 
+                { text: '三 一元函数微分学', 
                     items: [
                         { text: '中值定理', link: '/study/math/3_一元函数微分学/1-中值定理' },
                         { text: '极值', link: '/study/math/3_一元函数微分学/2-极值' },
@@ -64,12 +64,17 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         },
                     ]
                 },
-                { text: '4 不定积分', 
+                { text: '四 不定积分', 
                     items: [
                         { text: '定义', link: '/study/math/4_不定积分/1-定义' },
                         { text: '工具', link: '/study/math/4_不定积分/2-不定积分工具' },
                         { text: '有理函数不定积分', link: '/study/math/4_不定积分/3-有理函数不定积分' },
                         { text: '指数函数导数证明', link: '/study/math/4_不定积分/指数函数导数证明' },
+                    ]
+                },
+                { text: '五 定积分',
+                    items: [
+                        { text: '定义', link: '/study/math/5_定积分/1-定义' },
                     ]
                 },
                 { text: '扩展-三角函数', 

@@ -7,6 +7,7 @@ const customTaglines = [
   '君子藏器于身，待时而动',
   '只要你愿意，任何时间都不晚',
   '现在就是最好的时间',
+  '一切就绪，只等你动手'
 ]
 
 const currentTagline = ref('')
