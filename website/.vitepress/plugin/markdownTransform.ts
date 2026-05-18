@@ -41,7 +41,6 @@ export function MarkdownTransform(): Plugin {
       // 处理 faq-math 容器
       const lines = code.split('\n'); // 按行分割代码
       let inCodeBlock = false;
-      let inMathBlock = false;  // 新增：跟踪是否在多行数学块中
       let inFaqMathContainer = false;
       let inFaqMathTitle = false;
       let faqMathTitle = '';
@@ -59,16 +58,6 @@ export function MarkdownTransform(): Plugin {
           resultLines.push(line);
           continue;
         }
-      
-      // 处理多行数学块（跨行的 $...$ 或 $$...$$）
-      const dollarCount = (line.match(/\$/g) || []).length;
-      if (dollarCount % 2 !== 0) {
-        inMathBlock = !inMathBlock;
-      }
-      if (inMathBlock) {
-        resultLines.push(line);
-        continue;
-      }
         
         // 处理 faq-math 容器开始
         if (line.startsWith('::: faq-math')) {
@@ -141,11 +130,8 @@ export function MarkdownTransform(): Plugin {
           continue;
         }
         
-        // 检测是否在数学模式中（包含 $...$ 或 $$...$$），如果是则跳过 & 处理
-        const hasMathInline = line.includes('$') && line.split('$').length % 2 === 0;
-        const hasMathBlock = line.includes('$$');
-        
-        if (!hasMathInline && !hasMathBlock) {
+        // 只有在 study/english 路径下才处理 & 转换为 interval
+        if (id.includes('study/english')) {
           const match = line.match(/(^|\s)(&\s)(.+)/);
           if (match) {
             const before = line.slice(0, match.index + match[1].length);
