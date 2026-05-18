@@ -179,7 +179,6 @@
 }
 
 
-
 /**
  * Component: Home
  * -------------------------------------------------------------------------- */
@@ -195,36 +194,6 @@
   :root {
     --vp-home-hero-image-filter: blur(100px) brightness(1.5) contrast(1.1);
   }
-}
-
-/* 图片保护样式 */
-/* 防止拖拽和选择 */
-:global(.VPHero .VPImage),
-:global(.VPHero img),
-.category-card img {
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  pointer-events: none;
-}
-
-/* 添加透明覆盖层，防止直接访问图片 */
-:global(.VPHero .VPImage) {
-  position: relative;
-}
-
-:global(.VPHero .VPImage)::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: transparent;
-  pointer-events: auto;
-  z-index: 10;
 }
 
 /**
@@ -248,6 +217,7 @@
   --docsearch-primary-color: var(--vp-c-brand-1);
 }
 
+
 /* 侧边栏中标题文本悬停样式 */
 .VPSidebarItem.level-1 .text:hover {
     font-weight: 600;
@@ -258,10 +228,10 @@
     transition: all .3s ease;
 }
 
+
 :root {
   --vp-custom-selection-bg: rgba(142, 92, 217, 0.5);
 }
-
 /* 自定义选中文本背景 */
 ::selection {
   background-color: var(--vp-custom-selection-bg);
