@@ -177,6 +177,18 @@ export default {
     imageViewer(route, '.vp-doc', {
       // 基础配置
       navbar: true,
+      toolbar: {
+        zoomIn: true,
+        zoomOut: true,
+        prev: true,
+        next: true,
+        reset: true,
+        rotateLeft: true,
+        rotateRight: true,
+        flipHorizontal: true,
+        flipVertical: true,
+        play: true,
+      },
       /**
        * Viewer 准备就绪时修复图片加载问题
        */
