@@ -39,9 +39,4 @@ mjx-container.MathJax:hover {
 /* 针对block级MathJax公式的调整 - 针对实际DOM结构 */
 mjx-container.MathJax[display="true"] {
   display: block !important; /* 行间公式居中 */
-  text-align: left !important; /* 行间公式内容左对齐 */
-}
-
-#formula mjx-container.MathJax[display="true"] {
-  text-align: center !important; /* 行间公式内容居中对齐 */
 }
