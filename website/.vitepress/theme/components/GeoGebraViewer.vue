@@ -109,6 +109,10 @@ interface Props {
    */
   centerAtOrigin?: boolean;
   /**
+   * 坐标轴比例 [xRatio, yRatio]（可选，例如 [1, 2] 表示 x轴缩放1倍，y轴缩放2倍）
+   */
+  axisRatio?: [number, number];
+  /**
    * 将视图居中到指定点 [x, y]（可选，例如 [0, 0]）
    */
   centerPoint?: [number, number];
@@ -152,6 +156,7 @@ const props = withDefaults(defineProps<Props>(), {
   showAnimationButton: true,
   showAllObjects: false,
   centerAtOrigin: true,
+  axisRatio: [1, 1],
   hideSidebar: true,
   autoStart: false,
   lazy: undefined,
@@ -365,6 +370,14 @@ const initGeoGebra = async () => {
       
       if (props.centerPoint) {
         api.evalCommand(`CenterView((${props.centerPoint[0]}, ${props.centerPoint[1]}))`);
+      }
+      
+      if (props.scale !== 1) {
+        api.evalCommand(`ZoomIn(${props.scale})`);
+      }
+      
+      if (props.axisRatio) {
+        api.evalCommand(`SetAxesRatio(${props.axisRatio[0]}, ${props.axisRatio[1]})`);
       }
       
       if (!props.autoStart) {
