@@ -1,25 +1,35 @@
-@use './custom_block.scss';
-@use './blur.css';
+// 1. 变量与主题配置
+@use './var.css';
+@use './rainbow.css';
+@use './custom_element.css';
+
+// 2. 代码相关样式
 @use './marker.css';
 @use './vp-code.css';
 @use './vp-code-group.css';
-@use './whiteboard.css';
+@use './codeblocks-fold.scss';
 
-@use './custom_cursor.css';
-@use './custom_MathJax.css';
-@use './custom_nightbtn.css';
-@use './custom_element.css';
-@use './sidebar_trigger.css';
-@use './text-selection.css';
+// 3. 核心组件样式
+@use './custom_block.scss';
 @use './faq-collapse.css';
 @use './sdetails.css';
 @use './custom_SocialLink.css';
-@use './codeblocks-fold.scss';
+@use './sidebar_trigger.css';
+@use './siderbarIcon.css';
 
+// 4. 特殊效果样式
+@use './blur.css';
+@use './whiteboard.css';
+
+// 5. 交互行为样式
+@use './custom_cursor.css';
+@use './text-selection.css';
+@use './custom_nightbtn.css';
+
+// 6. 第三方库样式
+@use './custom_MathJax.css';
+
+// 7. 工具组件样式
 @use './tools/reading.css';
 @use './tools/back_to_top.css';
-
 @use './prev_next.css';
-
-@use './var.css';
-@use './rainbow.css';

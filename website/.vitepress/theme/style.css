@@ -217,18 +217,6 @@
   --docsearch-primary-color: var(--vp-c-brand-1);
 }
 
-
-/* 侧边栏中标题文本悬停样式 */
-.VPSidebarItem.level-1 .text:hover {
-    font-weight: 600;
-    font-size: 16px;
-    transform: scale(1.05);
-}
-.VPSidebarItem.level-1 .text {
-    transition: all .3s ease;
-}
-
-
 :root {
   --vp-custom-selection-bg: rgba(142, 92, 217, 0.5);
 }
