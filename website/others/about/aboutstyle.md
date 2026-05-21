@@ -59,7 +59,7 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 > 这是一个注意信息(github 风格)
 
 > [!important]
-> 这是一个重要信息(github 风格)
+> 这是一个重要信息(github 风格) 
 
 ::: details 点我查看详情
 这是一个详情容器
@@ -179,6 +179,9 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 <div style="margin: 10px 0;">
   <MarkerText color="red">红色标记文本</MarkerText>
   <MarkerText color="orange">橙色标记文本</MarkerText>
+  <MarkerText color="yellow">黄色标记文本</MarkerText>  
+  <MarkerText color="green">绿色标记文本</MarkerText>
+  <MarkerText color="cyan">青色标记文本</MarkerText>
   <MarkerText color="blue">蓝色标记文本</MarkerText>
   <MarkerText color="purple">紫色标记文本</MarkerText>
   <MarkerText color="magenta">品红色标记文本</MarkerText>
@@ -191,6 +194,9 @@ VitePress 中的 markdown 关于代码块有很多扩展用法，如行高亮、
 <div style="margin: 10px 0;">
   <MarkerText color="red">红色标记文本</MarkerText>
   <MarkerText color="orange">橙色标记文本</MarkerText>
+  <MarkerText color="yellow">黄色标记文本</MarkerText>  
+  <MarkerText color="green">绿色标记文本</MarkerText>
+  <MarkerText color="cyan">青色标记文本</MarkerText>
   <MarkerText color="blue">蓝色标记文本</MarkerText>
   <MarkerText color="purple">紫色标记文本</MarkerText>
   <MarkerText color="magenta">品红色标记文本</MarkerText>

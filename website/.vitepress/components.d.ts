@@ -11,7 +11,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AnnotationRenderer: typeof import('./theme/components/Layout/AnnotationRenderer.vue')['default']
     AppleIcon: typeof import('./theme/components/Layout/AppleIcon.vue')['default']
     ArchiveCount: typeof import('./theme/components/ArchiveCount.vue')['default']
     ArticleMetadata: typeof import('./theme/components/ArticleMetadata.vue')['default']
@@ -58,7 +57,6 @@ declare module 'vue' {
     'Tabler:brandBilibili': typeof import('~icons/tabler/brand-bilibili')['default']
     'Tabler:brandJuejin': typeof import('~icons/tabler/brand-juejin')['default']
     'Teenyicons:nextjsSolid': typeof import('~icons/teenyicons/nextjs-solid')['default']
-    TextSelectionMenu: typeof import('./theme/components/Layout/TextSelectionMenu.vue')['default']
     TypingText: typeof import('./theme/components/TypingText.vue')['default']
     'Uiw:weixin': typeof import('~icons/uiw/weixin')['default']
     VideoLink: typeof import('./theme/components/VideoLink.vue')['default']
