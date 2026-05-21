@@ -249,29 +249,10 @@ export default {
       '/essays/ci/'
     ];
     
-    // 配置：允许使用文本标注功能的路径列表
-    const allowedAnnotationPaths: string[] = [
-      '/others/',
-      '/essays/',
-      '/study/',
-      '/test/',
-      '/test',
-    ];
-    
-    // 配置：允许跨标签选择文本的元素列表
-    const allowedCrossElements: string[] = [
-      'CODE',
-      'PRE',
-      'LI',
-      'P'
-    ];
-    
     // 暴露配置到全局，便于其他组件访问
     if (typeof window !== 'undefined') {
       (window as any).vitepressThemeConfig = {
-        scrollMemoryExcludes,
-        allowedAnnotationPaths,
-        allowedCrossElements
+        scrollMemoryExcludes
       };
     }
     

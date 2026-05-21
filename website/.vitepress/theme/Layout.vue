@@ -31,8 +31,6 @@
       </template>
 
       <template #layout-bottom>
-        <TextSelectionMenu />
-        <AnnotationRenderer />
         <QindFooter />
       </template>
 
@@ -53,8 +51,6 @@ import AppleIcon from '@components/Layout/AppleIcon.vue'
 import FontSettingsPlugin from '@components/Layout/FontSettingsPlugin.vue'
 import ClickHearts from '@components/Layout/ClickHearts.vue'
 import ReadingProgress from '@components/Layout/ReadingProgress.vue'
-import TextSelectionMenu from '@components/Layout/TextSelectionMenu.vue'
-import AnnotationRenderer from '@components/Layout/AnnotationRenderer.vue'
 import Spotlight from '@components/Spotlight/index.vue'
 import SidebarTrigger from '@components/Layout/SidebarTrigger.vue'
 import LoadingAnimation from '@components/Layout/LoadingAnimation.vue'

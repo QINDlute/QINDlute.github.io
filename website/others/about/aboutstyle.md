@@ -615,67 +615,6 @@ const scrollMemoryExcludes: string[] = [
 ```
 :::
 
-
-## 选择文本功能菜单
-
-本站自定义了一个菜单插件，当在文档内容（VPContent）区域选择文本后，会出现选择文本功能菜单，用户可以通过本菜单为选中的文本添加高亮、标注，或复制文本，搜索文本等操作。本菜单的样式参考了 **flow** 阅读器的高亮笔记菜单的外观。
-[flow阅读器](https://www.flowoss.com/zh-CN)
-
-
-### 按钮介绍
-
-下面介绍选择文本功能菜单的按钮
-
-#### 菜单主页
-
-![菜单页面](/img/aboutstyle/TextSelectionMenu.png){.center}
-
-图二&emsp;选择文本功能菜单{.figure-caption}
-
-第一排的按钮：
-* 📋：文本复制
-* 🔍：网页搜索（默认谷歌搜索）
-* 📝：标注信息（换行`shift+enter`，保存`enter`，）
-* 📚：词典查询（默认韦氏词典）
-* 🧼：清除标注（`ctrl+del`）
-
-第二排的按钮：为选择高亮颜色的选项，用户可以点击不同颜色按钮来为选中的文本添加不同颜色的高亮。
-> [!important] 额外补充
-> 为了避免破坏原有布局结构，默认设置：
-> * 不能选中标题、按钮、链接等元素。
-> * 文本不能跨元素选中，即只能在一个元素内选中文本。但可设置在某个元素内部跨元素选中文本，若想更改可看下文配置。
-
-#### 标注窗口
-
-点击标注📝按钮后进入标注窗口：
-
-![标注窗口](/img/aboutstyle/NoteInput.png){.center}
-
-图三&emsp;标注窗口{.figure-caption}
-
-在输入框中输入标注信息后，点击保存按钮（`enter`）即可添加标注。
-
-![标注示例](/img/aboutstyle/ShowMarker.png){.center}
-
-图四&emsp;标注示例{.figure-caption}
-
-### 标注的清除和导出
-
-若想清除整个页面或全局的标注，可在浏览器（以Edge浏览器为例）开发者工具的控制台（`F12`→`控制台`）中执行以下命令：
-
-<<< @/.vitepress/scripts/clear-annotations.js
-
-或者直接手动操作 localStorage 中的数据（`F12`→`应用程序`→`本地存储`→`vitepress-annotations-/<页面路径>`）进行增删操作。
-
-![localStorage 示例](/img/aboutstyle/localStorage.png){.center}
-
-图五&emsp;localStorage 示例{.figure-caption}
-
-> [!danger] 警告
-> 本插件将标注等信息存放在了本地的 localStorage 中，需注意管理浏览器数据。清理`[Cookie 和其他网站数据]`会清除 localStorage，但清空浏览器缓存并不会影响标注数据。
-
-页面的标注数据可以在不同的设备中共享，只需将本地的 localStorage 数据导出并导入到其他设备即可。
-
 下面展示两个脚本文件`export-localStorage.js`和`import-localStorage.js`，分别用于下载及导入 localStorage 数据。
 
 ::: code-group
@@ -691,36 +630,6 @@ const scrollMemoryExcludes: string[] = [
 ::: details: 悄悄话
 个人安利一个非常好用的网页标注工具 [Web Annotator](https://web-annotator.com/zh "")，这是一个UI精良、功能丰富的浏览器拓展，基本满足用户的各种需求，只是无法在移动端浏览器中使用。
 :::
-
-### 关于菜单的配置
-
-本菜单默认所有页面禁用选择文本功能菜单，但允许用户设置 `.vitepress/theme/index.ts` 中的 allowedAnnotationPaths 列表，允许特定的路径列表使用文本标注功能。同时还支持用户设置元素内部允许跨标签选择文本的元素列表，在该列表中的元素，其内部文本被选中后可触发菜单的显示。
-
-::: code-group
-```ts [index.ts]
-// .vitepress/theme/index.ts
-// 配置：允许使用文本标注功能的路径列表
-// 支持精确匹配和前缀匹配（以/结尾）
-const allowedAnnotationPaths: string[] = [
-      '/others/',
-      '/test'
-];
-
-// 配置：允许跨标签选择文本的元素列表
-const allowedCrossElements: string[] = [
-  'CODE',
-  'PRE',
-  'LI',
-  'P'
-];
-```
-:::
-
-> [!NOTE]
-> 菜单在移动端中的弹出不稳定
-
-> [!DANGER]
-> 建议在永久页面中使用标注功能。页面内容的更新可能会导致标注位置偏差！
 
 
 ## 英文朗读组件
