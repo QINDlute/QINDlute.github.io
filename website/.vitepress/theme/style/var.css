@@ -26,11 +26,7 @@
 }
 
 /* 全局链接样式 */
-.vp-doc a {
+a {
   text-decoration: none;
 }
-.vp-doc a:hover {
-  text-decoration: underline dotted;
-  text-underline-offset: .3rem;
-  color: var(--vp-c-brand-3);
-}
+
