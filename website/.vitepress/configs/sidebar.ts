@@ -77,9 +77,11 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '定义', link: '/study/math/5_定积分/1-定义' },
                         { text: '性质', link: '/study/math/5_定积分/2-性质' },
                         { text: '🌟微积分基本定理', link: '/study/math/5_定积分/3-微积分基本定理' },
+                        { text: '反常积分', link: '/study/math/5_定积分/4-反常积分' },
                     ]
                 },
                 { text: '扩展-三角函数', 
+                    collapsed: false,
                     items: [
                         { text: '定义', link: '/study/math/扩展_三角函数/1-定义' },
                         { text: '诱导公式', link: '/study/math/扩展_三角函数/2-诱导公式' },

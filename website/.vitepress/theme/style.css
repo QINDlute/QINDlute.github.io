@@ -217,15 +217,8 @@
   --docsearch-primary-color: var(--vp-c-brand-1);
 }
 
-:root {
-  --vp-custom-selection-bg: rgba(142, 92, 217, 0.5);
-}
 /* 自定义选中文本背景 */
 ::selection {
-  background-color: var(--vp-custom-selection-bg);
-  color: #1a2e05;
-}
-.dark ::selection {
-  background-color: var(--vp-c-brand-3);
+  background-color: color-mix(in srgb, var(--vp-c-brand-3) 50%, transparent);
   color: #1a2e05;
 }
