@@ -76,3 +76,10 @@
     background: linear-gradient(104deg, rgba(255, 255, 0, 0) 0.9%, rgba(255, 255, 0, 1.25) 2.4%, rgba(255, 255, 0, 0.5) 5.8%, rgba(255, 255, 0, 0.1) 93%, rgba(255, 255, 0, 0.7) 96%, rgba(255, 255, 0, 0) 98%), linear-gradient(183deg, rgba(255, 255, 0, 0) 0%, rgba(255, 255, 0, 0.3) 7.9%, rgba(255, 255, 0, 0) 15%);
 }
 
+/* 红色荧光笔 */
+.mkh-red {
+    border-radius: 5px 5px;
+    background: transparent;
+    background: linear-gradient(104deg, rgba(239, 68, 68, 0) 0.9%, rgba(239, 68, 68, 1.25) 2.4%, rgba(239, 68, 68, 0.5) 5.8%, rgba(239, 68, 68, 0.1) 93%, rgba(239, 68, 68, 0.7) 96%, rgba(239, 68, 68, 0) 98%), linear-gradient(183deg, rgba(239, 68, 68, 0) 0%, rgba(239, 68, 68, 0.3) 7.9%, rgba(239, 68, 68, 0) 15%);
+}
+
