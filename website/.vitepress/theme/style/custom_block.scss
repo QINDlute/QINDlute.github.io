@@ -225,3 +225,23 @@
   background-color: var(--vp-c-gray-soft);
   border-left: 6px solid var(--vp-c-green-2);
 }
+
+
+.custom-block.green {
+    background-color: var(--custom-block-tip-bg);
+    color: var(--vp-c-text-1);
+}
+.custom-block.green.inline {
+    display: inline-block;
+}
+
+.custom-block.red {
+    background-color: var(--custom-block-danger-bg);
+    color: var(--vp-c-text-1);
+}
+.custom-block.red.inline {
+    display: inline-block;
+}
+
+
+

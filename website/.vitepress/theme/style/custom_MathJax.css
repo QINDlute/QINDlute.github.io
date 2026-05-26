@@ -40,3 +40,8 @@ mjx-container.MathJax:hover {
 mjx-container.MathJax[display="true"] {
   display: block !important; /* 行间公式居中 */
 }
+
+.overflowx mjx-container {
+    overflow-x: hidden;
+    height: auto;
+}

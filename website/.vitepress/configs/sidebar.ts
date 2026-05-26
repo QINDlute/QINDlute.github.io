@@ -78,6 +78,7 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '性质', link: '/study/math/5_定积分/2-性质' },
                         { text: '🌟微积分基本定理', link: '/study/math/5_定积分/3-微积分基本定理' },
                         { text: '反常积分', link: '/study/math/5_定积分/4-反常积分' },
+                        { text: '判别法推导', link: '/study/math/5_定积分/判别法推导' },
                     ]
                 },
                 { text: '扩展-三角函数', 
