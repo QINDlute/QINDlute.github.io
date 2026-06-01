@@ -81,6 +81,12 @@ export const sidebar: DefaultTheme.Config["sidebar"] = {
                         { text: '判别法推导', link: '/study/math/5_定积分/判别法推导' },
                     ]
                 },
+                { text: '六 多元函数微分学', 
+                    items: [
+                        { text: '概念', link: '/study/math/6_多元函数微分学/1-概念' },
+                        { text: '理论', link: '/study/math/6_多元函数微分学/2-理论' },
+                    ]
+                },
                 { text: '扩展-三角函数', 
                     collapsed: false,
                     items: [

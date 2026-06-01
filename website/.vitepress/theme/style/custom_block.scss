@@ -227,6 +227,7 @@
 }
 
 
+
 .custom-block.green {
     background-color: var(--custom-block-tip-bg);
     color: var(--vp-c-text-1);
@@ -234,12 +235,32 @@
 .custom-block.green.inline {
     display: inline-block;
 }
-
 .custom-block.red {
     background-color: var(--custom-block-danger-bg);
     color: var(--vp-c-text-1);
 }
 .custom-block.red.inline {
+    display: inline-block;
+}
+.custom-block.yellow {
+    background-color: var(--custom-block-warning-bg);
+    color: var(--vp-c-text-1);
+}
+.custom-block.yellow.inline {
+    display: inline-block;
+}
+.custom-block.blue {
+    background-color: var(--custom-block-note-bg);
+    color: var(--vp-c-text-1);
+}
+.custom-block.blue.inline {
+    display: inline-block;
+}
+.custom-block.purple {
+    background-color: var(--custom-block-important-bg);
+    color: var(--vp-c-text-1);
+}
+.custom-block.purple.inline {
     display: inline-block;
 }
 
